@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "node scripts/check-port.js && next dev --turbopack --port 3000",
     "build": "next build --turbopack",
-    "start": "next start",
+    "start": "node scripts/check-port.js && next start --port 3000",
     "lint": "eslint"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.62.0",
+    "react-social-media-embed": "^2.5.18",
     "tailwind-merge": "^3.3.1",
     "zod": "^4.1.5"
   },

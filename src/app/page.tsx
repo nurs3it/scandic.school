@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer";
 import { HeroSection } from "@/components/hero-section";
 import { FeaturesSection } from "@/components/features-section";
 import { ProgramsSection } from "@/components/programs-section";
+import { InstagramCarousel } from "@/components/instagram-carousel";
 import { CTASection } from "@/components/cta-section";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
         <HeroSection />
         <FeaturesSection />
         <ProgramsSection />
+        <InstagramCarousel />
         <CTASection />
       </main>
       <Footer />
