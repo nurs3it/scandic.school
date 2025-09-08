@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Scandic International School Website
 
-## Getting Started
+Современный сайт-визитка для международной школы Scandic International School, построенный с использованием Next.js 15, TypeScript, Tailwind CSS и Shadcn UI.
 
-First, run the development server:
+## 🚀 Технологии
 
+- **Next.js 15** - React фреймворк с App Router
+- **TypeScript** - Статическая типизация
+- **Turbopack** - Быстрая сборка и разработка
+- **Tailwind CSS** - Утилитарный CSS фреймворк
+- **Shadcn UI** - Компоненты на основе Radix UI
+- **TanStack Query** - Управление состоянием и кэширование
+- **Framer Motion** - Анимации и переходы
+- **Server Actions** - Серверные действия Next.js
+
+## 🎨 Дизайн
+
+- **Цветовая палитра:**
+  - Primary: #ffb400 (Scandic Yellow)
+  - Secondary: #153b24 (Scandic Green)
+  - Accent: #ff6b35 (Orange)
+- **Шрифт:** Montserrat
+- **Адаптивный дизайн** для всех устройств
+- **Анимации** с использованием Framer Motion
+
+## 📱 Страницы
+
+- **Главная** (`/`) - Hero секция, особенности, программы, CTA
+- **О нас** (`/about`) - Миссия, ценности, статистика
+- **Контакты** (`/contact`) - Контактная информация и форма обратной связи
+- **Заявка** (`/application`) - Форма подачи заявки на поступление
+
+## 🛠 Установка и запуск
+
+1. **Клонирование репозитория:**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd scandic-school
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Установка зависимостей:**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Запуск в режиме разработки:**
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Сборка для продакшена:**
+```bash
+npm run build
+```
 
-## Learn More
+5. **Запуск продакшен версии:**
+```bash
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Структура проекта
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/                    # App Router страницы
+│   ├── about/             # Страница "О нас"
+│   ├── contact/           # Страница "Контакты"
+│   ├── application/       # Страница "Заявка"
+│   ├── globals.css        # Глобальные стили
+│   ├── layout.tsx         # Корневой layout
+│   ├── page.tsx           # Главная страница
+│   ├── loading.tsx        # Компонент загрузки
+│   ├── robots.ts          # Robots.txt
+│   └── sitemap.ts         # Sitemap.xml
+├── components/            # React компоненты
+│   ├── ui/               # Shadcn UI компоненты
+│   ├── animated-text.tsx # Анимированный текст
+│   ├── contact-form.tsx  # Форма контактов
+│   ├── footer.tsx        # Подвал сайта
+│   ├── glow-button.tsx   # Кнопка с эффектом свечения
+│   ├── header.tsx        # Шапка сайта
+│   ├── hero-section.tsx  # Hero секция
+│   └── ...               # Другие компоненты
+└── lib/                  # Утилиты и сервисы
+    ├── actions.ts        # Server Actions
+    ├── hooks.ts          # TanStack Query хуки
+    ├── query-client.tsx  # Query Client провайдер
+    └── utils.ts          # Утилиты
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ⚡ Оптимизация производительности
 
-## Deploy on Vercel
+- **Turbopack** для быстрой разработки
+- **Автоматическая оптимизация изображений** с Next.js Image
+- **Code splitting** и lazy loading
+- **Кэширование** с TanStack Query
+- **Compression** и оптимизированные заголовки
+- **SEO оптимизация** с мета-тегами и sitemap
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎯 Особенности
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Многоязычность** - Поддержка русского, казахского и английского языков
+- **Адаптивный дизайн** - Отлично работает на всех устройствах
+- **Анимации** - Плавные переходы и эффекты
+- **Формы** - Интеграция с Server Actions
+- **SEO** - Оптимизация для поисковых систем
+- **Доступность** - Соответствие стандартам доступности
+
+## 📞 Контакты
+
+- **Адрес:** ул. Кайрата Жумагалиева 18, 3 этаж
+- **Телефон:** 8 706 610 57 81
+- **Email:** info@scandic.school
+- **Instagram:** @scandic.school
+- **Лицензия:** KZ96LAA00035527
+
+## 📄 Лицензия
+
+© 2024 Scandic International School. Все права защищены.
+
+---
+
+Создано с ❤️ для Scandic International School
