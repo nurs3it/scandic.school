@@ -70,7 +70,7 @@ export function MissionSection() {
 
         {/* Values Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {values.map((value, index) => (
+          {values.map((value) => (
             <Card 
               key={value.title} 
               className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg"

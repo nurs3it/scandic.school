@@ -4,9 +4,7 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { 
   submitContactForm, 
   submitApplicationForm, 
-  subscribeToNewsletter,
-  type ContactFormData,
-  type ApplicationFormData 
+  subscribeToNewsletter
 } from "./actions";
 
 // Contact form mutation

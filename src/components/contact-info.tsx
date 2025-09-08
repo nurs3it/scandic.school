@@ -56,7 +56,7 @@ export function ContactInfo() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {contactInfo.map((info, index) => (
+        {contactInfo.map((info) => (
           <Card 
             key={info.title}
             className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-0 shadow-md"

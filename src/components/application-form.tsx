@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { useApplicationForm } from "@/lib/hooks";
+import { ApplicationFormData } from "@/lib/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Send, CheckCircle, AlertCircle, Calendar, User, Phone, GraduationCap } from "lucide-react";
+import { Send, CheckCircle, AlertCircle, User, GraduationCap } from "lucide-react";
 
 export function ApplicationForm() {
   const [formData, setFormData] = useState({
@@ -33,7 +34,7 @@ export function ApplicationForm() {
       return;
     }
 
-    applicationMutation.mutate(formData as any);
+    applicationMutation.mutate(formData as ApplicationFormData);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

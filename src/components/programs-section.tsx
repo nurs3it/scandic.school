@@ -53,7 +53,7 @@ export function ProgramsSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {programs.map((program, index) => (
+          {programs.map((program) => (
             <Card 
               key={program.title}
               className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg overflow-hidden"
