@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock, Instagram, Globe } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { getLocale, getTranslations } from '@/lib/server-locale';
 
 export async function ContactInfo() {

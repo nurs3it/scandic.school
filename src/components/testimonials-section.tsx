@@ -83,7 +83,7 @@ export async function TestimonialsSection() {
 
                 {/* Testimonial Text */}
                 <p className="text-gray-700 text-center mb-6 leading-relaxed">
-                  "{testimonial.text}"
+                  &ldquo;{testimonial.text}&rdquo;
                 </p>
 
                 {/* Author Info */}

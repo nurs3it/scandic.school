@@ -6,9 +6,10 @@ const locales = ['en', 'ru', 'kk'];
 
 export default getRequestConfig(async ({ locale }) => {
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) notFound();
+  if (!locales.includes(locale as 'en' | 'ru' | 'kk')) notFound();
 
   return {
-    messages: (await import(`../messages/${locale}.json`)).default
+    locale: locale as 'en' | 'ru' | 'kk',
+    messages: (await import(`../messages/${locale}.json`)).default as Record<string, unknown>
   };
 });

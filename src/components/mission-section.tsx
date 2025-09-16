@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Target, Users, Globe, BookOpen, Shield } from "lucide-react";
+import { Heart, Target, Users, Globe } from "lucide-react";
 import { getLocale, getTranslations } from '@/lib/server-locale';
 
 export async function MissionSection() {

@@ -5,7 +5,7 @@ export async function POST(request: NextRequest) {
   const formData = await request.formData();
   const locale = formData.get('locale') as string;
 
-  if (!locale || !locales.includes(locale as any)) {
+  if (!locale || !locales.includes(locale as 'en' | 'ru' | 'kk')) {
     return NextResponse.json({ error: 'Invalid locale' }, { status: 400 });
   }
 

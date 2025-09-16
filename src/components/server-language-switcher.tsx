@@ -1,4 +1,4 @@
-import { getLocale, locales } from '@/lib/server-locale';
+import { getLocale } from '@/lib/server-locale';
 import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
 

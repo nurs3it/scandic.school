@@ -87,7 +87,7 @@ export async function Footer() {
                 <span className="text-sm text-gray-300">info@scandic.school</span>
               </div>
               <div className="space-y-2">
-                <p className="text-sm font-medium text-gray-300">{(translations.footer as any).followUs}</p>
+                <p className="text-sm font-medium text-gray-300">{(translations.footer as Record<string, string>).followUs}</p>
                 <div className="flex items-center space-x-3">
                   <Instagram className="h-4 w-4 text-primary" />
                   <a 
@@ -96,7 +96,7 @@ export async function Footer() {
                     rel="noopener noreferrer"
                     className="text-sm text-gray-300 hover:text-primary transition-colors"
                   >
-                    {(translations.footer as any).instagramHandle}
+                    {(translations.footer as Record<string, string>).instagramHandle}
                   </a>
                 </div>
               </div>
