@@ -4,9 +4,31 @@ import { motion } from "framer-motion";
 import { Instagram, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { InstagramEmbed } from "react-social-media-embed";
+import Link from "next/link";
+import { useLocale } from "./locale-provider";
+
+interface InstagramTranslations {
+  title: string;
+  description: string;
+  handle: string;
+  loading: string;
+  subscribe: string;
+  contactUs: string;
+}
 
 export function InstagramCarousel() {
   const [isPaused, setIsPaused] = useState(false);
+  const { translations } = useLocale();
+  
+  // Безопасный доступ к переводам Instagram
+  const instagramTranslations: InstagramTranslations = (translations as Record<string, InstagramTranslations>).instagram || {
+    title: "Follow us on Instagram",
+    description: "Stay updated with all school events, follow student achievements and news",
+    handle: "@scandic.school",
+    loading: "Loading post...",
+    subscribe: "Subscribe",
+    contactUs: "Contact Us"
+  };
 
   // Список Instagram постов для отображения (замените на реальные URL-ы)
   const instagramPosts = [
@@ -41,11 +63,11 @@ export function InstagramCarousel() {
               <Instagram className="h-5 w-5 md:h-6 md:w-6 text-white" />
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-              Следите за нами в Instagram
+              {instagramTranslations.title}
             </h2>
           </div>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-4 md:mb-6 px-4">
-            Будьте в курсе всех событий нашей школы, следите за успехами учеников и новостями
+            {instagramTranslations.description}
           </p>
           <a
             href="https://www.instagram.com/scandic.school/"
@@ -54,7 +76,7 @@ export function InstagramCarousel() {
             className="inline-flex items-center px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm md:text-base"
           >
             <Instagram className="h-4 w-4 md:h-5 md:w-5 mr-2" />
-            @scandic.school
+            {instagramTranslations.handle}
             <ExternalLink className="h-3 w-3 md:h-4 md:w-4 ml-2" />
           </a>
         </motion.div>
@@ -99,7 +121,7 @@ export function InstagramCarousel() {
                             <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 animate-pulse">
                               <Instagram className="h-4 w-4 md:h-5 md:w-5 text-white" />
                             </div>
-                            <p className="text-xs md:text-sm text-gray-600 font-medium">Загружаем пост...</p>
+                            <p className="text-xs md:text-sm text-gray-600 font-medium">{instagramTranslations.loading}</p>
                           </div>
                         </div>
                       }
@@ -127,14 +149,14 @@ export function InstagramCarousel() {
               rel="noopener noreferrer"
               className="px-6 py-2 md:px-8 md:py-3 bg-white text-gray-700 font-semibold rounded-full border border-gray-200 hover:border-pink-300 hover:text-pink-600 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg text-sm md:text-base"
             >
-              Подписаться
+              {instagramTranslations.subscribe}
             </a>
-            <a
+            <Link
               href="/contact"
               className="px-6 py-2 md:px-8 md:py-3 bg-gradient-to-r from-secondary to-secondary-800 text-white font-semibold rounded-full hover:from-secondary-800 hover:to-secondary-900 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm md:text-base"
             >
-              Связаться с нами
-            </a>
+              {instagramTranslations.contactUs}
+            </Link>
           </div>
         </motion.div>
       </div>

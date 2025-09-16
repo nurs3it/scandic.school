@@ -1,119 +1,140 @@
-"use client";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, BookOpen, Users, Globe, Star } from "lucide-react";
 import Link from "next/link";
+import { getLocale, getTranslations } from '@/lib/server-locale';
 
-const programs = [
-  {
-    title: "Early Years",
-    subtitle: "0-1 классы",
-    language: "Казахский язык",
-    description: "Программа раннего развития для детей 3-6 лет с акцентом на игровое обучение и развитие социальных навыков",
-    features: [
-      "Игровое обучение",
-      "Развитие социальных навыков", 
-      "Подготовка к школе",
-      "Творческое развитие",
-      "Многоязычная среда"
-    ],
-    color: "from-blue-500 to-blue-600",
-    icon: BookOpen
-  },
-  {
-    title: "Primary School",
-    subtitle: "1-4 классы", 
-    language: "Русский язык",
-    description: "Начальная школа с международной программой IB PYP, развивающая критическое мышление и проектную деятельность",
-    features: [
-      "Международная программа IB PYP",
-      "Изучение английского языка",
-      "Развитие критического мышления",
-      "Проектная деятельность",
-      "Междисциплинарный подход"
-    ],
-    color: "from-primary to-primary-600",
-    icon: Star
-  }
-];
+export async function ProgramsSection() {
+  const locale = await getLocale();
+  const translations = getTranslations(locale);
 
-export function ProgramsSection() {
+  const programs = [
+    {
+      title: translations.programs.earlyYears.title,
+      subtitle: "0-1 классы",
+      language: "Казахский язык",
+      description: translations.programs.earlyYears.description,
+      features: [
+        "Игровое обучение",
+        "Развитие социальных навыков", 
+        "Подготовка к школе",
+        "Творческое развитие",
+        "Многоязычная среда"
+      ],
+      icon: Users,
+      color: "text-blue-500",
+      bgColor: "bg-blue-50",
+      buttonText: translations.navigation.application
+    },
+    {
+      title: translations.programs.primary.title,
+      subtitle: "1-4 классы",
+      language: "Английский язык",
+      description: translations.programs.primary.description,
+      features: [
+        "IB PYP программа",
+        "Международные стандарты",
+        "Исследовательское обучение",
+        "Развитие критического мышления",
+        "Подготовка к средней школе"
+      ],
+      icon: BookOpen,
+      color: "text-green-500",
+      bgColor: "bg-green-50",
+      buttonText: translations.navigation.application
+    },
+    {
+      title: translations.programs.ibpyp.title,
+      subtitle: "Международная программа",
+      language: "Английский язык",
+      description: translations.programs.ibpyp.description,
+      features: [
+        "Международный бакалавриат",
+        "Исследовательское обучение",
+        "Развитие профиля учащегося",
+        "Междисциплинарный подход",
+        "Глобальная перспектива"
+      ],
+      icon: Globe,
+      color: "text-purple-500",
+      bgColor: "bg-purple-50",
+      buttonText: translations.navigation.application
+    },
+    {
+      title: translations.programs.english.title,
+      subtitle: "Языковая программа",
+      language: "Английский язык",
+      description: translations.programs.english.description,
+      features: [
+        "Носители языка",
+        "Коммуникативный подход",
+        "Подготовка к экзаменам",
+        "Развитие всех навыков",
+        "Индивидуальный подход"
+      ],
+      icon: Star,
+      color: "text-orange-500",
+      bgColor: "bg-orange-50",
+      buttonText: translations.navigation.application
+    }
+  ];
+
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-secondary mb-4">
-            Наши программы
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-secondary to-secondary-800 bg-clip-text text-transparent">
+            {translations.programs.title}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Образовательные программы, адаптированные под возрастные особенности детей 
-            и направленные на всестороннее развитие личности
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            {translations.programs.subtitle}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {programs.map((program) => (
-            <Card 
-              key={program.title}
-              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg overflow-hidden"
-            >
-              <CardHeader className={`bg-gradient-to-r ${program.color} text-white p-8`}>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                    <program.icon className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-2xl font-bold">{program.title}</CardTitle>
-                    <p className="text-white/90 text-lg">{program.subtitle}</p>
-                    <p className="text-white/80 text-sm">{program.language}</p>
-                  </div>
-                </div>
-              </CardHeader>
-              
-              <CardContent className="p-8">
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {program.description}
-                </p>
-                
-                <div className="space-y-3 mb-8">
-                  {program.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center space-x-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+        {/* Programs Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {programs.map((program, index) => {
+            const IconComponent = program.icon;
+            return (
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm hover:bg-white">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className={`w-12 h-12 ${program.bgColor} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <IconComponent className={`h-6 w-6 ${program.color}`} />
                     </div>
-                  ))}
-                </div>
+                    <div>
+                      <CardTitle className="text-lg font-bold text-gray-900 group-hover:text-primary transition-colors">
+                        {program.title}
+                      </CardTitle>
+                      <p className="text-sm text-gray-500">{program.subtitle}</p>
+                    </div>
+                  </div>
+                  <div className="text-sm text-gray-600 mb-2">
+                    <span className="font-medium">Язык:</span> {program.language}
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {program.description}
+                  </p>
+                  
+                  <div className="space-y-3 mb-6">
+                    {program.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center space-x-2">
+                        <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                        <span className="text-sm text-gray-600">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
 
-                <Button asChild className="w-full bg-secondary hover:bg-secondary/90 text-white">
-                  <Link href="/application">
-                    Подать заявку
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Additional Info */}
-        <div className="mt-16 bg-gradient-to-r from-secondary to-secondary-800 rounded-2xl p-8 text-white">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="flex flex-col items-center space-y-2">
-              <Users className="h-8 w-8 text-primary" />
-              <div className="text-2xl font-bold">1:8</div>
-              <div className="text-sm text-gray-300">Соотношение учитель/ученик</div>
-            </div>
-            <div className="flex flex-col items-center space-y-2">
-              <Globe className="h-8 w-8 text-primary" />
-              <div className="text-2xl font-bold">25+</div>
-              <div className="text-sm text-gray-300">Национальностей</div>
-            </div>
-            <div className="flex flex-col items-center space-y-2">
-              <BookOpen className="h-8 w-8 text-primary" />
-              <div className="text-2xl font-bold">IB PYP</div>
-              <div className="text-sm text-gray-300">Международная программа</div>
-            </div>
-          </div>
+                  <Button asChild className="w-full bg-primary hover:bg-primary/90">
+                    <Link href="/application">{program.buttonText}</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

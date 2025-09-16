@@ -7,8 +7,55 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
+import { useLocale } from './locale-provider';
+
+interface ContactTranslations {
+  title: string;
+  subtitle: string;
+  form: {
+    name: string;
+    email: string;
+    phone: string;
+    message: string;
+    submit: string;
+    placeholders: {
+      name: string;
+      email: string;
+      phone: string;
+      message: string;
+    };
+    messages: {
+      sending: string;
+      error: string;
+    };
+  };
+}
 
 export function ContactForm() {
+  const { translations } = useLocale();
+  
+  // Безопасный доступ к переводам контактной формы
+  const contactTranslations: ContactTranslations = (translations as Record<string, ContactTranslations>).contact || {
+    title: "Contact Us",
+    subtitle: "Get in touch with our team",
+    form: {
+      name: "Name",
+      email: "Email",
+      phone: "Phone",
+      message: "Message",
+      submit: "Send Message",
+      placeholders: {
+        name: "Enter your name",
+        email: "your@email.com",
+        phone: "+1 (___) ___-____",
+        message: "Tell us about your questions or wishes..."
+      },
+      messages: {
+        sending: "Sending...",
+        error: "An error occurred while sending the message. Please try again."
+      }
+    }
+  };
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -34,10 +81,10 @@ export function ContactForm() {
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl font-bold text-secondary text-center">
-          Свяжитесь с нами
+          {contactTranslations.title}
         </CardTitle>
         <p className="text-gray-600 text-center">
-          Заполните форму ниже, и мы свяжемся с вами в ближайшее время
+          {contactTranslations.subtitle}
         </p>
       </CardHeader>
       <CardContent>
@@ -45,7 +92,7 @@ export function ContactForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                Ваше имя *
+                {contactTranslations.form.name} *
               </label>
               <Input
                 id="name"
@@ -54,13 +101,13 @@ export function ContactForm() {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Введите ваше имя"
+                placeholder={contactTranslations.form.placeholders.name}
                 className="w-full"
               />
             </div>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                Email *
+                {contactTranslations.form.email} *
               </label>
               <Input
                 id="email"
@@ -69,7 +116,7 @@ export function ContactForm() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="your@email.com"
+                placeholder={contactTranslations.form.placeholders.email}
                 className="w-full"
               />
             </div>
@@ -77,7 +124,7 @@ export function ContactForm() {
 
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-              Телефон
+              {contactTranslations.form.phone}
             </label>
             <Input
               id="phone"
@@ -85,14 +132,14 @@ export function ContactForm() {
               type="tel"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="+7 (___) ___-__-__"
+              placeholder={contactTranslations.form.placeholders.phone}
               className="w-full"
             />
           </div>
 
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-              Сообщение *
+              {contactTranslations.form.message} *
             </label>
             <Textarea
               id="message"
@@ -100,7 +147,7 @@ export function ContactForm() {
               required
               value={formData.message}
               onChange={handleChange}
-              placeholder="Расскажите о ваших вопросах или пожеланиях..."
+              placeholder={contactTranslations.form.placeholders.message}
               rows={5}
               className="w-full"
             />
@@ -116,7 +163,7 @@ export function ContactForm() {
           {contactMutation.isError && (
             <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-4 rounded-lg">
               <AlertCircle className="h-5 w-5" />
-              <span>Произошла ошибка при отправке сообщения. Попробуйте еще раз.</span>
+              <span>{contactTranslations.form.messages.error}</span>
             </div>
           )}
 
@@ -126,11 +173,11 @@ export function ContactForm() {
             className="w-full bg-primary hover:bg-primary/90 text-secondary font-semibold py-3"
           >
             {contactMutation.isPending ? (
-              "Отправляем..."
+              contactTranslations.form.messages.sending
             ) : (
               <>
                 <Send className="h-4 w-4 mr-2" />
-                Отправить сообщение
+                {contactTranslations.form.submit}
               </>
             )}
           </Button>

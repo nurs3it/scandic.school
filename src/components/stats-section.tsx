@@ -1,84 +1,71 @@
-"use client";
-
 import { Users, Globe, BookOpen, Award } from "lucide-react";
+import { getLocale, getTranslations } from '@/lib/server-locale';
 
-const stats = [
-  {
-    icon: Users,
-    value: "150+",
-    label: "Учеников",
-    description: "Активно обучающихся в нашей школе"
-  },
-  {
-    icon: Globe,
-    value: "25+",
-    label: "Национальностей",
-    description: "Разнообразная многонациональная среда"
-  },
-  {
-    icon: BookOpen,
-    value: "1:8",
-    label: "Соотношение учитель/ученик",
-    description: "Индивидуальный подход к каждому ребенку"
-  },
-  {
-    icon: Award,
-    value: "IB PYP",
-    label: "Международная программа",
-    description: "Признанная во всем мире система образования"
-  }
-];
+export async function StatsSection() {
+  const locale = await getLocale();
+  const translations = getTranslations(locale);
 
-export function StatsSection() {
+  const stats = [
+    {
+      icon: Users,
+      value: "150+",
+      label: translations.stats.students,
+      description: "Активно обучающихся в нашей школе"
+    },
+    {
+      icon: Globe,
+      value: "25+",
+      label: translations.stats.nationalities,
+      description: "Разнообразная многонациональная среда"
+    },
+    {
+      icon: BookOpen,
+      value: "1:8",
+      label: translations.stats.teachers,
+      description: "Оптимальное соотношение учитель/ученик"
+    },
+    {
+      icon: Award,
+      value: "5+",
+      label: translations.stats.years,
+      description: "Успешной работы в сфере образования"
+    }
+  ];
+
   return (
-    <section className="py-20 bg-gradient-to-r from-primary to-primary-600">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-secondary mb-4">
-            Scandic International School в цифрах
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-secondary to-secondary-800 bg-clip-text text-transparent">
+            {translations.stats.title}
           </h2>
-          <p className="text-xl text-secondary/90 max-w-3xl mx-auto">
-            Мы гордимся нашими достижениями и постоянно работаем над улучшением качества образования
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            {translations.stats.subtitle}
           </p>
         </div>
 
+        {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat) => (
-            <div 
-              key={stat.label}
-              className="text-center group"
-            >
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 group-hover:bg-white/20 transition-all duration-300 group-hover:scale-105">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <stat.icon className="h-8 w-8 text-white" />
+          {stats.map((stat, index) => {
+            const IconComponent = stat.icon;
+            return (
+              <div key={index} className="text-center group">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                  <IconComponent className="h-10 w-10 text-primary" />
                 </div>
-                <div className="text-4xl font-bold text-white mb-2">
+                <div className="text-4xl md:text-5xl font-bold text-secondary mb-2 group-hover:text-primary transition-colors duration-300">
                   {stat.value}
                 </div>
-                <div className="text-lg font-semibold text-white mb-2">
+                <div className="text-xl font-semibold text-gray-900 mb-2">
                   {stat.label}
                 </div>
-                <div className="text-sm text-white/80">
+                <div className="text-gray-600 text-sm">
                   {stat.description}
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Additional Info */}
-        <div className="mt-16 text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Лицензия и аккредитация
-            </h3>
-            <p className="text-white/90 text-lg mb-4">
-              Лицензия: KZ96LAA00035527
-            </p>
-            <p className="text-white/80">
-              Программы: 0–4 классы | IB PYP
-            </p>
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

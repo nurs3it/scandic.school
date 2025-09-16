@@ -1,120 +1,88 @@
-"use client";
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Target, Users, Globe, BookOpen, Shield } from "lucide-react";
+import { getLocale, getTranslations } from '@/lib/server-locale';
 
-const values = [
-  {
-    icon: Heart,
-    title: "Уважение",
-    description: "Уважение является основной ценностью в нашей школе. Мы воспитываем уважение к себе, к другим и к окружающему миру.",
-    color: "text-red-500",
-    bgColor: "bg-red-50",
-  },
-  {
-    icon: Target,
-    title: "Совершенство",
-    description: "Мы стремимся предоставлять высочайший уровень образования для наших учеников, следуя эффективным методикам обучения.",
-    color: "text-primary",
-    bgColor: "bg-primary/10",
-  },
-  {
-    icon: Users,
-    title: "Сообщество",
-    description: "Мы создали атмосферу заботы и взаимопонимания, где каждый ученик может чувствовать себя частью большой и дружной семьи.",
-    color: "text-purple-500",
-    bgColor: "bg-purple-50",
-  },
-  {
-    icon: BookOpen,
-    title: "Знания и навыки",
-    description: "Мы предоставляем не только знания, но и навыки, необходимые для успешного развития в современном мире.",
-    color: "text-green-500",
-    bgColor: "bg-green-50",
-  },
-  {
-    icon: Globe,
-    title: "Международность",
-    description: "Подготовка детей к жизни в глобальном мире с пониманием разных культур и традиций.",
-    color: "text-blue-500",
-    bgColor: "bg-blue-50",
-  },
-  {
-    icon: Shield,
-    title: "Безопасность",
-    description: "Обеспечиваем безопасную образовательную среду, где каждый ребенок может развиваться и учиться.",
-    color: "text-indigo-500",
-    bgColor: "bg-indigo-50",
-  },
-];
+export async function MissionSection() {
+  const locale = await getLocale();
+  const translations = getTranslations(locale);
 
-export function MissionSection() {
+  const values = [
+    {
+      icon: Heart,
+      title: translations.mission.values.excellence,
+      description: "Мы стремимся предоставлять высочайший уровень образования для наших учеников, следуя эффективным методикам обучения.",
+      color: "text-red-500",
+      bgColor: "bg-red-50",
+    },
+    {
+      icon: Target,
+      title: translations.mission.values.diversity,
+      description: "Мы создаем инклюзивную среду, где каждый ребенок чувствует себя принятым и ценным, независимо от своего происхождения.",
+      color: "text-primary",
+      bgColor: "bg-primary/10",
+    },
+    {
+      icon: Users,
+      title: translations.mission.values.innovation,
+      description: "Мы используем современные технологии и инновационные методы обучения, чтобы сделать образование более эффективным и интересным.",
+      color: "text-purple-500",
+      bgColor: "bg-purple-50",
+    },
+    {
+      icon: Globe,
+      title: translations.mission.values.community,
+      description: "Мы строим сильное сообщество, где родители, учителя и ученики работают вместе для достижения общих целей.",
+      color: "text-green-500",
+      bgColor: "bg-green-50",
+    },
+  ];
+
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        {/* Mission Statement */}
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
-            Миссия нашей школы
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-secondary to-secondary-800 bg-clip-text text-transparent">
+            {translations.mission.title}
           </h2>
-          <div className="max-w-4xl mx-auto space-y-6">
-            <p className="text-xl text-gray-700 leading-relaxed">
-              <span className="text-primary font-semibold">Предоставить высочайший уровень образования</span> для детей разных стран, 
-              национальностей и культурных традиций.
-            </p>
-            <p className="text-lg text-gray-600">
-              А знаете ли вы наши ценности?
-            </p>
-          </div>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
+            {translations.mission.subtitle}
+          </p>
+          <p className="text-lg text-gray-700 max-w-5xl mx-auto leading-relaxed">
+            {translations.mission.description}
+          </p>
         </div>
 
         {/* Values Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {values.map((value) => (
-            <Card 
-              key={value.title} 
-              className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg"
-            >
-              <CardContent className="p-8">
-                <div className={`w-16 h-16 ${value.bgColor} rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <value.icon className={`h-8 w-8 ${value.color}`} />
-                </div>
-                <h3 className="text-xl font-semibold text-secondary mb-4">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {value.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {values.map((value, index) => {
+            const IconComponent = value.icon;
+            return (
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm hover:bg-white">
+                <CardContent className="p-8">
+                  <div className="space-y-6">
+                    {/* Icon */}
+                    <div className={`w-16 h-16 ${value.bgColor} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <IconComponent className={`h-8 w-8 ${value.color}`} />
+                    </div>
 
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-secondary to-secondary-800 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">
-              Присоединяйтесь к нашей школе!
-            </h3>
-            <p className="text-lg text-gray-200 mb-6">
-              В центре всех наших усилий стоит стремление к успеху. 
-              Мы предоставляем не только знания, но и навыки, необходимые для успешного развития в современном мире.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/application"
-                className="bg-primary hover:bg-primary/90 text-secondary font-semibold px-8 py-4 rounded-lg transition-colors inline-block"
-              >
-                Подать заявку
-              </a>
-              <a 
-                href="/contact"
-                className="border border-white text-white hover:bg-white hover:text-secondary font-semibold px-8 py-4 rounded-lg transition-colors inline-block"
-              >
-                Связаться с нами
-              </a>
-            </div>
-          </div>
+                    {/* Content */}
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors">
+                        {value.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {value.description}
+                      </p>
+                    </div>
+
+                    {/* Gradient Line */}
+                    <div className={`h-1 w-0 group-hover:w-full bg-gradient-to-r ${value.color.replace('text-', 'from-')} to-${value.color.replace('text-', '')}-600 transition-all duration-500 rounded-full`}></div>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

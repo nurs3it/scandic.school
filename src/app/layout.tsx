@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/lib/query-client";
+import { LocaleProvider } from "@/components/locale-provider";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -76,9 +77,11 @@ export default function RootLayout({
   return (
     <html lang="ru" className={montserrat.variable}>
       <body className="font-sans antialiased">
-        <QueryProvider>
-          {children}
-        </QueryProvider>
+        <LocaleProvider>
+          <QueryProvider>
+            {children}
+          </QueryProvider>
+        </LocaleProvider>
       </body>
     </html>
   );

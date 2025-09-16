@@ -1,18 +1,22 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import Image from "next/image";
+import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getLocale, getTranslations } from '@/lib/server-locale';
+import { ServerLanguageSwitcher } from './server-language-switcher';
+import { MobileMenu } from './mobile-menu';
 
-export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+export async function Header() {
+  const locale = await getLocale();
+  const translations = getTranslations(locale);
 
   const navigation = [
-    { name: "Главная", href: "/" },
-    { name: "О нас", href: "/about" },
-    { name: "Контакты", href: "/contact" },
-    { name: "Заявка", href: "/application" },
+    { name: translations.navigation.home, href: "/" },
+    { name: translations.navigation.about, href: "/about" },
+    { name: translations.navigation.staff, href: "/staff" },
+    { name: translations.navigation.testimonials, href: "/testimonials" },
+    { name: translations.navigation.contact, href: "/contact" },
+    { name: translations.navigation.application, href: "/application" },
   ];
 
   return (
@@ -20,10 +24,16 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="h-8 w-8 rounded-full bg-primary"></div>
-            <span className="text-xl font-bold text-secondary">
-              Scandic School
+          <Link href="/" className="flex items-center space-x-3">
+            <Image
+              src="/logo.svg"
+              alt="Scandic School Logo"
+              width={32}
+              height={32}
+              className="h-8 w-8"
+            />
+            <span className="text-xl font-bold text-secondary hidden md:block">
+              {translations.header.schoolName}
             </span>
           </Link>
 
@@ -44,52 +54,26 @@ export function Header() {
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm text-gray-600">
               <Phone className="h-4 w-4" />
-              <span>8 706 610 57 81</span>
+              <span>{translations.header.phone}</span>
             </div>
+            <ServerLanguageSwitcher />
             <Button asChild className="bg-primary hover:bg-primary/90">
-              <Link href="/application">Подать заявку</Link>
+              <Link href="/application">{translations.header.applyButton}</Link>
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden border-t bg-white">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="pt-4 border-t">
-                <div className="flex items-center space-x-2 px-3 py-2 text-sm text-gray-600">
-                  <Phone className="h-4 w-4" />
-                  <span>8 706 610 57 81</span>
-                </div>
-                <div className="px-3 py-2">
-                  <Button asChild className="w-full bg-primary hover:bg-primary/90">
-                    <Link href="/application">Подать заявку</Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
+          {/* Mobile CTA & Menu */}
+          <div className="md:hidden flex items-center space-x-2">
+            <ServerLanguageSwitcher />
+            <Button asChild size="sm" className="bg-primary hover:bg-primary/90">
+              <Link href="/application">{translations.header.applyButton}</Link>
+            </Button>
+            <MobileMenu 
+              navigation={navigation}
+              phone={translations.header.phone}
+            />
           </div>
-        )}
+        </div>
       </div>
     </header>
   );

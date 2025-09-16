@@ -1,13 +1,15 @@
-"use client";
-
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star, Users, Globe, BookOpen } from "lucide-react";
 import { AnimatedTextStagger, AnimatedTextItem } from "@/components/animated-text";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ParticleBackground } from "@/components/particle-background";
+import { getLocale, getTranslations } from '@/lib/server-locale';
 
-export function HeroSection() {
+export async function HeroSection() {
+  const locale = await getLocale();
+  const translations = getTranslations(locale);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-secondary-800 to-secondary-900">
       {/* Background Pattern */}
@@ -28,35 +30,30 @@ export function HeroSection() {
             <AnimatedTextStagger className="space-y-4">
               <AnimatedTextItem>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                  <span className="block">Добро пожаловать в</span>
-                  <span className="block text-primary">Scandic International School</span>
+                  <span className="block">{translations.hero.welcome}</span>
+                  <span className="block text-primary">{translations.hero.schoolName}</span>
                 </h1>
               </AnimatedTextItem>
               <AnimatedTextItem delay={0.2}>
                 <p className="text-xl text-gray-200 leading-relaxed">
-                  Предоставляем высочайший уровень образования для детей разных стран,
-                  национальностей и культурных традиций с программой IB PYP
+                  {translations.hero.description}
                 </p>
               </AnimatedTextItem>
             </AnimatedTextStagger>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">150+</div>
-                <div className="text-sm text-gray-300">Учеников</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">25+</div>
-                <div className="text-sm text-gray-300">Национальностей</div>
+                <div className="text-sm text-gray-300">{translations.hero.stats.students}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">1:8</div>
-                <div className="text-sm text-gray-300">Соотношение учитель/ученик</div>
+                <div className="text-sm text-gray-300">{translations.hero.stats.ratio}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">IB PYP</div>
-                <div className="text-sm text-gray-300">Программа</div>
+                <div className="text-sm text-gray-300">{translations.hero.stats.program}</div>
               </div>
             </div>
 
@@ -65,12 +62,12 @@ export function HeroSection() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-secondary font-semibold px-8 py-4 text-lg glow-effect">
                   <Link href="/application" className="flex items-center space-x-2">
-                    <span>Подать заявку</span>
+                    <span>{translations.hero.cta.apply}</span>
                     <ArrowRight className="h-5 w-5" />
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-secondary px-8 py-4 text-lg">
-                  <Link href="/about">Узнать больше</Link>
+                  <Link href="/about">{translations.hero.cta.learnMore}</Link>
                 </Button>
               </div>
             </AnimatedTextItem>
@@ -87,23 +84,23 @@ export function HeroSection() {
                       <BookOpen className="h-6 w-6 text-secondary" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-white">IB PYP Программа</h3>
-                      <p className="text-gray-300">Международная программа начальной школы</p>
+                      <h3 className="text-xl font-semibold text-white">{translations.hero.features.ibProgram}</h3>
+                      <p className="text-gray-300">{translations.hero.features.internationalProgram}</p>
                     </div>
                   </div>
 
                   <div className="space-y-4">
                     <div className="flex items-center space-x-3">
                       <Star className="h-5 w-5 text-primary" />
-                      <span className="text-white">0-4 классы</span>
+                      <span className="text-white">{translations.hero.features.grades}</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Users className="h-5 w-5 text-primary" />
-                      <span className="text-white">Многонациональная среда</span>
+                      <span className="text-white">{translations.hero.features.multinational}</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Globe className="h-5 w-5 text-primary" />
-                      <span className="text-white">Международные стандарты</span>
+                      <span className="text-white">{translations.hero.features.standards}</span>
                     </div>
                   </div>
                 </div>
@@ -112,15 +109,15 @@ export function HeroSection() {
               {/* Floating Cards */}
               <div className="absolute -top-4 -right-4 bg-primary rounded-xl p-4 animate-float">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-secondary">2025-2026</div>
-                  <div className="text-sm text-secondary/80">Набор открыт</div>
+                  <div className="text-2xl font-bold text-secondary">{translations.hero.floating.enrollment}</div>
+                  <div className="text-sm text-secondary/80">{translations.hero.floating.enrollmentOpen}</div>
                 </div>
               </div>
 
               <div className="absolute -bottom-4 -left-4 bg-accent rounded-xl p-4 animate-float" style={{ animationDelay: "1s" }}>
                 <div className="text-center">
-                  <div className="text-lg font-bold text-white">Лицензия</div>
-                  <div className="text-xs text-white/80">KZ96LAA00035527</div>
+                  <div className="text-lg font-bold text-white">{translations.hero.floating.license}</div>
+                  <div className="text-xs text-white/80">{translations.hero.floating.licenseNumber}</div>
                 </div>
               </div>
             </div>

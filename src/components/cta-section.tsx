@@ -1,31 +1,31 @@
-"use client";
-
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail } from "lucide-react";
+import { getLocale, getTranslations } from '@/lib/server-locale';
 
-export function CTASection() {
+export async function CTASection() {
+  const locale = await getLocale();
+  const translations = getTranslations(locale);
   return (
     <section className="py-20 bg-gradient-to-r from-primary to-primary-600">
       <div className="container mx-auto px-4">
         <div className="text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
-            Присоединяйтесь к нашей школе!
+            {translations.cta.title}
           </h2>
           <p className="text-xl text-secondary/90 mb-8 max-w-3xl mx-auto">
-            Откройте для своего ребенка мир возможностей с международным образованием. 
-            Набор на 2025-2026 учебный год уже открыт!
+            {translations.cta.subtitle}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8 py-4 text-lg glow-effect-lg">
               <Link href="/application" className="flex items-center space-x-2">
-                <span>Подать заявку</span>
+                <span>{translations.cta.apply}</span>
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-secondary text-secondary hover:bg-secondary hover:text-primary px-8 py-4 text-lg">
-              <Link href="/contact">Связаться с нами</Link>
+              <Link href="/contact">{translations.cta.contact}</Link>
             </Button>
           </div>
 

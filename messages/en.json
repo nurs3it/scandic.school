@@ -1,0 +1,180 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "contact": "Contact",
+    "application": "Application",
+    "staff": "Staff",
+    "testimonials": "Testimonials"
+  },
+  "header": {
+    "schoolName": "Scandic School",
+    "phone": "8 706 610 57 81",
+    "applyButton": "Apply Now"
+  },
+  "hero": {
+    "welcome": "Welcome to",
+    "schoolName": "Scandic International School",
+    "description": "We provide the highest level of education for children from different countries and cultural traditions with the IB PYP program",
+    "stats": {
+      "students": "Students",
+      "ratio": "Teacher/Student Ratio",
+      "program": "Program"
+    },
+    "cta": {
+      "apply": "Apply Now",
+      "learnMore": "Learn More"
+    },
+    "features": {
+      "ibProgram": "IB PYP Program",
+      "internationalProgram": "International Primary School Program",
+      "grades": "Grades 0-4",
+      "multinational": "Multinational Environment",
+      "standards": "International Standards"
+    },
+    "floating": {
+      "enrollment": "2025-2026",
+      "enrollmentOpen": "Enrollment Open",
+      "license": "License",
+      "licenseNumber": "KZ96LAA00035527"
+    }
+  },
+  "features": {
+    "title": "Why Choose Scandic International School?",
+    "subtitle": "We create an environment where every child can reach their full potential",
+    "items": {
+      "respect": {
+        "title": "Respect",
+        "description": "We foster respect for oneself, others, and the world around us"
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "We strive to provide the highest level of education"
+      },
+      "community": {
+        "title": "Community",
+        "description": "We create an atmosphere of care and mutual understanding"
+      },
+      "knowledge": {
+        "title": "Knowledge and Skills",
+        "description": "We develop creativity and self-confidence"
+      },
+      "international": {
+        "title": "Internationalism",
+        "description": "Preparation for life in a global world"
+      },
+      "safety": {
+        "title": "Safety",
+        "description": "We ensure a safe educational environment"
+      }
+    }
+  },
+  "programs": {
+    "title": "Our Programs",
+    "subtitle": "Comprehensive education for children aged 5-10",
+    "earlyYears": {
+      "title": "Grade 0 (5 years)",
+      "description": "Play-based learning with focus on social and emotional development. Russian language instruction available."
+    },
+    "primary": {
+      "title": "Primary Years (6-10 years)",
+      "description": "IB PYP curriculum with inquiry-based learning approach"
+    }
+  },
+  "footer": {
+    "description": "Scandic International School - providing world-class education in Almaty",
+    "quickLinks": "Quick Links",
+    "contact": "Contact Info",
+    "address": "Almaty, Kazakhstan",
+    "phone": "Phone",
+    "email": "Email",
+    "license": "License: KZ96LAA00035527",
+    "rights": "All rights reserved"
+  },
+  "application": {
+    "title": "Application Form",
+    "subtitle": "Fill out the form to apply for admission to our school",
+    "parentInfo": "Parent Information",
+    "childInfo": "Child Information",
+    "parentName": "Parent/Guardian Full Name *",
+    "parentPhone": "Contact Phone Number *",
+    "childName": "Child Full Name *",
+    "childBirthDate": "Child Birth Date *",
+    "grade": "Grade Applying For *",
+    "language": "Language of Instruction *",
+    "englishLevel": "Child's English Level *",
+    "preferredTime": "Preferred Interview Time *",
+    "placeholders": {
+      "parentName": "Enter full name",
+      "parentPhone": "+7 (___) ___-__-__",
+      "childName": "Enter child's full name",
+      "preferredTime": "Specify desired date and time"
+    },
+    "selectPlaceholders": {
+      "grade": "Select grade",
+      "language": "Select language",
+      "englishLevel": "Select level"
+    },
+    "gradeOptions": {
+      "0": "Grade 0",
+      "1": "Grade 1",
+      "2": "Grade 2",
+      "3": "Grade 3",
+      "4": "Grade 4"
+    },
+    "languageOptions": {
+      "kazakh": "Kazakh",
+      "russian": "Russian"
+    },
+    "englishLevelOptions": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate (Pre-Intermediate and above)",
+      "unknown": "Don't know"
+    },
+    "submitButton": "Submit Application",
+    "submittingButton": "Submitting...",
+    "successMessage": "Application submitted successfully!",
+    "errorMessage": "An error occurred while submitting the application. Please try again.",
+    "additionalInfo": "We will contact you to confirm the interview within 24 hours.",
+    "licenseInfo": "License: KZ96LAA00035527 | Grades 0-4 | IB PYP"
+  },
+  "mission": {
+    "title": "Our Mission",
+    "subtitle": "Nurturing harmonious personalities committed to building a better world",
+    "description": "We nurture harmonious personalities, committed to the idea of building a better world based on moral values. Our mission is to develop confident, compassionate, and capable individuals who are prepared to thrive in an interconnected world.",
+    "values": {
+      "excellence": "Excellence in Education",
+      "diversity": "Celebrating Diversity",
+      "innovation": "Innovation in Learning",
+      "community": "Building Community"
+    }
+  },
+  "staff": {
+    "title": "Our Team",
+    "subtitle": "Professional educators dedicated to education",
+    "cta": "Want to join our team?",
+    "applyButton": "Send Resume",
+    "education": "Education:",
+    "experience": "Experience:",
+    "languages": "Languages:",
+    "parentOf": "Parent of"
+  },
+  "testimonials": {
+    "title": "Parent Testimonials",
+    "subtitle": "What parents say about us",
+    "ctaTitle": "Want to share your experience?",
+    "ctaSubtitle": "We would love to hear your opinion about our school",
+    "shareButton": "Share Testimonial",
+    "parentOf": "Parent of"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "close": "Close",
+    "readMore": "Read More",
+    "learnMore": "Learn More"
+  }
+}

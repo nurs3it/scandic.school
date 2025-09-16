@@ -9,8 +9,104 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Send, CheckCircle, AlertCircle, User, GraduationCap } from "lucide-react";
+import { useLocale } from './locale-provider';
+
+interface ApplicationTranslations {
+  title: string;
+  subtitle: string;
+  sections: {
+    parentInfo: string;
+    childInfo: string;
+  };
+  fields: {
+    parentName: string;
+    parentPhone: string;
+    childName: string;
+    childBirthDate: string;
+    grade: string;
+    language: string;
+    englishLevel: string;
+    preferredTime: string;
+  };
+  placeholders: {
+    parentName: string;
+    parentPhone: string;
+    childName: string;
+    grade: string;
+    language: string;
+    englishLevel: string;
+    preferredTime: string;
+  };
+  options: {
+    grades: Array<{ value: string; label: string }>;
+    languages: Array<{ value: string; label: string }>;
+    englishLevels: Array<{ value: string; label: string }>;
+  };
+  messages: {
+    submitting: string;
+    submit: string;
+    error: string;
+    success: string;
+    license: string;
+  };
+}
 
 export function ApplicationForm() {
+  const { translations } = useLocale();
+  
+  // Безопасный доступ к переводам формы заявки
+  const applicationTranslations: ApplicationTranslations = (translations as Record<string, ApplicationTranslations>).application || {
+    title: "Application Form",
+    subtitle: "Apply for admission to Scandic International School",
+    sections: {
+      parentInfo: "Parent Information",
+      childInfo: "Child Information"
+    },
+    fields: {
+      parentName: "Parent's Full Name (Legal Representative) *",
+      parentPhone: "Contact Phone Number *",
+      childName: "Child's Full Name *",
+      childBirthDate: "Child's Date of Birth *",
+      grade: "Grade Applying For *",
+      language: "Language of Instruction *",
+      englishLevel: "Child's English Level *",
+      preferredTime: "Preferred Interview Time *"
+    },
+    placeholders: {
+      parentName: "Enter full name",
+      parentPhone: "+1 (___) ___-____",
+      childName: "Enter child's full name",
+      grade: "Select grade",
+      language: "Select language",
+      englishLevel: "Select level",
+      preferredTime: "Specify desired date and time"
+    },
+    options: {
+      grades: [
+        { value: "0", label: "Grade 0" },
+        { value: "1", label: "Grade 1" },
+        { value: "2", label: "Grade 2" },
+        { value: "3", label: "Grade 3" },
+        { value: "4", label: "Grade 4" }
+      ],
+      languages: [
+        { value: "kazakh", label: "Kazakh" },
+        { value: "russian", label: "Russian" }
+      ],
+      englishLevels: [
+        { value: "beginner", label: "Beginner" },
+        { value: "intermediate", label: "Intermediate (Pre-Intermediate and above)" },
+        { value: "unknown", label: "Don't know" }
+      ]
+    },
+    messages: {
+      submitting: "Submitting application...",
+      submit: "Submit Application",
+      error: "An error occurred while submitting the application. Please try again.",
+      success: "We will contact you to confirm the interview within 24 hours.",
+      license: "License: KZ96LAA00035527 | Grades 0-4 | IB PYP"
+    }
+  };
   const [formData, setFormData] = useState({
     parentName: "",
     parentPhone: "",
@@ -51,33 +147,18 @@ export function ApplicationForm() {
     });
   };
 
-  const gradeOptions = [
-    { value: "0", label: "0 класс" },
-    { value: "1", label: "1 класс" },
-    { value: "2", label: "2 класс" },
-    { value: "3", label: "3 класс" },
-    { value: "4", label: "4 класс" },
-  ];
-
-  const languageOptions = [
-    { value: "kazakh", label: "Казахский" },
-    { value: "russian", label: "Русский" },
-  ];
-
-  const englishLevelOptions = [
-    { value: "beginner", label: "Начинающий (Beginner)" },
-    { value: "intermediate", label: "Средний (Pre-Intermediate и выше)" },
-    { value: "unknown", label: "Не знаю" },
-  ];
+  const gradeOptions = applicationTranslations?.options?.grades || [];
+  const languageOptions = applicationTranslations?.options?.languages || [];
+  const englishLevelOptions = applicationTranslations?.options?.englishLevels || [];
 
   return (
     <Card className="w-full max-w-4xl mx-auto">
       <CardHeader className="text-center">
         <CardTitle className="text-3xl font-bold text-secondary mb-4">
-          Заявка на набор 2025-2026
+          {applicationTranslations?.title || "Application Form"}
         </CardTitle>
         <p className="text-gray-600 text-lg">
-          Откройте для своего ребенка мир возможностей с международным образованием
+          {applicationTranslations?.subtitle || "Apply for admission to Scandic International School"}
         </p>
       </CardHeader>
       <CardContent>
@@ -86,13 +167,13 @@ export function ApplicationForm() {
           <div className="space-y-6">
             <div className="flex items-center space-x-2 mb-4">
               <User className="h-5 w-5 text-primary" />
-              <h3 className="text-xl font-semibold text-secondary">Информация о родителе</h3>
+              <h3 className="text-xl font-semibold text-secondary">{applicationTranslations?.sections?.parentInfo || "Parent Information"}</h3>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <Label htmlFor="parentName" className="text-sm font-medium text-gray-700">
-                  ФИО родителя (законного представителя) *
+                  {applicationTranslations?.fields?.parentName || "Parent's Full Name (Legal Representative) *"}
                 </Label>
                 <Input
                   id="parentName"
@@ -101,13 +182,13 @@ export function ApplicationForm() {
                   required
                   value={formData.parentName}
                   onChange={handleChange}
-                  placeholder="Введите ФИО"
+                  placeholder={applicationTranslations?.placeholders?.parentName || "Enter full name"}
                   className="mt-2"
                 />
               </div>
               <div>
                 <Label htmlFor="parentPhone" className="text-sm font-medium text-gray-700">
-                  Контактный номер телефона *
+                  {applicationTranslations?.fields?.parentPhone || "Contact Phone Number *"}
                 </Label>
                 <Input
                   id="parentPhone"
@@ -116,7 +197,7 @@ export function ApplicationForm() {
                   required
                   value={formData.parentPhone}
                   onChange={handleChange}
-                  placeholder="+7 (___) ___-__-__"
+                  placeholder={applicationTranslations?.placeholders?.parentPhone || "+1 (___) ___-____"}
                   className="mt-2"
                 />
               </div>
@@ -127,13 +208,13 @@ export function ApplicationForm() {
           <div className="space-y-6">
             <div className="flex items-center space-x-2 mb-4">
               <GraduationCap className="h-5 w-5 text-primary" />
-              <h3 className="text-xl font-semibold text-secondary">Информация о ребенке</h3>
+              <h3 className="text-xl font-semibold text-secondary">{applicationTranslations?.sections?.childInfo || "Child Information"}</h3>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <Label htmlFor="childName" className="text-sm font-medium text-gray-700">
-                  ФИО ребенка *
+                  {applicationTranslations?.fields?.childName || "Child's Full Name *"}
                 </Label>
                 <Input
                   id="childName"
@@ -142,13 +223,13 @@ export function ApplicationForm() {
                   required
                   value={formData.childName}
                   onChange={handleChange}
-                  placeholder="Введите ФИО ребенка"
+                  placeholder={applicationTranslations?.placeholders?.childName || "Enter child's full name"}
                   className="mt-2"
                 />
               </div>
               <div>
                 <Label htmlFor="childBirthDate" className="text-sm font-medium text-gray-700">
-                  Дата рождения ребенка *
+                  {applicationTranslations?.fields?.childBirthDate || "Child's Date of Birth *"}
                 </Label>
                 <Input
                   id="childBirthDate"
@@ -165,14 +246,14 @@ export function ApplicationForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <Label className="text-sm font-medium text-gray-700">
-                  Класс, на который планируете поступать *
+                  {applicationTranslations?.fields?.grade || "Grade Applying For *"}
                 </Label>
                 <Select
                   value={formData.grade}
                   onValueChange={(value) => handleSelectChange("grade", value)}
                 >
                   <SelectTrigger className="mt-2">
-                    <SelectValue placeholder="Выберите класс" />
+                    <SelectValue placeholder={applicationTranslations?.placeholders?.grade || "Select grade"} />
                   </SelectTrigger>
                   <SelectContent>
                     {gradeOptions.map((option) => (
@@ -185,14 +266,14 @@ export function ApplicationForm() {
               </div>
               <div>
                 <Label className="text-sm font-medium text-gray-700">
-                  Язык обучения *
+                  {applicationTranslations?.fields?.language || "Language of Instruction *"}
                 </Label>
                 <Select
                   value={formData.language}
                   onValueChange={(value) => handleSelectChange("language", value)}
                 >
                   <SelectTrigger className="mt-2">
-                    <SelectValue placeholder="Выберите язык" />
+                    <SelectValue placeholder={applicationTranslations?.placeholders?.language || "Select language"} />
                   </SelectTrigger>
                   <SelectContent>
                     {languageOptions.map((option) => (
@@ -208,14 +289,14 @@ export function ApplicationForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <Label className="text-sm font-medium text-gray-700">
-                  Уровень знания английского языка у ребенка *
+                  {applicationTranslations?.fields?.englishLevel || "Child's English Level *"}
                 </Label>
                 <Select
                   value={formData.englishLevel}
                   onValueChange={(value) => handleSelectChange("englishLevel", value)}
                 >
                   <SelectTrigger className="mt-2">
-                    <SelectValue placeholder="Выберите уровень" />
+                    <SelectValue placeholder={applicationTranslations?.placeholders?.englishLevel || "Select level"} />
                   </SelectTrigger>
                   <SelectContent>
                     {englishLevelOptions.map((option) => (
@@ -228,7 +309,7 @@ export function ApplicationForm() {
               </div>
               <div>
                 <Label htmlFor="preferredTime" className="text-sm font-medium text-gray-700">
-                  Удобное время для собеседования *
+                  {applicationTranslations?.fields?.preferredTime || "Preferred Interview Time *"}
                 </Label>
                 <Input
                   id="preferredTime"
@@ -237,7 +318,7 @@ export function ApplicationForm() {
                   required
                   value={formData.preferredTime}
                   onChange={handleChange}
-                  placeholder="Укажите желаемую дату и время"
+                  placeholder={applicationTranslations?.placeholders?.preferredTime || "Specify desired date and time"}
                   className="mt-2"
                 />
               </div>
@@ -255,7 +336,7 @@ export function ApplicationForm() {
           {applicationMutation.isError && (
             <div className="flex items-center space-x-2 text-red-600 bg-red-50 p-4 rounded-lg">
               <AlertCircle className="h-5 w-5" />
-              <span>Произошла ошибка при подаче заявки. Попробуйте еще раз.</span>
+              <span>{applicationTranslations?.messages?.error || "An error occurred while submitting the application. Please try again."}</span>
             </div>
           )}
 
@@ -267,11 +348,11 @@ export function ApplicationForm() {
               className="bg-primary hover:bg-primary/90 text-secondary font-semibold px-12 py-4 text-lg glow-effect"
             >
               {applicationMutation.isPending ? (
-                "Отправляем заявку..."
+                applicationTranslations?.messages?.submitting || "Submitting application..."
               ) : (
                 <>
                   <Send className="h-5 w-5 mr-2" />
-                  Подать заявку
+                  {applicationTranslations?.messages?.submit || "Submit Application"}
                 </>
               )}
             </Button>
@@ -280,10 +361,10 @@ export function ApplicationForm() {
           {/* Additional Info */}
           <div className="text-center text-sm text-gray-500">
             <p>
-              Мы свяжемся с вами для подтверждения собеседования в течение 24 часов.
+              {applicationTranslations?.messages?.success || "We will contact you to confirm the interview within 24 hours."}
             </p>
             <p className="mt-2">
-              Лицензия: KZ96LAA00035527 | 0–4 классы | IB PYP
+              {applicationTranslations?.messages?.license || "License: KZ96LAA00035527 | Grades 0-4 | IB PYP"}
             </p>
           </div>
         </form>
