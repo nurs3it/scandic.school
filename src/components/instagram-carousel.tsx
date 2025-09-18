@@ -44,7 +44,7 @@ export function InstagramCarousel() {
   const duplicatedPosts = [...instagramPosts, ...instagramPosts];
 
   return (
-    <section className="py-16 bg-gradient-to-r from-pink-50 via-purple-50 to-indigo-50 relative overflow-hidden">
+    <section className="py-16 md:py-20 lg:py-24 bg-gradient-to-r from-pink-50 via-purple-50 to-indigo-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(120,119,198,0.1),transparent_50%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(236,72,153,0.1),transparent_50%)]"></div>
@@ -109,8 +109,8 @@ export function InstagramCarousel() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100 p-1 md:p-2">
-                  <div className="aspect-[9/16] w-full">
+                <div className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100 p-2 md:p-3">
+                  <div className="w-full h-[280px] sm:h-[320px] md:h-[400px] lg:h-[450px]">
                     <InstagramEmbed
                       url={postUrl}
                       width="100%"

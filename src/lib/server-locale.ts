@@ -25,7 +25,8 @@ export function getTranslations(locale: Locale) {
         contact: "Contact",
         application: "Application",
         staff: "Staff",
-        testimonials: "Testimonials"
+        testimonials: "Testimonials",
+        documents: "Documents"
       },
       header: {
         schoolName: "Scandic School",
@@ -94,7 +95,7 @@ export function getTranslations(locale: Locale) {
         title: "Our Programs",
         subtitle: "Comprehensive education for children aged 3-10",
         earlyYears: {
-          title: "Early Years (3-5 years)",
+          title: "Early Years (5-6 years)",
           description: "Holistic development for our youngest learners."
         },
         primary: {
@@ -137,10 +138,10 @@ export function getTranslations(locale: Locale) {
         contact: "Contact Us"
       },
       footer: {
-        description: "Scandic International School - providing world-class education in Almaty",
+        description: "Scandic International School - providing world-class education in Uralsk",
         quickLinks: "Quick Links",
         contact: "Contact Info",
-        address: "Almaty, Kazakhstan",
+        address: "Uralsk, Kazakhstan",
         phone: "Phone",
         email: "Email",
         license: "License: KZ96LAA00035527",
@@ -261,7 +262,8 @@ export function getTranslations(locale: Locale) {
         contact: "Контакты",
         application: "Заявка",
         staff: "Сотрудники",
-        testimonials: "Отзывы"
+        testimonials: "Отзывы",
+        documents: "Документы"
       },
       header: {
         schoolName: "Scandic School",
@@ -330,7 +332,7 @@ export function getTranslations(locale: Locale) {
         title: "Наши программы",
         subtitle: "Комплексное образование для детей 3-10 лет",
         earlyYears: {
-          title: "Ранние годы (3-5 лет)",
+          title: "Ранние годы (5-6 лет)",
           description: "Целостное развитие для наших самых маленьких учеников."
         },
         primary: {
@@ -348,8 +350,8 @@ export function getTranslations(locale: Locale) {
       },
       mission: {
         title: "Наша миссия",
-        subtitle: "Развиваем молодые умы для глобального будущего",
-        description: "В Scandic International School мы стремимся предоставлять образование мирового класса, которое развивает любознательность, креативность и критическое мышление. Наша миссия - развивать уверенных, сострадательных и способных людей, готовых процветать в взаимосвязанном мире.",
+        subtitle: "Воспитываем гармоничную личность, преданную идее построения лучшего мира",
+        description: "Мы воспитываем гармоничную личность, преданную идее построения лучшего мира на основе нравственных ценностей. Наша миссия - развивать уверенных, сострадательных и способных людей, готовых процветать в взаимосвязанном мире.",
         values: {
           excellence: "Превосходство в образовании",
           diversity: "Празднование разнообразия",
@@ -373,10 +375,10 @@ export function getTranslations(locale: Locale) {
         contact: "Связаться с нами"
       },
       footer: {
-        description: "Scandic International School - предоставляем образование мирового уровня в Алматы",
+        description: "Scandic International School - предоставляем образование мирового уровня в Уральске",
         quickLinks: "Быстрые ссылки",
         contact: "Контактная информация",
-        address: "Алматы, Казахстан",
+        address: "Уральск, Казахстан",
         phone: "Телефон",
         email: "Email",
         license: "Лицензия: KZ96LAA00035527",
@@ -497,7 +499,8 @@ export function getTranslations(locale: Locale) {
         contact: "Байланыс",
         application: "Өтініш",
         staff: "Қызметкерлер",
-        testimonials: "Пікірлер"
+        testimonials: "Пікірлер",
+        documents: "Құжаттар"
       },
       header: {
         schoolName: "Scandic School",
@@ -566,7 +569,7 @@ export function getTranslations(locale: Locale) {
         title: "Біздің бағдарламалар",
         subtitle: "3-10 жас аралығындағы балаларға арналған кешенді білім беру",
         earlyYears: {
-          title: "Ерте жылдар (3-5 жас)",
+          title: "Ерте жылдар (5-6 жас)",
           description: "Біздің ең кішкентай оқушыларымызға арналған толық даму."
         },
         primary: {
@@ -609,10 +612,10 @@ export function getTranslations(locale: Locale) {
         contact: "Бізбен байланысыңыз"
       },
       footer: {
-        description: "Scandic International School - Алматыда әлемдік деңгейде білім беру",
+        description: "Scandic International School - Оралда әлемдік деңгейде білім беру",
         quickLinks: "Жылдам сілтемелер",
         contact: "Байланыс ақпараты",
-        address: "Алматы, Қазақстан",
+        address: "Орал, Қазақстан",
         phone: "Телефон",
         email: "Email",
         license: "Лицензия: KZ96LAA00035527",

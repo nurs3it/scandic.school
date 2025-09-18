@@ -5,7 +5,8 @@
     "contact": "Байланыс",
     "application": "Өтініш",
     "staff": "Қызметкерлер",
-    "testimonials": "Пікірлер"
+    "testimonials": "Пікірлер",
+    "documents": "Құжаттар"
   },
   "header": {
     "schoolName": "Scandic School",
@@ -82,10 +83,10 @@
     }
   },
   "footer": {
-    "description": "Scandic International School - Алматыда әлемдік деңгейде білім беру",
+    "description": "Scandic International School - Оралда әлемдік деңгейде білім беру",
     "quickLinks": "Жылдам сілтемелер",
     "contact": "Байланыс ақпараты",
-    "address": "Алматы, Қазақстан",
+    "address": "Орал, Қазақстан",
     "phone": "Телефон",
     "email": "Email",
     "license": "Лицензия: KZ96LAA00035527",

@@ -13,12 +13,6 @@ export async function StatsSection() {
       description: "Активно обучающихся в нашей школе"
     },
     {
-      icon: Globe,
-      value: "25+",
-      label: translations.stats.nationalities,
-      description: "Разнообразная многонациональная среда"
-    },
-    {
       icon: BookOpen,
       value: "1:8",
       label: translations.stats.teachers,
@@ -46,7 +40,7 @@ export async function StatsSection() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {stats.map((stat, index) => {
             const IconComponent = stat.icon;
             return (

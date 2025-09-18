@@ -4,7 +4,7 @@ This file provides guidance to WARP (warp.dev) when working with code in this re
 
 ## Project Overview
 
-Scandic International School website - a modern Next.js 15 application built for an international school in Almaty, Kazakhstan. The site features an IB PYP program showcase with multilingual support (Russian, Kazakh, English), application forms, and Instagram integration.
+Scandic International School website - a modern Next.js 15 application built for an international school in Uralsk, Kazakhstan. The site features an IB PYP program showcase with multilingual support (Russian, Kazakh, English), application forms, and Instagram integration.
 
 ## Development Commands
 
@@ -124,7 +124,7 @@ src/app/
 ## Contact Information & Business Context
 
 **School Details:**
-- Address: ул. Кайрата Жумагалиева 18, 3 этаж, Almaty
+- Address: ул. Кайрата Жумагалиева 18, 3 этаж, Uralsk
 - Phone: 8 706 610 57 81
 - Email: info@scandic.school
 - Instagram: @scandic.school

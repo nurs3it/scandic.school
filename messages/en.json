@@ -5,7 +5,8 @@
     "contact": "Contact",
     "application": "Application",
     "staff": "Staff",
-    "testimonials": "Testimonials"
+    "testimonials": "Testimonials",
+    "documents": "Documents"
   },
   "header": {
     "schoolName": "Scandic School",
@@ -82,10 +83,10 @@
     }
   },
   "footer": {
-    "description": "Scandic International School - providing world-class education in Almaty",
+    "description": "Scandic International School - providing world-class education in Uralsk",
     "quickLinks": "Quick Links",
     "contact": "Contact Info",
-    "address": "Almaty, Kazakhstan",
+    "address": "Uralsk, Kazakhstan",
     "phone": "Phone",
     "email": "Email",
     "license": "License: KZ96LAA00035527",

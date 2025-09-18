@@ -11,9 +11,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Scandic International School | Международная школа в Алматы",
-  description: "Scandic International School - международная школа в Алматы с программой IB PYP для детей 0-4 классов. Лицензия KZ96LAA00035527",
-  keywords: "международная школа, Алматы, IB PYP, начальная школа, образование, Scandic",
+  title: "Scandic International School | Международная школа в Уральске",
+  description: "Scandic International School - международная школа в Уральске с программой IB PYP для детей 0-4 классов. Лицензия KZ96LAA00035527",
+  keywords: "международная школа, Уральск, IB PYP, начальная школа, образование, Scandic",
   authors: [{ name: "Scandic International School" }],
   creator: "Scandic International School",
   publisher: "Scandic International School",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Scandic International School | Международная школа в Алматы",
-    description: "Scandic International School - международная школа в Алматы с программой IB PYP для детей 0-4 классов",
+    title: "Scandic International School | Международная школа в Уральске",
+    description: "Scandic International School - международная школа в Уральске с программой IB PYP для детей 0-4 классов",
     url: "https://scandic.school",
     siteName: "Scandic International School",
     images: [
@@ -49,8 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Scandic International School | Международная школа в Алматы",
-    description: "Scandic International School - международная школа в Алматы с программой IB PYP для детей 0-4 классов",
+    title: "Scandic International School | Международная школа в Уральске",
+    description: "Scandic International School - международная школа в Уральске с программой IB PYP для детей 0-4 классов",
     images: ["/og-image.jpg"],
   },
   robots: {

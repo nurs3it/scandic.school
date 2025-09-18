@@ -11,7 +11,7 @@ export async function ContactInfo() {
       icon: MapPin,
       title: translations.contact.info.address,
       details: "ул. Кайрата Жумагалиева 18, 3 этаж",
-      description: "Алматы, Казахстан"
+      description: "Уральск, Казахстан"
     },
     {
       icon: Phone,

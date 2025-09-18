@@ -20,6 +20,8 @@ export function LanguageSwitcher() {
   const handleLanguageChange = (newLocale: 'en' | 'ru' | 'kk') => {
     setLocale(newLocale);
     setIsOpen(false);
+    // Обновляем страницу после смены языка
+    window.location.reload();
   };
 
   return (
@@ -42,14 +44,14 @@ export function LanguageSwitcher() {
               <button
                 key={language.code}
                 onClick={() => handleLanguageChange(language.code as 'en' | 'ru' | 'kk')}
-                className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-100 flex items-center space-x-3 ${
-                  locale === language.code ? 'bg-primary/10 text-primary' : 'text-gray-700'
+                className={`w-full text-left px-4 py-2 text-sm hover:bg-primary hover:text-white transition-colors flex items-center space-x-3 ${
+                  locale === language.code ? 'bg-primary text-white' : 'text-gray-700 hover:text-white'
                 }`}
               >
                 <span className="text-lg">{language.flag}</span>
                 <span>{language.name}</span>
                 {locale === language.code && (
-                  <span className="ml-auto text-primary">✓</span>
+                  <span className="ml-auto text-white">✓</span>
                 )}
               </button>
             ))}

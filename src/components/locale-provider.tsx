@@ -20,7 +20,8 @@ const translations = {
       contact: "Contact",
       application: "Application",
       staff: "Staff",
-      testimonials: "Testimonials"
+      testimonials: "Testimonials",
+      documents: "Documents"
     },
     header: {
       schoolName: "Scandic School",
@@ -85,10 +86,10 @@ const translations = {
       }
     },
     footer: {
-      description: "Scandic International School - providing world-class education in Almaty",
+      description: "Scandic International School - providing world-class education in Uralsk",
       quickLinks: "Quick Links",
       contact: "Contact Info",
-      address: "Almaty, Kazakhstan",
+      address: "Uralsk, Kazakhstan",
       phone: "Phone",
       email: "Email",
       license: "License: KZ96LAA00035527",
@@ -188,7 +189,8 @@ const translations = {
       contact: "Контакты",
       application: "Заявка",
       staff: "Сотрудники",
-      testimonials: "Отзывы"
+      testimonials: "Отзывы",
+      documents: "Документы"
     },
     header: {
       schoolName: "Scandic School",
@@ -253,10 +255,10 @@ const translations = {
       }
     },
     footer: {
-      description: "Scandic International School - предоставляем образование мирового уровня в Алматы",
+      description: "Scandic International School - предоставляем образование мирового уровня в Уральске",
       quickLinks: "Быстрые ссылки",
       contact: "Контактная информация",
-      address: "Алматы, Казахстан",
+      address: "Уральск, Казахстан",
       phone: "Телефон",
       email: "Email",
       license: "Лицензия: KZ96LAA00035527",
@@ -356,7 +358,8 @@ const translations = {
       contact: "Байланыс",
       application: "Өтініш",
       staff: "Қызметкерлер",
-      testimonials: "Пікірлер"
+      testimonials: "Пікірлер",
+      documents: "Құжаттар"
     },
     header: {
       schoolName: "Scandic School",
@@ -421,10 +424,10 @@ const translations = {
       }
     },
     footer: {
-      description: "Scandic International School - Алматыда әлемдік деңгейде білім беру",
+      description: "Scandic International School - Оралда әлемдік деңгейде білім беру",
       quickLinks: "Жылдам сілтемелер",
       contact: "Байланыс ақпараты",
-      address: "Алматы, Қазақстан",
+      address: "Орал, Қазақстан",
       phone: "Телефон",
       email: "Email",
       license: "Лицензия: KZ96LAA00035527",
