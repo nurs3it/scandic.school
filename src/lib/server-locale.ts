@@ -26,12 +26,19 @@ export function getTranslations(locale: Locale) {
         application: "Application",
         staff: "Staff",
         testimonials: "Testimonials",
-        documents: "Documents"
+        documents: "Documents",
+        school: "School",
+        contactSection: "Contact"
       },
       header: {
         schoolName: "Scandic School",
         phone: "8 706 610 57 81",
-        applyButton: "Apply Now"
+        applyButton: "Apply Now",
+        descriptions: {
+          staff: "Our team of educators",
+          testimonials: "Parent testimonials",
+          documents: "Policies and documents"
+        }
       },
       hero: {
         welcome: "Welcome to",
@@ -263,12 +270,19 @@ export function getTranslations(locale: Locale) {
         application: "Заявка",
         staff: "Сотрудники",
         testimonials: "Отзывы",
-        documents: "Документы"
+        documents: "Документы",
+        school: "Школа",
+        contactSection: "Связь"
       },
       header: {
         schoolName: "Scandic School",
         phone: "8 706 610 57 81",
-        applyButton: "Подать заявку"
+        applyButton: "Подать заявку",
+        descriptions: {
+          staff: "Наша команда педагогов",
+          testimonials: "Отзывы родителей",
+          documents: "Политики и документы"
+        }
       },
       hero: {
         welcome: "Добро пожаловать в",
@@ -500,12 +514,19 @@ export function getTranslations(locale: Locale) {
         application: "Өтініш",
         staff: "Қызметкерлер",
         testimonials: "Пікірлер",
-        documents: "Құжаттар"
+        documents: "Құжаттар",
+        school: "Мектеп",
+        contactSection: "Байланыс"
       },
       header: {
         schoolName: "Scandic School",
         phone: "8 706 610 57 81",
-        applyButton: "Өтініш беру"
+        applyButton: "Өтініш беру",
+        descriptions: {
+          staff: "Біздің педагогтар командасы",
+          testimonials: "Ата-аналардың пікірлері",
+          documents: "Саясаттар мен құжаттар"
+        }
       },
       hero: {
         welcome: "Қош келдіңіз",

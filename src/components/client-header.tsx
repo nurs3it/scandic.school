@@ -6,7 +6,7 @@ import { Phone, Menu, X, Users, FileText, MessageCircle, UserPlus, Info, Graduat
 import { Button } from "@/components/ui/button";
 import { useState } from 'react';
 import { LanguageSwitcher } from './language-switcher';
-import { EnhancedDropdown } from './enhanced-dropdown';
+import { SchoolDropdown } from './school-dropdown';
 
 interface ClientHeaderProps {
   translations: {
@@ -18,11 +18,18 @@ interface ClientHeaderProps {
       documents: string;
       contact: string;
       application: string;
+      school: string;
+      contactSection: string;
     };
     header: {
       schoolName: string;
       phone: string;
       applyButton: string;
+      descriptions: {
+        staff: string;
+        testimonials: string;
+        documents: string;
+      };
     };
   };
 }
@@ -40,19 +47,19 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
       name: translations.navigation.staff, 
       href: "/staff", 
       icon: Users,
-      description: "Наша команда педагогов"
+      description: translations.header.descriptions.staff
     },
     { 
       name: translations.navigation.testimonials, 
       href: "/testimonials", 
       icon: MessageCircle,
-      description: "Отзывы родителей"
+      description: translations.header.descriptions.testimonials
     },
     { 
       name: translations.navigation.documents, 
       href: "/documents", 
       icon: FileText,
-      description: "Политики и документы"
+      description: translations.header.descriptions.documents
     },
   ];
 
@@ -102,8 +109,8 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
             })}
 
             {/* School Dropdown */}
-            <EnhancedDropdown
-              title="Школа"
+            <SchoolDropdown
+              title={translations.navigation.school}
               items={schoolNavigation}
               icon={GraduationCap}
             />
@@ -183,7 +190,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
               <div className="px-2">
                 <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-4 py-2 flex items-center">
                   <GraduationCap className="h-3 w-3 mr-2" />
-                  Школа
+                  {translations.navigation.school}
                 </div>
                 {schoolNavigation.map((item, index) => {
                   const IconComponent = item.icon;
@@ -211,7 +218,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
               <div className="px-2">
                 <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-4 py-2 flex items-center">
                   <MessageCircle className="h-3 w-3 mr-2" />
-                  Связь
+                  {translations.navigation.contactSection}
                 </div>
                 <Link
                   href="/contact"

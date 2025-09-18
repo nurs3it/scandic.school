@@ -6,12 +6,19 @@
     "application": "Өтініш",
     "staff": "Қызметкерлер",
     "testimonials": "Пікірлер",
-    "documents": "Құжаттар"
+    "documents": "Құжаттар",
+    "school": "Мектеп",
+    "contactSection": "Байланыс"
   },
   "header": {
     "schoolName": "Scandic School",
     "phone": "8 706 610 57 81",
-    "applyButton": "Өтініш беру"
+    "applyButton": "Өтініш беру",
+    "descriptions": {
+      "staff": "Біздің педагогтар командасы",
+      "testimonials": "Ата-аналардың пікірлері",
+      "documents": "Саясаттар мен құжаттар"
+    }
   },
   "hero": {
     "welcome": "Қош келдіңіз",

@@ -21,12 +21,19 @@ const translations = {
       application: "Application",
       staff: "Staff",
       testimonials: "Testimonials",
-      documents: "Documents"
+      documents: "Documents",
+      school: "School",
+      contactSection: "Contact"
     },
     header: {
       schoolName: "Scandic School",
       phone: "8 706 610 57 81",
-      applyButton: "Apply Now"
+      applyButton: "Apply Now",
+      descriptions: {
+        staff: "Our team of educators",
+        testimonials: "Parent testimonials",
+        documents: "Policies and documents"
+      }
     },
     hero: {
       welcome: "Welcome to",

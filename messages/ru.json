@@ -6,12 +6,19 @@
     "application": "Заявка",
     "staff": "Сотрудники",
     "testimonials": "Отзывы",
-    "documents": "Документы"
+    "documents": "Документы",
+    "school": "Школа",
+    "contactSection": "Связь"
   },
   "header": {
     "schoolName": "Scandic School",
     "phone": "8 706 610 57 81",
-    "applyButton": "Подать заявку"
+    "applyButton": "Подать заявку",
+    "descriptions": {
+      "staff": "Наша команда педагогов",
+      "testimonials": "Отзывы родителей",
+      "documents": "Политики и документы"
+    }
   },
   "hero": {
     "welcome": "Добро пожаловать в",
