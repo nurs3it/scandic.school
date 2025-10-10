@@ -166,7 +166,7 @@ export function getTranslations(locale: Locale) {
       },
       contact: {
         title: "Contact Us",
-        subtitle: "Get in touch with our team",
+        subtitle: "We're here to answer any questions you may have",
         form: {
           name: "Name",
           email: "Email",
@@ -176,12 +176,13 @@ export function getTranslations(locale: Locale) {
           placeholders: {
             name: "Enter your name",
             email: "your@email.com",
-            phone: "+1 (___) ___-____",
+            phone: "+7 (___) ___-__-__",
             message: "Tell us about your questions or wishes..."
           },
           messages: {
             sending: "Sending...",
-            error: "An error occurred while sending the message. Please try again."
+            error: "An error occurred while sending the message. Please try again.",
+            success: "Message sent successfully! We'll contact you soon."
           }
         },
         info: {
@@ -189,6 +190,16 @@ export function getTranslations(locale: Locale) {
           phone: "Phone",
           email: "Email",
           hours: "Working Hours"
+        },
+        details: {
+          address: "Kairat Zhumagaliyev St 18, 3rd floor",
+          city: "Uralsk, Kazakhstan",
+          phoneNumber: "8 706 610 57 81",
+          phoneHours: "Mon-Fri: 9:00 AM - 6:00 PM",
+          emailAddress: "info@scandic.school",
+          emailResponse: "We'll respond within 24 hours",
+          workingHours: "Mon-Fri: 9:00 AM - 6:00 PM",
+          saturdayHours: "Sat: 9:00 AM - 3:00 PM"
         }
       },
       application: {
@@ -422,7 +433,7 @@ export function getTranslations(locale: Locale) {
       },
       contact: {
         title: "Свяжитесь с нами",
-        subtitle: "Свяжитесь с нашей командой",
+        subtitle: "Мы готовы ответить на любые ваши вопросы",
         form: {
           name: "Имя",
           email: "Email",
@@ -431,20 +442,31 @@ export function getTranslations(locale: Locale) {
           submit: "Отправить сообщение",
           placeholders: {
             name: "Введите ваше имя",
-            email: "your@email.com",
+            email: "ваш@email.com",
             phone: "+7 (___) ___-__-__",
             message: "Расскажите о ваших вопросах или пожеланиях..."
           },
           messages: {
-            sending: "Отправляем...",
-            error: "Произошла ошибка при отправке сообщения. Попробуйте еще раз."
+            sending: "Отправка...",
+            error: "Произошла ошибка при отправке сообщения. Попробуйте еще раз.",
+            success: "Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время."
           }
         },
         info: {
           address: "Адрес",
           phone: "Телефон",
           email: "Email",
-          hours: "Рабочие часы"
+          hours: "Режим работы"
+        },
+        details: {
+          address: "ул. Кайрата Жумагалиева 18, 3 этаж",
+          city: "Уральск, Казахстан",
+          phoneNumber: "8 706 610 57 81",
+          phoneHours: "Пн-Пт: 9:00 - 18:00",
+          emailAddress: "info@scandic.school",
+          emailResponse: "Ответим в течение 24 часов",
+          workingHours: "Пн-Пт: 9:00 - 18:00",
+          saturdayHours: "Сб: 9:00 - 15:00"
         }
       },
       application: {
@@ -678,22 +700,23 @@ export function getTranslations(locale: Locale) {
       },
       contact: {
         title: "Бізбен байланысыңыз",
-        subtitle: "Біздің командамен байланысыңыз",
+        subtitle: "Біз сіздің кез келген сұрағыңызға жауап беруге дайынбыз",
         form: {
-          name: "Аты",
+          name: "Аты-жөні",
           email: "Email",
           phone: "Телефон",
           message: "Хабарлама",
           submit: "Хабарлама жіберу",
           placeholders: {
             name: "Атыңызды енгізіңіз",
-            email: "your@email.com",
+            email: "сіздің@email.com",
             phone: "+7 (___) ___-__-__",
             message: "Сұрақтарыңыз немесе тілектеріңіз туралы айтыңыз..."
           },
           messages: {
             sending: "Жіберілуде...",
-            error: "Хабарлама жіберу кезінде қате орын алды. Қайталап көріңіз."
+            error: "Хабарлама жіберу кезінде қате орын алды. Қайталап көріңіз.",
+            success: "Хабарлама сәтті жіберілді! Біз жақын арада сізбен байланысамыз."
           }
         },
         info: {
@@ -701,6 +724,16 @@ export function getTranslations(locale: Locale) {
           phone: "Телефон",
           email: "Email",
           hours: "Жұмыс уақыты"
+        },
+        details: {
+          address: "Қайрат Жұмағалиев к-сі 18, 3 қабат",
+          city: "Орал, Қазақстан",
+          phoneNumber: "8 706 610 57 81",
+          phoneHours: "Дс-Жм: 9:00 - 18:00",
+          emailAddress: "info@scandic.school",
+          emailResponse: "24 сағат ішінде жауап береміз",
+          workingHours: "Дс-Жм: 9:00 - 18:00",
+          saturdayHours: "Сб: 9:00 - 15:00"
         }
       },
       application: {

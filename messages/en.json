@@ -193,6 +193,54 @@
       "STUDENTS": "For Students"
     }
   },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We're here to answer any questions you may have",
+    "info": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Working Hours"
+    },
+    "details": {
+      "address": "Kairat Zhumagaliyev St 18, 3rd floor",
+      "city": "Uralsk, Kazakhstan",
+      "phoneNumber": "8 706 610 57 81",
+      "phoneHours": "Mon-Fri: 9:00 AM - 6:00 PM",
+      "emailAddress": "info@scandic.school",
+      "emailResponse": "We'll respond within 24 hours",
+      "workingHours": "Mon-Fri: 9:00 AM - 6:00 PM",
+      "saturdayHours": "Sat: 9:00 AM - 3:00 PM"
+    },
+    "form": {
+      "title": "Send us a Message",
+      "subtitle": "Fill out the form and we'll get back to you soon",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Send Message",
+      "placeholders": {
+        "name": "Enter your name",
+        "email": "your@email.com",
+        "phone": "+7 (___) ___-__-__",
+        "message": "Tell us about your questions or wishes..."
+      },
+      "messages": {
+        "sending": "Sending...",
+        "error": "An error occurred while sending the message. Please try again.",
+        "success": "Message sent successfully! We'll contact you soon."
+      }
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Learn more about our school and our approach to education",
+    "metadata": {
+      "title": "About Us | Scandic International School",
+      "description": "Learn more about Scandic International School - our mission, values and approach to education"
+    }
+  },
   "common": {
     "loading": "Loading...",
     "error": "An error occurred",
@@ -202,5 +250,27 @@
     "close": "Close",
     "readMore": "Read More",
     "learnMore": "Learn More"
+  },
+  "metadata": {
+    "contact": {
+      "title": "Contact | Scandic International School",
+      "description": "Contact us - address, phone, email and contact form of Scandic International School"
+    },
+    "documents": {
+      "title": "Documents | Scandic International School",
+      "description": "Official documents of Scandic International School - policies, guidelines, schedules, event calendar"
+    },
+    "testimonials": {
+      "title": "Testimonials | Scandic International School",
+      "description": "Parent testimonials about Scandic International School - find out what our students' families say about us"
+    },
+    "staff": {
+      "title": "Staff | Scandic International School",
+      "description": "Meet our team of professional educators and administrators"
+    },
+    "application": {
+      "title": "Application | Scandic International School",
+      "description": "Apply for admission to Scandic International School for the 2025-2026 academic year"
+    }
   }
 }

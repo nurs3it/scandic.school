@@ -10,26 +10,26 @@ export async function ContactInfo() {
     {
       icon: MapPin,
       title: translations.contact.info.address,
-      details: "ул. Кайрата Жумагалиева 18, 3 этаж",
-      description: "Уральск, Казахстан"
+      details: translations.contact.details.address,
+      description: translations.contact.details.city
     },
     {
       icon: Phone,
       title: translations.contact.info.phone,
-      details: "8 706 610 57 81",
-      description: "Пн-Пт: 9:00 - 18:00"
+      details: translations.contact.details.phoneNumber,
+      description: translations.contact.details.phoneHours
     },
     {
       icon: Mail,
       title: translations.contact.info.email,
-      details: "info@scandic.school",
-      description: "Ответим в течение 24 часов"
+      details: translations.contact.details.emailAddress,
+      description: translations.contact.details.emailResponse
     },
     {
       icon: Clock,
       title: translations.contact.info.hours,
-      details: "Пн-Пт: 9:00 - 18:00",
-      description: "Сб: 9:00 - 15:00"
+      details: translations.contact.details.workingHours,
+      description: translations.contact.details.saturdayHours
     }
   ];
 

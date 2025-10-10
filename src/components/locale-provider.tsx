@@ -112,6 +112,28 @@ const translations = {
       subscribe: "Subscribe",
       contactUs: "Contact Us"
     },
+    contact: {
+      title: "Send us a Message",
+      subtitle: "Fill out the form and we'll get back to you soon",
+      form: {
+        name: "Name",
+        email: "Email",
+        phone: "Phone",
+        message: "Message",
+        submit: "Send Message",
+        placeholders: {
+          name: "Enter your name",
+          email: "your@email.com",
+          phone: "+7 (___) ___-__-__",
+          message: "Tell us about your questions or wishes..."
+        },
+        messages: {
+          sending: "Sending...",
+          error: "An error occurred while sending the message. Please try again.",
+          success: "Message sent successfully! We'll contact you soon."
+        }
+      }
+    },
     application: {
       title: "Application Form",
       subtitle: "Fill out the form to apply for admission to our school",
@@ -281,6 +303,28 @@ const translations = {
       subscribe: "Подписаться",
       contactUs: "Связаться с нами"
     },
+    contact: {
+      title: "Отправьте нам сообщение",
+      subtitle: "Заполните форму и мы свяжемся с вами в ближайшее время",
+      form: {
+        name: "Имя",
+        email: "Email",
+        phone: "Телефон",
+        message: "Сообщение",
+        submit: "Отправить сообщение",
+        placeholders: {
+          name: "Введите ваше имя",
+          email: "ваш@email.com",
+          phone: "+7 (___) ___-__-__",
+          message: "Расскажите о ваших вопросах или пожеланиях..."
+        },
+        messages: {
+          sending: "Отправка...",
+          error: "Произошла ошибка при отправке сообщения. Попробуйте еще раз.",
+          success: "Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время."
+        }
+      }
+    },
     application: {
       title: "Форма заявки",
       subtitle: "Заполните форму для подачи заявки на поступление в нашу школу",
@@ -449,6 +493,28 @@ const translations = {
       loading: "Пост жүктелуде...",
       subscribe: "Жазылу",
       contactUs: "Бізбен байланысыңыз"
+    },
+    contact: {
+      title: "Бізге хабарлама жіберіңіз",
+      subtitle: "Форманы толтырыңыз және біз жақын арада сізбен байланысамыз",
+      form: {
+        name: "Аты-жөні",
+        email: "Email",
+        phone: "Телефон",
+        message: "Хабарлама",
+        submit: "Хабарлама жіберу",
+        placeholders: {
+          name: "Атыңызды енгізіңіз",
+          email: "сіздің@email.com",
+          phone: "+7 (___) ___-__-__",
+          message: "Сұрақтарыңыз немесе тілектеріңіз туралы айтыңыз..."
+        },
+        messages: {
+          sending: "Жіберілуде...",
+          error: "Хабарлама жіберу кезінде қате орын алды. Қайталап көріңіз.",
+          success: "Хабарлама сәтті жіберілді! Біз жақын арада сізбен байланысамыз."
+        }
+      }
     },
     application: {
       title: "Өтініш формасы",

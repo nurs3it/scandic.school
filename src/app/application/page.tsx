@@ -2,11 +2,13 @@ import { Metadata } from "next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ApplicationForm } from "@/components/application-form";
+import { getLocale } from '@/lib/server-locale';
+import { generateMetadata as genMeta } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: "Заявка на набор | Scandic International School",
-  description: "Подайте заявку на поступление в Scandic International School на 2025-2026 учебный год",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  return genMeta(locale, 'application');
+}
 
 export default function ApplicationPage() {
   return (

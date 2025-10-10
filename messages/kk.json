@@ -193,6 +193,54 @@
       "STUDENTS": "Оқушыларға"
     }
   },
+  "contact": {
+    "title": "Бізбен байланысыңыз",
+    "subtitle": "Біз сіздің кез келген сұрағыңызға жауап беруге дайынбыз",
+    "info": {
+      "address": "Мекенжай",
+      "phone": "Телефон",
+      "email": "Email",
+      "hours": "Жұмыс уақыты"
+    },
+    "details": {
+      "address": "Қайрат Жұмағалиев к-сі 18, 3 қабат",
+      "city": "Орал, Қазақстан",
+      "phoneNumber": "8 706 610 57 81",
+      "phoneHours": "Дс-Жм: 9:00 - 18:00",
+      "emailAddress": "info@scandic.school",
+      "emailResponse": "24 сағат ішінде жауап береміз",
+      "workingHours": "Дс-Жм: 9:00 - 18:00",
+      "saturdayHours": "Сб: 9:00 - 15:00"
+    },
+    "form": {
+      "title": "Бізге хабарлама жіберіңіз",
+      "subtitle": "Форманы толтырыңыз және біз жақын арада сізбен байланысамыз",
+      "name": "Аты-жөні",
+      "email": "Email",
+      "phone": "Телефон",
+      "message": "Хабарлама",
+      "submit": "Хабарлама жіберу",
+      "placeholders": {
+        "name": "Атыңызды енгізіңіз",
+        "email": "сіздің@email.com",
+        "phone": "+7 (___) ___-__-__",
+        "message": "Сұрақтарыңыз немесе тілектеріңіз туралы айтыңыз..."
+      },
+      "messages": {
+        "sending": "Жіберілуде...",
+        "error": "Хабарлама жіберу кезінде қате орын алды. Қайталап көріңіз.",
+        "success": "Хабарлама сәтті жіберілді! Біз жақын арада сізбен байланысамыз."
+      }
+    }
+  },
+  "about": {
+    "title": "Біз туралы",
+    "subtitle": "Мектебіміз және білім беру тәсілі туралы көбірек біліңіз",
+    "metadata": {
+      "title": "Біз туралы | Scandic International School",
+      "description": "Scandic International School туралы көбірек біліңіз - біздің миссиямыз, құндылықтарымыз және білім беруге деген көзқарасымыз"
+    }
+  },
   "common": {
     "loading": "Жүктелуде...",
     "error": "Қате орын алды",
@@ -202,5 +250,27 @@
     "close": "Жабу",
     "readMore": "Одан әрі оқу",
     "learnMore": "Көбірек білу"
+  },
+  "metadata": {
+    "contact": {
+      "title": "Байланыс | Scandic International School",
+      "description": "Бізбен байланысыңыз - Scandic International School мекенжайы, телефоны, email және байланыс формасы"
+    },
+    "documents": {
+      "title": "Мектеп құжаттары | Scandic International School",
+      "description": "Scandic International School-дың ресми құжаттары - саясаттар, нұсқаулықтар, кестелер, іс-шаралар күнтізбесі"
+    },
+    "testimonials": {
+      "title": "Пікірлер | Scandic International School",
+      "description": "Scandic International School туралы ата-аналардың пікірлері - біз туралы оқушыларымыздың отбасылары не дейді"
+    },
+    "staff": {
+      "title": "Қызметкерлер | Scandic International School",
+      "description": "Кәсіби педагогтар мен әкімшілердің біздің командасымен танысыңыз"
+    },
+    "application": {
+      "title": "Қабылдауға өтініш | Scandic International School",
+      "description": "2025-2026 оқу жылына Scandic International School-ға түсу үшін өтініш беріңіз"
+    }
   }
 }

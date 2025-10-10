@@ -9,11 +9,12 @@ import { getDocuments } from '@/lib/api/actions';
 import { DocumentDownloadButton } from '@/components/document-download-button';
 import { Document } from '@/lib/api/types';
 import Link from 'next/link';
+import { generateMetadata as genMeta } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: "Документы школы | Scandic International School",
-  description: "Официальные документы Scandic International School - политики, руководство, расписание, календарь мероприятий",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  return genMeta(locale, 'documents');
+}
 
 // Helper function to group documents by category or audience
 function groupDocuments(documents: Document[]): Record<string, Document[]> {

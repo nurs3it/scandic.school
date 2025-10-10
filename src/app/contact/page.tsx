@@ -3,11 +3,13 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ContactInfo } from "@/components/contact-info";
 import { ContactForm } from "@/components/contact-form";
+import { getLocale } from '@/lib/server-locale';
+import { generateMetadata as genMeta } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: "Контакты | Scandic International School",
-  description: "Свяжитесь с нами - адрес, телефон, email и форма обратной связи Scandic International School",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  return genMeta(locale, 'contact');
+}
 
 export default function ContactPage() {
   return (
