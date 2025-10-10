@@ -260,6 +260,18 @@ export function getTranslations(locale: Locale) {
         ctaSubtitle: "We would love to hear your opinion about our school",
         shareButton: "Share Testimonial",
         parentOf: "Parent of"
+      },
+      documentsPage: {
+        title: "School Documents",
+        subtitle: "Official documents, policies, guidelines, and schedules of Scandic International School",
+        sectionTitle: "Document Categories",
+        sectionSubtitle: "Find the documents you need in the appropriate categories",
+        download: "Download",
+        noDocuments: "No documents found",
+        contactTitle: "Need help with documents?",
+        contactSubtitle: "If you can't find the document you need or have questions, contact us",
+        contactButton: "Contact Us",
+        requestButton: "Request Document"
       }
     },
     ru: {
@@ -504,6 +516,18 @@ export function getTranslations(locale: Locale) {
         ctaSubtitle: "Мы будем рады услышать ваше мнение о нашей школе",
         shareButton: "Поделиться отзывом",
         parentOf: "Родитель"
+      },
+      documentsPage: {
+        title: "Документы школы",
+        subtitle: "Официальные документы, политики, руководства и расписания Scandic International School",
+        sectionTitle: "Категории документов",
+        sectionSubtitle: "Найдите нужные документы в соответствующих категориях",
+        download: "Скачать",
+        noDocuments: "Документы не найдены",
+        contactTitle: "Нужна помощь с документами?",
+        contactSubtitle: "Если вы не можете найти нужный документ или у вас есть вопросы, свяжитесь с нами",
+        contactButton: "Связаться с нами",
+        requestButton: "Запросить документ"
       }
     },
     kk: {
@@ -748,6 +772,18 @@ export function getTranslations(locale: Locale) {
         ctaSubtitle: "Біз мектеп туралы сіздің пікіріңізді естуге қуаныштымыз",
         shareButton: "Пікір бөлісу",
         parentOf: "Ата-анасы"
+      },
+      documentsPage: {
+        title: "Мектеп құжаттары",
+        subtitle: "Scandic International School-дың ресми құжаттары, саясаттары, нұсқаулықтары мен кестелері",
+        sectionTitle: "Құжат санаттары",
+        sectionSubtitle: "Қажетті құжаттарды тиісті санаттардан табыңыз",
+        download: "Жүктеп алу",
+        noDocuments: "Құжаттар табылмады",
+        contactTitle: "Құжаттар бойынша көмек қажет пе?",
+        contactSubtitle: "Егер қажетті құжатты таба алмасаңыз немесе сұрақтарыңыз болса, бізге хабарласыңыз",
+        contactButton: "Бізбен байланысу",
+        requestButton: "Құжат сұрау"
       }
     }
   };

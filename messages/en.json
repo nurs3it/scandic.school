@@ -175,6 +175,24 @@
     "shareButton": "Share Testimonial",
     "parentOf": "Parent of"
   },
+  "documentsPage": {
+    "title": "School Documents",
+    "subtitle": "Official documents, policies, guidelines, and schedules of Scandic International School",
+    "sectionTitle": "Document Categories",
+    "sectionSubtitle": "Find the documents you need in the appropriate categories",
+    "download": "Download",
+    "noDocuments": "No documents found",
+    "contactTitle": "Need help with documents?",
+    "contactSubtitle": "If you can't find the document you need or have questions, contact us",
+    "contactButton": "Contact Us",
+    "requestButton": "Request Document",
+    "audiences": {
+      "ALL": "All",
+      "TEACHERS": "For Teachers",
+      "PARENTS": "For Parents",
+      "STUDENTS": "For Students"
+    }
+  },
   "common": {
     "loading": "Loading...",
     "error": "An error occurred",
