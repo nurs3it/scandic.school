@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { getLocale, getTranslations } from '@/lib/server-locale';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -12,9 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default async function DocumentsPage() {
-  const locale = await getLocale();
-  const translations = getTranslations(locale);
-
   const documents = [
     {
       title: "Политики школы",

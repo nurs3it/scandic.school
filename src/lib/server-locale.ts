@@ -43,7 +43,7 @@ export function getTranslations(locale: Locale) {
       hero: {
         welcome: "Welcome to",
         schoolName: "Scandic International School",
-        description: "We provide the highest level of education for children from different countries, nationalities and cultural traditions with the IB PYP program",
+        description: "We nurture harmonious personalities committed to building a better world based on moral values.",
         stats: {
           students: "Students",
           nationalities: "Nationalities",
@@ -100,7 +100,7 @@ export function getTranslations(locale: Locale) {
       },
       programs: {
         title: "Our Programs",
-        subtitle: "Comprehensive education for children aged 3-10",
+        subtitle: "Comprehensive education for children aged 5-10",
         earlyYears: {
           title: "Early Years (5-6 years)",
           description: "Holistic development for our youngest learners."
@@ -287,7 +287,7 @@ export function getTranslations(locale: Locale) {
       hero: {
         welcome: "Добро пожаловать в",
         schoolName: "Scandic International School",
-        description: "Предоставляем высочайший уровень образования для детей разных стран, национальностей и культурных традиций с программой IB PYP",
+        description: "Мы воспитываем гармоничную личность, преданную идее построения лучшего мира на основе нравственных ценностей.",
         stats: {
           students: "Учеников",
           nationalities: "Национальностей",
@@ -344,7 +344,7 @@ export function getTranslations(locale: Locale) {
       },
       programs: {
         title: "Наши программы",
-        subtitle: "Комплексное образование для детей 3-10 лет",
+        subtitle: "Комплексное образование для детей 5-10 лет",
         earlyYears: {
           title: "Ранние годы (5-6 лет)",
           description: "Целостное развитие для наших самых маленьких учеников."
@@ -531,7 +531,7 @@ export function getTranslations(locale: Locale) {
       hero: {
         welcome: "Қош келдіңіз",
         schoolName: "Scandic International School",
-        description: "IB PYP бағдарламасымен әртүрлі елдердің, ұлттардың және мәдени дәстүрлердің балаларына ең жоғары деңгейде білім беру",
+        description: "Біз адамгершілік құндылықтарына негізделген жақсырақ әлем құру идеясына адал гармониялы тұлғаларды тәрбиелейміз.",
         stats: {
           students: "Оқушылар",
           nationalities: "Ұлттар",
@@ -588,7 +588,7 @@ export function getTranslations(locale: Locale) {
       },
       programs: {
         title: "Біздің бағдарламалар",
-        subtitle: "3-10 жас аралығындағы балаларға арналған кешенді білім беру",
+        subtitle: "5-10 жас аралығындағы балаларға арналған кешенді білім беру",
         earlyYears: {
           title: "Ерте жылдар (5-6 жас)",
           description: "Біздің ең кішкентай оқушыларымызға арналған толық даму."

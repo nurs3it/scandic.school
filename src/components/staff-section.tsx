@@ -1,73 +1,32 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { GraduationCap, Users, BookOpen, Heart, Award, Globe } from "lucide-react";
+import { GraduationCap, Users, BookOpen, Heart, Award, Globe, LucideIcon } from "lucide-react";
 import { getLocale, getTranslations } from '@/lib/server-locale';
+import { getTeachers } from '@/lib/api/actions';
+import Image from 'next/image';
+
+const getIconForIndex = (index: number): LucideIcon => {
+  const icons = [Award, GraduationCap, BookOpen, Globe, Heart, Users];
+  return icons[index % icons.length];
+};
+
+const getColorForIndex = (index: number) => {
+  const colors = [
+    { text: "text-blue-500", bg: "bg-blue-50" },
+    { text: "text-green-500", bg: "bg-green-50" },
+    { text: "text-purple-500", bg: "bg-purple-50" },
+    { text: "text-orange-500", bg: "bg-orange-50" },
+    { text: "text-red-500", bg: "bg-red-50" },
+    { text: "text-indigo-500", bg: "bg-indigo-50" },
+  ];
+  return colors[index % colors.length];
+};
 
 export async function StaffSection() {
   const locale = await getLocale();
   const translations = getTranslations(locale);
 
-  const staff = [
-    {
-      name: "Анна Петровна Иванова",
-      position: "Директор школы",
-      education: "Магистр педагогики, Кембриджский университет",
-      experience: "15 лет опыта в международном образовании",
-      languages: ["Английский", "Русский", "Французский"],
-      icon: Award,
-      color: "text-blue-500",
-      bgColor: "bg-blue-50",
-    },
-    {
-      name: "Майкл Джонсон",
-      position: "Координатор IB PYP",
-      education: "Магистр образования, Гарвардский университет",
-      experience: "12 лет работы с программой IB PYP",
-      languages: ["Английский", "Испанский"],
-      icon: GraduationCap,
-      color: "text-green-500",
-      bgColor: "bg-green-50",
-    },
-    {
-      name: "Айгуль Касымова",
-      position: "Учитель начальных классов",
-      education: "Бакалавр педагогики, КазНУ им. аль-Фараби",
-      experience: "8 лет опыта преподавания",
-      languages: ["Казахский", "Русский", "Английский"],
-      icon: BookOpen,
-      color: "text-purple-500",
-      bgColor: "bg-purple-50",
-    },
-    {
-      name: "Сара Уильямс",
-      position: "Учитель английского языка",
-      education: "Магистр лингвистики, Оксфордский университет",
-      experience: "10 лет преподавания ESL",
-      languages: ["Английский", "Немецкий"],
-      icon: Globe,
-      color: "text-orange-500",
-      bgColor: "bg-orange-50",
-    },
-    {
-      name: "Дмитрий Сергеевич Козлов",
-      position: "Психолог школы",
-      education: "Кандидат психологических наук, МГУ",
-      experience: "12 лет работы с детьми",
-      languages: ["Русский", "Английский"],
-      icon: Heart,
-      color: "text-red-500",
-      bgColor: "bg-red-50",
-    },
-    {
-      name: "Мария Гонсалес",
-      position: "Координатор по внеклассной деятельности",
-      education: "Магистр социальной работы, Сорбонна",
-      experience: "7 лет организации детских программ",
-      languages: ["Испанский", "Английский", "Французский"],
-      icon: Users,
-      color: "text-indigo-500",
-      bgColor: "bg-indigo-50",
-    },
-  ];
+  const result = await getTeachers();
+  const staff = result.success && result.data ? result.data : [];
 
   return (
     <section className="py-20 bg-white">
@@ -83,58 +42,77 @@ export async function StaffSection() {
         </div>
 
         {/* Staff Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {staff.map((member, index) => {
-            const IconComponent = member.icon;
-            return (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
-                <CardContent className="p-8">
-                  <div className="text-center">
-                    {/* Icon */}
-                    <div className={`w-16 h-16 ${member.bgColor} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                      <IconComponent className={`h-8 w-8 ${member.color}`} />
-                    </div>
+        {staff.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-gray-500">
+              {locale === 'en' ? 'No teachers found' : locale === 'kk' ? 'Мұғалімдер табылмады' : 'Преподаватели не найдены'}
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {staff.map((member, index) => {
+              const IconComponent = getIconForIndex(index);
+              const colors = getColorForIndex(index);
+              return (
+                <Card key={member.id} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
+                  <CardContent className="p-8">
+                    <div className="text-center">
+                      {/* Photo or Icon */}
+                      {member.photo_url ? (
+                        <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                          <Image 
+                            src={member.photo_url} 
+                            alt={member.name}
+                            width={96}
+                            height={96}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div className={`w-16 h-16 ${colors.bg} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                          <IconComponent className={`h-8 w-8 ${colors.text}`} />
+                        </div>
+                      )}
 
-                    {/* Name and Position */}
-                    <h3 className="text-xl font-bold text-secondary mb-2">
-                      {member.name}
-                    </h3>
-                    <p className="text-primary font-semibold mb-4">
-                      {member.position}
-                    </p>
+                      {/* Name and Subject */}
+                      <h3 className="text-xl font-bold text-secondary mb-2">
+                        {member.name}
+                      </h3>
+                      {member.subject && (
+                        <p className="text-primary font-semibold mb-4">
+                          {member.subject}
+                        </p>
+                      )}
 
-                    {/* Education */}
-                    <div className="mb-4">
-                      <p className="text-sm text-gray-600 font-medium mb-1">{translations.staff.education}</p>
-                      <p className="text-sm text-gray-700">{member.education}</p>
-                    </div>
+                      {/* Bio */}
+                      {member.bio && (
+                        <div className="mb-4">
+                          <p className="text-sm text-gray-700 leading-relaxed">{member.bio}</p>
+                        </div>
+                      )}
 
-                    {/* Experience */}
-                    <div className="mb-4">
-                      <p className="text-sm text-gray-600 font-medium mb-1">{translations.staff.experience}</p>
-                      <p className="text-sm text-gray-700">{member.experience}</p>
-                    </div>
-
-                    {/* Languages */}
-                    <div>
-                      <p className="text-sm text-gray-600 font-medium mb-2">{translations.staff.languages}</p>
-                      <div className="flex flex-wrap gap-2 justify-center">
-                        {member.languages.map((language, langIndex) => (
-                          <span
-                            key={langIndex}
-                            className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
-                          >
-                            {language}
-                          </span>
-                        ))}
+                      {/* Contact Info */}
+                      <div className="mt-4 space-y-2">
+                        {member.email && (
+                          <p className="text-xs text-gray-600">
+                            <span className="font-medium">Email:</span> {member.email}
+                          </p>
+                        )}
+                        {member.phone && (
+                          <p className="text-xs text-gray-600">
+                            <span className="font-medium">
+                              {locale === 'en' ? 'Phone' : locale === 'kk' ? 'Телефон' : 'Телефон'}:
+                            </span> {member.phone}
+                          </p>
+                        )}
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        )}
 
         {/* Call to Action */}
         <div className="text-center mt-16">

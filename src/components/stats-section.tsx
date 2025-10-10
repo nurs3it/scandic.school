@@ -1,4 +1,4 @@
-import { Users, Globe, BookOpen, Award } from "lucide-react";
+import { Users, BookOpen, Award } from "lucide-react";
 import { getLocale, getTranslations } from '@/lib/server-locale';
 
 export async function StatsSection() {
