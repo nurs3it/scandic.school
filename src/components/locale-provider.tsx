@@ -7,7 +7,29 @@ type Locale = 'en' | 'ru' | 'kk';
 interface LocaleContextType {
   locale: Locale;
   setLocale: (locale: Locale) => void;
-  translations: Record<string, unknown>;
+  translations: {
+    navigation: Record<string, string>;
+    header: Record<string, string | Record<string, string>>;
+    hero: Record<string, string | Record<string, string>>;
+    features: Record<string, string | Record<string, Record<string, string>>>;
+    footer: Record<string, string>;
+    instagram: Record<string, string>;
+    contact: Record<string, string | Record<string, string | Record<string, string>>>;
+    application: Record<string, string | Record<string, string>>;
+    mission: Record<string, string | Record<string, string>>;
+    staff: Record<string, string>;
+    testimonials: Record<string, string>;
+    common: {
+      loading: string;
+      error: string;
+      success: string;
+      submit: string;
+      cancel: string;
+      close: string;
+      readMore: string;
+      learnMore: string;
+    };
+  };
 }
 
 const LocaleContext = createContext<LocaleContextType | undefined>(undefined);
@@ -209,6 +231,16 @@ const translations = {
       ctaSubtitle: "We would love to hear your opinion about our school",
       shareButton: "Share Testimonial",
       parentOf: "Parent of"
+    },
+    common: {
+      loading: "Loading...",
+      error: "An error occurred",
+      success: "Success",
+      submit: "Submit",
+      cancel: "Cancel",
+      close: "Close",
+      readMore: "Read More",
+      learnMore: "Learn More"
     }
   },
   ru: {
@@ -400,6 +432,16 @@ const translations = {
       ctaSubtitle: "Мы будем рады услышать ваше мнение о нашей школе",
       shareButton: "Поделиться отзывом",
       parentOf: "Родитель"
+    },
+    common: {
+      loading: "Загрузка...",
+      error: "Произошла ошибка",
+      success: "Успешно",
+      submit: "Отправить",
+      cancel: "Отмена",
+      close: "Закрыть",
+      readMore: "Читать далее",
+      learnMore: "Узнать больше"
     }
   },
   kk: {
@@ -591,6 +633,16 @@ const translations = {
       ctaSubtitle: "Біз мектеп туралы сіздің пікіріңізді естуге қуаныштымыз",
       shareButton: "Пікір бөлісу",
       parentOf: "Ата-анасы"
+    },
+    common: {
+      loading: "Жүктелуде...",
+      error: "Қате орын алды",
+      success: "Сәтті",
+      submit: "Жіберу",
+      cancel: "Болдырмау",
+      close: "Жабу",
+      readMore: "Одан әрі оқу",
+      learnMore: "Көбірек білу"
     }
   }
 };

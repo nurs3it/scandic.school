@@ -55,56 +55,57 @@ export function ApplicationForm() {
   const { translations } = useLocale();
   
   // Безопасный доступ к переводам формы заявки
-  const applicationTranslations: ApplicationTranslations = (translations as Record<string, ApplicationTranslations>).application || {
-    title: "Application Form",
-    subtitle: "Apply for admission to Scandic International School",
+  const applicationData = translations.application as Record<string, unknown>;
+  const applicationTranslations: ApplicationTranslations = {
+    title: (applicationData?.title as string) || "Application Form",
+    subtitle: (applicationData?.subtitle as string) || "Apply for admission to Scandic International School",
     sections: {
-      parentInfo: "Parent Information",
-      childInfo: "Child Information"
+      parentInfo: (applicationData?.parentInfo as string) || "Parent Information",
+      childInfo: (applicationData?.childInfo as string) || "Child Information"
     },
     fields: {
-      parentName: "Parent's Full Name (Legal Representative) *",
-      parentPhone: "Contact Phone Number *",
-      childName: "Child's Full Name *",
-      childBirthDate: "Child's Date of Birth *",
-      grade: "Grade Applying For *",
-      language: "Language of Instruction *",
-      englishLevel: "Child's English Level *",
-      preferredTime: "Preferred Interview Time *"
+      parentName: (applicationData?.parentName as string) || "Parent's Full Name (Legal Representative) *",
+      parentPhone: (applicationData?.parentPhone as string) || "Contact Phone Number *",
+      childName: (applicationData?.childName as string) || "Child's Full Name *",
+      childBirthDate: (applicationData?.childBirthDate as string) || "Child's Date of Birth *",
+      grade: (applicationData?.grade as string) || "Grade Applying For *",
+      language: (applicationData?.language as string) || "Language of Instruction *",
+      englishLevel: (applicationData?.englishLevel as string) || "Child's English Level *",
+      preferredTime: (applicationData?.preferredTime as string) || "Preferred Interview Time *"
     },
     placeholders: {
-      parentName: "Enter full name",
-      parentPhone: "+1 (___) ___-____",
-      childName: "Enter child's full name",
-      grade: "Select grade",
-      language: "Select language",
-      englishLevel: "Select level",
-      preferredTime: "Specify desired date and time"
+      parentName: ((applicationData?.placeholders as Record<string, string>)?.parentName) || "Enter full name",
+      parentPhone: ((applicationData?.placeholders as Record<string, string>)?.parentPhone) || "+7 (___) ___-__-__",
+      childName: ((applicationData?.placeholders as Record<string, string>)?.childName) || "Enter child's full name",
+      grade: ((applicationData?.selectPlaceholders as Record<string, string>)?.grade) || "Select grade",
+      language: ((applicationData?.selectPlaceholders as Record<string, string>)?.language) || "Select language",
+      englishLevel: ((applicationData?.selectPlaceholders as Record<string, string>)?.englishLevel) || "Select level",
+      preferredTime: ((applicationData?.placeholders as Record<string, string>)?.preferredTime) || "Specify desired date and time"
     },
     options: {
-      grades: [
-        { value: "0", label: "Grade 0" },
-        { value: "1", label: "Grade 1" },
-        { value: "2", label: "Grade 2" },
-        { value: "3", label: "Grade 3" },
-        { value: "4", label: "Grade 4" }
-      ],
-      languages: [
-        { value: "kazakh", label: "Kazakh" },
-        { value: "russian", label: "Russian" }
-      ],
-      englishLevels: [
-        { value: "beginner", label: "Beginner" },
-        { value: "intermediate", label: "Intermediate (Pre-Intermediate and above)" },
-        { value: "unknown", label: "Don't know" }
-      ]
+      grades: Object.entries((applicationData?.gradeOptions as Record<string, string>) || {
+        "0": "Grade 0",
+        "1": "Grade 1",
+        "2": "Grade 2",
+        "3": "Grade 3",
+        "4": "Grade 4"
+      }).map(([value, label]) => ({ value, label: label as string })),
+      languages: Object.entries((applicationData?.languageOptions as Record<string, string>) || {
+        kazakh: "Kazakh",
+        russian: "Russian"
+      }).map(([value, label]) => ({ value, label: label as string })),
+      englishLevels: Object.entries((applicationData?.englishLevelOptions as Record<string, string>) || {
+        beginner: "Beginner",
+        intermediate: "Intermediate (Pre-Intermediate and above)",
+        unknown: "Don't know"
+      }).map(([value, label]) => ({ value, label: label as string }))
     },
     messages: {
-      submitting: "Submitting application...",
-      submit: "Submit Application",
-      error: "An error occurred while submitting the application. Please try again.",
-      success: "We will contact you to confirm the interview within 24 hours.",
-      license: "License: KZ96LAA00035527 | Grades 0-4 | IB PYP"
+      submitting: (applicationData?.submittingButton as string) || "Submitting application...",
+      submit: (applicationData?.submitButton as string) || "Submit Application",
+      error: (applicationData?.errorMessage as string) || "An error occurred while submitting the application. Please try again.",
+      success: (applicationData?.additionalInfo as string) || "We will contact you to confirm the interview within 24 hours.",
+      license: (applicationData?.licenseInfo as string) || "License: KZ96LAA00035527 | Grades 0-4 | IB PYP"
     }
   };
   const [formData, setFormData] = useState({

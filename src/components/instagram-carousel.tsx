@@ -21,13 +21,14 @@ export function InstagramCarousel() {
   const { translations } = useLocale();
   
   // Безопасный доступ к переводам Instagram
-  const instagramTranslations: InstagramTranslations = (translations as Record<string, InstagramTranslations>).instagram || {
-    title: "Follow us on Instagram",
-    description: "Stay updated with all school events, follow student achievements and news",
-    handle: "@scandic.school",
-    loading: "Loading post...",
-    subscribe: "Subscribe",
-    contactUs: "Contact Us"
+  const instagramData = translations.instagram as Record<string, string>;
+  const instagramTranslations: InstagramTranslations = {
+    title: instagramData?.title || "Follow us on Instagram",
+    description: instagramData?.description || "Stay updated with all school events, follow student achievements and news",
+    handle: instagramData?.handle || "@scandic.school",
+    loading: instagramData?.loading || "Loading post...",
+    subscribe: instagramData?.subscribe || "Subscribe",
+    contactUs: instagramData?.contactUs || "Contact Us"
   };
 
   // Список Instagram постов для отображения (замените на реальные URL-ы)
