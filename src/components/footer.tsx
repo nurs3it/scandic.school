@@ -40,8 +40,8 @@ export async function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/programs" className="text-sm text-gray-300 hover:text-primary transition-colors">
-                  Programs
+                <Link href="/#programs" className="text-sm text-gray-300 hover:text-primary transition-colors">
+                  {translations.programs.title}
                 </Link>
               </li>
               <li>
@@ -84,7 +84,12 @@ export async function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-primary" />
-                <span className="text-sm text-gray-300">info@scandic.school</span>
+                <a 
+                  href={`mailto:${translations.contact.details.emailAddress}`} 
+                  className="text-sm text-gray-300 hover:text-primary transition-colors"
+                >
+                  {translations.contact.details.emailAddress}
+                </a>
               </div>
               <div className="space-y-2">
                 <p className="text-sm font-medium text-gray-300">{(translations.footer as Record<string, string>).followUs}</p>

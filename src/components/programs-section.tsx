@@ -79,7 +79,7 @@ export async function ProgramsSection() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section id="programs" className="py-20 bg-white scroll-mt-24">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">

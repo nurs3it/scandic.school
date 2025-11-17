@@ -195,11 +195,11 @@ export function getTranslations(locale: Locale) {
           address: "Kairat Zhumagaliyev St 18, 3rd floor",
           city: "Uralsk, Kazakhstan",
           phoneNumber: "8 706 610 57 81",
-          phoneHours: "Mon-Fri: 9:00 AM - 6:00 PM",
+          phoneHours: "Mon-Fri: 8:30 AM - 4:30 PM",
           emailAddress: "info@scandic.school",
           emailResponse: "We'll respond within 24 hours",
-          workingHours: "Mon-Fri: 9:00 AM - 6:00 PM",
-          saturdayHours: "Sat: 9:00 AM - 3:00 PM"
+          workingHours: "Mon-Fri: 8:30 AM - 4:30 PM",
+          saturdayHours: ""
         }
       },
       application: {
@@ -462,11 +462,11 @@ export function getTranslations(locale: Locale) {
           address: "ул. Кайрата Жумагалиева 18, 3 этаж",
           city: "Уральск, Казахстан",
           phoneNumber: "8 706 610 57 81",
-          phoneHours: "Пн-Пт: 9:00 - 18:00",
+          phoneHours: "Пн-Пт: 08:30 - 16:30",
           emailAddress: "info@scandic.school",
           emailResponse: "Ответим в течение 24 часов",
-          workingHours: "Пн-Пт: 9:00 - 18:00",
-          saturdayHours: "Сб: 9:00 - 15:00"
+          workingHours: "Пн-Пт: 08:30 - 16:30",
+          saturdayHours: ""
         }
       },
       application: {
@@ -729,11 +729,11 @@ export function getTranslations(locale: Locale) {
           address: "Қайрат Жұмағалиев к-сі 18, 3 қабат",
           city: "Орал, Қазақстан",
           phoneNumber: "8 706 610 57 81",
-          phoneHours: "Дс-Жм: 9:00 - 18:00",
+          phoneHours: "Дс-Жм: 08:30 - 16:30",
           emailAddress: "info@scandic.school",
           emailResponse: "24 сағат ішінде жауап береміз",
-          workingHours: "Дс-Жм: 9:00 - 18:00",
-          saturdayHours: "Сб: 9:00 - 15:00"
+          workingHours: "Дс-Жм: 08:30 - 16:30",
+          saturdayHours: ""
         }
       },
       application: {

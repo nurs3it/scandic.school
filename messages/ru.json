@@ -206,11 +206,11 @@
       "address": "ул. Кайрата Жумагалиева 18, 3 этаж",
       "city": "Уральск, Казахстан",
       "phoneNumber": "8 706 610 57 81",
-      "phoneHours": "Пн-Пт: 9:00 - 18:00",
+      "phoneHours": "Пн-Пт: 08:30 - 16:30",
       "emailAddress": "info@scandic.school",
       "emailResponse": "Ответим в течение 24 часов",
-      "workingHours": "Пн-Пт: 9:00 - 18:00",
-      "saturdayHours": "Сб: 9:00 - 15:00"
+      "workingHours": "Пн-Пт: 08:30 - 16:30",
+      "saturdayHours": ""
     },
     "form": {
       "title": "Отправьте нам сообщение",

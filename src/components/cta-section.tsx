@@ -33,11 +33,16 @@ export async function CTASection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="flex items-center justify-center space-x-3 text-secondary">
               <Phone className="h-5 w-5" />
-              <span className="text-lg font-medium">8 706 610 57 81</span>
+              <span className="text-lg font-medium">{translations.header.phone}</span>
             </div>
             <div className="flex items-center justify-center space-x-3 text-secondary">
               <Mail className="h-5 w-5" />
-              <span className="text-lg font-medium">info@scandic.school</span>
+              <a 
+                href={`mailto:${translations.contact.details.emailAddress}`} 
+                className="text-lg font-medium underline-offset-4 hover:underline"
+              >
+                {translations.contact.details.emailAddress}
+              </a>
             </div>
           </div>
 

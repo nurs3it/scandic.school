@@ -59,9 +59,11 @@ export async function ContactInfo() {
                     <p className="text-primary font-medium mb-1">
                       {info.details}
                     </p>
-                    <p className="text-gray-600 text-sm">
-                      {info.description}
-                    </p>
+                    {info.description && (
+                      <p className="text-gray-600 text-sm">
+                        {info.description}
+                      </p>
+                    )}
                   </div>
                 </div>
               </CardContent>
