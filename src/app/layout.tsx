@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { QueryProvider } from "@/lib/query-client";
 import { LocaleProvider } from "@/components/locale-provider";
@@ -80,6 +81,7 @@ export default function RootLayout({
         <LocaleProvider>
           <QueryProvider>
             {children}
+            <Analytics />
           </QueryProvider>
         </LocaleProvider>
       </body>
