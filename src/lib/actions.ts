@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import type { OrderFormData } from "@/types/merch";
 
 // Types for form data
 export interface ContactFormData {
@@ -95,9 +96,50 @@ export async function subscribeToNewsletter(email: string) {
   }
 }
 
+// Order form submission
+export async function submitOrder(orderData: OrderFormData) {
+  try {
+    // Simulate API call - replace with actual implementation
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    
+    console.log("Order submitted:", {
+      parentName: orderData.parentName,
+      childrenNames: orderData.childrenNames,
+      phone: orderData.phone,
+      total: orderData.total,
+      itemsCount: orderData.items.length,
+      items: orderData.items.map(item => ({
+        name: item.item.name,
+        quantity: item.quantity,
+        price: item.item.price,
+        size: item.selectedSize,
+        color: item.selectedColor,
+      })),
+    });
+    
+    // Here you would typically:
+    // 1. Send email notification to admin
+    // 2. Save to database
+    // 3. Send confirmation email to customer
+    // 4. Create order in your order management system
+    
+    return {
+      success: true,
+      message: "Заказ успешно оформлен! Мы свяжемся с вами в ближайшее время для подтверждения.",
+    };
+  } catch (error) {
+    console.error("Order submission error:", error);
+    return {
+      success: false,
+      message: "Произошла ошибка при оформлении заказа. Попробуйте еще раз.",
+    };
+  }
+}
+
 // Revalidate pages after form submissions
 export async function revalidatePages() {
   revalidatePath("/");
   revalidatePath("/contact");
   revalidatePath("/application");
+  revalidatePath("/merch");
 }

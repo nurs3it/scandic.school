@@ -8,7 +8,8 @@
     "testimonials": "Testimonials",
     "documents": "Documents",
     "school": "School",
-    "contactSection": "Contact"
+    "contactSection": "Contact",
+    "merch": "Merchandise"
   },
   "header": {
     "schoolName": "Scandic School",
@@ -251,6 +252,48 @@
     "readMore": "Read More",
     "learnMore": "Learn More"
   },
+  "merch": {
+    "title": "Official School Merchandise",
+    "subtitle": "Support your school with stylish items featuring the Scandic International School logo",
+    "searchPlaceholder": "Search products...",
+    "allCategories": "All",
+    "noResults": "No products found",
+    "noResultsDescription": "Try changing your search parameters",
+    "cart": {
+      "title": "Cart",
+      "empty": "Cart is empty",
+      "emptyDescription": "Add items from the catalog",
+      "goToProducts": "Go to products",
+      "total": "Total:",
+      "checkout": "Checkout"
+    },
+    "order": {
+      "title": "Place Order",
+      "subtitle": "Fill out the form and we will contact you to confirm your order",
+      "orderSummary": "Your order:",
+      "parentName": "Parent/Guardian Full Name *",
+      "parentNamePlaceholder": "John Doe",
+      "childrenNames": "Children Full Names *",
+      "childrenNamesPlaceholder": "Jane Doe, John Doe Jr.",
+      "childrenNamesHint": "If multiple children, separate with commas",
+      "phone": "Contact Phone Number *",
+      "phonePlaceholder": "+7 (___) ___-__-__",
+      "submit": "Place Order",
+      "cancel": "Cancel",
+      "submitting": "Submitting...",
+      "success": "Order placed successfully!",
+      "successMessage": "We will contact you shortly to confirm your order.",
+      "error": "An error occurred while placing the order. Please try again."
+    },
+    "detail": {
+      "size": "Size",
+      "color": "Color",
+      "quantity": "Quantity",
+      "addToCart": "Add to Cart",
+      "addedToCart": "Added to Cart!",
+      "outOfStock": "Out of Stock"
+    }
+  },
   "metadata": {
     "contact": {
       "title": "Contact | Scandic International School",
@@ -271,6 +314,10 @@
     "application": {
       "title": "Application | Scandic International School",
       "description": "Apply for admission to Scandic International School for the 2025-2026 academic year"
+    },
+    "merch": {
+      "title": "Merchandise | Scandic International School",
+      "description": "Official Scandic International School merchandise - t-shirts, hoodies, backpacks and accessories with school logo"
     }
   }
 }

@@ -8,7 +8,8 @@
     "testimonials": "Пікірлер",
     "documents": "Құжаттар",
     "school": "Мектеп",
-    "contactSection": "Байланыс"
+    "contactSection": "Байланыс",
+    "merch": "Мерч"
   },
   "header": {
     "schoolName": "Scandic School",
@@ -251,6 +252,48 @@
     "readMore": "Одан әрі оқу",
     "learnMore": "Көбірек білу"
   },
+  "merch": {
+    "title": "Мектептің ресми мерчі",
+    "subtitle": "Scandic International School логотипі бар стильді тауарлармен мектебіңізді қолдаңыз",
+    "searchPlaceholder": "Тауарларды іздеу...",
+    "allCategories": "Барлығы",
+    "noResults": "Тауарлар табылмады",
+    "noResultsDescription": "Іздеу параметрлерін өзгертіп көріңіз",
+    "cart": {
+      "title": "Себет",
+      "empty": "Себет бос",
+      "emptyDescription": "Каталогтан тауарлар қосыңыз",
+      "goToProducts": "Тауарларға өту",
+      "total": "Барлығы:",
+      "checkout": "Тапсырысты рәсімдеу"
+    },
+    "order": {
+      "title": "Тапсырысты рәсімдеу",
+      "subtitle": "Форманы толтырыңыз, біз тапсырысты растау үшін сізбен байланысамыз",
+      "orderSummary": "Сіздің тапсырысыңыз:",
+      "parentName": "Ата-ананың (заңды өкілдің) толық аты-жөні *",
+      "parentNamePlaceholder": "Иванов Иван Иванович",
+      "childrenNames": "Балалардың толық аты-жөні *",
+      "childrenNamesPlaceholder": "Иванов Петр Иванович, Иванова Мария Ивановна",
+      "childrenNamesHint": "Егер бірнеше бала болса, үтірмен бөліп көрсетіңіз",
+      "phone": "Кері байланыс телефон нөмірі *",
+      "phonePlaceholder": "+7 (___) ___-__-__",
+      "submit": "Тапсырысты рәсімдеу",
+      "cancel": "Болдырмау",
+      "submitting": "Жіберілуде...",
+      "success": "Тапсырыс сәтті рәсімделді!",
+      "successMessage": "Біз тапсырысты растау үшін жақын арада сізбен байланысамыз.",
+      "error": "Тапсырысты рәсімдеу кезінде қате орын алды. Қайталап көріңіз."
+    },
+    "detail": {
+      "size": "Өлшем",
+      "color": "Түс",
+      "quantity": "Саны",
+      "addToCart": "Себетке қосу",
+      "addedToCart": "Себетке қосылды!",
+      "outOfStock": "Тауар уақытша жоқ"
+    }
+  },
   "metadata": {
     "contact": {
       "title": "Байланыс | Scandic International School",
@@ -271,6 +314,10 @@
     "application": {
       "title": "Қабылдауға өтініш | Scandic International School",
       "description": "2025-2026 оқу жылына Scandic International School-ға түсу үшін өтініш беріңіз"
+    },
+    "merch": {
+      "title": "Мерч | Scandic International School",
+      "description": "Scandic International School-дың ресми мерчі - футболкалар, толстовкалар, рюкзактар және мектеп логотипі бар аксессуарлар"
     }
   }
 }

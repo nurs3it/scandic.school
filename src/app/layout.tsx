@@ -3,6 +3,10 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/lib/query-client";
 import { LocaleProvider } from "@/components/locale-provider";
+import { CartProvider } from "@/contexts/cart-context";
+import { CartSidebar } from "@/components/cart-sidebar";
+import { CartButton } from "@/components/cart-button";
+import { Analytics } from "@vercel/analytics/next"
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -79,9 +83,14 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <LocaleProvider>
           <QueryProvider>
-            {children}
+            <CartProvider>
+              {children}
+              <CartSidebar />
+              <CartButton />
+            </CartProvider>
           </QueryProvider>
         </LocaleProvider>
+        <Analytics />
       </body>
     </html>
   );

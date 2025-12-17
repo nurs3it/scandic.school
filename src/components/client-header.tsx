@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Menu, X, Users, FileText, MessageCircle, UserPlus, Info, GraduationCap } from "lucide-react";
+import { Phone, Menu, X, Users, FileText, MessageCircle, UserPlus, Info, GraduationCap, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from 'react';
 import { LanguageSwitcher } from './language-switcher';
@@ -40,6 +40,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
   // Группируем навигацию для лучшего UX
   const mainNavigation = [
     { name: translations.navigation.about, href: "/about", icon: Info },
+    { name: translations.navigation.merch || "Мерч", href: "/merch", icon: ShoppingBag },
   ];
 
   const schoolNavigation = [

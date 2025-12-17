@@ -8,7 +8,8 @@
     "testimonials": "Отзывы",
     "documents": "Документы",
     "school": "Школа",
-    "contactSection": "Связь"
+    "contactSection": "Связь",
+    "merch": "Мерч"
   },
   "header": {
     "schoolName": "Scandic School",
@@ -251,6 +252,48 @@
     "readMore": "Читать далее",
     "learnMore": "Узнать больше"
   },
+  "merch": {
+    "title": "Официальный мерч школы",
+    "subtitle": "Поддержите свою школу стильными товарами с логотипом Scandic International School",
+    "searchPlaceholder": "Поиск товаров...",
+    "allCategories": "Все",
+    "noResults": "Товары не найдены",
+    "noResultsDescription": "Попробуйте изменить параметры поиска",
+    "cart": {
+      "title": "Корзина",
+      "empty": "Корзина пуста",
+      "emptyDescription": "Добавьте товары из каталога",
+      "goToProducts": "Перейти к товарам",
+      "total": "Итого:",
+      "checkout": "Оформить заказ"
+    },
+    "order": {
+      "title": "Оформление заказа",
+      "subtitle": "Заполните форму, и мы свяжемся с вами для подтверждения заказа",
+      "orderSummary": "Ваш заказ:",
+      "parentName": "ФИО родителя (законного представителя) *",
+      "parentNamePlaceholder": "Иванов Иван Иванович",
+      "childrenNames": "ФИО детей *",
+      "childrenNamesPlaceholder": "Иванов Петр Иванович, Иванова Мария Ивановна",
+      "childrenNamesHint": "Если детей несколько, укажите через запятую",
+      "phone": "Номер телефона для обратной связи *",
+      "phonePlaceholder": "+7 (___) ___-__-__",
+      "submit": "Оформить заказ",
+      "cancel": "Отмена",
+      "submitting": "Отправка...",
+      "success": "Заказ успешно оформлен!",
+      "successMessage": "Мы свяжемся с вами в ближайшее время для подтверждения заказа.",
+      "error": "Произошла ошибка при оформлении заказа. Попробуйте еще раз."
+    },
+    "detail": {
+      "size": "Размер",
+      "color": "Цвет",
+      "quantity": "Количество",
+      "addToCart": "Добавить в корзину",
+      "addedToCart": "Добавлено в корзину!",
+      "outOfStock": "Товар временно отсутствует"
+    }
+  },
   "metadata": {
     "contact": {
       "title": "Контакты | Scandic International School",
@@ -271,6 +314,10 @@
     "application": {
       "title": "Заявка на набор | Scandic International School",
       "description": "Подайте заявку на поступление в Scandic International School на 2025-2026 учебный год"
+    },
+    "merch": {
+      "title": "Мерч | Scandic International School",
+      "description": "Официальный мерч Scandic International School - футболки, толстовки, рюкзаки и аксессуары с логотипом школы"
     }
   }
 }
