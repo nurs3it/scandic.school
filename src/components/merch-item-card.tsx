@@ -15,14 +15,9 @@ interface MerchItemCardProps {
 }
 
 export function MerchItemCard({ item, onViewDetails }: MerchItemCardProps) {
-  const { addToCart, items } = useCart();
+  const { addToCart } = useCart();
   const [imageError, setImageError] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
-
-  // Проверяем, есть ли товар в корзине
-  const isInCart = items.some(
-    (cartItem) => cartItem.item.id === item.id
-  );
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();

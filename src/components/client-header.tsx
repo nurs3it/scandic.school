@@ -20,6 +20,7 @@ interface ClientHeaderProps {
       application: string;
       school: string;
       contactSection: string;
+      merch?: string;
     };
     header: {
       schoolName: string;

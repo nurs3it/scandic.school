@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Filter, ShoppingBag } from 'lucide-react';
+import { Search, ShoppingBag } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { MerchItemCard } from '@/components/merch-item-card';
@@ -11,7 +11,17 @@ import { merchItems } from '@/lib/merch-data';
 import { MerchItem } from '@/types/merch';
 
 interface MerchPageContentProps {
-  translations: any;
+  translations: {
+    merch?: {
+      title?: string;
+      subtitle?: string;
+      searchPlaceholder?: string;
+      allCategories?: string;
+      noResults?: string;
+      noResultsDescription?: string;
+    };
+    [key: string]: unknown;
+  };
 }
 
 export function MerchPageContent({ translations }: MerchPageContentProps) {
@@ -21,7 +31,11 @@ export function MerchPageContent({ translations }: MerchPageContentProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const categories = useMemo(() => {
-    const cats = new Set(merchItems.map((item) => item.category).filter(Boolean));
+    const cats = new Set(
+      merchItems
+        .map((item) => item.category)
+        .filter((cat): cat is string => Boolean(cat))
+    );
     return Array.from(cats);
   }, []);
 
