@@ -119,15 +119,8 @@ export function getTranslations(locale: Locale) {
         }
       },
       mission: {
-        title: "Our Mission",
-        subtitle: "Empowering young minds for a global future",
-        description: "At Scandic International School, we are committed to providing a world-class education that nurtures curiosity, creativity, and critical thinking. Our mission is to develop confident, compassionate, and capable individuals who are prepared to thrive in an interconnected world.",
-        values: {
-          excellence: "Excellence in Education",
-          diversity: "Celebrating Diversity",
-          innovation: "Innovation in Learning",
-          community: "Building Community"
-        }
+        title: "SIS Mission",
+        description: "We nurture harmonious personalities, committed to the idea of building a better world based on moral values."
       },
       stats: {
         title: "By the Numbers",
@@ -386,15 +379,8 @@ export function getTranslations(locale: Locale) {
         }
       },
       mission: {
-        title: "Наша миссия",
-        subtitle: "Воспитываем гармоничную личность, преданную идее построения лучшего мира",
-        description: "Мы воспитываем гармоничную личность, преданную идее построения лучшего мира на основе нравственных ценностей. Наша миссия - развивать уверенных, сострадательных и способных людей, готовых процветать в взаимосвязанном мире.",
-        values: {
-          excellence: "Превосходство в образовании",
-          diversity: "Празднование разнообразия",
-          innovation: "Инновации в обучении",
-          community: "Строительство сообщества"
-        }
+        title: "Миссия SIS",
+        description: "Мы воспитываем гармоничную личность, преданную идее построения лучшего мира на основе нравственных ценностей."
       },
       stats: {
         title: "В цифрах",
@@ -653,15 +639,8 @@ export function getTranslations(locale: Locale) {
         }
       },
       mission: {
-        title: "Біздің миссия",
-        subtitle: "Жаһандық болашақ үшін жас ақылдарды дамыту",
-        description: "Scandic International School-та біз қызығушылық, шығармашылық және сыни ойлауды дамытатын әлемдік деңгейдегі білім беруге міндеттеміз. Біздің миссиямыз - өзара байланысқан әлемде дамыуға дайын сенімді, аяушылық пен қабілетті адамдарды дамыту.",
-        values: {
-          excellence: "Білім беруде мінсіздік",
-          diversity: "Әртүрлілікті тойлау",
-          innovation: "Оқытуда инновациялар",
-          community: "Қауымдастық құру"
-        }
+        title: "SIS миссиясы",
+        description: "Біз моральдық құндылықтар негізінде жақсы әлем құру идеясына адал гармониялы тұлға тәрбиелейміз."
       },
       stats: {
         title: "Сандармен",

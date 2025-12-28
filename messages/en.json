@@ -148,15 +148,8 @@
     "licenseInfo": "License: KZ96LAA00035527 | Grades 0-4 | IB PYP"
   },
   "mission": {
-    "title": "Our Mission",
-    "subtitle": "Nurturing harmonious personalities committed to building a better world",
-    "description": "We nurture harmonious personalities, committed to the idea of building a better world based on moral values. Our mission is to develop confident, compassionate, and capable individuals who are prepared to thrive in an interconnected world.",
-    "values": {
-      "excellence": "Excellence in Education",
-      "diversity": "Celebrating Diversity",
-      "innovation": "Innovation in Learning",
-      "community": "Building Community"
-    }
+    "title": "SIS Mission",
+    "description": "We nurture harmonious personalities, committed to the idea of building a better world based on moral values."
   },
   "staff": {
     "title": "Our Team",
