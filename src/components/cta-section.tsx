@@ -49,7 +49,7 @@ export async function CTASection() {
           {/* License Info */}
           <div className="mt-8 text-center">
             <p className="text-secondary/80 text-sm">
-              {translations.cta.licenseInfo || "License: KZ96LAA00035527 | Grades 0-4 | IB PYP"}
+              {('licenseInfo' in translations.cta ? (translations.cta as Record<string, string>).licenseInfo : null) || "License: KZ96LAA00035527 | Grades 0-4 | IB PYP"}
             </p>
           </div>
         </div>

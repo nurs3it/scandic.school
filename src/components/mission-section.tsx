@@ -19,30 +19,36 @@ export async function MissionSection() {
           </div>
           
           {/* IB Candidate Status Section */}
-          {'ibStatus' in translations.mission && translations.mission.ibStatus && (
-            <div className="mt-12 bg-white rounded-lg shadow-md p-8 border-l-4 border-yellow-400">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
-                    <Info className="h-6 w-6 text-yellow-600" />
+          {'ibStatus' in translations.mission && (() => {
+            const mission = translations.mission as unknown as Record<string, unknown>;
+            const ibStatus = mission.ibStatus as Record<string, string> | undefined;
+            if (!ibStatus) return null;
+            
+            return (
+              <div className="mt-12 bg-white rounded-lg shadow-md p-8 border-l-4 border-yellow-400">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                      <Info className="h-6 w-6 text-yellow-600" />
+                    </div>
+                  </div>
+                  <div className="flex-1 text-left">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                      {ibStatus.title}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed mb-4">
+                      {ibStatus.description}
+                    </p>
+                    {ibStatus.disclaimer && (
+                      <p className="text-sm text-gray-600 leading-relaxed italic mt-4 pt-4 border-t border-gray-200">
+                        {ibStatus.disclaimer}
+                      </p>
+                    )}
                   </div>
                 </div>
-                <div className="flex-1 text-left">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {translations.mission.ibStatus.title}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed mb-4">
-                    {translations.mission.ibStatus.description}
-                  </p>
-                  {translations.mission.ibStatus.disclaimer && (
-                    <p className="text-sm text-gray-600 leading-relaxed italic mt-4 pt-4 border-t border-gray-200">
-                      {translations.mission.ibStatus.disclaimer}
-                    </p>
-                  )}
-                </div>
               </div>
-            </div>
-          )}
+            );
+          })()}
         </div>
       </div>
     </section>

@@ -36,9 +36,12 @@ export async function generateMetadata(locale: string, page: string): Promise<Me
         description: translations.application?.subtitle || "Apply for admission",
       };
     case 'merch':
+      const translationsRecord = translations as unknown as Record<string, unknown>;
+      const metadata = translationsRecord.metadata as Record<string, Record<string, string>> | undefined;
+      const merch = translationsRecord.merch as Record<string, string> | undefined;
       return {
-        title: translations.metadata?.merch?.title || translations.merch?.title || "Merchandise | Scandic International School",
-        description: translations.metadata?.merch?.description || translations.merch?.subtitle || "Official Scandic International School merchandise",
+        title: metadata?.merch?.title || merch?.title || "Merchandise | Scandic International School",
+        description: metadata?.merch?.description || merch?.subtitle || "Official Scandic International School merchandise",
       };
     default:
       return {
