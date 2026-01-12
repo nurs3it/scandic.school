@@ -72,10 +72,10 @@ export function MerchPageContent({ translations }: MerchPageContentProps) {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
-              {translations.merch?.title || 'Официальный мерч школы'}
+              {translations.merch?.title || 'Official School Merchandise'}
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              {translations.merch?.subtitle || 'Поддержите свою школу стильными товарами с логотипом Scandic International School'}
+              {translations.merch?.subtitle || 'Support your school with stylish items featuring the Scandic International School logo'}
             </p>
           </motion.div>
         </div>
@@ -90,7 +90,7 @@ export function MerchPageContent({ translations }: MerchPageContentProps) {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
               <Input
                 type="text"
-                placeholder={translations.merch?.searchPlaceholder || 'Поиск товаров...'}
+                placeholder={translations.merch?.searchPlaceholder || 'Search products...'}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 w-full"
@@ -104,7 +104,7 @@ export function MerchPageContent({ translations }: MerchPageContentProps) {
                 size="sm"
                 onClick={() => setSelectedCategory(null)}
               >
-                {translations.merch?.allCategories || 'Все'}
+                {translations.merch?.allCategories || 'All'}
               </Button>
               {categories.map((category) => (
                 <Button
@@ -138,10 +138,10 @@ export function MerchPageContent({ translations }: MerchPageContentProps) {
             <div className="text-center py-20">
               <ShoppingBag className="h-16 w-16 text-gray-300 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-gray-600 mb-2">
-                {translations.merch?.noResults || 'Товары не найдены'}
+                {translations.merch?.noResults || 'No products found'}
               </h3>
               <p className="text-gray-500">
-                {translations.merch?.noResultsDescription || 'Попробуйте изменить параметры поиска'}
+                {translations.merch?.noResultsDescription || 'Try changing your search parameters'}
               </p>
             </div>
           )}

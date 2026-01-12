@@ -40,7 +40,7 @@ function formatFileSize(url: string): string {
 
 export default async function DocumentsPage() {
   const locale = await getLocale();
-  const translations = getTranslations(locale);
+  const translations = await getTranslations(locale);
 
   const result = await getDocuments();
   const allDocuments = result.success && result.data ? result.data : [];

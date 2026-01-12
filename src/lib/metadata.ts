@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { getTranslations, Locale } from './server-locale';
 
 export async function generateMetadata(locale: string, page: string): Promise<Metadata> {
-  const translations = getTranslations(locale as Locale);
+  const translations = await getTranslations(locale as Locale);
   
   switch (page) {
     case 'contact':
@@ -34,6 +34,11 @@ export async function generateMetadata(locale: string, page: string): Promise<Me
       return {
         title: translations.application?.title || "Application | Scandic International School",
         description: translations.application?.subtitle || "Apply for admission",
+      };
+    case 'merch':
+      return {
+        title: translations.metadata?.merch?.title || translations.merch?.title || "Merchandise | Scandic International School",
+        description: translations.metadata?.merch?.description || translations.merch?.subtitle || "Official Scandic International School merchandise",
       };
     default:
       return {

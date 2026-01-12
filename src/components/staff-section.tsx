@@ -23,7 +23,7 @@ const getColorForIndex = (index: number) => {
 
 export async function StaffSection() {
   const locale = await getLocale();
-  const translations = getTranslations(locale);
+  const translations = await getTranslations(locale);
 
   const result = await getTeachers();
   const staff = result.success && result.data ? result.data : [];

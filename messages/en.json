@@ -39,13 +39,18 @@
       "internationalProgram": "International Primary School Program",
       "grades": "Grades 0-4",
       "multinational": "Multinational Environment",
-      "standards": "International Standards"
+      "standards": "International Standards",
+      "ibCandidate": "IB PYP Candidate School"
     },
     "floating": {
       "enrollment": "2025-2026",
       "enrollmentOpen": "Enrollment Open",
       "license": "License",
       "licenseNumber": "KZ96LAA00035527"
+    },
+    "ibStatus": {
+      "title": "IB PYP Candidate School",
+      "description": "Scandic International School is currently a candidate school* for the International Baccalaureate (IB) Primary Years Programme. This school is pursuing authorization as an IB World School. IB World Schools share a common philosophy—a commitment to high-quality, challenging, international education—that we believe is important for our students."
     }
   },
   "features": {
@@ -83,12 +88,51 @@
     "subtitle": "Comprehensive education for children aged 5-10",
     "earlyYears": {
       "title": "Grade 0 (5 years)",
-      "description": "Play-based learning with focus on social and emotional development. Russian language instruction available."
+      "subtitle": "Grades 0-1",
+      "description": "Play-based learning with focus on social and emotional development. Russian language instruction available.",
+      "features": [
+        "Play-based learning",
+        "Social skills development",
+        "School preparation",
+        "Creative development",
+        "Multilingual environment"
+      ]
     },
     "primary": {
       "title": "Primary Years (6-10 years)",
-      "description": "IB PYP curriculum with inquiry-based learning approach"
-    }
+      "subtitle": "Grades 1-4",
+      "description": "IB PYP curriculum with inquiry-based learning approach",
+      "features": [
+        "IB PYP program",
+        "International standards",
+        "Inquiry-based learning",
+        "Critical thinking development",
+        "Middle school preparation"
+      ]
+    },
+    "ibpyp": {
+      "title": "IB PYP Program",
+      "subtitle": "International Program",
+      "description": "International Baccalaureate Primary Years Programme with inquiry-based learning approach",
+      "features": [
+        "International Baccalaureate",
+        "Inquiry-based learning",
+        "Learner profile development",
+        "Interdisciplinary approach",
+        "Global perspective"
+      ]
+    },
+    "english": {
+      "title": "English Language Program",
+      "subtitle": "Language Program",
+      "description": "Comprehensive English language learning program",
+      "features": [
+        "Communicative approach",
+        "All skills development",
+        "Individual approach"
+      ]
+    },
+    "ibCandidateNote": "*Scandic International School is a candidate school* for the IB Primary Years Programme. This school is pursuing authorization as an IB World School."
   },
   "footer": {
     "description": "Scandic International School - providing world-class education in Uralsk",
@@ -149,7 +193,40 @@
   },
   "mission": {
     "title": "SIS Mission",
-    "description": "We nurture harmonious personalities, committed to the idea of building a better world based on moral values."
+    "description": "We nurture harmonious personalities, committed to the idea of building a better world based on moral values.",
+    "ibStatus": {
+      "title": "IB PYP Candidate School",
+      "description": "Scandic International School is currently a candidate school* for the International Baccalaureate (IB) Primary Years Programme. This school is pursuing authorization as an IB World School. IB World Schools share a common philosophy—a commitment to high-quality, challenging, international education—that we believe is important for our students.",
+      "disclaimer": "*Only schools authorized by the IB Organization can offer any of its four academic programmes: the Primary Years Programme (PYP), the Middle Years Programme (MYP), the Diploma Programme, or the Career-related Programme (CP). Candidate status gives no guarantee that authorization will be granted."
+    }
+  },
+  "cta": {
+    "title": "Ready to Join Our Community?",
+    "subtitle": "Take the first step towards your child's bright future",
+    "apply": "Apply Now",
+    "learnMore": "Learn More",
+    "contact": "Contact Us",
+    "licenseInfo": "License: KZ96LAA00035527 | Grades 0-4 | IB PYP"
+  },
+  "stats": {
+    "title": "By the Numbers",
+    "subtitle": "Our impact in numbers",
+    "students": "Students",
+    "teachers": "Teachers",
+    "years": "Years of Excellence",
+    "descriptions": {
+      "students": "Actively studying at our school",
+      "teachers": "Optimal teacher/student ratio",
+      "years": "Successful years in education"
+    }
+  },
+  "instagram": {
+    "title": "Follow us on Instagram",
+    "description": "Stay updated with all school events, follow student achievements and news",
+    "handle": "@scandic.school",
+    "loading": "Loading posts...",
+    "subscribe": "Subscribe",
+    "contactUs": "Contact Us"
   },
   "staff": {
     "title": "Our Team",

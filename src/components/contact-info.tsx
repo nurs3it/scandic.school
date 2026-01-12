@@ -4,7 +4,7 @@ import { getLocale, getTranslations } from '@/lib/server-locale';
 
 export async function ContactInfo() {
   const locale = await getLocale();
-  const translations = getTranslations(locale);
+  const translations = await getTranslations(locale);
 
   const contactInfo = [
     {

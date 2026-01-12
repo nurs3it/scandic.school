@@ -16,7 +16,13 @@ export async function getLocale(): Promise<Locale> {
   return defaultLocale;
 }
 
-export function getTranslations(locale: Locale) {
+export async function getTranslations(locale: Locale) {
+  // Load translations from JSON files
+  const messages = (await import(`../../messages/${locale}.json`)).default;
+  return messages as ReturnType<typeof getTranslationsSync>;
+}
+
+export function getTranslationsSync(locale: Locale) {
   const translations = {
     en: {
       navigation: {

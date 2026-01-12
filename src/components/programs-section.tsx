@@ -6,21 +6,32 @@ import { getLocale, getTranslations } from '@/lib/server-locale';
 
 export async function ProgramsSection() {
   const locale = await getLocale();
-  const translations = getTranslations(locale);
+  const translations = await getTranslations(locale);
+
+  // Helper function to safely get program data
+  const getProgramData = (key: string) => {
+    const programs = translations.programs as unknown as Record<string, unknown>;
+    if (key in programs && typeof programs[key] === 'object' && programs[key] !== null) {
+      const program = programs[key] as Record<string, unknown>;
+      return {
+        title: (program.title as string) || '',
+        subtitle: (program.subtitle as string) || '',
+        description: (program.description as string) || '',
+        features: (program.features as string[]) || []
+      };
+    }
+    return null;
+  };
+
+  const earlyYears = translations.programs.earlyYears as unknown as Record<string, unknown>;
+  const primary = translations.programs.primary as unknown as Record<string, unknown>;
 
   const programs = [
     {
       title: translations.programs.earlyYears.title,
-      subtitle: "0-1 классы",
-      language: "Казахский язык",
+      subtitle: (earlyYears.subtitle as string) || '',
       description: translations.programs.earlyYears.description,
-      features: [
-        "Игровое обучение",
-        "Развитие социальных навыков", 
-        "Подготовка к школе",
-        "Творческое развитие",
-        "Многоязычная среда"
-      ],
+      features: (earlyYears.features as string[]) || [],
       icon: Users,
       color: "text-blue-500",
       bgColor: "bg-blue-50",
@@ -28,53 +39,28 @@ export async function ProgramsSection() {
     },
     {
       title: translations.programs.primary.title,
-      subtitle: "1-4 классы",
-      language: "Английский язык",
+      subtitle: (primary.subtitle as string) || '',
       description: translations.programs.primary.description,
-      features: [
-        "IB PYP программа",
-        "Международные стандарты",
-        "Исследовательское обучение",
-        "Развитие критического мышления",
-        "Подготовка к средней школе"
-      ],
+      features: (primary.features as string[]) || [],
       icon: BookOpen,
       color: "text-green-500",
       bgColor: "bg-green-50",
       buttonText: translations.navigation.application
     },
-    {
-      title: translations.programs.ibpyp.title,
-      subtitle: "Международная программа",
-      language: "Английский язык",
-      description: translations.programs.ibpyp.description,
-      features: [
-        "Международный бакалавриат",
-        "Исследовательское обучение",
-        "Развитие профиля учащегося",
-        "Междисциплинарный подход",
-        "Глобальная перспектива"
-      ],
+    ...(getProgramData('ibpyp') ? [{
+      ...getProgramData('ibpyp')!,
       icon: Globe,
       color: "text-purple-500",
       bgColor: "bg-purple-50",
       buttonText: translations.navigation.application
-    },
-    {
-      title: translations.programs.english.title,
-      subtitle: "Языковая программа",
-      language: "Английский язык",
-      description: translations.programs.english.description,
-      features: [
-        "Коммуникативный подход",
-        "Развитие всех навыков",
-        "Индивидуальный подход"
-      ],
+    }] : []),
+    ...(getProgramData('english') ? [{
+      ...getProgramData('english')!,
       icon: Star,
       color: "text-orange-500",
       bgColor: "bg-orange-50",
       buttonText: translations.navigation.application
-    }
+    }] : [])
   ];
 
   return (
@@ -94,6 +80,7 @@ export async function ProgramsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {programs.map((program, index) => {
             const IconComponent = program.icon;
+            const isIBProgram = program.title === translations.programs.primary.title;
             return (
               <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm hover:bg-white">
                 <CardHeader className="pb-4">
@@ -106,6 +93,11 @@ export async function ProgramsSection() {
                         {program.title}
                       </CardTitle>
                       <p className="text-sm text-gray-500">{program.subtitle}</p>
+                      {isIBProgram && 'ibCandidate' in translations.hero.features && (
+                        <div className="mt-1 inline-flex items-center px-2 py-0.5 rounded-md bg-yellow-100 border border-yellow-300">
+                          <span className="text-xs text-yellow-800 font-medium">{(translations.hero.features as Record<string, string>).ibCandidate}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
                   {/* <div className="text-sm text-gray-600 mb-2">
@@ -118,7 +110,7 @@ export async function ProgramsSection() {
                   </p>
                   
                   <div className="space-y-3 mb-6">
-                    {program.features.map((feature, featureIndex) => (
+                    {program.features.map((feature: string, featureIndex: number) => (
                       <div key={featureIndex} className="flex items-center space-x-2">
                         <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
                         <span className="text-sm text-gray-600">{feature}</span>
@@ -134,6 +126,17 @@ export async function ProgramsSection() {
             );
           })}
         </div>
+        
+        {/* IB Candidate Note */}
+        {'ibCandidateNote' in translations.programs && (
+          <div className="mt-12 max-w-4xl mx-auto">
+            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg">
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {(translations.programs as Record<string, unknown>).ibCandidateNote as string}
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

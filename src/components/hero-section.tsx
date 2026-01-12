@@ -8,7 +8,7 @@ import { getLocale, getTranslations } from '@/lib/server-locale';
 
 export async function HeroSection() {
   const locale = await getLocale();
-  const translations = getTranslations(locale);
+  const translations = await getTranslations(locale);
 
   return (
     <section className="relative md:min-h-max py-20 min-h-[calc(100vh+200px)] flex items-center justify-center overflow-hidden bg-gradient-to-br from-secondary via-secondary-800 to-secondary-900">
@@ -54,6 +54,7 @@ export async function HeroSection() {
               <div className="text-center">
                 <div className="text-3xl font-bold text-primary">IB PYP</div>
                 <div className="text-sm text-gray-300">{translations.hero.stats.program}</div>
+                <div className="text-xs text-yellow-300 mt-1 font-medium">Candidate*</div>
               </div>
             </div>
 
@@ -86,6 +87,11 @@ export async function HeroSection() {
                     <div>
                       <h3 className="text-xl font-semibold text-white">{translations.hero.features.ibProgram}</h3>
                       <p className="text-gray-300">{translations.hero.features.internationalProgram}</p>
+                      {'ibCandidate' in translations.hero.features && (
+                        <div className="mt-2 inline-flex items-center px-2 py-1 rounded-md bg-yellow-500/20 border border-yellow-500/30">
+                          <span className="text-xs text-yellow-200 font-medium">{(translations.hero.features as Record<string, string>).ibCandidate}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
 

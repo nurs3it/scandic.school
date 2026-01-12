@@ -6,7 +6,7 @@ import { ReviewFormDialog } from './review-form-dialog';
 
 export async function TestimonialsSection() {
   const locale = await getLocale();
-  const translations = getTranslations(locale);
+  const translations = await getTranslations(locale);
 
   const result = await getReviews();
   const testimonials = result.success && result.data ? result.data : [];

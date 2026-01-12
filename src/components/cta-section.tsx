@@ -5,7 +5,7 @@ import { getLocale, getTranslations } from '@/lib/server-locale';
 
 export async function CTASection() {
   const locale = await getLocale();
-  const translations = getTranslations(locale);
+  const translations = await getTranslations(locale);
   return (
     <section className="py-20 bg-gradient-to-r from-primary to-primary-600">
       <div className="container mx-auto px-4">
@@ -49,7 +49,7 @@ export async function CTASection() {
           {/* License Info */}
           <div className="mt-8 text-center">
             <p className="text-secondary/80 text-sm">
-              Лицензия: KZ96LAA00035527 | 0–4 классы | IB PYP
+              {translations.cta.licenseInfo || "License: KZ96LAA00035527 | Grades 0-4 | IB PYP"}
             </p>
           </div>
         </div>

@@ -3,26 +3,29 @@ import { getLocale, getTranslations } from '@/lib/server-locale';
 
 export async function StatsSection() {
   const locale = await getLocale();
-  const translations = getTranslations(locale);
+  const translations = await getTranslations(locale);
 
+  const statsData = translations.stats as unknown as Record<string, unknown>;
+  const descriptions = (statsData.descriptions as Record<string, string>) || {};
+  
   const stats = [
     {
       icon: Users,
       value: "150+",
       label: translations.stats.students,
-      description: "Активно обучающихся в нашей школе"
+      description: descriptions.students || "Actively studying at our school"
     },
     {
       icon: BookOpen,
       value: "1:8",
       label: translations.stats.teachers,
-      description: "Оптимальное соотношение учитель/ученик"
+      description: descriptions.teachers || "Optimal teacher/student ratio"
     },
     {
       icon: Award,
       value: "5+",
       label: translations.stats.years,
-      description: "Успешной работы в сфере образования"
+      description: descriptions.years || "Successful years in education"
     }
   ];
 

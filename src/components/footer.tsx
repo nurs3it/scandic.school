@@ -5,7 +5,7 @@ import { getLocale, getTranslations } from '@/lib/server-locale';
 
 export async function Footer() {
   const locale = await getLocale();
-  const translations = getTranslations(locale);
+  const translations = await getTranslations(locale);
   return (
     <footer className="bg-secondary text-white">
       <div className="container mx-auto px-4 py-12">

@@ -41,7 +41,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
   // Группируем навигацию для лучшего UX
   const mainNavigation = [
     { name: translations.navigation.about, href: "/about", icon: Info },
-    { name: translations.navigation.merch || "Мерч", href: "/merch", icon: ShoppingBag },
+    { name: translations.navigation.merch || "Merchandise", href: "/merch", icon: ShoppingBag },
   ];
 
   const schoolNavigation = [
