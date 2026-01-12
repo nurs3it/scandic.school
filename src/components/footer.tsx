@@ -114,14 +114,14 @@ export async function Footer() {
             <p className="text-sm text-gray-400">
               © 2024 {translations.header.schoolName}. {translations.footer.rights}.
             </p>
-            <div className="flex space-x-6">
+            {/* <div className="flex space-x-6">
               <Link href="/privacy" className="text-sm text-gray-400 hover:text-primary transition-colors">
                 Privacy Policy
               </Link>
               <Link href="/terms" className="text-sm text-gray-400 hover:text-primary transition-colors">
                 Terms of Service
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

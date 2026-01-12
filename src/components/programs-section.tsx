@@ -66,7 +66,6 @@ export async function ProgramsSection() {
       language: "Английский язык",
       description: translations.programs.english.description,
       features: [
-        "Носители языка",
         "Коммуникативный подход",
         "Развитие всех навыков",
         "Индивидуальный подход"
@@ -109,9 +108,9 @@ export async function ProgramsSection() {
                       <p className="text-sm text-gray-500">{program.subtitle}</p>
                     </div>
                   </div>
-                  <div className="text-sm text-gray-600 mb-2">
+                  {/* <div className="text-sm text-gray-600 mb-2">
                     <span className="font-medium">Язык:</span> {program.language}
-                  </div>
+                  </div> */}
                 </CardHeader>
                 <CardContent className="pt-0">
                   <p className="text-gray-600 mb-6 leading-relaxed">
