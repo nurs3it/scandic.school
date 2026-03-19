@@ -68,7 +68,7 @@ export function getTranslationsSync(locale: Locale) {
           standards: "International Standards"
         },
         floating: {
-          enrollment: "2025-2026",
+          enrollment: "2026-2027",
           enrollmentOpen: "Enrollment Open",
           license: "License",
           licenseNumber: "KZ96LAA00035527"
@@ -328,7 +328,7 @@ export function getTranslationsSync(locale: Locale) {
           standards: "Международные стандарты"
         },
         floating: {
-          enrollment: "2025-2026",
+          enrollment: "2026-2027",
           enrollmentOpen: "Набор открыт",
           license: "Лицензия",
           licenseNumber: "KZ96LAA00035527"
@@ -588,7 +588,7 @@ export function getTranslationsSync(locale: Locale) {
           standards: "Халықаралық стандарттар"
         },
         floating: {
-          enrollment: "2025-2026",
+          enrollment: "2026-2027",
           enrollmentOpen: "Қабылдау ашық",
           license: "Лицензия",
           licenseNumber: "KZ96LAA00035527"

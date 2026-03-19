@@ -43,7 +43,7 @@
       "ibCandidate": "IB PYP Candidate School"
     },
     "floating": {
-      "enrollment": "2025-2026",
+      "enrollment": "2026-2027",
       "enrollmentOpen": "Enrollment Open",
       "license": "License",
       "licenseNumber": "KZ96LAA00035527"
@@ -146,7 +146,7 @@
   },
   "application": {
     "title": "Enrollment Inquiry",
-    "subtitle": "Submit your inquiry and our admissions team will contact you to discuss enrollment for the 2025-2026 academic year.",
+    "subtitle": "Submit your inquiry and our admissions team will contact you to discuss enrollment for the 2026-2027 academic year.",
     "parentInfo": "Contact Information",
     "parentName": "Parent/Guardian Full Name *",
     "parentPhone": "Contact Phone Number *",
@@ -188,7 +188,7 @@
   },
   "cta": {
     "title": "Ready to Join Our Community?",
-    "subtitle": "Submit an enrollment inquiry for the 2025-2026 academic year. Our team will contact you after you apply.",
+    "subtitle": "Submit an enrollment inquiry for the 2026-2027 academic year. Our team will contact you after you apply.",
     "apply": "Apply Now",
     "learnMore": "Learn More",
     "contact": "Contact Us",
@@ -369,7 +369,7 @@
     },
     "application": {
       "title": "Application | Scandic International School",
-      "description": "Apply for admission to Scandic International School for the 2025-2026 academic year"
+      "description": "Apply for admission to Scandic International School for the 2026-2027 academic year"
     },
     "merch": {
       "title": "Merchandise | Scandic International School",

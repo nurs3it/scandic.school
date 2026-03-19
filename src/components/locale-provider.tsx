@@ -78,7 +78,7 @@ const translations = {
         standards: "International Standards"
       },
       floating: {
-        enrollment: "2025-2026",
+        enrollment: "2026-2027",
         enrollmentOpen: "Enrollment Open",
         license: "License",
         licenseNumber: "KZ96LAA00035527"
@@ -158,7 +158,7 @@ const translations = {
     },
     application: {
       title: "Enrollment Inquiry",
-      subtitle: "Submit your inquiry and our admissions team will contact you to discuss enrollment for the 2025-2026 academic year.",
+      subtitle: "Submit your inquiry and our admissions team will contact you to discuss enrollment for the 2026-2027 academic year.",
       parentInfo: "Contact Information",
       parentName: "Parent/Guardian Full Name *",
       parentPhone: "Contact Phone Number *",
@@ -265,7 +265,7 @@ const translations = {
         standards: "Международные стандарты"
       },
       floating: {
-        enrollment: "2025-2026",
+        enrollment: "2026-2027",
         enrollmentOpen: "Набор открыт",
         license: "Лицензия",
         licenseNumber: "KZ96LAA00035527"
@@ -345,7 +345,7 @@ const translations = {
     },
     application: {
       title: "Запрос на зачисление",
-      subtitle: "Оставьте заявку и наш отдел приёма свяжется с вами для обсуждения зачисления на 2025-2026 учебный год.",
+      subtitle: "Оставьте заявку и наш отдел приёма свяжется с вами для обсуждения зачисления на 2026-2027 учебный год.",
       parentInfo: "Контактная информация",
       parentName: "ФИО родителя (законного представителя) *",
       parentPhone: "Контактный номер телефона *",
@@ -452,7 +452,7 @@ const translations = {
         standards: "Халықаралық стандарттар"
       },
       floating: {
-        enrollment: "2025-2026",
+        enrollment: "2026-2027",
         enrollmentOpen: "Қабылдау ашық",
         license: "Лицензия",
         licenseNumber: "KZ96LAA00035527"
@@ -532,7 +532,7 @@ const translations = {
     },
     application: {
       title: "Қабылдау өтініші",
-      subtitle: "Өтінішіңізді жіберіңіз, қабылдау бөлімі 2025-2026 оқу жылына қабылдауды талқылау үшін сізбен байланысады.",
+      subtitle: "Өтінішіңізді жіберіңіз, қабылдау бөлімі 2026-2027 оқу жылына қабылдауды талқылау үшін сізбен байланысады.",
       parentInfo: "Байланыс ақпараты",
       parentName: "Ата-ананың (заңды өкілдің) толық аты-жөні *",
       parentPhone: "Байланыс телефон нөмірі *",
