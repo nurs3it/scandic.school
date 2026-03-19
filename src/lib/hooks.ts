@@ -1,11 +1,12 @@
 "use client";
 
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { 
-  submitContactForm, 
-  submitApplicationForm, 
+import {
+  submitContactForm,
   subscribeToNewsletter
 } from "./actions";
+import { submitApplication } from "./api/applications";
+import type { ApplicationFormData } from "./actions";
 
 // Contact form mutation
 export function useContactForm() {
@@ -26,12 +27,12 @@ export function useContactForm() {
 // Application form mutation
 export function useApplicationForm() {
   return useMutation({
-    mutationFn: submitApplicationForm,
-    onSuccess: (data) => {
-      if (data.success) {
-        // You can add toast notification here
-        console.log("Application form submitted successfully");
-      }
+    mutationFn: async (formData: ApplicationFormData) => {
+      await submitApplication(formData);
+      return { success: true, message: "Заявка успешно подана! Мы свяжемся с вами." };
+    },
+    onSuccess: () => {
+      console.log("Application form submitted successfully");
     },
     onError: (error) => {
       console.error("Application form error:", error);

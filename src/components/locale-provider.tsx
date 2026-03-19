@@ -157,31 +157,22 @@ const translations = {
       }
     },
     application: {
-      title: "Application Form",
-      subtitle: "Fill out the form to apply for admission to our school",
-      parentInfo: "Parent Information",
-      childInfo: "Child Information",
+      title: "Enrollment Inquiry",
+      subtitle: "Submit your inquiry and our admissions team will contact you to discuss enrollment for the 2025-2026 academic year.",
+      parentInfo: "Contact Information",
       parentName: "Parent/Guardian Full Name *",
       parentPhone: "Contact Phone Number *",
-      childName: "Child Full Name *",
-      childBirthDate: "Child Birth Date *",
       grade: "Grade Applying For *",
       language: "Language of Instruction *",
-      englishLevel: "Child's English Level *",
-      preferredTime: "Preferred Interview Time *",
       placeholders: {
         parentName: "Enter full name",
-        parentPhone: "+7 (___) ___-__-__",
-        childName: "Enter child's full name",
-        preferredTime: "Specify desired date and time"
+        parentPhone: "+7 (___) ___-__-__"
       },
       selectPlaceholders: {
         grade: "Select grade",
-        language: "Select language",
-        englishLevel: "Select level"
+        language: "Select language"
       },
       gradeOptions: {
-        "0": "Grade 0",
         "1": "Grade 1",
         "2": "Grade 2",
         "3": "Grade 3",
@@ -191,17 +182,12 @@ const translations = {
         kazakh: "Kazakh",
         russian: "Russian"
       },
-      englishLevelOptions: {
-        beginner: "Beginner",
-        intermediate: "Intermediate (Pre-Intermediate and above)",
-        unknown: "Don't know"
-      },
-      submitButton: "Submit Application",
+      submitButton: "Submit Inquiry",
       submittingButton: "Submitting...",
-      successMessage: "Application submitted successfully!",
-      errorMessage: "An error occurred while submitting the application. Please try again.",
-      additionalInfo: "We will contact you to confirm the interview within 24 hours.",
-      licenseInfo: "License: KZ96LAA00035527 | Grades 0-4 | IB PYP"
+      successMessage: "Inquiry submitted successfully!",
+      errorMessage: "An error occurred while submitting the inquiry. Please try again.",
+      additionalInfo: "After submitting, our admissions team will reach out to confirm details and next steps.",
+      licenseInfo: "License: KZ96LAA00035527 | Grades 1-4 | IB PYP"
     },
     mission: {
       title: "Our Mission",
@@ -358,31 +344,22 @@ const translations = {
       }
     },
     application: {
-      title: "Форма заявки",
-      subtitle: "Заполните форму для подачи заявки на поступление в нашу школу",
-      parentInfo: "Информация о родителе",
-      childInfo: "Информация о ребенке",
+      title: "Запрос на зачисление",
+      subtitle: "Оставьте заявку и наш отдел приёма свяжется с вами для обсуждения зачисления на 2025-2026 учебный год.",
+      parentInfo: "Контактная информация",
       parentName: "ФИО родителя (законного представителя) *",
       parentPhone: "Контактный номер телефона *",
-      childName: "ФИО ребенка *",
-      childBirthDate: "Дата рождения ребенка *",
       grade: "Класс, на который планируете поступать *",
       language: "Язык обучения *",
-      englishLevel: "Уровень знания английского языка у ребенка *",
-      preferredTime: "Удобное время для собеседования *",
       placeholders: {
         parentName: "Введите ФИО",
-        parentPhone: "+7 (___) ___-__-__",
-        childName: "Введите ФИО ребенка",
-        preferredTime: "Укажите желаемую дату и время"
+        parentPhone: "+7 (___) ___-__-__"
       },
       selectPlaceholders: {
         grade: "Выберите класс",
-        language: "Выберите язык",
-        englishLevel: "Выберите уровень"
+        language: "Выберите язык"
       },
       gradeOptions: {
-        "0": "0 класс",
         "1": "1 класс",
         "2": "2 класс",
         "3": "3 класс",
@@ -392,17 +369,12 @@ const translations = {
         kazakh: "Казахский",
         russian: "Русский"
       },
-      englishLevelOptions: {
-        beginner: "Начинающий (Beginner)",
-        intermediate: "Средний (Pre-Intermediate и выше)",
-        unknown: "Не знаю"
-      },
       submitButton: "Подать заявку",
       submittingButton: "Отправляем заявку...",
       successMessage: "Заявка успешно отправлена!",
       errorMessage: "Произошла ошибка при подаче заявки. Попробуйте еще раз.",
-      additionalInfo: "Мы свяжемся с вами для подтверждения собеседования в течение 24 часов.",
-      licenseInfo: "Лицензия: KZ96LAA00035527 | 0–4 классы | IB PYP"
+      additionalInfo: "После отправки наш отдел приёма свяжется с вами для уточнения деталей.",
+      licenseInfo: "Лицензия: KZ96LAA00035527 | 1–4 классы | IB PYP"
     },
     mission: {
       title: "Наша миссия",
@@ -559,31 +531,22 @@ const translations = {
       }
     },
     application: {
-      title: "Өтініш формасы",
-      subtitle: "Мектепімізге түсу үшін өтініш беру формасын толтырыңыз",
-      parentInfo: "Ата-ана туралы ақпарат",
-      childInfo: "Бала туралы ақпарат",
+      title: "Қабылдау өтініші",
+      subtitle: "Өтінішіңізді жіберіңіз, қабылдау бөлімі 2025-2026 оқу жылына қабылдауды талқылау үшін сізбен байланысады.",
+      parentInfo: "Байланыс ақпараты",
       parentName: "Ата-ананың (заңды өкілдің) толық аты-жөні *",
       parentPhone: "Байланыс телефон нөмірі *",
-      childName: "Баланың толық аты-жөні *",
-      childBirthDate: "Баланың туған күні *",
       grade: "Түсу жоспарланып отырған сынып *",
       language: "Оқыту тілі *",
-      englishLevel: "Баланың ағылшын тілін білу деңгейі *",
-      preferredTime: "Сұхбатқа ыңғайлы уақыт *",
       placeholders: {
         parentName: "Толық аты-жөнін енгізіңіз",
-        parentPhone: "+7 (___) ___-__-__",
-        childName: "Баланың толық аты-жөнін енгізіңіз",
-        preferredTime: "Қалаған күн мен уақытты көрсетіңіз"
+        parentPhone: "+7 (___) ___-__-__"
       },
       selectPlaceholders: {
         grade: "Сыныпты таңдаңыз",
-        language: "Тілді таңдаңыз",
-        englishLevel: "Деңгейді таңдаңыз"
+        language: "Тілді таңдаңыз"
       },
       gradeOptions: {
-        "0": "0 сынып",
         "1": "1 сынып",
         "2": "2 сынып",
         "3": "3 сынып",
@@ -593,17 +556,12 @@ const translations = {
         kazakh: "Қазақ тілі",
         russian: "Орыс тілі"
       },
-      englishLevelOptions: {
-        beginner: "Бастапқы (Beginner)",
-        intermediate: "Орта (Pre-Intermediate және жоғары)",
-        unknown: "Білмеймін"
-      },
       submitButton: "Өтініш беру",
       submittingButton: "Өтініш жіберілуде...",
       successMessage: "Өтініш сәтті жіберілді!",
       errorMessage: "Өтініш беру кезінде қате орын алды. Қайталап көріңіз.",
-      additionalInfo: "Біз сізбен сұхбатты растау үшін 24 сағат ішінде байланысамыз.",
-      licenseInfo: "Лицензия: KZ96LAA00035527 | 0–4 сыныптар | IB PYP"
+      additionalInfo: "Өтінішті жібергеннен кейін қабылдау бөлімі мәліметтерді растау үшін сізбен байланысады.",
+      licenseInfo: "Лицензия: KZ96LAA00035527 | 1–4 сыныптар | IB PYP"
     },
     mission: {
       title: "Біздің миссиямыз",

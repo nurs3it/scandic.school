@@ -13,13 +13,9 @@ export interface ContactFormData {
 
 export interface ApplicationFormData {
   parentName: string;
-  parentPhone: string;
-  childName: string;
-  childBirthDate: string;
-  grade: "0" | "1" | "2" | "3" | "4";
+  grade: "1" | "2" | "3" | "4";
   language: "kazakh" | "russian";
-  englishLevel: "beginner" | "intermediate" | "unknown";
-  preferredTime: string;
+  parentPhone: string;
 }
 
 // Contact form submission
@@ -64,7 +60,7 @@ export async function submitApplicationForm(formData: ApplicationFormData) {
     
     return {
       success: true,
-      message: "Заявка успешно подана! Мы свяжемся с вами для подтверждения собеседования.",
+      message: "Заявка успешно подана! Мы свяжемся с вами.",
     };
   } catch (error) {
     console.error("Application form error:", error);

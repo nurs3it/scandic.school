@@ -145,31 +145,22 @@
     "rights": "All rights reserved"
   },
   "application": {
-    "title": "Application Form",
-    "subtitle": "Fill out the form to apply for admission to our school",
-    "parentInfo": "Parent Information",
-    "childInfo": "Child Information",
+    "title": "Enrollment Inquiry",
+    "subtitle": "Submit your inquiry and our admissions team will contact you to discuss enrollment for the 2025-2026 academic year.",
+    "parentInfo": "Contact Information",
     "parentName": "Parent/Guardian Full Name *",
     "parentPhone": "Contact Phone Number *",
-    "childName": "Child Full Name *",
-    "childBirthDate": "Child Birth Date *",
     "grade": "Grade Applying For *",
     "language": "Language of Instruction *",
-    "englishLevel": "Child's English Level *",
-    "preferredTime": "Preferred Interview Time *",
     "placeholders": {
       "parentName": "Enter full name",
-      "parentPhone": "+7 (___) ___-__-__",
-      "childName": "Enter child's full name",
-      "preferredTime": "Specify desired date and time"
+      "parentPhone": "+7 (___) ___-__-__"
     },
     "selectPlaceholders": {
       "grade": "Select grade",
-      "language": "Select language",
-      "englishLevel": "Select level"
+      "language": "Select language"
     },
     "gradeOptions": {
-      "0": "Grade 0",
       "1": "Grade 1",
       "2": "Grade 2",
       "3": "Grade 3",
@@ -179,17 +170,12 @@
       "kazakh": "Kazakh",
       "russian": "Russian"
     },
-    "englishLevelOptions": {
-      "beginner": "Beginner",
-      "intermediate": "Intermediate (Pre-Intermediate and above)",
-      "unknown": "Don't know"
-    },
-    "submitButton": "Submit Application",
+    "submitButton": "Submit Inquiry",
     "submittingButton": "Submitting...",
-    "successMessage": "Application submitted successfully!",
-    "errorMessage": "An error occurred while submitting the application. Please try again.",
-    "additionalInfo": "We will contact you to confirm the interview within 24 hours.",
-    "licenseInfo": "License: KZ96LAA00035527 | Grades 0-4 | IB PYP"
+    "successMessage": "Inquiry submitted successfully!",
+    "errorMessage": "An error occurred while submitting the inquiry. Please try again.",
+    "additionalInfo": "After submitting, our admissions team will reach out to confirm details and next steps.",
+    "licenseInfo": "License: KZ96LAA00035527 | Grades 1-4 | IB PYP"
   },
   "mission": {
     "title": "SIS Mission",
@@ -202,11 +188,11 @@
   },
   "cta": {
     "title": "Ready to Join Our Community?",
-    "subtitle": "Take the first step towards your child's bright future",
+    "subtitle": "Submit an enrollment inquiry for the 2025-2026 academic year. Our team will contact you after you apply.",
     "apply": "Apply Now",
     "learnMore": "Learn More",
     "contact": "Contact Us",
-    "licenseInfo": "License: KZ96LAA00035527 | Grades 0-4 | IB PYP"
+    "licenseInfo": "License: KZ96LAA00035527 | Grades 1-4 | IB PYP"
   },
   "stats": {
     "title": "By the Numbers",
