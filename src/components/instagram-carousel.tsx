@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Instagram, ExternalLink } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InstagramEmbed } from "react-social-media-embed";
 import Link from "next/link";
 import { useLocale } from "./locale-provider";
+import { instagramService } from "@/lib/api/services/instagram";
 
 interface InstagramTranslations {
   title: string;
@@ -18,8 +19,11 @@ interface InstagramTranslations {
 
 export function InstagramCarousel() {
   const [isPaused, setIsPaused] = useState(false);
+  const [instagramPosts, setInstagramPosts] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const { translations } = useLocale();
-  
+
   // Безопасный доступ к переводам Instagram
   const instagramData = translations.instagram as Record<string, string>;
   const instagramTranslations: InstagramTranslations = {
@@ -31,18 +35,26 @@ export function InstagramCarousel() {
     contactUs: instagramData?.contactUs || "Contact Us"
   };
 
-  // Список Instagram постов для отображения (замените на реальные URL-ы)
-  const instagramPosts = [
-    "https://www.instagram.com/p/DOScJt1AsIs/",
-    "https://www.instagram.com/p/DOGvTXYDAOT/",
-    "https://www.instagram.com/p/DNUyoWSMVZq/",
-    "https://www.instagram.com/p/DMzd8uUCcN3/",
-    "https://www.instagram.com/p/DMsU3A4Cu9Y/",
-    "https://www.instagram.com/p/DMPHXXWiTWp/",
-  ];
+  useEffect(() => {
+    const loadPosts = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        const posts = await instagramService.getAll();
+        setInstagramPosts(posts.map(post => post.url));
+      } catch (err) {
+        setError("Failed to load Instagram posts");
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadPosts();
+  }, []);
 
   // Дублируем посты для бесконечной прокрутки
-  const duplicatedPosts = [...instagramPosts, ...instagramPosts];
+  const duplicatedPosts = instagramPosts.length > 0 ? [...instagramPosts, ...instagramPosts] : [];
 
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-gradient-to-r from-pink-50 via-purple-50 to-indigo-50 relative overflow-hidden">
@@ -83,27 +95,55 @@ export function InstagramCarousel() {
         </motion.div>
 
         {/* Instagram Posts Carousel */}
-        <div
-          className="relative overflow-hidden"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
+        {isLoading && (
           <motion.div
-            className="flex gap-3 md:gap-6"
-            animate={{
-              x: isPaused ? 0 : [0, -50 * instagramPosts.length],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 25,
-                ease: "linear",
-              },
-            }}
-            style={{ width: `${duplicatedPosts.length * 240}px` }}
+            className="text-center py-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
           >
-            {duplicatedPosts.map((postUrl, index) => (
+            <div className="inline-flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center animate-pulse mr-3">
+                <Instagram className="h-4 w-4 text-white" />
+              </div>
+              <p className="text-gray-600 font-medium">{instagramTranslations.loading}</p>
+            </div>
+          </motion.div>
+        )}
+
+        {error && (
+          <motion.div
+            className="text-center py-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <p className="text-red-600 font-medium">Error: {error}</p>
+          </motion.div>
+        )}
+
+        {!isLoading && !error && instagramPosts.length > 0 && (
+          <div
+            className="relative overflow-hidden"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <motion.div
+              className="flex gap-3 md:gap-6"
+              animate={{
+                x: isPaused ? 0 : [0, -50 * instagramPosts.length],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 25,
+                  ease: "linear",
+                },
+              }}
+              style={{ width: `${duplicatedPosts.length * 240}px` }}
+            >
+              {duplicatedPosts.map((postUrl, index) => (
               <motion.div
                 key={`${postUrl}-${index}`}
                 className="flex-shrink-0 w-56 sm:w-64 md:w-72 lg:w-80 group"
@@ -134,6 +174,18 @@ export function InstagramCarousel() {
             ))}
           </motion.div>
         </div>
+        )}
+
+        {!isLoading && !error && instagramPosts.length === 0 && (
+          <motion.div
+            className="text-center py-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <p className="text-gray-600 font-medium">No Instagram posts available</p>
+          </motion.div>
+        )}
 
         {/* Call to Action */}
         <motion.div
