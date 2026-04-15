@@ -12,3 +12,6 @@ export const schoolService = new SchoolService();
 // Export service classes for those who want to create their own instances
 export { DocumentsService, TeachersService, ReviewsService, SchoolService };
 
+export { instagramService, InstagramService } from './instagram';
+export type { InstagramPost, CreateInstagramPostRequest, UpdateInstagramPostRequest } from './instagram';
+

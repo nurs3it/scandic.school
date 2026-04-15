@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Instagram, ExternalLink } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InstagramEmbed } from "react-social-media-embed";
 import Link from "next/link";
 import { useLocale } from "./locale-provider";
+import { instagramService, type InstagramPost } from "@/lib/api/services/instagram";
 
 interface InstagramTranslations {
   title: string;
@@ -16,10 +17,43 @@ interface InstagramTranslations {
   contactUs: string;
 }
 
+function useCardSize() {
+  const [cardWidth, setCardWidth] = useState(340);
+  const [cardHeight, setCardHeight] = useState(650);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w < 480) {
+        setCardWidth(Math.min(w - 32, 320));
+        setCardHeight(480);
+      } else if (w < 768) {
+        setCardWidth(320);
+        setCardHeight(540);
+      } else if (w < 1024) {
+        setCardWidth(340);
+        setCardHeight(590);
+      } else {
+        setCardWidth(360);
+        setCardHeight(650);
+      }
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return { cardWidth, cardHeight };
+}
+
 export function InstagramCarousel() {
   const [isPaused, setIsPaused] = useState(false);
+  const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const { translations } = useLocale();
-  
+  const { cardWidth, cardHeight } = useCardSize();
+
   // Безопасный доступ к переводам Instagram
   const instagramData = translations.instagram as Record<string, string>;
   const instagramTranslations: InstagramTranslations = {
@@ -31,18 +65,30 @@ export function InstagramCarousel() {
     contactUs: instagramData?.contactUs || "Contact Us"
   };
 
-  // Список Instagram постов для отображения (замените на реальные URL-ы)
-  const instagramPosts = [
-    "https://www.instagram.com/p/DOScJt1AsIs/",
-    "https://www.instagram.com/p/DOGvTXYDAOT/",
-    "https://www.instagram.com/p/DNUyoWSMVZq/",
-    "https://www.instagram.com/p/DMzd8uUCcN3/",
-    "https://www.instagram.com/p/DMsU3A4Cu9Y/",
-    "https://www.instagram.com/p/DMPHXXWiTWp/",
-  ];
+  useEffect(() => {
+    const loadPosts = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        const posts = await instagramService.getAll();
+        const activePosts = posts
+          .filter(post => post.isActive)
+          .sort((a, b) => a.order - b.order);
+        setInstagramPosts(activePosts);
+      } catch (err) {
+        setError("Failed to load Instagram posts");
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadPosts();
+  }, []);
 
   // Дублируем посты для бесконечной прокрутки
-  const duplicatedPosts = [...instagramPosts, ...instagramPosts];
+  const duplicatedPosts = instagramPosts.length > 0 ? [...instagramPosts, ...instagramPosts] : [];
+  const postUrls = instagramPosts.map(p => p.url);
 
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-gradient-to-r from-pink-50 via-purple-50 to-indigo-50 relative overflow-hidden">
@@ -83,39 +129,68 @@ export function InstagramCarousel() {
         </motion.div>
 
         {/* Instagram Posts Carousel */}
-        <div
-          className="relative overflow-hidden"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
+        {isLoading && (
           <motion.div
-            className="flex gap-3 md:gap-6"
-            animate={{
-              x: isPaused ? 0 : [0, -50 * instagramPosts.length],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 25,
-                ease: "linear",
-              },
-            }}
-            style={{ width: `${duplicatedPosts.length * 240}px` }}
+            className="text-center py-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
           >
-            {duplicatedPosts.map((postUrl, index) => (
+            <div className="inline-flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center animate-pulse mr-3">
+                <Instagram className="h-4 w-4 text-white" />
+              </div>
+              <p className="text-gray-600 font-medium">{instagramTranslations.loading}</p>
+            </div>
+          </motion.div>
+        )}
+
+        {error && (
+          <motion.div
+            className="text-center py-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <p className="text-red-600 font-medium">Error: {error}</p>
+          </motion.div>
+        )}
+
+        {!isLoading && !error && instagramPosts.length > 0 && (
+          <div
+            className="relative overflow-hidden"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <motion.div
+              className="flex gap-4"
+              animate={{
+                x: isPaused ? 0 : [0, -((cardWidth + 16) * postUrls.length)],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 25,
+                  ease: "linear",
+                },
+              }}
+              style={{ width: `${duplicatedPosts.length * (cardWidth + 16)}px` }}
+            >
+              {duplicatedPosts.map((post, index) => (
               <motion.div
-                key={`${postUrl}-${index}`}
-                className="flex-shrink-0 w-56 sm:w-64 md:w-72 lg:w-80 group"
+                key={`${post.id}-${index}`}
+                className="flex-shrink-0 group"
+                style={{ width: cardWidth }}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100 p-2 md:p-3">
-                  <div className="w-full h-[280px] sm:h-[320px] md:h-[400px] lg:h-[450px]">
+                <div className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                  <div style={{ width: cardWidth, height: cardHeight }}>
                     <InstagramEmbed
-                      url={postUrl}
-                      width="100%"
-                      height="100%"
+                      url={post.url}
+                      width={cardWidth}
+                      height={cardHeight}
                       placeholderSpinner={
                         <div className="flex items-center justify-center h-full bg-gradient-to-br from-pink-100 to-purple-100 rounded-lg">
                           <div className="text-center">
@@ -134,6 +209,18 @@ export function InstagramCarousel() {
             ))}
           </motion.div>
         </div>
+        )}
+
+        {!isLoading && !error && instagramPosts.length === 0 && (
+          <motion.div
+            className="text-center py-12"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <p className="text-gray-600 font-medium">No Instagram posts available</p>
+          </motion.div>
+        )}
 
         {/* Call to Action */}
         <motion.div

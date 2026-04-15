@@ -153,12 +153,12 @@ export class ApiClient {
   }
 }
 
-// Default API client instance
+// Default API client instance (browser + SSR) — Python backend
 export const apiClient = new ApiClient({
   baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL || 'https://admin.scandicschools.com',
 });
 
-// Server-side API client (for server actions)
+// Server-side API client (for server actions) — Python backend
 export const serverApiClient = new ApiClient({
-  baseUrl: process.env.API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || 'https://admin.scandicschools.com',
+  baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL || 'https://admin.scandicschools.com',
 });
