@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { InstagramEmbed } from "react-social-media-embed";
 import Link from "next/link";
 import { useLocale } from "./locale-provider";
-import { instagramService } from "@/lib/api/services/instagram";
+import { instagramService, type InstagramPost } from "@/lib/api/services/instagram";
 
 interface InstagramTranslations {
   title: string;
@@ -17,12 +17,42 @@ interface InstagramTranslations {
   contactUs: string;
 }
 
+function useCardSize() {
+  const [cardWidth, setCardWidth] = useState(340);
+  const [cardHeight, setCardHeight] = useState(650);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w < 480) {
+        setCardWidth(Math.min(w - 32, 320));
+        setCardHeight(480);
+      } else if (w < 768) {
+        setCardWidth(320);
+        setCardHeight(540);
+      } else if (w < 1024) {
+        setCardWidth(340);
+        setCardHeight(590);
+      } else {
+        setCardWidth(360);
+        setCardHeight(650);
+      }
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return { cardWidth, cardHeight };
+}
+
 export function InstagramCarousel() {
   const [isPaused, setIsPaused] = useState(false);
-  const [instagramPosts, setInstagramPosts] = useState<string[]>([]);
+  const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { translations } = useLocale();
+  const { cardWidth, cardHeight } = useCardSize();
 
   // Безопасный доступ к переводам Instagram
   const instagramData = translations.instagram as Record<string, string>;
@@ -41,7 +71,10 @@ export function InstagramCarousel() {
         setIsLoading(true);
         setError(null);
         const posts = await instagramService.getAll();
-        setInstagramPosts(posts.map(post => post.url));
+        const activePosts = posts
+          .filter(post => post.isActive)
+          .sort((a, b) => a.order - b.order);
+        setInstagramPosts(activePosts);
       } catch (err) {
         setError("Failed to load Instagram posts");
         console.error(err);
@@ -55,6 +88,7 @@ export function InstagramCarousel() {
 
   // Дублируем посты для бесконечной прокрутки
   const duplicatedPosts = instagramPosts.length > 0 ? [...instagramPosts, ...instagramPosts] : [];
+  const postUrls = instagramPosts.map(p => p.url);
 
   return (
     <section className="py-16 md:py-20 lg:py-24 bg-gradient-to-r from-pink-50 via-purple-50 to-indigo-50 relative overflow-hidden">
@@ -129,9 +163,9 @@ export function InstagramCarousel() {
             onMouseLeave={() => setIsPaused(false)}
           >
             <motion.div
-              className="flex gap-3 md:gap-6"
+              className="flex gap-4"
               animate={{
-                x: isPaused ? 0 : [0, -50 * instagramPosts.length],
+                x: isPaused ? 0 : [0, -((cardWidth + 16) * postUrls.length)],
               }}
               transition={{
                 x: {
@@ -141,21 +175,22 @@ export function InstagramCarousel() {
                   ease: "linear",
                 },
               }}
-              style={{ width: `${duplicatedPosts.length * 240}px` }}
+              style={{ width: `${duplicatedPosts.length * (cardWidth + 16)}px` }}
             >
-              {duplicatedPosts.map((postUrl, index) => (
+              {duplicatedPosts.map((post, index) => (
               <motion.div
-                key={`${postUrl}-${index}`}
-                className="flex-shrink-0 w-56 sm:w-64 md:w-72 lg:w-80 group"
+                key={`${post.id}-${index}`}
+                className="flex-shrink-0 group"
+                style={{ width: cardWidth }}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100 p-2 md:p-3">
-                  <div className="w-full h-[280px] sm:h-[320px] md:h-[400px] lg:h-[450px]">
+                <div className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                  <div style={{ width: cardWidth, height: cardHeight }}>
                     <InstagramEmbed
-                      url={postUrl}
-                      width="100%"
-                      height="100%"
+                      url={post.url}
+                      width={cardWidth}
+                      height={cardHeight}
                       placeholderSpinner={
                         <div className="flex items-center justify-center h-full bg-gradient-to-br from-pink-100 to-purple-100 rounded-lg">
                           <div className="text-center">
