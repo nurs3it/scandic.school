@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Menu, X, Users, FileText, MessageCircle, UserPlus, Info, GraduationCap, ShoppingBag } from "lucide-react";
+import { Phone, Menu, X, Users, FileText, MessageCircle, UserPlus, Info, GraduationCap, ShoppingBag, Newspaper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from 'react';
 import { LanguageSwitcher } from './language-switcher';
@@ -21,6 +21,7 @@ interface ClientHeaderProps {
       school: string;
       contactSection: string;
       merch?: string;
+      news?: string;
     };
     header: {
       schoolName: string;
@@ -30,6 +31,8 @@ interface ClientHeaderProps {
         staff: string;
         testimonials: string;
         documents: string;
+        merch?: string;
+        news?: string;
       };
     };
   };
@@ -41,27 +44,38 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
   // Группируем навигацию для лучшего UX
   const mainNavigation = [
     { name: translations.navigation.about, href: "/about", icon: Info },
-    { name: translations.navigation.merch || "Merchandise", href: "/merch", icon: ShoppingBag },
   ];
 
   const schoolNavigation = [
-    { 
-      name: translations.navigation.staff, 
-      href: "/staff", 
+    {
+      name: translations.navigation.news ?? "Новости",
+      href: "/news",
+      icon: Newspaper,
+      description: translations.header.descriptions.news ?? ""
+    },
+    {
+      name: translations.navigation.staff,
+      href: "/staff",
       icon: Users,
       description: translations.header.descriptions.staff
     },
-    { 
-      name: translations.navigation.testimonials, 
-      href: "/testimonials", 
+    {
+      name: translations.navigation.testimonials,
+      href: "/testimonials",
       icon: MessageCircle,
       description: translations.header.descriptions.testimonials
     },
-    { 
-      name: translations.navigation.documents, 
-      href: "/documents", 
+    {
+      name: translations.navigation.documents,
+      href: "/documents",
       icon: FileText,
       description: translations.header.descriptions.documents
+    },
+    {
+      name: translations.navigation.merch || "Merchandise",
+      href: "/merch",
+      icon: ShoppingBag,
+      description: translations.header.descriptions.merch || ""
     },
   ];
 

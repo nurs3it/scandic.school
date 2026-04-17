@@ -9,7 +9,8 @@
     "documents": "Документы",
     "school": "Школа",
     "contactSection": "Связь",
-    "merch": "Мерч"
+    "merch": "Мерч",
+    "news": "Новости"
   },
   "header": {
     "schoolName": "Scandic School",
@@ -18,7 +19,9 @@
     "descriptions": {
       "staff": "Наша команда педагогов",
       "testimonials": "Отзывы родителей",
-      "documents": "Политики и документы"
+      "documents": "Политики и документы",
+      "merch": "Школьный мерч и сувениры",
+      "news": "Последние события и анонсы"
     }
   },
   "hero": {
