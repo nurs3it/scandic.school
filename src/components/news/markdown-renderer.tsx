@@ -1,6 +1,6 @@
 'use client';
 
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import { remarkEmbeds } from '@/lib/remark-embeds';
@@ -49,7 +49,7 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
             // eslint-disable-next-line @next/next/no-img-element
             <img src={src} alt={alt ?? ''} loading="lazy" decoding="async" />
           ),
-        }}
+        } as Components}
       >
         {content}
       </ReactMarkdown>
