@@ -102,6 +102,7 @@ const config: Config = {
         "pulse-slow": "pulse 3s infinite",
         "float": "float 3s ease-in-out infinite",
         "glow": "glow 2s ease-in-out infinite alternate",
+        "shooting-star": "shootingStar 4s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
@@ -132,6 +133,12 @@ const config: Config = {
           "0%": { boxShadow: "0 0 5px #ffb400" },
           "100%": { boxShadow: "0 0 20px #ffb400, 0 0 30px #ffb400" },
         },
+        shootingStar: {
+          "0%": { transform: "translateX(0) translateY(0) rotate(-35deg)", opacity: "0" },
+          "5%": { opacity: "0.5" },
+          "15%": { opacity: "0" },
+          "100%": { transform: "translateX(400px) translateY(200px) rotate(-35deg)", opacity: "0" },
+        },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -144,7 +151,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
 
 export default config;
