@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
-import { RefObject } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion, useAnimation, useMotionValueEvent } from 'framer-motion';
+import { RefObject, useRef } from 'react';
 
 export function SmallRocketSVG({ className }: { className?: string }) {
   return (
@@ -125,6 +125,24 @@ export function FlyingRocket({ sectionRef }: FlyingRocketProps) {
     [0, 1, 1, 0]
   );
 
+  const rollControls = useAnimation();
+  const triggered = useRef<Set<number>>(new Set());
+  const rollPoints = [0.3, 0.55, 0.8];
+
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    for (const p of rollPoints) {
+      const isPast = latest >= p;
+      if (isPast && !triggered.current.has(p)) {
+        triggered.current.add(p);
+        rollControls
+          .start({ rotate: 360, transition: { duration: 0.8, ease: 'easeInOut' } })
+          .then(() => rollControls.set({ rotate: 0 }));
+      } else if (!isPast && triggered.current.has(p)) {
+        triggered.current.delete(p);
+      }
+    }
+  });
+
   if (prefersReducedMotion) return null;
 
   return (
@@ -136,7 +154,9 @@ export function FlyingRocket({ sectionRef }: FlyingRocketProps) {
         className="absolute top-0 left-0"
         style={{ x, y, rotate, opacity, willChange: 'transform, opacity' }}
       >
-        <SmallRocketSVG className="w-[80px] md:w-[100px] -translate-x-1/2 -translate-y-1/2" />
+        <motion.div animate={rollControls}>
+          <SmallRocketSVG className="w-[80px] md:w-[100px] -translate-x-1/2 -translate-y-1/2" />
+        </motion.div>
       </motion.div>
     </motion.div>
   );
