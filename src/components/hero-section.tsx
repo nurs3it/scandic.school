@@ -60,13 +60,13 @@ export async function HeroSection() {
             {/* CTA Buttons */}
             <AnimatedTextItem delay={0.4}>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-secondary font-semibold px-8 py-4 text-lg glow-effect">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary-600 text-secondary font-bold px-10 py-5 text-lg shadow-lg hover:shadow-xl transition-all duration-200">
                   <Link href="/application" className="flex items-center space-x-2">
                     <span>{translations.hero.cta.apply}</span>
                     <ArrowRight className="h-5 w-5" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-secondary px-8 py-4 text-lg">
+                <Button asChild variant="outline" size="lg" className="border-2 border-white/70 text-white hover:bg-white hover:text-secondary px-10 py-5 text-lg font-medium">
                   <Link href="/about">{translations.hero.cta.learnMore}</Link>
                 </Button>
               </div>
@@ -79,43 +79,43 @@ export async function HeroSection() {
               {/* Main Card */}
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <div className="space-y-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 min-w-12 min-h-12 bg-primary rounded-full flex items-center justify-center">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 min-w-12 min-h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                       <BookOpen className="h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-white">{translations.hero.features.ibProgram}</h3>
-                      <p className="text-gray-300">{translations.hero.features.internationalProgram}</p>
+                      <h3 className="text-xl font-bold text-white">{translations.hero.features.ibProgram}</h3>
+                      <p className="text-gray-300 text-sm mt-1">{translations.hero.features.internationalProgram}</p>
                       {'ibCandidate' in translations.hero.features && (
-                        <div className="mt-2 inline-flex items-center px-2 py-1 rounded-md bg-yellow-500/20 border border-yellow-500/30">
-                          <span className="text-xs text-yellow-200 font-medium">{(translations.hero.features as Record<string, string>).ibCandidate}</span>
+                        <div className="mt-3 inline-flex items-center px-3 py-1.5 rounded-lg bg-primary/20 border border-primary/30">
+                          <span className="text-xs text-primary font-semibold">{(translations.hero.features as Record<string, string>).ibCandidate}</span>
                         </div>
                       )}
                     </div>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-4 pt-2">
                     <div className="flex items-center space-x-3">
-                      <Star className="h-5 w-5 text-primary" />
-                      <span className="text-white">{translations.hero.features.grades}</span>
+                      <Star className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="text-white text-[15px]">{translations.hero.features.grades}</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <Users className="h-5 w-5 text-primary" />
-                      <span className="text-white">{translations.hero.features.multinational}</span>
+                      <Users className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="text-white text-[15px]">{translations.hero.features.multinational}</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <Globe className="h-5 w-5 text-primary" />
-                      <span className="text-white">{translations.hero.features.standards}</span>
+                      <Globe className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="text-white text-[15px]">{translations.hero.features.standards}</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Floating Cards */}
-              <div className="absolute -top-4 -right-4 bg-primary rounded-xl p-4 animate-float">
+              <div className="absolute -top-4 -right-4 bg-primary rounded-xl px-6 py-4 animate-float shadow-lg">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-secondary">{translations.hero.floating.enrollment}</div>
-                  <div className="text-sm text-secondary/80">{translations.hero.floating.enrollmentOpen}</div>
+                  <div className="text-3xl font-extrabold text-secondary">{translations.hero.floating.enrollment}</div>
+                  <div className="text-sm font-semibold text-secondary/90">{translations.hero.floating.enrollmentOpen}</div>
                 </div>
               </div>
 

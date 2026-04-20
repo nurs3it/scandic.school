@@ -35,9 +35,9 @@ function PartnerLogo({ name, logo }: { name: string; logo: string }) {
       <Image
         src={logo}
         alt={name}
-        width={180}
-        height={80}
-        className="object-contain max-h-20"
+        width={160}
+        height={64}
+        className="object-contain h-16 w-auto"
       />
     </motion.div>
   );
@@ -45,12 +45,12 @@ function PartnerLogo({ name, logo }: { name: string; logo: string }) {
 
 export function PartnersSection() {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-12 md:py-16 bg-neutral-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-center text-2xl md:text-3xl font-semibold text-gray-400 mb-12 tracking-wide uppercase">
+        <h2 className="text-center text-xl md:text-2xl font-semibold text-gray-400 mb-10 tracking-wide uppercase">
           Наши партнёры
         </h2>
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
+        <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16 max-w-3xl mx-auto">
           {partners.map((partner) => (
             <PartnerLogo key={partner.name} {...partner} />
           ))}

@@ -59,14 +59,30 @@ export async function Footer() {
 
           {/* Programs */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Programs</h3>
+            <h3 className="text-lg font-semibold">{translations.programs.title}</h3>
             <ul className="space-y-2">
-              <li className="text-sm text-gray-300">Early Years (0-1 классы)</li>
-              <li className="text-sm text-gray-300">Primary School (2-4 классы)</li>
-              <li className="text-sm text-gray-300">Middle School (5-8 классы)</li>
-              <li className="text-sm text-gray-300">High School (9-11 классы)</li>
-              <li className="text-sm text-gray-300">{translations.hero.features.ibProgram}</li>
-              <li className="text-sm text-gray-300">English Language</li>
+              <li>
+                <Link href="/application?program=earlyYears" className="text-sm text-gray-300 hover:text-primary transition-colors">
+                  {translations.programs.earlyYears.title}
+                </Link>
+              </li>
+              <li>
+                <Link href="/application?program=primary" className="text-sm text-gray-300 hover:text-primary transition-colors">
+                  {translations.programs.primary.title}
+                </Link>
+              </li>
+              <li>
+                <Link href="/application?program=ibpyp" className="text-sm text-gray-300 hover:text-primary transition-colors">
+                  {translations.hero.features.ibProgram}
+                </Link>
+              </li>
+              {('english' in translations.programs) && (
+                <li>
+                  <Link href="/application?program=english" className="text-sm text-gray-300 hover:text-primary transition-colors">
+                    {(translations.programs as Record<string, { title: string }>).english?.title || 'English Language'}
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
 
@@ -114,7 +130,7 @@ export async function Footer() {
         <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-gray-400">
-              © 2024 {translations.header.schoolName}. {translations.footer.rights}.
+              © {new Date().getFullYear()} {translations.header.schoolName}. {translations.footer.rights}.
             </p>
             {/* <div className="flex space-x-6">
               <Link href="/privacy" className="text-sm text-gray-400 hover:text-primary transition-colors">

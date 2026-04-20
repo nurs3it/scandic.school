@@ -142,7 +142,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
           </nav>
 
           {/* Right Side - Desktop */}
-          <div className="hidden lg:flex items-center space-x-3">
+          <div className="hidden lg:flex items-center space-x-4">
             {/* Phone */}
             <div className="hidden xl:flex items-center space-x-2 text-sm text-gray-600 bg-gray-50 px-3 py-2 rounded-lg">
               <Phone className="h-4 w-4" />

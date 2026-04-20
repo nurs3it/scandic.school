@@ -153,7 +153,7 @@ export function ProgramsCards({ programs, ibNote }: Props) {
                 </h3>
 
                 {/* description */}
-                <p className="text-white/80 text-[15px] leading-relaxed mb-6">
+                <p className="text-white/90 text-[15px] leading-relaxed mb-6">
                   {p.description}
                 </p>
 
@@ -172,7 +172,7 @@ export function ProgramsCards({ programs, ibNote }: Props) {
                 {/* CTA */}
                 <Link
                   href={p.applicationUrl}
-                  className={`inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl font-bold text-sm shadow-md ${c.btn} active:scale-[0.97] transition-all duration-200`}
+                  className={`inline-flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-bold text-base shadow-lg ${c.btn} active:scale-[0.97] transition-all duration-200`}
                 >
                   {p.buttonText}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

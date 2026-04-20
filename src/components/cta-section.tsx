@@ -18,13 +18,13 @@ export async function CTASection() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-primary font-semibold px-8 py-4 text-lg glow-effect-lg">
+            <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-primary font-bold px-10 py-5 text-lg shadow-lg hover:shadow-xl transition-all duration-200">
               <Link href="/application" className="flex items-center space-x-2">
                 <span>{translations.cta.apply}</span>
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-secondary text-secondary hover:bg-secondary hover:text-primary px-8 py-4 text-lg">
+            <Button asChild variant="outline" size="lg" className="border-2 border-secondary/70 text-secondary hover:bg-secondary hover:text-primary px-10 py-5 text-lg font-medium">
               <Link href="/contact">{translations.cta.contact}</Link>
             </Button>
           </div>
