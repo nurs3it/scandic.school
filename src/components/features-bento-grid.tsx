@@ -35,18 +35,31 @@ const ICON_COLORS: Record<IconName, { bg: string; text: string; activeBg: string
   shield: { bg: 'bg-teal-50', text: 'text-teal-500', activeBg: 'bg-teal-100' },
 };
 
-// Bento grid layout: which cards span 2 columns
+// Bento grid layout: which cards span 2 columns (desktop only)
 const LARGE_INDICES = new Set([0, 3, 4]);
 const CYCLE_INTERVAL = 2500;
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+  return isMobile;
+}
 
 export function FeaturesBentoGrid({ features, sectionTitle, sectionSubtitle }: FeaturesBentoGridProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const isMobile = useIsMobile();
 
-  // IntersectionObserver
+  // Section IntersectionObserver (desktop auto-cycle)
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
@@ -58,8 +71,37 @@ export function FeaturesBentoGrid({ features, sectionTitle, sectionSubtitle }: F
     return () => observer.disconnect();
   }, []);
 
-  // Auto-cycle
+  // Mobile: scroll-based highlight — activate the card closest to viewport center
   useEffect(() => {
+    if (!isMobile) return;
+
+    const handleScroll = () => {
+      const viewportCenter = window.innerHeight / 2;
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      cardRefs.current.forEach((card, index) => {
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(cardCenter - viewportCenter);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      setActiveIndex(closestIndex);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isMobile]);
+
+  // Desktop: auto-cycle
+  useEffect(() => {
+    if (isMobile) return;
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
@@ -72,16 +114,18 @@ export function FeaturesBentoGrid({ features, sectionTitle, sectionSubtitle }: F
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isInView, isPaused, features.length]);
+  }, [isInView, isPaused, features.length, isMobile]);
 
   const handleMouseEnter = useCallback((index: number) => {
+    if (isMobile) return;
     setIsPaused(true);
     setActiveIndex(index);
-  }, []);
+  }, [isMobile]);
 
   const handleMouseLeave = useCallback(() => {
+    if (isMobile) return;
     setIsPaused(false);
-  }, []);
+  }, [isMobile]);
 
   return (
     <section ref={sectionRef} className="py-12 md:py-16 bg-secondary/[0.02]">
@@ -107,6 +151,7 @@ export function FeaturesBentoGrid({ features, sectionTitle, sectionSubtitle }: F
             return (
               <div
                 key={index}
+                ref={(el) => { cardRefs.current[index] = el; }}
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
                 className={`
@@ -119,18 +164,21 @@ export function FeaturesBentoGrid({ features, sectionTitle, sectionSubtitle }: F
                   }
                 `}
               >
-                <div className={`flex ${isLarge ? 'flex-row items-center gap-5' : 'flex-col gap-3'}`}>
+                {/* Mobile: always flex-col; Desktop: flex-row for large cards */}
+                <div className={`flex flex-col gap-3 ${isLarge ? 'md:flex-row md:items-center md:gap-5' : ''}`}>
                   {/* Icon */}
                   <div className={`
                     flex-shrink-0 rounded-xl flex items-center justify-center
                     transition-all duration-500
-                    ${isLarge ? 'w-14 h-14 md:w-16 md:h-16' : 'w-12 h-12 md:w-14 md:h-14'}
+                    w-12 h-12 md:w-14 md:h-14
+                    ${isLarge ? 'md:w-16 md:h-16' : ''}
                     ${isActive ? colors.activeBg : colors.bg}
                   `}>
                     <IconComponent
                       className={`
                         transition-all duration-500
-                        ${isLarge ? 'w-7 h-7 md:w-8 md:h-8' : 'w-6 h-6 md:w-7 md:h-7'}
+                        w-6 h-6 md:w-7 md:h-7
+                        ${isLarge ? 'md:w-8 md:h-8' : ''}
                         ${colors.text}
                         ${isActive ? 'animate-icon-pop' : ''}
                       `}
@@ -142,14 +190,16 @@ export function FeaturesBentoGrid({ features, sectionTitle, sectionSubtitle }: F
                   <div className="flex-1 min-w-0">
                     <h3 className={`
                       font-bold mb-1 transition-colors duration-500
-                      ${isLarge ? 'text-lg md:text-xl' : 'text-base md:text-lg'}
+                      text-base md:text-lg
+                      ${isLarge ? 'md:text-xl' : ''}
                       ${isActive ? 'text-secondary' : 'text-secondary/70'}
                     `}>
                       {feature.title}
                     </h3>
                     <p className={`
                       leading-snug transition-colors duration-500
-                      ${isLarge ? 'text-sm md:text-base' : 'text-sm'}
+                      text-sm
+                      ${isLarge ? 'md:text-base' : ''}
                       ${isActive ? 'text-secondary/70' : 'text-secondary/40'}
                     `}>
                       {feature.description}

@@ -7,6 +7,7 @@ import { ProgramsSection } from "@/components/programs-section";
 import { AchievementsSection } from "@/components/achievements-section";
 import { InstagramCarousel } from "@/components/instagram-carousel";
 import { CTASection } from "@/components/cta-section";
+import { PartnersSection } from "@/components/partners-section";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <FounderSection />
         <ProgramsSection />
         <AchievementsSection />
+        <PartnersSection />
         <InstagramCarousel />
         <CTASection />
       </main>
