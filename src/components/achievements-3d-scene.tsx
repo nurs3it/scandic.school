@@ -15,6 +15,7 @@ function ProceduralRocket() {
   const targetPos = useRef(new THREE.Vector3());
   const currentVel = useRef(new THREE.Vector3());
   const tmpQuat = useMemo(() => new THREE.Quaternion(), []);
+  const idleQuat = useMemo(() => new THREE.Quaternion(), []);
   const upVec = useMemo(() => new THREE.Vector3(0, 1, 0), []);
   const { viewport, pointer } = useThree();
 
@@ -24,9 +25,10 @@ function ProceduralRocket() {
 
     const halfW = viewport.width / 2;
     const halfH = viewport.height / 2;
+    const anchorX = halfW * 0.55;
     targetPos.current.set(
-      pointer.x * halfW * 0.6,
-      pointer.y * halfH * 0.6,
+      anchorX + pointer.x * halfW * 0.25,
+      pointer.y * halfH * 0.35,
       0,
     );
 
@@ -35,15 +37,17 @@ function ProceduralRocket() {
     g.position.add(currentVel.current.clone().multiplyScalar(delta * 2));
 
     const speed = currentVel.current.length();
-    if (speed > 0.01) {
+    if (speed > 0.05) {
       const dir = currentVel.current.clone().normalize();
       tmpQuat.setFromUnitVectors(upVec, dir);
       g.quaternion.slerp(tmpQuat, 0.08);
+    } else {
+      g.quaternion.slerp(idleQuat, 0.04);
     }
   });
 
   return (
-    <group ref={groupRef} scale={0.6}>
+    <group ref={groupRef} scale={0.55}>
       {/* Main body */}
       <mesh position={[0, 0, 0]}>
         <cylinderGeometry args={[0.35, 0.35, 1.8, 24]} />
@@ -86,19 +90,19 @@ function ProceduralRocket() {
         <meshStandardMaterial color="#6b7280" metalness={0.7} roughness={0.3} />
       </mesh>
 
-      {/* Exhaust glow */}
-      <mesh position={[0, -1.3, 0]}>
-        <coneGeometry args={[0.22, 0.7, 24, 1, true]} />
-        <meshBasicMaterial color={BRAND_ORANGE} transparent opacity={0.55} side={THREE.DoubleSide} />
+      {/* Exhaust glow (small, focused) */}
+      <mesh position={[0, -1.2, 0]}>
+        <coneGeometry args={[0.12, 0.35, 16, 1, true]} />
+        <meshBasicMaterial color={BRAND_YELLOW} transparent opacity={0.35} side={THREE.DoubleSide} depthWrite={false} />
       </mesh>
-      <pointLight position={[0, -1.3, 0]} intensity={1.2} distance={4} color={BRAND_ORANGE} />
+      <pointLight position={[0, -1.2, 0]} intensity={0.35} distance={1.8} color={BRAND_ORANGE} />
 
       <ExhaustParticles />
     </group>
   );
 }
 
-const PARTICLE_COUNT = 80;
+const PARTICLE_COUNT = 60;
 
 function ExhaustParticles() {
   const pointsRef = useRef<THREE.Points>(null);
@@ -108,13 +112,13 @@ function ExhaustParticles() {
     const ages = new Float32Array(PARTICLE_COUNT);
     const lifetimes = new Float32Array(PARTICLE_COUNT);
     for (let i = 0; i < PARTICLE_COUNT; i++) {
-      positions[i * 3 + 0] = (Math.random() - 0.5) * 0.25;
-      positions[i * 3 + 1] = -1.2;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 0.25;
-      velocities[i * 3 + 0] = (Math.random() - 0.5) * 0.3;
-      velocities[i * 3 + 1] = -0.8 - Math.random() * 0.8;
-      velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.3;
-      lifetimes[i] = 0.6 + Math.random() * 0.8;
+      positions[i * 3 + 0] = (Math.random() - 0.5) * 0.12;
+      positions[i * 3 + 1] = -1.1;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 0.12;
+      velocities[i * 3 + 0] = (Math.random() - 0.5) * 0.2;
+      velocities[i * 3 + 1] = -0.6 - Math.random() * 0.5;
+      velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.2;
+      lifetimes[i] = 0.4 + Math.random() * 0.5;
       ages[i] = Math.random() * lifetimes[i];
     }
     return { positions, velocities, ages, lifetimes };
@@ -136,7 +140,7 @@ function ExhaustParticles() {
         blending: THREE.AdditiveBlending,
         uniforms: {
           uColor: { value: new THREE.Color(BRAND_YELLOW) },
-          uSize: { value: 14 },
+          uSize: { value: 4 },
         },
         vertexShader: `
           attribute float aAge;
@@ -147,7 +151,7 @@ function ExhaustParticles() {
             float t = clamp(aAge / aLifetime, 0.0, 1.0);
             vAlpha = 1.0 - t;
             vec4 mv = modelViewMatrix * vec4(position, 1.0);
-            gl_PointSize = uSize * (1.0 - t) * (300.0 / -mv.z);
+            gl_PointSize = uSize * (1.0 - t);
             gl_Position = projectionMatrix * mv;
           }
         `,
@@ -159,7 +163,7 @@ function ExhaustParticles() {
             float d = length(c);
             if (d > 0.5) discard;
             float falloff = smoothstep(0.5, 0.0, d);
-            gl_FragColor = vec4(uColor, vAlpha * falloff * 0.9);
+            gl_FragColor = vec4(uColor, vAlpha * falloff * 0.7);
           }
         `,
       }),
@@ -195,7 +199,7 @@ function ExhaustParticles() {
   return <points ref={pointsRef} geometry={geom} material={material} />;
 }
 
-const PLANET_COUNT = 14;
+const PLANET_COUNT = 18;
 const planetPalette = [
   '#2d6a2d',
   '#1a4a24',
@@ -216,11 +220,11 @@ function PlanetField() {
     for (let i = 0; i < PLANET_COUNT; i++) {
       arr.push({
         pos: [
-          (Math.random() - 0.5) * halfW * 1.8,
-          (Math.random() - 0.5) * halfH * 1.8,
-          -5 - Math.random() * 8,
+          (Math.random() - 0.5) * halfW * 2.2,
+          (Math.random() - 0.5) * halfH * 2.2,
+          -8 - Math.random() * 12,
         ],
-        scale: 0.15 + Math.random() * 0.55,
+        scale: 0.08 + Math.random() * 0.28,
         color: planetPalette[Math.floor(Math.random() * planetPalette.length)],
       });
     }
