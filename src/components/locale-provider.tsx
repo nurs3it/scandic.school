@@ -86,7 +86,7 @@ const translations = {
     },
     features: {
       title: "Why Choose Scandic International School?",
-      subtitle: "We create an environment where every child can reach their full potential",
+      subtitle: "We unlock each student's potential by developing critical thinking and shaping a strong personality for a confident future",
       items: {
         respect: {
           title: "Respect",
@@ -274,7 +274,7 @@ const translations = {
     },
     features: {
       title: "Почему выбирают Scandic International School?",
-      subtitle: "Мы создаем среду, где каждый ребенок может раскрыть свой потенциал",
+      subtitle: "Мы раскрываем потенциал каждого ученика, развивая мышление и формируя сильную личность для уверенного будущего",
       items: {
         respect: {
           title: "Уважение",
@@ -462,7 +462,7 @@ const translations = {
     },
     features: {
       title: "Неге Scandic International School-ты таңдау керек?",
-      subtitle: "Біз әр баланың өз потенциалын ашуына мүмкіндік беретін орта жасаймыз",
+      subtitle: "Біз әрбір оқушының әлеуетін ашамыз, ойлауды дамытамыз және сенімді болашақ үшін күшті тұлға қалыптастырамыз",
       items: {
         respect: {
           title: "Құрмет",
