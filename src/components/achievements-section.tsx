@@ -1,8 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { FlyingRocket } from './flying-rocket';
+import { motion, useInView } from 'framer-motion';
 
 const achievements = [
   {
@@ -232,16 +231,8 @@ function RocketIllustration() {
 }
 
 export function AchievementsSection() {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
-
-  const bigRocketScale = useTransform(scrollYProgress, [0, 0.1, 0.2], [1, 0.8, 0]);
-  const bigRocketOpacity = useTransform(scrollYProgress, [0, 0.1, 0.18], [1, 1, 0]);
 
   return (
     <section
@@ -266,10 +257,9 @@ export function AchievementsSection() {
         <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-white to-transparent z-10" />
         <motion.div
           className="w-full h-full"
-          initial={{ x: 80 }}
-          animate={isInView ? { x: 0 } : {}}
+          initial={{ opacity: 0, x: 80 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-          style={{ scale: bigRocketScale, opacity: bigRocketOpacity }}
         >
           {/* Floating animation wrapper */}
           <motion.div
@@ -281,8 +271,6 @@ export function AchievementsSection() {
           </motion.div>
         </motion.div>
       </div>
-
-      <FlyingRocket sectionRef={ref} />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl lg:max-w-3xl">
