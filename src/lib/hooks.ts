@@ -2,21 +2,18 @@
 
 import { useMutation, useQuery } from "@tanstack/react-query";
 import {
-  submitContactForm,
   subscribeToNewsletter
 } from "./actions";
 import { submitApplication } from "./api/applications";
+import { submitContactMessage } from "./api/contact-messages";
 import type { ApplicationFormData } from "./actions";
 
 // Contact form mutation
 export function useContactForm() {
   return useMutation({
-    mutationFn: submitContactForm,
-    onSuccess: (data) => {
-      if (data.success) {
-        // You can add toast notification here
-        console.log("Contact form submitted successfully");
-      }
+    mutationFn: submitContactMessage,
+    onSuccess: () => {
+      console.log("Contact form submitted successfully");
     },
     onError: (error) => {
       console.error("Contact form error:", error);

@@ -114,7 +114,7 @@ export function ContactForm() {
           {contactMutation.isSuccess && (
             <div className="flex items-center space-x-2 text-green-600 bg-green-50 p-4 rounded-lg">
               <CheckCircle className="h-5 w-5" />
-              <span>{t.form.messages.success || contactMutation.data?.message}</span>
+              <span>{t.form.messages.success}</span>
             </div>
           )}
 
