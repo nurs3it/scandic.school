@@ -72,8 +72,8 @@ const translations = {
       },
       features: {
         ibProgram: "IB PYP Program",
-        internationalProgram: "International Primary School Program",
-        grades: "Grades 0-4",
+        internationalProgram: "International School Program",
+        grades: "Grades 0-11",
         multinational: "Multinational Environment",
         standards: "International Standards"
       },
@@ -177,7 +177,14 @@ const translations = {
         "1": "Grade 1",
         "2": "Grade 2",
         "3": "Grade 3",
-        "4": "Grade 4"
+        "4": "Grade 4",
+        "5": "Grade 5",
+        "6": "Grade 6",
+        "7": "Grade 7",
+        "8": "Grade 8",
+        "9": "Grade 9",
+        "10": "Grade 10",
+        "11": "Grade 11"
       },
       languageOptions: {
         kazakh: "Kazakh",
@@ -188,7 +195,7 @@ const translations = {
       successMessage: "Inquiry submitted successfully!",
       errorMessage: "An error occurred while submitting the inquiry. Please try again.",
       additionalInfo: "After submitting, our admissions team will reach out to confirm details and next steps.",
-      licenseInfo: "License: KZ96LAA00035527 | Grades 1-4 | IB PYP"
+      licenseInfo: "License: KZ96LAA00035527 | Grades 0-11 | IB PYP"
     },
     mission: {
       title: "Our Mission",
@@ -260,8 +267,8 @@ const translations = {
       },
       features: {
         ibProgram: "IB PYP Программа",
-        internationalProgram: "Международная программа начальной школы",
-        grades: "0-4 классы",
+        internationalProgram: "Международная школьная программа",
+        grades: "0-11 классы",
         multinational: "Многонациональная среда",
         standards: "Международные стандарты"
       },
@@ -365,7 +372,14 @@ const translations = {
         "1": "1 класс",
         "2": "2 класс",
         "3": "3 класс",
-        "4": "4 класс"
+        "4": "4 класс",
+        "5": "5 класс",
+        "6": "6 класс",
+        "7": "7 класс",
+        "8": "8 класс",
+        "9": "9 класс",
+        "10": "10 класс",
+        "11": "11 класс"
       },
       languageOptions: {
         kazakh: "Казахский",
@@ -376,7 +390,7 @@ const translations = {
       successMessage: "Заявка успешно отправлена!",
       errorMessage: "Произошла ошибка при подаче заявки. Попробуйте еще раз.",
       additionalInfo: "После отправки наш отдел приёма свяжется с вами для уточнения деталей.",
-      licenseInfo: "Лицензия: KZ96LAA00035527 | 1–4 классы | IB PYP"
+      licenseInfo: "Лицензия: KZ96LAA00035527 | 0–11 классы | IB PYP"
     },
     mission: {
       title: "Наша миссия",
@@ -448,8 +462,8 @@ const translations = {
       },
       features: {
         ibProgram: "IB PYP Бағдарламасы",
-        internationalProgram: "Халықаралық бастауыш мектеп бағдарламасы",
-        grades: "0-4 сыныптар",
+        internationalProgram: "Халықаралық мектеп бағдарламасы",
+        grades: "0-11 сыныптар",
         multinational: "Көпұлтты орта",
         standards: "Халықаралық стандарттар"
       },
@@ -553,7 +567,14 @@ const translations = {
         "1": "1 сынып",
         "2": "2 сынып",
         "3": "3 сынып",
-        "4": "4 сынып"
+        "4": "4 сынып",
+        "5": "5 сынып",
+        "6": "6 сынып",
+        "7": "7 сынып",
+        "8": "8 сынып",
+        "9": "9 сынып",
+        "10": "10 сынып",
+        "11": "11 сынып"
       },
       languageOptions: {
         kazakh: "Қазақ тілі",
@@ -564,7 +585,7 @@ const translations = {
       successMessage: "Өтініш сәтті жіберілді!",
       errorMessage: "Өтініш беру кезінде қате орын алды. Қайталап көріңіз.",
       additionalInfo: "Өтінішті жібергеннен кейін қабылдау бөлімі мәліметтерді растау үшін сізбен байланысады.",
-      licenseInfo: "Лицензия: KZ96LAA00035527 | 1–4 сыныптар | IB PYP"
+      licenseInfo: "Лицензия: KZ96LAA00035527 | 0–11 сыныптар | IB PYP"
     },
     mission: {
       title: "Біздің миссиямыз",

@@ -2,7 +2,7 @@ import { apiClient } from './axios-instance';
 
 export interface CreateApplicationPayload {
   parentName: string;
-  grade: '0' | '1' | '2' | '3' | '4';
+  grade: '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11';
   language: 'kazakh' | 'russian';
   parentPhone: string;
 }

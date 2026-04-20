@@ -67,7 +67,7 @@ export function useSchoolInfo() {
       return {
         name: "Scandic International School",
         license: "KZ96LAA00035527",
-        grades: "0–4 классы",
+        grades: "0–11 классы",
         program: "IB PYP",
         address: "ул. Кайрата Жумагалиева 18, 3 этаж",
         phone: "8 706 610 57 81",
@@ -102,7 +102,7 @@ export function usePrograms() {
         {
           id: "early-years",
           title: "Early Years (0-1 классы)",
-          description: "Программа раннего развития для детей 3-6 лет",
+          description: "Программа раннего развития для детей 5-6 лет",
           language: "Казахский язык",
           features: [
             "Игровое обучение",
@@ -113,7 +113,7 @@ export function usePrograms() {
         },
         {
           id: "primary",
-          title: "Primary School (1-4 классы)",
+          title: "Primary School (2-4 классы)",
           description: "Начальная школа с программой IB PYP",
           language: "Русский язык",
           features: [
@@ -121,6 +121,30 @@ export function usePrograms() {
             "Изучение английского языка",
             "Развитие критического мышления",
             "Проектная деятельность"
+          ]
+        },
+        {
+          id: "middle",
+          title: "Middle School (5-8 классы)",
+          description: "Средняя школа с углублённой программой",
+          language: "Русский язык",
+          features: [
+            "Углублённое изучение предметов",
+            "Проектная деятельность",
+            "Подготовка к старшей школе",
+            "Развитие лидерских качеств"
+          ]
+        },
+        {
+          id: "high",
+          title: "High School (9-11 классы)",
+          description: "Старшая школа с подготовкой к ЕНТ и поступлению",
+          language: "Русский язык",
+          features: [
+            "Подготовка к ЕНТ",
+            "Профориентация",
+            "Углублённое изучение предметов",
+            "Подготовка к университету"
           ]
         }
       ];

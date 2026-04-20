@@ -62,7 +62,9 @@ export async function Footer() {
             <h3 className="text-lg font-semibold">Programs</h3>
             <ul className="space-y-2">
               <li className="text-sm text-gray-300">Early Years (0-1 классы)</li>
-              <li className="text-sm text-gray-300">Primary School (1-4 классы)</li>
+              <li className="text-sm text-gray-300">Primary School (2-4 классы)</li>
+              <li className="text-sm text-gray-300">Middle School (5-8 классы)</li>
+              <li className="text-sm text-gray-300">High School (9-11 классы)</li>
               <li className="text-sm text-gray-300">{translations.hero.features.ibProgram}</li>
               <li className="text-sm text-gray-300">English Language</li>
             </ul>

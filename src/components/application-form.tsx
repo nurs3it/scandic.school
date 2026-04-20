@@ -26,7 +26,7 @@ interface FieldErrors {
   language?: string;
 }
 
-const VALID_GRADES = ['0', '1', '2', '3', '4'] as const;
+const VALID_GRADES = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'] as const;
 
 const programIcons: Record<string, typeof BookOpen> = {
   earlyYears: GraduationCap,
@@ -57,7 +57,7 @@ export function ApplicationForm() {
     gradePlaceholder: ((applicationData?.selectPlaceholders as Record<string, string>)?.grade) || "Select grade",
     languagePlaceholder: ((applicationData?.selectPlaceholders as Record<string, string>)?.language) || "Select language",
     gradeOptions: Object.entries(
-      (applicationData?.gradeOptions as Record<string, string>) || { "0": "0 класс", "1": "1 класс", "2": "2 класс", "3": "3 класс", "4": "4 класс" }
+      (applicationData?.gradeOptions as Record<string, string>) || { "0": "0 класс", "1": "1 класс", "2": "2 класс", "3": "3 класс", "4": "4 класс", "5": "5 класс", "6": "6 класс", "7": "7 класс", "8": "8 класс", "9": "9 класс", "10": "10 класс", "11": "11 класс" }
     ).map(([value, label]) => ({ value, label: label as string })),
     languageOptions: Object.entries(
       (applicationData?.languageOptions as Record<string, string>) || { kazakh: "Kazakh", russian: "Russian" }
@@ -66,7 +66,7 @@ export function ApplicationForm() {
     submitting: (applicationData?.submittingButton as string) || "Submitting...",
     error: (applicationData?.errorMessage as string) || "An error occurred. Please try again.",
     additionalInfo: (applicationData?.additionalInfo as string) || "After submitting, our admissions team will reach out to confirm details and next steps.",
-    license: (applicationData?.licenseInfo as string) || "License: KZ96LAA00035527 | Grades 1-4 | IB PYP",
+    license: (applicationData?.licenseInfo as string) || "License: KZ96LAA00035527 | Grades 0-11 | IB PYP",
     required: "This field is required",
     phoneInvalid: "Enter a valid phone number: +7 (XXX) XXX-XX-XX",
     nameTooShort: "Name must be at least 2 characters",
@@ -77,7 +77,7 @@ export function ApplicationForm() {
     parentPhone: "",
     grade: (urlGrade && (VALID_GRADES as readonly string[]).includes(urlGrade)
       ? urlGrade
-      : "") as "0" | "1" | "2" | "3" | "4" | "",
+      : "") as typeof VALID_GRADES[number] | "",
     language: "" as "kazakh" | "russian" | "",
   });
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});

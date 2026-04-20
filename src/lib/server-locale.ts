@@ -62,8 +62,8 @@ export function getTranslationsSync(locale: Locale) {
         },
         features: {
           ibProgram: "IB PYP Program",
-          internationalProgram: "International Primary School Program",
-          grades: "Grades 0-4",
+          internationalProgram: "International School Program",
+          grades: "Grades 0-11",
           multinational: "Multinational Environment",
           standards: "International Standards"
         },
@@ -243,7 +243,14 @@ export function getTranslationsSync(locale: Locale) {
             { value: "1", label: "Grade 1" },
             { value: "2", label: "Grade 2" },
             { value: "3", label: "Grade 3" },
-            { value: "4", label: "Grade 4" }
+            { value: "4", label: "Grade 4" },
+            { value: "5", label: "Grade 5" },
+            { value: "6", label: "Grade 6" },
+            { value: "7", label: "Grade 7" },
+            { value: "8", label: "Grade 8" },
+            { value: "9", label: "Grade 9" },
+            { value: "10", label: "Grade 10" },
+            { value: "11", label: "Grade 11" }
           ],
           languages: [
             { value: "kazakh", label: "Kazakh" },
@@ -260,7 +267,7 @@ export function getTranslationsSync(locale: Locale) {
           submit: "Submit Application",
           error: "An error occurred while submitting the application. Please try again.",
           success: "We will contact you to confirm the interview within 24 hours.",
-          license: "License: KZ96LAA00035527 | Grades 0-4 | IB PYP"
+          license: "License: KZ96LAA00035527 | Grades 0-11 | IB PYP"
         }
       },
       staff: {
@@ -332,8 +339,8 @@ export function getTranslationsSync(locale: Locale) {
         },
         features: {
           ibProgram: "IB PYP Программа",
-          internationalProgram: "Международная программа начальной школы",
-          grades: "0-4 классы",
+          internationalProgram: "Международная школьная программа",
+          grades: "0-11 классы",
           multinational: "Многонациональная среда",
           standards: "Международные стандарты"
         },
@@ -513,7 +520,14 @@ export function getTranslationsSync(locale: Locale) {
             { value: "1", label: "1 класс" },
             { value: "2", label: "2 класс" },
             { value: "3", label: "3 класс" },
-            { value: "4", label: "4 класс" }
+            { value: "4", label: "4 класс" },
+            { value: "5", label: "5 класс" },
+            { value: "6", label: "6 класс" },
+            { value: "7", label: "7 класс" },
+            { value: "8", label: "8 класс" },
+            { value: "9", label: "9 класс" },
+            { value: "10", label: "10 класс" },
+            { value: "11", label: "11 класс" }
           ],
           languages: [
             { value: "kazakh", label: "Казахский" },
@@ -530,7 +544,7 @@ export function getTranslationsSync(locale: Locale) {
           submit: "Подать заявку",
           error: "Произошла ошибка при подаче заявки. Попробуйте еще раз.",
           success: "Мы свяжемся с вами для подтверждения собеседования в течение 24 часов.",
-          license: "Лицензия: KZ96LAA00035527 | 0–4 классы | IB PYP"
+          license: "Лицензия: KZ96LAA00035527 | 0–11 классы | IB PYP"
         }
       },
       staff: {
@@ -602,8 +616,8 @@ export function getTranslationsSync(locale: Locale) {
         },
         features: {
           ibProgram: "IB PYP Бағдарламасы",
-          internationalProgram: "Халықаралық бастауыш мектеп бағдарламасы",
-          grades: "0-4 сыныптар",
+          internationalProgram: "Халықаралық мектеп бағдарламасы",
+          grades: "0-11 сыныптар",
           multinational: "Көпұлтты орта",
           standards: "Халықаралық стандарттар"
         },
@@ -783,7 +797,14 @@ export function getTranslationsSync(locale: Locale) {
             { value: "1", label: "1 сынып" },
             { value: "2", label: "2 сынып" },
             { value: "3", label: "3 сынып" },
-            { value: "4", label: "4 сынып" }
+            { value: "4", label: "4 сынып" },
+            { value: "5", label: "5 сынып" },
+            { value: "6", label: "6 сынып" },
+            { value: "7", label: "7 сынып" },
+            { value: "8", label: "8 сынып" },
+            { value: "9", label: "9 сынып" },
+            { value: "10", label: "10 сынып" },
+            { value: "11", label: "11 сынып" }
           ],
           languages: [
             { value: "kazakh", label: "Қазақ тілі" },
@@ -800,7 +821,7 @@ export function getTranslationsSync(locale: Locale) {
           submit: "Өтініш жіберу",
           error: "Өтініш жіберу кезінде қате орын алды. Қайталап көріңіз.",
           success: "Сұхбатты растау үшін 24 сағат ішінде сізбен байланысамыз.",
-          license: "Лицензия: KZ96LAA00035527 | 0–4 сыныптар | IB PYP"
+          license: "Лицензия: KZ96LAA00035527 | 0–11 сыныптар | IB PYP"
         }
       },
       staff: {
