@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { NewsItem, NewsListResponse } from '@/types/news';
 
-const API = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
+const API = process.env.NESTJS_API_URL || 'https://scandic-school-api.onrender.com';
 
 export async function fetchNewsList(params: {
   page?: number;
