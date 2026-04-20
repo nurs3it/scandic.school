@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
+import { RefObject } from 'react';
 
 export function SmallRocketSVG({ className }: { className?: string }) {
   return (
@@ -89,5 +90,54 @@ export function SmallRocketSVG({ className }: { className?: string }) {
       <circle cx="100" cy="40" r="4" fill="#ffb400" />
       <circle cx="100" cy="40" r="2" fill="white" />
     </svg>
+  );
+}
+
+interface FlyingRocketProps {
+  sectionRef: RefObject<HTMLElement | null>;
+}
+
+export function FlyingRocket({ sectionRef }: FlyingRocketProps) {
+  const prefersReducedMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const y = useTransform(scrollYProgress, [0.15, 0.95], ['5%', '95%']);
+
+  const x = useTransform(
+    scrollYProgress,
+    [0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.92],
+    ['80%', '45%', '65%', '30%', '70%', '40%', '75%', '88%']
+  );
+
+  const rotate = useTransform(
+    scrollYProgress,
+    [0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.92],
+    [0, -20, 15, -25, 20, -15, 22, 0]
+  );
+
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.15, 0.92, 1],
+    [0, 1, 1, 0]
+  );
+
+  if (prefersReducedMotion) return null;
+
+  return (
+    <motion.div
+      className="absolute inset-0 pointer-events-none z-20"
+      style={{ willChange: 'transform' }}
+    >
+      <motion.div
+        className="absolute top-0 left-0"
+        style={{ x, y, rotate, opacity, willChange: 'transform, opacity' }}
+      >
+        <SmallRocketSVG className="w-[80px] md:w-[100px] -translate-x-1/2 -translate-y-1/2" />
+      </motion.div>
+    </motion.div>
   );
 }
