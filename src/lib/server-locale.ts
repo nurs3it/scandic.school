@@ -106,13 +106,13 @@ export function getTranslationsSync(locale: Locale) {
       },
       programs: {
         title: "Our Programs",
-        subtitle: "Comprehensive education for children aged 5-10",
+        subtitle: "Comprehensive education for students in grades 0-11",
         earlyYears: {
           title: "Early Years (5-6 years)",
           description: "Holistic development for our youngest learners."
         },
         primary: {
-          title: "Primary School (6-10 years)",
+          title: "Primary School (6-10 years)", // grades 2-4
           description: "Engaging curriculum for foundational learning."
         },
         ibpyp: {
@@ -383,13 +383,13 @@ export function getTranslationsSync(locale: Locale) {
       },
       programs: {
         title: "Наши программы",
-        subtitle: "Комплексное образование для детей 5-10 лет",
+        subtitle: "Комплексное образование для учеников 0-11 классов",
         earlyYears: {
           title: "Ранние годы (5-6 лет)",
           description: "Целостное развитие для наших самых маленьких учеников."
         },
         primary: {
-          title: "Начальная школа (6-10 лет)",
+          title: "Начальная школа (6-10 лет)", // 2-4 классы
           description: "Увлекательная программа для базового обучения."
         },
         ibpyp: {
@@ -660,13 +660,13 @@ export function getTranslationsSync(locale: Locale) {
       },
       programs: {
         title: "Біздің бағдарламалар",
-        subtitle: "5-10 жас аралығындағы балаларға арналған кешенді білім беру",
+        subtitle: "0-11 сынып оқушыларына кешенді білім беру",
         earlyYears: {
           title: "Ерте жылдар (5-6 жас)",
           description: "Біздің ең кішкентай оқушыларымызға арналған толық даму."
         },
         primary: {
-          title: "Бастауыш мектеп (6-10 жас)",
+          title: "Бастауыш мектеп (6-10 жас)", // 2-4 сыныптар
           description: "Негізгі оқуға арналған қызықты бағдарлама."
         },
         ibpyp: {

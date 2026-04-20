@@ -60,7 +60,7 @@ const translations = {
     hero: {
       welcome: "Welcome to",
       schoolName: "Scandic International School",
-      description: "We provide the highest level of education for children from different countries and cultural traditions with the IB PYP program",
+      description: "International school in Uralsk for students in grades 0–11. IB PYP program, strong academics, and personalized approach",
       stats: {
         students: "Students",
         ratio: "Teacher/Student Ratio",
@@ -255,7 +255,7 @@ const translations = {
     hero: {
       welcome: "Добро пожаловать в",
       schoolName: "Scandic International School",
-      description: "Предоставляем высочайший уровень образования для детей разных стран и культурных традиций с программой IB PYP",
+      description: "Международная школа в Уральске для учеников 0–11 классов. Программа IB PYP, сильная академическая база и индивидуальный подход",
       stats: {
         students: "Учеников",
         ratio: "Соотношение учитель/ученик",
@@ -450,7 +450,7 @@ const translations = {
     hero: {
       welcome: "Қош келдіңіз",
       schoolName: "Scandic International School",
-      description: "IB PYP бағдарламасымен әртүрлі елдердің және мәдени дәстүрлердің балаларына ең жоғары деңгейде білім беру",
+      description: "Орал қаласындағы 0–11 сынып оқушыларына арналған халықаралық мектеп. IB PYP бағдарламасы, күшті академиялық база және жеке тәсіл",
       stats: {
         students: "Оқушылар",
         ratio: "Мұғалім/оқушы қатынасы",

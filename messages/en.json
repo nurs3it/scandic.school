@@ -27,7 +27,7 @@
   "hero": {
     "welcome": "Welcome to",
     "schoolName": "Scandic International School",
-    "description": "We provide the highest level of education for children from different countries and cultural traditions with the IB PYP program",
+    "description": "International school in Uralsk for students in grades 0–11. IB PYP program, strong academics, and personalized approach",
     "stats": {
       "students": "Students",
       "ratio": "Teacher/Student Ratio",
@@ -39,8 +39,8 @@
     },
     "features": {
       "ibProgram": "IB PYP Program",
-      "internationalProgram": "International Primary School Program",
-      "grades": "Grades 0-4",
+      "internationalProgram": "International School Program",
+      "grades": "Grades 0-11",
       "multinational": "Multinational Environment",
       "standards": "International Standards",
       "ibCandidate": "IB PYP Candidate School"
@@ -102,7 +102,7 @@
       ]
     },
     "primary": {
-      "title": "Primary Years (6-10 years)",
+      "title": "Primary School (6-10 years)",
       "subtitle": "Grades 2-4",
       "description": "IB PYP curriculum with inquiry-based learning approach",
       "features": [

@@ -52,9 +52,8 @@ export async function HeroSection() {
                 <div className="text-sm text-gray-300">{translations.hero.stats.ratio}</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">IB PYP</div>
-                <div className="text-sm text-gray-300">{translations.hero.stats.program}</div>
-                <div className="text-xs text-yellow-300 mt-1 font-medium">Candidate*</div>
+                <div className="text-3xl font-bold text-primary">0-11</div>
+                <div className="text-sm text-gray-300">{translations.hero.features.grades}</div>
               </div>
             </div>
 
