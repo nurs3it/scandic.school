@@ -15,8 +15,8 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <FeaturesSection />
         <FounderSection />
+        <FeaturesSection />
         <ProgramsSection />
         <AchievementsSection />
         <PartnersSection />
