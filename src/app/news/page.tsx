@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import { Newspaper, SearchX } from 'lucide-react';
 import { useNewsInfinite, useNewsTags } from '@/hooks/use-news';
 import { NewsGrid } from '@/components/news/news-grid';
@@ -43,12 +44,12 @@ export default function NewsPage() {
                 : 'Мы готовим для вас интересные материалы. Загляните позже!'}
             </p>
             {tag && (
-              <a
+              <Link
                 href="/news"
                 className="px-5 py-2.5 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors"
               >
                 Все новости
-              </a>
+              </Link>
             )}
           </div>
         )}

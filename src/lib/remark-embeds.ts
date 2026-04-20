@@ -120,6 +120,7 @@ export function remarkEmbeds() {
           hProperties: detected.props,
         },
       };
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (parent.children as any)[index] = embed;
     });
   };
