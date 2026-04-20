@@ -141,7 +141,7 @@ export function FeaturesBentoGrid({ features, sectionTitle, sectionSubtitle }: F
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 max-w-7xl mx-auto">
           {features.map((feature, index) => {
             const isActive = index === activeIndex;
             const isLarge = LARGE_INDICES.has(index);
