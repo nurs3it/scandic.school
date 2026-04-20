@@ -79,7 +79,7 @@ export async function Footer() {
               {('english' in translations.programs) && (
                 <li>
                   <Link href="/application?program=english" className="text-sm text-gray-300 hover:text-primary transition-colors">
-                    {(translations.programs as Record<string, { title: string }>).english?.title || 'English Language'}
+                    {(translations.programs as unknown as Record<string, { title: string }>).english?.title || 'English Language'}
                   </Link>
                 </li>
               )}
