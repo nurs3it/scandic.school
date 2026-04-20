@@ -13,7 +13,7 @@ export interface ContactFormData {
 
 export interface ApplicationFormData {
   parentName: string;
-  grade: "1" | "2" | "3" | "4";
+  grade: "0" | "1" | "2" | "3" | "4";
   language: "kazakh" | "russian";
   parentPhone: string;
 }
@@ -95,30 +95,34 @@ export async function subscribeToNewsletter(email: string) {
 // Order form submission
 export async function submitOrder(orderData: OrderFormData) {
   try {
-    // Simulate API call - replace with actual implementation
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    console.log("Order submitted:", {
+    const apiUrl = process.env.NESTJS_API_URL || 'https://scandic-school-api.onrender.com';
+
+    const payload = {
       parentName: orderData.parentName,
       childrenNames: orderData.childrenNames,
       phone: orderData.phone,
       total: orderData.total,
-      itemsCount: orderData.items.length,
       items: orderData.items.map(item => ({
         name: item.item.name,
-        quantity: item.quantity,
         price: item.item.price,
-        size: item.selectedSize,
-        color: item.selectedColor,
+        quantity: item.quantity,
+        selectedSize: item.selectedSize,
+        selectedColor: item.selectedColor,
+        image: item.item.image,
       })),
+    };
+
+    const res = await fetch(`${apiUrl}/merch-orders`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
     });
-    
-    // Here you would typically:
-    // 1. Send email notification to admin
-    // 2. Save to database
-    // 3. Send confirmation email to customer
-    // 4. Create order in your order management system
-    
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.message || `HTTP ${res.status}`);
+    }
+
     return {
       success: true,
       message: "Заказ успешно оформлен! Мы свяжемся с вами в ближайшее время для подтверждения.",

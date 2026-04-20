@@ -128,4 +128,15 @@
   .glow-effect-lg {
     @apply shadow-glow-lg;
   }
+
+  .animate-icon-pop {
+    animation: icon-pop 0.5s ease-out;
+  }
+}
+
+@keyframes icon-pop {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.2) rotate(-5deg); }
+  60% { transform: scale(0.95) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); }
 }

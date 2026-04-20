@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useApplicationForm } from "@/lib/hooks";
 import { ApplicationFormData } from "@/lib/actions";
+import { BookOpen, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -25,8 +26,21 @@ interface FieldErrors {
   language?: string;
 }
 
+const VALID_GRADES = ['0', '1', '2', '3', '4'] as const;
+
+const programIcons: Record<string, typeof BookOpen> = {
+  earlyYears: GraduationCap,
+  primary: BookOpen,
+  ibpyp: BookOpen,
+  english: BookOpen,
+};
+
 export function ApplicationForm() {
   const { translations } = useLocale();
+  const searchParams = useSearchParams();
+  const urlGrade = searchParams.get('grade');
+  const urlProgram = searchParams.get('program');
+  const urlProgramTitle = searchParams.get('programTitle');
 
   const applicationData = translations.application as Record<string, unknown>;
 
@@ -43,8 +57,8 @@ export function ApplicationForm() {
     gradePlaceholder: ((applicationData?.selectPlaceholders as Record<string, string>)?.grade) || "Select grade",
     languagePlaceholder: ((applicationData?.selectPlaceholders as Record<string, string>)?.language) || "Select language",
     gradeOptions: Object.entries(
-      (applicationData?.gradeOptions as Record<string, string>) || { "1": "Grade 1", "2": "Grade 2", "3": "Grade 3", "4": "Grade 4" }
-    ).filter(([value]) => value !== "0").map(([value, label]) => ({ value, label: label as string })),
+      (applicationData?.gradeOptions as Record<string, string>) || { "0": "0 класс", "1": "1 класс", "2": "2 класс", "3": "3 класс", "4": "4 класс" }
+    ).map(([value, label]) => ({ value, label: label as string })),
     languageOptions: Object.entries(
       (applicationData?.languageOptions as Record<string, string>) || { kazakh: "Kazakh", russian: "Russian" }
     ).map(([value, label]) => ({ value, label: label as string })),
@@ -61,7 +75,9 @@ export function ApplicationForm() {
   const [formData, setFormData] = useState({
     parentName: "",
     parentPhone: "",
-    grade: "" as "1" | "2" | "3" | "4" | "",
+    grade: (urlGrade && (VALID_GRADES as readonly string[]).includes(urlGrade)
+      ? urlGrade
+      : "") as "0" | "1" | "2" | "3" | "4" | "",
     language: "" as "kazakh" | "russian" | "",
   });
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
@@ -141,6 +157,19 @@ export function ApplicationForm() {
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+          {urlProgramTitle && (
+            <div className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 border border-primary/20">
+              {urlProgram && programIcons[urlProgram] ? (() => {
+                const PIcon = programIcons[urlProgram];
+                return <PIcon className="h-5 w-5 text-primary flex-shrink-0" />;
+              })() : null}
+              <div className="text-sm">
+                <span className="text-gray-500">Программа: </span>
+                <span className="font-semibold text-gray-900">{urlProgramTitle}</span>
+              </div>
+            </div>
+          )}
+
           <div className="flex items-center space-x-2">
             <User className="h-5 w-5 text-primary" />
             <h3 className="text-xl font-semibold text-secondary">{t.contactInfo}</h3>

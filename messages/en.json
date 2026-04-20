@@ -353,6 +353,16 @@
       "outOfStock": "Out of Stock"
     }
   },
+  "founder": {
+    "label": "From the Founder",
+    "title": "A Message from Our CEO & Founder",
+    "name": "Amir Bekmukhanov",
+    "role": "School Founder",
+    "company": "Owner of Danish technology company «BYTEALL ENERGY»",
+    "signatureRole": "Founder of Scandic International School",
+    "quote1": "At Scandic International School, we create an environment where academic rigor meets creative freedom. Our vision is not just to impart knowledge, but to ignite the spark of curiosity in every child. Our graduates will be prepared to study at the world's best universities.",
+    "quote2": "Living in Denmark, I realized that the same quality of education can be established in Kazakhstan, in my hometown of Uralsk."
+  },
   "metadata": {
     "contact": {
       "title": "Contact | Scandic International School",

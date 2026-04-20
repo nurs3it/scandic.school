@@ -56,6 +56,24 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3001',
+        pathname: '/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'scandic-school-api.onrender.com',
+        port: '',
+        pathname: '/uploads/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'wtmodkrmegsrpwoqutpo.supabase.co',
+        port: '',
+        pathname: '/storage/**',
+      },
     ],
   },
   
@@ -97,6 +115,17 @@ const nextConfig: NextConfig = {
     ];
   },
   
+  // Proxy /uploads/* to NestJS API (serves uploaded images)
+  async rewrites() {
+    const nestjsUrl = process.env.NESTJS_API_URL || 'http://localhost:3001';
+    return [
+      {
+        source: '/uploads/:path*',
+        destination: `${nestjsUrl}/uploads/:path*`,
+      },
+    ];
+  },
+
   // Redirects
   async redirects() {
     return [

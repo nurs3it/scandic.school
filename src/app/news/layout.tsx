@@ -1,0 +1,12 @@
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
+
+export default function NewsLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-screen">
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </div>
+  );
+}

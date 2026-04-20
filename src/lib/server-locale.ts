@@ -126,7 +126,17 @@ export function getTranslationsSync(locale: Locale) {
       },
       mission: {
         title: "SIS Mission",
-        description: "We nurture harmonious personalities, committed to the idea of building a better world based on moral values."
+        description: "We unlock the potential of every student, developing their thinking and shaping a strong personality for a confident future."
+      },
+      founder: {
+        label: "From the Founder",
+        title: "A Message from Our CEO & Founder",
+        name: "Amir Bekmukhanov",
+        role: "School Founder",
+        company: "Owner of Danish technology company «BYTEALL ENERGY»",
+        signatureRole: "Founder of Scandic International School",
+        quote1: "At Scandic International School, we create an environment where academic rigor meets creative freedom. Our vision is not just to impart knowledge, but to ignite the spark of curiosity in every child. Our graduates will be prepared to study at the world's best universities.",
+        quote2: "Living in Denmark, I realized that the same quality of education can be established in Kazakhstan, in my hometown of Uralsk."
       },
       stats: {
         title: "By the Numbers",
@@ -386,7 +396,17 @@ export function getTranslationsSync(locale: Locale) {
       },
       mission: {
         title: "Миссия SIS",
-        description: "Мы воспитываем гармоничную личность, преданную идее построения лучшего мира на основе нравственных ценностей."
+        description: "Мы раскрываем потенциал каждого ученика, развивая мышление и формируя сильную личность для уверенного будущего."
+      },
+      founder: {
+        label: "Слово основателя",
+        title: "Приветствие CEO и основателя школы",
+        name: "Амир Бекмуханов",
+        role: "Основатель школы",
+        company: "Владелец датской технологичной компании «BYTEALL ENERGY»",
+        signatureRole: "Основатель Scandic International School",
+        quote1: "В Scandic International School мы создаем среду, где академическая строгость сочетается с творческой свободой. Наше видение — не просто дать знания, но разжечь искру любознательности в каждом ребенке. Наши выпускники будут подготовлены учиться в лучших вузах мира.",
+        quote2: "Живя в Дании, я понял что образование такого же качества можно заложить в Казахстане, в родном Уральске."
       },
       stats: {
         title: "В цифрах",
@@ -646,7 +666,17 @@ export function getTranslationsSync(locale: Locale) {
       },
       mission: {
         title: "SIS миссиясы",
-        description: "Біз моральдық құндылықтар негізінде жақсы әлем құру идеясына адал гармониялы тұлға тәрбиелейміз."
+        description: "Біз әрбір оқушының әлеуетін ашамыз, ойлауды дамытамыз және сенімді болашақ үшін күшті тұлға қалыптастырамыз."
+      },
+      founder: {
+        label: "Негізін қалаушының сөзі",
+        title: "CEO және мектеп негізін қалаушының сәлемдесуі",
+        name: "Амир Бекмұханов",
+        role: "Мектеп негізін қалаушы",
+        company: "Дания технологиялық компаниясы «BYTEALL ENERGY» иесі",
+        signatureRole: "Scandic International School негізін қалаушы",
+        quote1: "Scandic International School-да біз академиялық қатаңдық шығармашылық еркіндікпен үйлесетін орта жасаймыз. Біздің көзқарасымыз — тек білім беру емес, әр баладағы білуге құштарлық ұшқынын жандыру. Біздің түлектер әлемнің ең үздік жоғары оқу орындарында оқуға дайын болады.",
+        quote2: "Данияда тұра отырып, мен сондай сапалы білімді Қазақстанда, туған Оралда қалыптастыруға болатынын түсіндім."
       },
       stats: {
         title: "Сандармен",

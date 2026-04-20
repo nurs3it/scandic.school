@@ -173,6 +173,7 @@ const translations = {
         language: "Select language"
       },
       gradeOptions: {
+        "0": "Grade 0",
         "1": "Grade 1",
         "2": "Grade 2",
         "3": "Grade 3",
@@ -360,6 +361,7 @@ const translations = {
         language: "Выберите язык"
       },
       gradeOptions: {
+        "0": "0 класс",
         "1": "1 класс",
         "2": "2 класс",
         "3": "3 класс",
@@ -547,6 +549,7 @@ const translations = {
         language: "Тілді таңдаңыз"
       },
       gradeOptions: {
+        "0": "0 сынып",
         "1": "1 сынып",
         "2": "2 сынып",
         "3": "3 сынып",

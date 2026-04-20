@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Search, ShoppingBag } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { MerchItemCard } from '@/components/merch-item-card';
 import { MerchDetailModal } from '@/components/merch-detail-modal';
-import { merchItems } from '@/lib/merch-data';
+import { fetchMerchItems } from '@/lib/merch-data';
 import { MerchItem } from '@/types/merch';
 
 interface MerchPageContentProps {
@@ -29,25 +29,30 @@ export function MerchPageContent({ translations }: MerchPageContentProps) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<MerchItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [items, setItems] = useState<MerchItem[]>([]);
+
+  useEffect(() => {
+    fetchMerchItems().then(setItems);
+  }, []);
 
   const categories = useMemo(() => {
     const cats = new Set(
-      merchItems
+      items
         .map((item) => item.category)
         .filter((cat): cat is string => Boolean(cat))
     );
     return Array.from(cats);
-  }, []);
+  }, [items]);
 
   const filteredItems = useMemo(() => {
-    return merchItems.filter((item) => {
+    return items.filter((item) => {
       const matchesSearch =
         item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.description.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesCategory = !selectedCategory || item.category === selectedCategory;
       return matchesSearch && matchesCategory;
     });
-  }, [searchQuery, selectedCategory]);
+  }, [items, searchQuery, selectedCategory]);
 
   const handleViewDetails = (item: MerchItem) => {
     setSelectedItem(item);
