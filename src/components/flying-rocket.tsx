@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform, useReducedMotion, useAnimation, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion, useAnimation, useMotionValueEvent, useSpring, MotionValue } from 'framer-motion';
 import { RefObject, useRef } from 'react';
 
 export function SmallRocketSVG({ className }: { className?: string }) {
@@ -93,6 +93,37 @@ export function SmallRocketSVG({ className }: { className?: string }) {
   );
 }
 
+interface TrailDotProps {
+  x: MotionValue<string>;
+  y: MotionValue<string>;
+  opacity: MotionValue<number>;
+  size: number;
+  alpha: number;
+  stiffness: number;
+}
+
+function TrailDot({ x, y, opacity, size, alpha, stiffness }: TrailDotProps) {
+  const springX = useSpring(x, { stiffness, damping: 18, mass: 0.6 });
+  const springY = useSpring(y, { stiffness, damping: 18, mass: 0.6 });
+  const composedOpacity = useTransform(opacity, (v) => v * alpha);
+
+  return (
+    <motion.div
+      className="absolute top-0 left-0 rounded-full bg-[#ffb400]"
+      style={{
+        x: springX,
+        y: springY,
+        opacity: composedOpacity,
+        width: size,
+        height: size,
+        translateX: '-50%',
+        translateY: '-50%',
+        filter: 'blur(1px)',
+      }}
+    />
+  );
+}
+
 interface FlyingRocketProps {
   sectionRef: RefObject<HTMLElement | null>;
 }
@@ -145,11 +176,21 @@ export function FlyingRocket({ sectionRef }: FlyingRocketProps) {
 
   if (prefersReducedMotion) return null;
 
+  const trailDots = [
+    { size: 10, alpha: 0.5, stiffness: 180 },
+    { size: 8, alpha: 0.35, stiffness: 130 },
+    { size: 6, alpha: 0.22, stiffness: 90 },
+    { size: 4, alpha: 0.12, stiffness: 60 },
+  ];
+
   return (
     <motion.div
       className="absolute inset-0 pointer-events-none z-20"
       style={{ willChange: 'transform' }}
     >
+      {trailDots.map((dot, i) => (
+        <TrailDot key={i} x={x} y={y} opacity={opacity} {...dot} />
+      ))}
       <motion.div
         className="absolute top-0 left-0"
         style={{ x, y, rotate, opacity, willChange: 'transform, opacity' }}
