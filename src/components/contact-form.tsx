@@ -28,10 +28,22 @@ export function ContactForm() {
     contactMutation.mutate(formData);
   };
 
+  const formatPhone = (value: string): string => {
+    const digits = value.replace(/\D/g, "");
+    const d = digits.startsWith("7") ? digits : "7" + digits;
+    let result = "+7";
+    if (d.length > 1) result += " (" + d.substring(1, Math.min(4, d.length));
+    if (d.length >= 4) result += ") " + d.substring(4, Math.min(7, d.length));
+    if (d.length >= 7) result += "-" + d.substring(7, Math.min(9, d.length));
+    if (d.length >= 9) result += "-" + d.substring(9, Math.min(11, d.length));
+    return result;
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: name === "phone" ? formatPhone(value) : value,
     });
   };
 
