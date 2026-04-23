@@ -35,23 +35,33 @@ export async function Footer() {
             <h3 className="text-lg font-semibold">{translations.footer.quickLinks}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-sm text-gray-300 hover:text-primary transition-colors">
+                <Link href="/about" className="text-sm text-gray-300 hover:text-white transition-colors">
                   {translations.navigation.about}
                 </Link>
               </li>
               <li>
-                <Link href="/#programs" className="text-sm text-gray-300 hover:text-primary transition-colors">
+                <Link href="/#programs" className="text-sm text-gray-300 hover:text-white transition-colors">
                   {translations.programs.title}
                 </Link>
               </li>
               <li>
-                <Link href="/application" className="text-sm text-gray-300 hover:text-primary transition-colors">
+                <Link href="/application" className="text-sm text-gray-300 hover:text-white transition-colors">
                   {translations.navigation.application}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-sm text-gray-300 hover:text-primary transition-colors">
+                <Link href="/contact" className="text-sm text-gray-300 hover:text-white transition-colors">
                   {translations.navigation.contact}
+                </Link>
+              </li>
+              <li>
+                <Link href="/programs" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  {(translations.navigation as unknown as Record<string, string>).programs ?? 'Programs'}
+                </Link>
+              </li>
+              <li>
+                <Link href="/structure" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  {(translations.navigation as unknown as Record<string, string>).structure ?? 'Structure'}
                 </Link>
               </li>
             </ul>
@@ -62,23 +72,23 @@ export async function Footer() {
             <h3 className="text-lg font-semibold">{translations.programs.title}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/application?program=earlyYears" className="text-sm text-gray-300 hover:text-primary transition-colors">
+                <Link href="/application?program=earlyYears" className="text-sm text-gray-300 hover:text-white transition-colors">
                   {translations.programs.earlyYears.title}
                 </Link>
               </li>
               <li>
-                <Link href="/application?program=primary" className="text-sm text-gray-300 hover:text-primary transition-colors">
+                <Link href="/application?program=primary" className="text-sm text-gray-300 hover:text-white transition-colors">
                   {translations.programs.primary.title}
                 </Link>
               </li>
               <li>
-                <Link href="/application?program=ibpyp" className="text-sm text-gray-300 hover:text-primary transition-colors">
+                <Link href="/application?program=ibpyp" className="text-sm text-gray-300 hover:text-white transition-colors">
                   {translations.hero.features.ibProgram}
                 </Link>
               </li>
               {('english' in translations.programs) && (
                 <li>
-                  <Link href="/application?program=english" className="text-sm text-gray-300 hover:text-primary transition-colors">
+                  <Link href="/application?program=english" className="text-sm text-gray-300 hover:text-white transition-colors">
                     {(translations.programs as unknown as Record<string, { title: string }>).english?.title || 'English Language'}
                   </Link>
                 </li>
@@ -104,7 +114,7 @@ export async function Footer() {
                 <Mail className="h-4 w-4 text-primary" />
                 <a 
                   href={`mailto:${translations.contact.details.emailAddress}`} 
-                  className="text-sm text-gray-300 hover:text-primary transition-colors"
+                  className="text-sm text-gray-300 hover:text-white transition-colors"
                 >
                   {translations.contact.details.emailAddress}
                 </a>
@@ -117,7 +127,7 @@ export async function Footer() {
                     href="https://www.instagram.com/scandic.school/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-sm text-gray-300 hover:text-primary transition-colors"
+                    className="text-sm text-gray-300 hover:text-white transition-colors"
                   >
                     {(translations.footer as Record<string, string>).instagramHandle}
                   </a>
@@ -133,10 +143,10 @@ export async function Footer() {
               © {new Date().getFullYear()} {translations.header.schoolName}. {translations.footer.rights}.
             </p>
             {/* <div className="flex space-x-6">
-              <Link href="/privacy" className="text-sm text-gray-400 hover:text-primary transition-colors">
+              <Link href="/privacy" className="text-sm text-gray-400 hover:text-white transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-sm text-gray-400 hover:text-primary transition-colors">
+              <Link href="/terms" className="text-sm text-gray-400 hover:text-white transition-colors">
                 Terms of Service
               </Link>
             </div> */}

@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Menu, X, Users, FileText, MessageCircle, UserPlus, Info, GraduationCap, ShoppingBag, Newspaper, Handshake } from "lucide-react";
+import { Phone, Menu, X, Users, FileText, MessageCircle, UserPlus, Info, GraduationCap, ShoppingBag, Newspaper, Handshake, Building2, HeartHandshake, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from 'react';
 import { LanguageSwitcher } from './language-switcher';
+import { ThemeSwitcher } from './theme-switcher';
 import { SchoolDropdown } from './school-dropdown';
 
 interface ClientHeaderProps {
@@ -23,6 +24,9 @@ interface ClientHeaderProps {
       contactSection: string;
       merch?: string;
       news?: string;
+      structure?: string;
+      community?: string;
+      programs?: string;
     };
     header: {
       schoolName: string;
@@ -37,6 +41,9 @@ interface ClientHeaderProps {
         about?: string;
         partners?: string;
         school?: string;
+        structure?: string;
+        community?: string;
+        programs?: string;
       };
     };
   };
@@ -64,6 +71,24 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
       href: "/staff",
       icon: Users,
       description: translations.header.descriptions.staff
+    },
+    {
+      name: translations.navigation.structure ?? "Структура",
+      href: "/structure",
+      icon: Building2,
+      description: translations.header.descriptions.structure ?? ""
+    },
+    {
+      name: translations.navigation.community ?? "Сообщество",
+      href: "/community",
+      icon: HeartHandshake,
+      description: translations.header.descriptions.community ?? ""
+    },
+    {
+      name: translations.navigation.programs ?? "Программа",
+      href: "/programs",
+      icon: BookOpen,
+      description: translations.header.descriptions.programs ?? ""
     },
   ];
 
@@ -156,9 +181,12 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
               <span>{translations.header.phone}</span>
             </div>
             
+            {/* Theme Switcher */}
+            <ThemeSwitcher />
+
             {/* Language Switcher */}
             <LanguageSwitcher />
-            
+
             {/* Apply Button */}
             <Button asChild className="bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-200">
               <Link href="/application" className="flex items-center space-x-2" data-apply-button>
@@ -169,7 +197,8 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center space-x-2">
+          <div className="lg:hidden flex items-center space-x-1">
+            <ThemeSwitcher />
             <LanguageSwitcher />
             <Button
               onClick={toggleMobileMenu}

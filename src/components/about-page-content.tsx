@@ -119,7 +119,7 @@ export async function AboutPageContent() {
                 <ScrollReveal direction="left" className="flex flex-col items-center text-center">
                   {/* Circular photo with green border */}
                   <div className="relative w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 mb-6">
-                    <div className="absolute inset-0 rounded-full border-[3px] border-secondary" />
+                    <div className="absolute inset-0 rounded-full border-[3px] border-secondary lg:border-primary-foreground" />
                     <div className="absolute inset-[3px] rounded-full overflow-hidden">
                       <Image
                         src="/images/founder.jpeg"
@@ -132,17 +132,17 @@ export async function AboutPageContent() {
                   </div>
 
                   {/* Name and role — dark text for yellow bg */}
-                  <h3 className="text-xl md:text-2xl font-bold text-secondary leading-tight mb-2">
+                  <h3 className="text-xl md:text-2xl font-bold text-secondary lg:text-primary-foreground leading-tight mb-2">
                     {founder.name}
                   </h3>
-                  <p className="text-secondary/80 text-sm font-medium leading-relaxed mb-0.5">
+                  <p className="text-secondary/80 lg:text-primary-foreground/80 text-sm font-medium leading-relaxed mb-0.5">
                     {founder.role}
                   </p>
-                  <p className="text-secondary/80 text-sm font-medium leading-relaxed uppercase">
+                  <p className="text-secondary/80 lg:text-primary-foreground/80 text-sm font-medium leading-relaxed uppercase">
                     Scandic International School
                   </p>
-                  <div className="w-10 h-[2px] bg-secondary/20 my-4" />
-                  <p className="text-secondary/60 text-xs leading-relaxed italic">
+                  <div className="w-10 h-[2px] bg-secondary/20 lg:bg-primary-foreground/20 my-4" />
+                  <p className="text-secondary/60 lg:text-primary-foreground/60 text-xs leading-relaxed italic">
                     {founder.company}
                   </p>
                 </ScrollReveal>
@@ -173,7 +173,7 @@ export async function AboutPageContent() {
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: 'linear-gradient(#153b24 1px, transparent 1px), linear-gradient(90deg, #153b24 1px, transparent 1px)',
+            backgroundImage: 'linear-gradient(hsl(var(--secondary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--secondary)) 1px, transparent 1px)',
             backgroundSize: '50px 50px',
           }}
         />
@@ -233,7 +233,7 @@ export async function AboutPageContent() {
         <div
           className="absolute inset-0 opacity-[0.06]"
           style={{
-            backgroundImage: 'linear-gradient(45deg, #153b24 25%, transparent 25%, transparent 75%, #153b24 75%), linear-gradient(45deg, #153b24 25%, transparent 25%, transparent 75%, #153b24 75%)',
+            backgroundImage: 'linear-gradient(45deg, hsl(var(--secondary)) 25%, transparent 25%, transparent 75%, hsl(var(--secondary)) 75%), linear-gradient(45deg, hsl(var(--secondary)) 25%, transparent 25%, transparent 75%, hsl(var(--secondary)) 75%)',
             backgroundSize: '30px 30px',
             backgroundPosition: '0 0, 15px 15px',
           }}
@@ -270,7 +270,7 @@ export async function AboutPageContent() {
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
-            backgroundImage: 'linear-gradient(rgba(255,180,0,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,180,0,0.3) 1px, transparent 1px)',
+            backgroundImage: 'linear-gradient(hsl(var(--primary) / 0.3) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary) / 0.3) 1px, transparent 1px)',
             backgroundSize: '60px 60px',
           }}
         />
@@ -402,6 +402,30 @@ export async function AboutPageContent() {
         </div>
       </section>
 
+      {/* ===== STRUCTURE TEASER ===== */}
+      <section className="py-14 md:py-20 bg-gradient-to-br from-white via-gray-50/50 to-secondary/[0.02]">
+        <div className="container mx-auto px-4 md:px-8">
+          <ScrollReveal>
+            <div className="max-w-2xl mx-auto text-center">
+              <Building2 className="h-8 w-8 text-secondary/40 mx-auto mb-4" />
+              <h3 className="text-xl md:text-2xl font-bold text-secondary mb-3">
+                {locale === 'kk' ? 'Мектеп құрылымы' : locale === 'en' ? 'School Structure' : 'Структура школы'}
+              </h3>
+              <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                {locale === 'kk' ? 'Мектебіміздің қалай құрылғанын біліңіз — басқарудан инфрақұрылымға дейін' : locale === 'en' ? 'Learn how our school is organized — from governance to infrastructure' : 'Узнайте, как устроена наша школа — от управления до инфраструктуры'}
+              </p>
+              <Link
+                href="/structure"
+                className="inline-flex items-center gap-2 text-secondary hover:text-primary text-sm font-semibold transition-colors group"
+              >
+                {locale === 'kk' ? 'Толығырақ' : locale === 'en' ? 'Learn more' : 'Подробнее'}
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* ===== SUB-NAVIGATION STRIP ===== */}
       <section className="border-y border-gray-200 bg-white">
         <div className="container mx-auto px-4 md:px-8">
@@ -421,6 +445,12 @@ export async function AboutPageContent() {
             </Link>
             <Link href="/testimonials" className="text-sm text-gray-500 hover:text-secondary transition-colors flex-shrink-0">
               {nav.testimonials}
+            </Link>
+            <Link href="/structure" className="text-sm text-gray-500 hover:text-secondary transition-colors flex-shrink-0">
+              {nav.structure ?? 'Structure'}
+            </Link>
+            <Link href="/community" className="text-sm text-gray-500 hover:text-secondary transition-colors flex-shrink-0">
+              {nav.community ?? 'Community'}
             </Link>
           </div>
         </div>
