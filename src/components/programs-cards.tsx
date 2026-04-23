@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { usePaperAirplaneContext } from '@/contexts/paper-airplane-context';
 
 /* ── card colour presets (full Tailwind literals for scanner) ── */
 
@@ -99,6 +100,9 @@ function Blobs({ idx, c }: { idx: number; c: (typeof presets)[number] }) {
 /* ── component ── */
 
 export function ProgramsCards({ programs, ibNote }: Props) {
+  const router = useRouter();
+  const { triggerFlight } = usePaperAirplaneContext();
+
   return (
     <>
       <motion.div
@@ -170,13 +174,23 @@ export function ProgramsCards({ programs, ibNote }: Props) {
                 </ul>
 
                 {/* CTA */}
-                <Link
-                  href={p.applicationUrl}
+                <button
+                  onClick={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const headerBtn = document.querySelector('[data-apply-button]');
+                    if (!headerBtn || window.innerWidth < 1024) {
+                      router.push(p.applicationUrl);
+                      return;
+                    }
+                    triggerFlight(rect, () => {
+                      router.push(p.applicationUrl);
+                    });
+                  }}
                   className={`inline-flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-bold text-base shadow-lg ${c.btn} active:scale-[0.97] transition-all duration-200`}
                 >
                   {p.buttonText}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                </button>
               </div>
             </motion.div>
           );

@@ -154,7 +154,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
             
             {/* Apply Button */}
             <Button asChild className="bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-200">
-              <Link href="/application" className="flex items-center space-x-2">
+              <Link href="/application" className="flex items-center space-x-2" data-apply-button>
                 <UserPlus className="h-4 w-4" />
                 <span>{translations.header.applyButton}</span>
               </Link>

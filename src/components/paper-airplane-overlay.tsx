@@ -123,7 +123,26 @@ export function PaperAirplaneAnimation({ phase, flightPath, onAnimationComplete 
           times: timeStops,
           ease: 'easeInOut',
         }}
-        onAnimationComplete={onAnimationComplete}
+        onAnimationComplete={() => {
+          const targetSelector = phase === 'phase1' ? '[data-apply-button]' : '[data-application-card]';
+          const target = document.querySelector(targetSelector) as HTMLElement | null;
+          if (target) {
+            target.style.transition = 'transform 0.15s ease-out, box-shadow 0.15s ease-out';
+            target.style.transform = 'scale(1.08)';
+            target.style.boxShadow = '0 0 20px rgba(45, 106, 45, 0.4)';
+            setTimeout(() => {
+              target.style.transform = 'scale(1)';
+              target.style.boxShadow = '';
+              setTimeout(() => {
+                target.style.transition = '';
+                target.style.transform = '';
+                onAnimationComplete();
+              }, 200);
+            }, 200);
+          } else {
+            onAnimationComplete();
+          }
+        }}
       >
         <PaperAirplaneSvg size={32} />
       </motion.div>
