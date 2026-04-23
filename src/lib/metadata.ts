@@ -52,6 +52,33 @@ export async function generateMetadata(locale: string, page: string): Promise<Me
         description: partnersMeta?.description || partnersSection?.subtitle || "Our partners and collaborations",
       };
     }
+    case 'structure': {
+      const tr = translations as unknown as Record<string, unknown>;
+      const meta = (tr.metadata as Record<string, Record<string, string>> | undefined)?.structure;
+      const structureSection = tr.structure as Record<string, string> | undefined;
+      return {
+        title: meta?.title || structureSection?.title || "School Structure | Scandic International School",
+        description: meta?.description || structureSection?.subtitle || "School structure and governance",
+      };
+    }
+    case 'community': {
+      const tr = translations as unknown as Record<string, unknown>;
+      const meta = (tr.metadata as Record<string, Record<string, string>> | undefined)?.community;
+      const communitySection = tr.community as Record<string, string> | undefined;
+      return {
+        title: meta?.title || communitySection?.title || "Community | Scandic International School",
+        description: meta?.description || communitySection?.subtitle || "Teachers, children, and parents",
+      };
+    }
+    case 'programs': {
+      const tr = translations as unknown as Record<string, unknown>;
+      const meta = (tr.metadata as Record<string, Record<string, string>> | undefined)?.academicPrograms;
+      const programsSection = tr.academicPrograms as Record<string, string> | undefined;
+      return {
+        title: meta?.title || programsSection?.title || "Academic Program | Scandic International School",
+        description: meta?.description || programsSection?.subtitle || "Interdisciplinary academic program",
+      };
+    }
     default:
       return {
         title: "Scandic International School",
