@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Menu, X, Users, FileText, MessageCircle, UserPlus, Info, GraduationCap, ShoppingBag, Newspaper } from "lucide-react";
+import { Phone, Menu, X, Users, FileText, MessageCircle, UserPlus, Info, GraduationCap, ShoppingBag, Newspaper, Handshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from 'react';
 import { LanguageSwitcher } from './language-switcher';
@@ -19,6 +19,7 @@ interface ClientHeaderProps {
       contact: string;
       application: string;
       school: string;
+      partners?: string;
       contactSection: string;
       merch?: string;
       news?: string;
@@ -33,6 +34,9 @@ interface ClientHeaderProps {
         documents: string;
         merch?: string;
         news?: string;
+        about?: string;
+        partners?: string;
+        school?: string;
       };
     };
   };
@@ -42,8 +46,25 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Группируем навигацию для лучшего UX
-  const mainNavigation = [
-    { name: translations.navigation.about, href: "/about", icon: Info },
+  const aboutNavigation = [
+    {
+      name: translations.navigation.about,
+      href: "/about",
+      icon: Info,
+      description: translations.header.descriptions.about ?? ""
+    },
+    {
+      name: translations.navigation.partners ?? "Партнеры",
+      href: "/partners",
+      icon: Handshake,
+      description: translations.header.descriptions.partners ?? ""
+    },
+    {
+      name: translations.navigation.staff,
+      href: "/staff",
+      icon: Users,
+      description: translations.header.descriptions.staff
+    },
   ];
 
   const schoolNavigation = [
@@ -52,12 +73,6 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
       href: "/news",
       icon: Newspaper,
       description: translations.header.descriptions.news ?? ""
-    },
-    {
-      name: translations.navigation.staff,
-      href: "/staff",
-      icon: Users,
-      description: translations.header.descriptions.staff
     },
     {
       name: translations.navigation.testimonials,
@@ -109,20 +124,12 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">
-            {/* Main Navigation */}
-            {mainNavigation.map((item) => {
-              const IconComponent = item.icon;
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="flex items-center space-x-1 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary hover:bg-primary/5 transition-all duration-200"
-                >
-                  <IconComponent className="h-4 w-4" />
-                  <span>{item.name}</span>
-                </Link>
-              );
-            })}
+            {/* About Dropdown */}
+            <SchoolDropdown
+              title={translations.navigation.about}
+              items={aboutNavigation}
+              icon={Info}
+            />
 
             {/* School Dropdown */}
             <SchoolDropdown
@@ -179,16 +186,20 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
         {isMobileMenuOpen && (
           <div className="lg:hidden border-t bg-white/95 backdrop-blur animate-in slide-in-from-top-2 duration-300">
             <div className="py-4 space-y-1">
-              {/* Main Navigation */}
-              <div className="space-y-1">
-                {mainNavigation.map((item, index) => {
+              {/* About Section */}
+              <div className="px-2">
+                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-4 py-2 flex items-center">
+                  <Info className="h-3 w-3 mr-2" />
+                  {translations.navigation.about}
+                </div>
+                {aboutNavigation.map((item, index) => {
                   const IconComponent = item.icon;
                   return (
                     <Link
                       key={item.name}
                       href={item.href}
                       onClick={closeMobileMenu}
-                      className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:text-primary hover:bg-primary/5 transition-all duration-200 rounded-lg mx-2 group"
+                      className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:text-primary hover:bg-primary/5 transition-all duration-200 rounded-lg group"
                       style={{ animationDelay: `${index * 50}ms` }}
                     >
                       <div className="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -196,6 +207,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
                       </div>
                       <div className="flex-1">
                         <span className="font-medium">{item.name}</span>
+                        <p className="text-xs text-gray-500 mt-0.5">{item.description}</p>
                       </div>
                     </Link>
                   );

@@ -8,6 +8,7 @@
     "testimonials": "Testimonials",
     "documents": "Documents",
     "school": "School",
+    "partners": "Partners",
     "contactSection": "Contact",
     "merch": "Merchandise",
     "news": "News"
@@ -21,7 +22,10 @@
       "testimonials": "Parent testimonials",
       "documents": "Policies and documents",
       "merch": "School merch and souvenirs",
-      "news": "Latest events and announcements"
+      "news": "Latest events and announcements",
+      "about": "About our school",
+      "partners": "Our partners and collaborations",
+      "school": "About our school"
     }
   },
   "hero": {
@@ -324,8 +328,32 @@
     }
   },
   "about": {
-    "title": "About Us",
+    "heroLabel": "About Us",
+    "title": "WELCOME TO SIS",
     "subtitle": "Learn more about our school and our approach to education",
+    "quote1Text": "Scandic International School provides high-quality international education, combining academic rigour with the creative development of every student.",
+    "quote1Source": "IB PYP Candidate School",
+    "quote2Text": "The school creates an atmosphere where students develop curiosity, creativity, and confidence, preparing them for life in a global world.",
+    "quote2Source": "Scandic International School",
+    "aims": {
+      "title": "Our Aims",
+      "description": "We strive to nurture well-rounded individuals committed to building a better world. Our educational programme is built on the principles of respect, excellence, knowledge, and international collaboration.",
+      "link": "Learn about our values"
+    },
+    "history": {
+      "title": "Our History",
+      "description": "Scandic International School was founded to bring world-class education to children in Uralsk. Inspired by the Danish educational system, we have created a unique environment for every child's development.",
+      "link": "More about our history"
+    },
+    "facilities": {
+      "title": "Facilities",
+      "description": "Modern classrooms, laboratories, sports grounds, and creative spaces — everything for the comprehensive development of students in a safe and comfortable environment.",
+      "link": "View our facilities"
+    },
+    "ctaTitle": "Continue your journey",
+    "ctaAdmissions": "Admissions",
+    "ctaVisit": "Visit Us",
+    "ctaContact": "Get in Touch",
     "metadata": {
       "title": "About Us | Scandic International School",
       "description": "Learn more about Scandic International School - our mission, values and approach to education"
@@ -417,6 +445,23 @@
     "merch": {
       "title": "Merchandise | Scandic International School",
       "description": "Official Scandic International School merchandise - t-shirts, hoodies, backpacks and accessories with school logo"
+    },
+    "partners": {
+      "title": "Partners | Scandic International School",
+      "description": "Our partners and collaborations"
     }
+  },
+  "partners": {
+    "heroLabel": "Community",
+    "title": "PARTNERSHIPS",
+    "intro": "At Scandic International School, we believe that strong partnerships with leading educational institutions and technology companies enrich the educational experience of our students. We strive to create connections that open new horizons for development, knowledge exchange, and collaborative projects.",
+    "subtitle": "We are proud to collaborate with leading educational institutions and companies that share our commitment to quality education",
+    "visitWebsite": "Visit Website",
+    "ourPartners": "Our Partners",
+    "ctaTitle": "Continue your journey",
+    "ctaSubtitle": "If you are interested in collaborating with Scandic International School, we would love to discuss partnership opportunities",
+    "ctaAdmissions": "Admissions",
+    "ctaVisit": "Visit Us",
+    "ctaContact": "Get in Touch"
   }
 }

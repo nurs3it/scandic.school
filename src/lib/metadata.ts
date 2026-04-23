@@ -43,6 +43,15 @@ export async function generateMetadata(locale: string, page: string): Promise<Me
         title: metadata?.merch?.title || merch?.title || "Merchandise | Scandic International School",
         description: metadata?.merch?.description || merch?.subtitle || "Official Scandic International School merchandise",
       };
+    case 'partners': {
+      const tr = translations as unknown as Record<string, unknown>;
+      const partnersMeta = (tr.metadata as Record<string, Record<string, string>> | undefined)?.partners;
+      const partnersSection = tr.partners as Record<string, string> | undefined;
+      return {
+        title: partnersMeta?.title || partnersSection?.title || "Partners | Scandic International School",
+        description: partnersMeta?.description || partnersSection?.subtitle || "Our partners and collaborations",
+      };
+    }
     default:
       return {
         title: "Scandic International School",

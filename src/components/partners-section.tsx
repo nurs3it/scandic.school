@@ -5,9 +5,10 @@ import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const partners = [
-  { name: 'Colegio del Mundo', logo: '/partners/colegio-del-mundo.png' },
+  { name: 'Colegios del Mundo Unido', logo: '/partners/colegio-del-mundo.png' },
   { name: 'Esbjerg International School', logo: '/partners/esbjerg-int-school.png' },
-  { name: 'Lab22', logo: '/partners/lab22.png' },
+  { name: 'The Lab22', logo: '/partners/lab22.png' },
+  { name: 'Byteall Energy', logo: '/partners/byteall-energy.png' },
 ];
 
 function PartnerLogo({ name, logo }: { name: string; logo: string }) {
