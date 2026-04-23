@@ -11,7 +11,10 @@
     "partners": "Partners",
     "contactSection": "Contact",
     "merch": "Merchandise",
-    "news": "News"
+    "news": "News",
+    "structure": "Structure",
+    "community": "Community",
+    "programs": "Programs"
   },
   "header": {
     "schoolName": "Scandic School",
@@ -25,7 +28,10 @@
       "news": "Latest events and announcements",
       "about": "About our school",
       "partners": "Our partners and collaborations",
-      "school": "About our school"
+      "school": "About our school",
+      "structure": "School organization and governance",
+      "community": "Teachers, children, and parents",
+      "programs": "Academic curriculum"
     }
   },
   "hero": {
@@ -449,6 +455,18 @@
     "partners": {
       "title": "Partners | Scandic International School",
       "description": "Our partners and collaborations"
+    },
+    "structure": {
+      "title": "School Structure | Scandic International School",
+      "description": "Learn about the organization, governance, and infrastructure of Scandic International School"
+    },
+    "community": {
+      "title": "Community | Scandic International School",
+      "description": "Teachers, children, and parents — three sides of the educational process"
+    },
+    "academicPrograms": {
+      "title": "Academic Program | Scandic International School",
+      "description": "Interdisciplinary approach with a focus on STEM and personal development"
     }
   },
   "partners": {
@@ -463,5 +481,69 @@
     "ctaAdmissions": "Admissions",
     "ctaVisit": "Visit Us",
     "ctaContact": "Get in Touch"
+  },
+  "structure": {
+    "heroLabel": "Structure",
+    "title": "SCHOOL STRUCTURE",
+    "subtitle": "Two-level professional governance. International curriculum",
+    "managementLabel": "Governance",
+    "managementTitle": "How our school is organized",
+    "operationalLevel": "Operational Management",
+    "coordinationLevel": "General Management / Coordination",
+    "ceo": { "title": "School CEO", "description": "Strategic leadership and school development" },
+    "management": { "title": "School Management", "description": "Operational management of the educational process" },
+    "board": { "title": "Board of Trustees", "description": "Oversight and strategic direction" },
+    "pta": { "title": "PTA", "fullName": "Parent-Teacher Association", "description": "Connection between family and school, joint initiatives" },
+    "curriculumLabel": "Curriculum",
+    "curriculumTitle": "Curriculum by stages",
+    "primary": { "title": "Primary School", "subtitle": "Foundation of education", "description": "Developing critical thinking, individuality, and skills through play and inquiry", "tags": ["IB PYP", "Trilingual environment"] },
+    "secondary": { "title": "Middle & High School", "subtitle": "Path to academic leadership", "description": "In-depth study of STEM subjects, preparation for international exams", "tags": ["IB MYP & DP", "Science projects", "Guest lectures"] },
+    "extracurricular": { "title": "Extracurricular Development", "subtitle": "Developing practical skills", "description": "Independence through projects and debates, role-based experiences", "tags": ["Homework monitoring", "Clubs & activities", "Expert workshops"] },
+    "infrastructureLabel": "Infrastructure",
+    "infrastructureTitle": "School facilities",
+    "classrooms": { "title": "Premium Classrooms", "description": "Modern learning spaces with interactive equipment" },
+    "parentHub": { "title": "Parent Hub", "description": "A conceptual space for parents and meetings" },
+    "stemLab": { "title": "STEM Laboratory", "description": "Equipped laboratory for technology projects" },
+    "physicsLab": { "title": "Physics Laboratory", "description": "Space for experiments and scientific research" },
+    "ctaTitle": "Continue exploring",
+    "ctaPrograms": "Academic Program",
+    "ctaAbout": "About Us",
+    "ctaApplication": "Apply Now"
+  },
+  "community": {
+    "heroLabel": "Community",
+    "title": "TEACHERS — CHILDREN — PARENTS",
+    "subtitle": "Raising a child is a three-way process",
+    "philosophy": "We build trusting relationships between teachers, children, and parents, hear everyone's voice, and strengthen the bond between school and family, understanding that raising a child is a three-way process.",
+    "sidesLabel": "Community",
+    "sidesTitle": "Three sides of one process",
+    "teachers": { "title": "Teachers", "description": "Mentorship, professionalism, individual approach to every student" },
+    "children": { "title": "Children", "description": "At the center of education, developing potential and independence" },
+    "parents": { "title": "Parents", "description": "Partners in learning, active involvement, and constant feedback" },
+    "teamPhotoCaption": "Our team is our strength",
+    "teamPhotoPlaceholder": "Team photo",
+    "ctaTitle": "Continue exploring",
+    "ctaApplication": "Apply Now",
+    "ctaContact": "Contact Us"
+  },
+  "academicPrograms": {
+    "heroLabel": "Curriculum",
+    "title": "ACADEMIC PROGRAM",
+    "subtitle": "Interdisciplinary approach: focus on STEM and personal development",
+    "subjectsLabel": "Subjects",
+    "subjectsTitle": "Our subject areas",
+    "science": { "title": "Natural Sciences", "description": "Physics, chemistry, and biology through research, experiments, and hands-on practice. Science not from a textbook, but through real experiments and projects. Taught in English, allowing students to master the subject while developing language skills naturally.", "tags": ["Experimental modules", "Environmental projects"] },
+    "math": { "title": "Mathematics", "description": "Calculus, arithmetic, algebra, geometry — exceptional development of logic and advanced analytical skills.", "tags": ["Analytical thinking", "Problem solving"] },
+    "arts": { "title": "Arts & History", "description": "Visual arts, music, and drama as tools for self-expression. History as the foundation for understanding the modern world.", "tags": ["Visual arts", "Music & drama"] },
+    "languages": { "title": "Language Program", "description": "Trilingual environment — Kazakh, Russian, English. Language learning through context and practice in everyday academic activities.", "tags": ["Kazakh", "Russian", "English"] },
+    "structureTeaserText": "Learn how our school is organized — from governance to infrastructure",
+    "structureTeaserButton": "School Structure",
+    "stemLabel": "STEM",
+    "stemTitle": "Interdisciplinary Approach",
+    "stemDescription": "Our subjects don't exist in isolation — they are connected through projects, research, and practical application of knowledge. The STEM focus allows students to see connections between science, technology, engineering, and mathematics.",
+    "ctaTitle": "Continue exploring",
+    "ctaApplication": "Apply Now",
+    "ctaAbout": "About Us",
+    "ctaContact": "Contact Us"
   }
 }
