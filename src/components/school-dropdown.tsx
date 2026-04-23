@@ -9,12 +9,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import type { IconProps } from '@/components/icons';
 
-interface DropdownItem {
+export interface DropdownItem {
   name: string;
   href: string;
-  icon: LucideIcon;
+  icon: LucideIcon | React.ComponentType<IconProps>;
   description: string;
+  isCustomIcon?: boolean;
 }
 
 interface SchoolDropdownProps {
@@ -25,6 +27,7 @@ interface SchoolDropdownProps {
 
 export function SchoolDropdown({ title, items, icon: Icon }: SchoolDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
@@ -41,16 +44,30 @@ export function SchoolDropdown({ title, items, icon: Icon }: SchoolDropdownProps
       <PopoverContent className="w-64 p-2" align="start">
         <div className="space-y-1">
           {items.map((item) => {
-            const ItemIcon = item.icon;
+            const isHovered = hoveredItem === item.href;
             return (
               <Link
                 key={item.name}
                 href={item.href}
                 className="flex items-start space-x-3 px-3 py-3 text-sm text-gray-700 hover:text-primary hover:bg-primary/5 transition-colors rounded-lg group"
                 onClick={() => setIsOpen(false)}
+                onMouseEnter={() => setHoveredItem(item.href)}
+                onMouseLeave={() => setHoveredItem(null)}
               >
                 <div className="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <ItemIcon className="h-4 w-4 text-primary" />
+                  {item.isCustomIcon ? (
+                    <div className="w-6 h-6">
+                      {(() => {
+                        const CustomIcon = item.icon as React.ComponentType<IconProps>;
+                        return <CustomIcon active={isHovered} id={`nav-${item.href}`} />;
+                      })()}
+                    </div>
+                  ) : (
+                    (() => {
+                      const LucideIconComp = item.icon as LucideIcon;
+                      return <LucideIconComp className="h-4 w-4 text-primary" />;
+                    })()
+                  )}
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-medium text-gray-900 group-hover:text-primary transition-colors">

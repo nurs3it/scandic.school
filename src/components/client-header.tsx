@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Menu, X, Users, FileText, MessageCircle, UserPlus, Info, GraduationCap, ShoppingBag, Newspaper, Handshake, Building2, HeartHandshake, BookOpen } from "lucide-react";
+import { Phone, Menu, X, Info, FileText, MessageCircle, UserPlus, GraduationCap, ShoppingBag, Newspaper } from "lucide-react";
+import { InfoIcon, HandshakeIcon, UsersIcon, Building2Icon, HeartHandshakeIcon, BookOpenIcon } from '@/components/icons';
+import type { IconProps } from '@/components/icons';
 import { Button } from "@/components/ui/button";
 import { useState } from 'react';
 import { LanguageSwitcher } from './language-switcher';
 import { ThemeSwitcher } from './theme-switcher';
-import { SchoolDropdown } from './school-dropdown';
+import { SchoolDropdown, type DropdownItem } from './school-dropdown';
 
 interface ClientHeaderProps {
   translations: {
@@ -53,42 +55,48 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Группируем навигацию для лучшего UX
-  const aboutNavigation = [
+  const aboutNavigation: DropdownItem[] = [
     {
       name: translations.navigation.about,
       href: "/about",
-      icon: Info,
-      description: translations.header.descriptions.about ?? ""
+      icon: InfoIcon,
+      description: translations.header.descriptions.about ?? "",
+      isCustomIcon: true,
     },
     {
       name: translations.navigation.partners ?? "Партнеры",
       href: "/partners",
-      icon: Handshake,
-      description: translations.header.descriptions.partners ?? ""
+      icon: HandshakeIcon,
+      description: translations.header.descriptions.partners ?? "",
+      isCustomIcon: true,
     },
     {
       name: translations.navigation.staff,
       href: "/staff",
-      icon: Users,
-      description: translations.header.descriptions.staff
+      icon: UsersIcon,
+      description: translations.header.descriptions.staff,
+      isCustomIcon: true,
     },
     {
       name: translations.navigation.structure ?? "Структура",
       href: "/structure",
-      icon: Building2,
-      description: translations.header.descriptions.structure ?? ""
+      icon: Building2Icon,
+      description: translations.header.descriptions.structure ?? "",
+      isCustomIcon: true,
     },
     {
       name: translations.navigation.community ?? "Сообщество",
       href: "/community",
-      icon: HeartHandshake,
-      description: translations.header.descriptions.community ?? ""
+      icon: HeartHandshakeIcon,
+      description: translations.header.descriptions.community ?? "",
+      isCustomIcon: true,
     },
     {
       name: translations.navigation.programs ?? "Программа",
       href: "/programs",
-      icon: BookOpen,
-      description: translations.header.descriptions.programs ?? ""
+      icon: BookOpenIcon,
+      description: translations.header.descriptions.programs ?? "",
+      isCustomIcon: true,
     },
   ];
 
@@ -222,7 +230,6 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
                   {translations.navigation.about}
                 </div>
                 {aboutNavigation.map((item, index) => {
-                  const IconComponent = item.icon;
                   return (
                     <Link
                       key={item.name}
@@ -232,7 +239,19 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
                       style={{ animationDelay: `${index * 50}ms` }}
                     >
                       <div className="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                        <IconComponent className="h-4 w-4 text-primary" />
+                        {item.isCustomIcon ? (
+                          <div className="w-5 h-5">
+                            {(() => {
+                              const CustomIcon = item.icon as React.ComponentType<IconProps>;
+                              return <CustomIcon active={false} id={`mobile-${item.href}`} />;
+                            })()}
+                          </div>
+                        ) : (
+                          (() => {
+                            const LucideIconComp = item.icon as import('lucide-react').LucideIcon;
+                            return <LucideIconComp className="h-4 w-4 text-primary" />;
+                          })()
+                        )}
                       </div>
                       <div className="flex-1">
                         <span className="font-medium">{item.name}</span>
