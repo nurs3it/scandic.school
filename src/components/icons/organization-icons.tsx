@@ -111,7 +111,7 @@ export function BriefcaseIcon({ active, id }: IconProps) {
       {/* Center horizontal band */}
       <rect x="10" y="37" width="44" height="4"
         fill="white"
-        className={`transition-opacity duration-500 ${active ? 'opacity-20' : 'opacity-8'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-20' : 'opacity-10'}`}
       />
 
       {/* Clasp — center rectangle */}
@@ -127,13 +127,13 @@ export function BriefcaseIcon({ active, id }: IconProps) {
 
       {/* Body shine — top-left highlight */}
       <path d="M14 28 C14 28 18 26 24 26" stroke="white" strokeWidth="2" strokeLinecap="round" fill="none"
-        className={`transition-opacity duration-500 ${active ? 'opacity-30' : 'opacity-12'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-30' : 'opacity-10'}`}
       />
 
       {/* Stitching detail on bottom */}
       <path d="M14 50 L50 50" stroke="white" strokeWidth="1" strokeLinecap="round" fill="none"
         strokeDasharray="3 3"
-        className={`transition-opacity duration-500 ${active ? 'opacity-25' : 'opacity-8'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-25' : 'opacity-10'}`}
       />
 
       {/* Sparkle dots on active */}
@@ -193,7 +193,7 @@ export function ShieldIcon({ active, id }: IconProps) {
         stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none"
         strokeDasharray="40"
         strokeDashoffset={active ? '0' : '40'}
-        className={`transition-opacity duration-500 ${active ? 'opacity-90' : 'opacity-50'}`}
+        className={active ? 'opacity-90' : 'opacity-50'}
         style={{ transition: 'stroke-dashoffset 0.6s ease-out, opacity 0.5s' }}
       />
 
@@ -262,7 +262,7 @@ export function Building2Icon({ active, id }: IconProps) {
         className={`transition-opacity duration-500 ${active ? 'opacity-40' : 'opacity-15'}`}
       />
       <rect x="29.5" y="27" width="5" height="5" rx="1" fill="white"
-        className={`transition-opacity duration-500 ${active ? 'opacity-35' : 'opacity-12'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-35' : 'opacity-10'}`}
       />
       <rect x="37" y="27" width="5" height="5" rx="1" fill="white"
         className={`transition-opacity duration-500 ${active ? 'opacity-40' : 'opacity-15'}`}
@@ -270,13 +270,13 @@ export function Building2Icon({ active, id }: IconProps) {
 
       {/* Window grid — row 2 */}
       <rect x="22" y="35" width="5" height="5" rx="1" fill="white"
-        className={`transition-opacity duration-500 ${active ? 'opacity-35' : 'opacity-12'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-35' : 'opacity-10'}`}
       />
       <rect x="29.5" y="35" width="5" height="5" rx="1" fill="white"
         className={`transition-opacity duration-500 ${active ? 'opacity-40' : 'opacity-15'}`}
       />
       <rect x="37" y="35" width="5" height="5" rx="1" fill="white"
-        className={`transition-opacity duration-500 ${active ? 'opacity-35' : 'opacity-12'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-35' : 'opacity-10'}`}
       />
 
       {/* Window grid — row 3 */}
@@ -373,7 +373,7 @@ export function SchoolIcon({ active, id }: IconProps) {
       </defs>
 
       {/* Bell on top — with scale animation on active */}
-      <g className={`transition-all duration-500 origin-bottom ${active ? 'scale-110' : 'scale-100'}`}
+      <g className={`transition-all duration-500 ${active ? 'scale-110' : 'scale-100'}`}
         style={{ transformOrigin: '32px 14px' }}>
         <path d="M28 14 C28 10 36 10 36 14 L38 20 H26 Z" fill="#ffb400"
           className={`transition-opacity duration-500 ${active ? 'opacity-100' : 'opacity-60'}`}
@@ -408,16 +408,16 @@ export function SchoolIcon({ active, id }: IconProps) {
 
       {/* Columns — white vertical rectangles */}
       <rect x="16" y="30" width="4" height="28" rx="1" fill="white"
-        className={`transition-opacity duration-500 ${active ? 'opacity-22' : 'opacity-8'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-25' : 'opacity-10'}`}
       />
       <rect x="24" y="30" width="4" height="28" rx="1" fill="white"
-        className={`transition-opacity duration-500 ${active ? 'opacity-18' : 'opacity-6'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-20' : 'opacity-5'}`}
       />
       <rect x="36" y="30" width="4" height="28" rx="1" fill="white"
-        className={`transition-opacity duration-500 ${active ? 'opacity-18' : 'opacity-6'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-20' : 'opacity-5'}`}
       />
       <rect x="44" y="30" width="4" height="28" rx="1" fill="white"
-        className={`transition-opacity duration-500 ${active ? 'opacity-22' : 'opacity-8'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-25' : 'opacity-10'}`}
       />
 
       {/* Arched door */}
@@ -428,10 +428,10 @@ export function SchoolIcon({ active, id }: IconProps) {
 
       {/* Windows */}
       <rect x="16" y="34" width="6" height="7" rx="1" fill="white"
-        className={`transition-opacity duration-500 ${active ? 'opacity-30' : 'opacity-12'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-30' : 'opacity-10'}`}
       />
       <rect x="42" y="34" width="6" height="7" rx="1" fill="white"
-        className={`transition-opacity duration-500 ${active ? 'opacity-30' : 'opacity-12'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-30' : 'opacity-10'}`}
       />
 
       {/* Roof shine */}
@@ -491,7 +491,7 @@ export function CoffeeIcon({ active, id }: IconProps) {
 
       {/* Cup shine line — diagonal highlight */}
       <path d="M20 28 L22 50" stroke="white" strokeWidth="2.5" strokeLinecap="round" fill="none"
-        className={`transition-opacity duration-500 ${active ? 'opacity-30' : 'opacity-12'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-30' : 'opacity-10'}`}
       />
 
       {/* Handle — stroke arc on right side */}
