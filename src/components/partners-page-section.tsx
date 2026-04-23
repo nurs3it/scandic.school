@@ -266,7 +266,7 @@ export async function PartnersPageSection() {
                         alt={partner.name[locale] || partner.name.en}
                         width={240}
                         height={120}
-                        className="max-h-20 md:max-h-24 w-auto object-contain brightness-0 invert relative z-10"
+                        className="max-h-20 md:max-h-24 w-auto object-contain relative z-10"
                       />
                     </div>
 

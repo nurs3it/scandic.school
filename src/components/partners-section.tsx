@@ -2,7 +2,15 @@
 
 import { useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useLocale } from '@/components/locale-provider';
+
+const sectionText = {
+  title: { ru: 'Наши партнёры', en: 'Our Partners', kk: 'Біздің серіктестер' },
+  more: { ru: 'Подробнее', en: 'Learn More', kk: 'Толығырақ' },
+} as const;
 
 const partners = [
   { name: 'Colegios del Mundo Unido', logo: '/partners/colegio-del-mundo.png' },
@@ -45,16 +53,27 @@ function PartnerLogo({ name, logo }: { name: string; logo: string }) {
 }
 
 export function PartnersSection() {
+  const { locale } = useLocale();
+
   return (
     <section className="py-12 md:py-16 bg-neutral-50">
       <div className="container mx-auto px-4">
         <h2 className="text-center text-xl md:text-2xl font-semibold text-gray-400 mb-10 tracking-wide uppercase">
-          Наши партнёры
+          {sectionText.title[locale]}
         </h2>
-        <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16 max-w-3xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 items-center justify-items-center gap-8 md:gap-12 max-w-4xl mx-auto">
           {partners.map((partner) => (
             <PartnerLogo key={partner.name} {...partner} />
           ))}
+        </div>
+        <div className="text-center mt-10">
+          <Link
+            href="/partners"
+            className="inline-flex items-center gap-2 text-secondary font-semibold hover:text-primary transition-colors group"
+          >
+            {sectionText.more[locale]}
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>
