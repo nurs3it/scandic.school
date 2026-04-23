@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useApplicationForm } from "@/lib/hooks";
 import { ApplicationFormData } from "@/lib/actions";
@@ -13,6 +13,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Send, AlertCircle, User } from "lucide-react";
 import { useLocale } from './locale-provider';
 import { usePaperAirplaneContext } from '@/contexts/paper-airplane-context';
+import { PaperAirplaneSvg } from './paper-airplane-svg';
+import { motion } from 'framer-motion';
 import { formatPhoneNumber } from '@/lib/phone-mask';
 
 // Validates +7 (XXX) XXX-XX-XX format
@@ -86,18 +88,7 @@ export function ApplicationForm() {
 
   const router = useRouter();
   const applicationMutation = useApplicationForm();
-  const { triggerLanding, shouldLand } = usePaperAirplaneContext();
-  const hasLanded = useRef(false);
-
-  useEffect(() => {
-    if (hasLanded.current) return;
-    if (!shouldLand()) return;
-    hasLanded.current = true;
-    const timer = setTimeout(() => {
-      triggerLanding();
-    }, 300);
-    return () => clearTimeout(timer);
-  }, [triggerLanding, shouldLand]);
+  const { isLanded } = usePaperAirplaneContext();
 
   function validate(data: typeof formData): FieldErrors {
     const errors: FieldErrors = {};
@@ -159,7 +150,25 @@ export function ApplicationForm() {
     : null;
 
   return (
-    <Card className="w-full max-w-xl mx-auto" data-application-card>
+    <Card className="w-full max-w-xl mx-auto relative overflow-visible" data-application-card>
+      {/* Landed paper airplane */}
+      {isLanded && (
+        <motion.div
+          className="absolute -top-3 -right-3 z-10"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: [1, 1.05, 1], opacity: 1 }}
+          transition={{
+            scale: { duration: 2, repeat: Infinity, ease: 'easeInOut' },
+            opacity: { duration: 0.4 },
+          }}
+          style={{
+            rotate: 135,
+            filter: 'drop-shadow(0 2px 8px rgba(74, 222, 128, 0.5))',
+          }}
+        >
+          <PaperAirplaneSvg size={44} landed />
+        </motion.div>
+      )}
       <CardHeader className="text-center">
         <CardTitle className="text-3xl font-bold text-secondary mb-4">
           {t.title}

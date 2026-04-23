@@ -177,11 +177,6 @@ export function ProgramsCards({ programs, ibNote }: Props) {
                 <button
                   onClick={(e) => {
                     const rect = e.currentTarget.getBoundingClientRect();
-                    const headerBtn = document.querySelector('[data-apply-button]');
-                    if (!headerBtn || window.innerWidth < 1024) {
-                      router.push(p.applicationUrl);
-                      return;
-                    }
                     triggerFlight(rect, () => {
                       router.push(p.applicationUrl);
                     });

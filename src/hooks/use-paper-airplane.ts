@@ -11,7 +11,7 @@ export interface FlightPath {
   endY: number;
 }
 
-export type FlightPhase = 'idle' | 'phase1' | 'phase2';
+export type FlightPhase = 'idle' | 'phase1' | 'phase2' | 'landed';
 
 export function usePaperAirplane() {
   const [phase, setPhase] = useState<FlightPhase>('idle');
@@ -20,22 +20,28 @@ export function usePaperAirplane() {
   const phaseRef = useRef<FlightPhase>('idle');
 
   const triggerFlight = useCallback((startRect: DOMRect, onComplete: () => void) => {
-    const headerBtn = document.querySelector('[data-apply-button]');
-    if (!headerBtn) {
-      onComplete();
-      return;
-    }
-
-    const endRect = headerBtn.getBoundingClientRect();
-
-    // Set sessionStorage BEFORE animation starts so it's ready when navigation happens
     sessionStorage.setItem(SESSION_KEY, 'true');
+
+    const headerBtn = document.querySelector('[data-apply-button]');
+    let endX: number;
+    let endY: number;
+
+    if (headerBtn) {
+      // Desktop: fly to header button
+      const endRect = headerBtn.getBoundingClientRect();
+      endX = endRect.left + endRect.width / 2;
+      endY = endRect.top + endRect.height / 2;
+    } else {
+      // Mobile: fly to top-center of screen
+      endX = window.innerWidth / 2;
+      endY = 30;
+    }
 
     setFlightPath({
       startX: startRect.left + startRect.width / 2,
       startY: startRect.top + startRect.height / 2,
-      endX: endRect.left + endRect.width / 2,
-      endY: endRect.top + endRect.height / 2,
+      endX,
+      endY,
     });
     onCompleteRef.current = onComplete;
     phaseRef.current = 'phase1';
@@ -43,16 +49,27 @@ export function usePaperAirplane() {
   }, []);
 
   const triggerLanding = useCallback(() => {
-    const headerBtn = document.querySelector('[data-apply-button]');
     const formCard = document.querySelector('[data-application-card]');
-    if (!headerBtn || !formCard) return;
+    if (!formCard) return;
 
-    const startRect = headerBtn.getBoundingClientRect();
+    const headerBtn = document.querySelector('[data-apply-button]');
     const endRect = formCard.getBoundingClientRect();
+    let startX: number;
+    let startY: number;
+
+    if (headerBtn) {
+      const startRect = headerBtn.getBoundingClientRect();
+      startX = startRect.left + startRect.width / 2;
+      startY = startRect.top + startRect.height / 2;
+    } else {
+      // Mobile: start from top-center
+      startX = window.innerWidth / 2;
+      startY = 30;
+    }
 
     setFlightPath({
-      startX: startRect.left + startRect.width / 2,
-      startY: startRect.top + startRect.height / 2,
+      startX,
+      startY,
       endX: endRect.right - 24,
       endY: endRect.top + 24,
     });
@@ -71,9 +88,9 @@ export function usePaperAirplane() {
       onCompleteRef.current = null;
     } else if (currentPhase === 'phase2') {
       sessionStorage.removeItem(SESSION_KEY);
-      phaseRef.current = 'idle';
-      setPhase('idle');
-      setFlightPath(null);
+      phaseRef.current = 'landed';
+      setPhase('landed');
+      // Keep flightPath so airplane stays visible at landing position
     }
   }, []);
 
