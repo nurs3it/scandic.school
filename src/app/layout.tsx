@@ -6,6 +6,7 @@ import { LocaleProvider } from "@/components/locale-provider";
 import { CartProvider } from "@/contexts/cart-context";
 import { CartSidebar } from "@/components/cart-sidebar";
 import { CartButton } from "@/components/cart-button";
+import { PaperAirplaneProvider } from "@/contexts/paper-airplane-context";
 import { Analytics } from "@vercel/analytics/next"
 
 const montserrat = Montserrat({
@@ -84,7 +85,9 @@ export default function RootLayout({
         <LocaleProvider>
           <QueryProvider>
             <CartProvider>
-              {children}
+              <PaperAirplaneProvider>
+                {children}
+              </PaperAirplaneProvider>
               <CartSidebar />
               <CartButton />
             </CartProvider>
