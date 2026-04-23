@@ -117,7 +117,7 @@ export function BookOpenIcon({ active, id }: IconProps) {
 
       {/* Text lines on left page */}
       <path d="M14 26 L28 25" stroke="white" strokeWidth="1.5" strokeLinecap="round" fill="none"
-        className={`transition-opacity duration-500 ${active ? 'opacity-45' : 'opacity-18'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-45' : 'opacity-20'}`}
       />
       <path d="M12 32 L29 31" stroke="white" strokeWidth="1.5" strokeLinecap="round" fill="none"
         className={`transition-opacity duration-500 ${active ? 'opacity-40' : 'opacity-15'}`}
@@ -126,12 +126,12 @@ export function BookOpenIcon({ active, id }: IconProps) {
         className={`transition-opacity duration-500 ${active ? 'opacity-40' : 'opacity-15'}`}
       />
       <path d="M14 44 L26 43" stroke="white" strokeWidth="1.5" strokeLinecap="round" fill="none"
-        className={`transition-opacity duration-500 ${active ? 'opacity-35' : 'opacity-12'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-35' : 'opacity-10'}`}
       />
 
       {/* Text lines on right page */}
       <path d="M36 26 L50 25" stroke="white" strokeWidth="1.5" strokeLinecap="round" fill="none"
-        className={`transition-opacity duration-500 ${active ? 'opacity-35' : 'opacity-12'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-35' : 'opacity-10'}`}
       />
       <path d="M35 32 L52 31" stroke="white" strokeWidth="1.5" strokeLinecap="round" fill="none"
         className={`transition-opacity duration-500 ${active ? 'opacity-30' : 'opacity-10'}`}
@@ -139,7 +139,7 @@ export function BookOpenIcon({ active, id }: IconProps) {
 
       {/* Shine highlight on left page */}
       <path d="M10 22 C12 20 16 18 20 18" stroke="white" strokeWidth="2" strokeLinecap="round" fill="none"
-        className={`transition-opacity duration-500 ${active ? 'opacity-30' : 'opacity-12'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-30' : 'opacity-10'}`}
       />
 
       {/* Active sparkles above book */}
@@ -172,7 +172,7 @@ export function FlaskConicalIcon({ active, id }: IconProps) {
 
       {/* Glow at bottom on active */}
       <ellipse cx="32" cy="52" rx="22" ry="8" fill="#34d399"
-        className={`transition-all duration-700 ${active ? 'opacity-12 scale-110' : 'opacity-0 scale-100'}`}
+        className={`transition-all duration-700 ${active ? 'opacity-10 scale-110' : 'opacity-0 scale-100'}`}
         style={{ transformOrigin: '32px 52px' }}
       />
 
@@ -199,7 +199,7 @@ export function FlaskConicalIcon({ active, id }: IconProps) {
       <path
         d="M12 50 L18 38 L46 38 L52 50 Z"
         fill="white"
-        className={`transition-opacity duration-500 ${active ? 'opacity-20' : 'opacity-8'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-20' : 'opacity-10'}`}
       />
 
       {/* Shine on neck */}
@@ -214,13 +214,13 @@ export function FlaskConicalIcon({ active, id }: IconProps) {
 
       {/* Bubbles — translate up on active */}
       <circle cx="28" cy="48" r="2.5" fill="white"
-        className={`transition-all duration-500 ${active ? 'opacity-35 -translate-y-2' : 'opacity-12 translate-y-0'}`}
+        className={`transition-all duration-500 ${active ? 'opacity-35 -translate-y-2' : 'opacity-10 translate-y-0'}`}
       />
       <circle cx="36" cy="44" r="2" fill="white"
         className={`transition-all duration-700 delay-75 ${active ? 'opacity-30 -translate-y-3' : 'opacity-10 translate-y-0'}`}
       />
       <circle cx="32" cy="52" r="1.5" fill="white"
-        className={`transition-all duration-500 delay-150 ${active ? 'opacity-25 -translate-y-1' : 'opacity-8 translate-y-0'}`}
+        className={`transition-all duration-500 delay-150 ${active ? 'opacity-25 -translate-y-1' : 'opacity-10 translate-y-0'}`}
       />
 
       {/* Active sparkle */}
@@ -249,7 +249,7 @@ export function BeakerIcon({ active, id }: IconProps) {
 
       {/* Glow at bottom on active */}
       <ellipse cx="34" cy="54" rx="18" ry="6" fill="#34d399"
-        className={`transition-all duration-700 ${active ? 'opacity-12 scale-110' : 'opacity-0 scale-100'}`}
+        className={`transition-all duration-700 ${active ? 'opacity-10 scale-110' : 'opacity-0 scale-100'}`}
         style={{ transformOrigin: '34px 54px' }}
       />
 
@@ -275,12 +275,12 @@ export function BeakerIcon({ active, id }: IconProps) {
       {/* Liquid fill at bottom */}
       <path d="M20 46 L20 52 Q20 58 26 58 L44 58 Q50 58 50 52 L50 46 Z"
         fill="white"
-        className={`transition-opacity duration-500 ${active ? 'opacity-22' : 'opacity-8'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-25' : 'opacity-10'}`}
       />
 
       {/* Measurement marks — 3 horizontal white lines */}
       <path d="M46 36 L50 36" stroke="white" strokeWidth="2" strokeLinecap="round" fill="none"
-        className={`transition-opacity duration-500 ${active ? 'opacity-55' : 'opacity-22'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-55' : 'opacity-25'}`}
       />
       <path d="M46 28 L50 28" stroke="white" strokeWidth="2" strokeLinecap="round" fill="none"
         className={`transition-opacity duration-500 ${active ? 'opacity-50' : 'opacity-20'}`}
@@ -331,7 +331,7 @@ export function SigmaIcon({ active, id }: IconProps) {
 
       {/* Glow on active */}
       <ellipse cx="32" cy="34" rx="22" ry="22" fill="#fbbf24"
-        className={`transition-all duration-700 ${active ? 'opacity-8 scale-110' : 'opacity-0 scale-100'}`}
+        className={`transition-all duration-700 ${active ? 'opacity-10 scale-110' : 'opacity-0 scale-100'}`}
         style={{ transformOrigin: '32px 34px' }}
       />
 
@@ -356,10 +356,10 @@ export function SigmaIcon({ active, id }: IconProps) {
 
       {/* Equals sign below — two short lines */}
       <path d="M48 44 L58 44" stroke="#d97706" strokeWidth="2" strokeLinecap="round" fill="none"
-        className={`transition-opacity duration-500 ${active ? 'opacity-65' : 'opacity-28'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-65' : 'opacity-30'}`}
       />
       <path d="M48 49 L58 49" stroke="#d97706" strokeWidth="2" strokeLinecap="round" fill="none"
-        className={`transition-opacity duration-500 ${active ? 'opacity-65' : 'opacity-28'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-65' : 'opacity-30'}`}
       />
 
       {/* Active sparkles */}
@@ -396,7 +396,7 @@ export function LanguagesIcon({ active, id }: IconProps) {
 
       {/* Glow on active */}
       <ellipse cx="28" cy="38" rx="24" ry="20" fill="#ffb400"
-        className={`transition-all duration-700 ${active ? 'opacity-8 scale-110' : 'opacity-0 scale-100'}`}
+        className={`transition-all duration-700 ${active ? 'opacity-10 scale-110' : 'opacity-0 scale-100'}`}
         style={{ transformOrigin: '28px 38px' }}
       />
 
@@ -501,7 +501,7 @@ export function MicroscopeIcon({ active, id }: IconProps) {
         className={`transition-all duration-500 ${active ? 'opacity-100' : 'opacity-80'}`}
       />
       <circle cx="30" cy="36" r="2.5" fill="white"
-        className={`transition-all duration-500 ${active ? 'opacity-30' : 'opacity-12'}`}
+        className={`transition-all duration-500 ${active ? 'opacity-30' : 'opacity-10'}`}
       />
 
       {/* Stage — horizontal rectangle */}
@@ -530,12 +530,12 @@ export function MicroscopeIcon({ active, id }: IconProps) {
 
       {/* Shine on tube */}
       <path d="M27 14 L27 32" stroke="white" strokeWidth="1.5" strokeLinecap="round" fill="none"
-        className={`transition-opacity duration-500 ${active ? 'opacity-35' : 'opacity-12'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-35' : 'opacity-10'}`}
       />
 
       {/* Shine on base */}
       <path d="M18 54 L46 54" stroke="white" strokeWidth="1.5" strokeLinecap="round" fill="none"
-        className={`transition-opacity duration-500 ${active ? 'opacity-20' : 'opacity-8'}`}
+        className={`transition-opacity duration-500 ${active ? 'opacity-20' : 'opacity-10'}`}
       />
 
       {/* Active sparkle dots */}
