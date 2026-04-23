@@ -1,13 +1,7 @@
 import Link from 'next/link';
 import { getLocale, getTranslations } from '@/lib/server-locale';
-import {
-  FlaskConical,
-  Sigma,
-  Palette,
-  Languages,
-  Building2,
-  ArrowRight,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { FlaskConicalIcon, SigmaIcon, PaletteIcon, LanguagesIcon, Building2Icon } from '@/components/icons';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { ParticleBackground } from '@/components/particle-background';
 
@@ -19,7 +13,7 @@ export async function ProgramsPageContent() {
 
   const subjects = [
     {
-      icon: FlaskConical,
+      icon: FlaskConicalIcon,
       data: t.science as Record<string, unknown>,
       accentBg: 'from-emerald-600 to-emerald-800',
       accentBorder: 'border-emerald-200',
@@ -27,7 +21,7 @@ export async function ProgramsPageContent() {
       accent: 'bg-emerald-600',
     },
     {
-      icon: Sigma,
+      icon: SigmaIcon,
       data: t.math as Record<string, unknown>,
       accentBg: 'from-amber-700 to-amber-900',
       accentBorder: 'border-amber-200',
@@ -35,7 +29,7 @@ export async function ProgramsPageContent() {
       accent: 'bg-amber-700',
     },
     {
-      icon: Palette,
+      icon: PaletteIcon,
       data: t.arts as Record<string, unknown>,
       accentBg: 'from-teal-600 to-teal-800',
       accentBorder: 'border-teal-200',
@@ -43,7 +37,7 @@ export async function ProgramsPageContent() {
       accent: 'bg-teal-600',
     },
     {
-      icon: Languages,
+      icon: LanguagesIcon,
       data: t.languages as Record<string, unknown>,
       accentBg: 'from-primary to-primary-600',
       accentBorder: 'border-primary/30',
@@ -133,7 +127,9 @@ export async function ProgramsPageContent() {
                       <div className="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full" />
                       <div className="absolute bottom-6 left-6 w-12 h-12 bg-white/[0.07] rounded-full" />
 
-                      <Icon className="h-20 w-20 md:h-24 md:w-24 text-white/90 relative z-10" />
+                      <div className="h-20 w-20 md:h-24 md:w-24 relative z-10 opacity-90">
+                        <Icon active={false} id={`subject-${index}`} />
+                      </div>
                     </div>
 
                     {/* Content side */}
@@ -186,7 +182,9 @@ export async function ProgramsPageContent() {
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal>
             <div className="max-w-3xl mx-auto text-center">
-              <Building2 className="h-10 w-10 text-secondary/60 mx-auto mb-5" />
+              <div className="w-12 h-12 mx-auto mb-5 opacity-70">
+                <Building2Icon active={false} id="programs-structure-teaser" />
+              </div>
               <p className="text-secondary text-lg md:text-xl leading-relaxed mb-8 font-medium">
                 {t.structureTeaserText as string}
               </p>

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getLocale, getTranslations } from '@/lib/server-locale';
-import { ArrowRight, Crown, Briefcase, Shield, Users, School, Coffee, FlaskConical, Microscope } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { CrownIcon, BriefcaseIcon, ShieldIcon, UsersIcon, SchoolIcon, CoffeeIcon, FlaskConicalIcon, MicroscopeIcon } from '@/components/icons';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { ParticleBackground } from '@/components/particle-background';
 
@@ -11,9 +12,9 @@ export async function StructurePageContent() {
   const nav = translations.navigation as unknown as Record<string, string>;
 
   const managementCards = [
-    { icon: Crown, title: (t.ceo as Record<string, string>).title, description: (t.ceo as Record<string, string>).description },
-    { icon: Briefcase, title: (t.management as Record<string, string>).title, description: (t.management as Record<string, string>).description },
-    { icon: Shield, title: (t.board as Record<string, string>).title, description: (t.board as Record<string, string>).description },
+    { icon: CrownIcon, title: (t.ceo as Record<string, string>).title, description: (t.ceo as Record<string, string>).description },
+    { icon: BriefcaseIcon, title: (t.management as Record<string, string>).title, description: (t.management as Record<string, string>).description },
+    { icon: ShieldIcon, title: (t.board as Record<string, string>).title, description: (t.board as Record<string, string>).description },
   ];
 
   const curriculumCards = [
@@ -23,11 +24,11 @@ export async function StructurePageContent() {
   ];
 
   const infrastructureCards = [
-    { icon: School, ...(t.classrooms as Record<string, string>) },
-    { icon: Coffee, ...(t.parentHub as Record<string, string>) },
-    { icon: FlaskConical, ...(t.stemLab as Record<string, string>) },
-    { icon: Microscope, ...(t.physicsLab as Record<string, string>) },
-  ];
+    { icon: SchoolIcon, ...(t.classrooms as Record<string, string>) },
+    { icon: CoffeeIcon, ...(t.parentHub as Record<string, string>) },
+    { icon: FlaskConicalIcon, ...(t.stemLab as Record<string, string>) },
+    { icon: MicroscopeIcon, ...(t.physicsLab as Record<string, string>) },
+  ] as Array<{ icon: ({ active, id }: { active: boolean; id: string }) => React.JSX.Element; title: string; description: string }>;
 
   return (
     <>
@@ -79,7 +80,9 @@ export async function StructurePageContent() {
                   <ScrollReveal key={index} delay={0.1 + index * 0.08}>
                     <div className="group relative p-6 md:p-7 rounded-2xl border border-gray-100 bg-white/80 backdrop-blur-sm hover:border-secondary/30 hover:shadow-lg hover:shadow-secondary/8 hover:-translate-y-0.5 transition-all duration-300 text-center">
                       <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-secondary group-hover:to-secondary-800 group-hover:border-secondary group-hover:shadow-md group-hover:shadow-secondary/20 transition-all duration-300">
-                        <Icon className="h-6 w-6 text-secondary group-hover:text-primary transition-colors duration-300" />
+                        <div className="w-7 h-7">
+                          <Icon active={false} id={`mgmt-${index}`} />
+                        </div>
                       </div>
                       <h3 className="text-lg font-bold text-gray-900 group-hover:text-secondary transition-colors duration-300 mb-2">{card.title}</h3>
                       <p className="text-gray-500 text-sm leading-relaxed">{card.description}</p>
@@ -98,7 +101,9 @@ export async function StructurePageContent() {
             <ScrollReveal delay={0.2}>
               <div className="max-w-lg mx-auto group relative p-6 md:p-8 rounded-2xl border border-primary/20 bg-primary/[0.03] hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-0.5 transition-all duration-300 text-center">
                 <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/15 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-600 group-hover:border-primary group-hover:shadow-md group-hover:shadow-primary/30 transition-all duration-300">
-                  <Users className="h-6 w-6 text-secondary group-hover:text-secondary transition-colors duration-300" />
+                  <div className="w-7 h-7">
+                    <UsersIcon active={false} id="mgmt-pta" />
+                  </div>
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 group-hover:text-secondary transition-colors duration-300 mb-1">{(t.pta as Record<string, string>).title}</h3>
                 <p className="text-xs text-secondary/50 font-medium mb-2">{(t.pta as Record<string, string>).fullName}</p>
@@ -164,7 +169,9 @@ export async function StructurePageContent() {
                 <ScrollReveal key={index} delay={0.1 + index * 0.08}>
                   <div className="relative bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 text-center hover:bg-white/[0.1] hover:border-primary/30 transition-all duration-300 group">
                     <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/30 transition-all duration-300">
-                      <Icon className="h-6 w-6 text-primary" />
+                      <div className="w-7 h-7">
+                        <Icon active={false} id={`infra-${index}`} />
+                      </div>
                     </div>
                     <h3 className="text-white font-bold mb-2">{card.title}</h3>
                     <p className="text-white/50 text-sm leading-relaxed">{card.description}</p>

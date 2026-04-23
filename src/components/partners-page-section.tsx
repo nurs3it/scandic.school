@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getLocale, getTranslations } from '@/lib/server-locale';
-import { ExternalLink, Instagram, Facebook, Linkedin, Youtube, ArrowRight, Handshake, type LucideIcon } from 'lucide-react';
+import { ExternalLink, Instagram, Facebook, Linkedin, Youtube, ArrowRight, type LucideIcon } from 'lucide-react';
+import { HandshakeIcon } from '@/components/icons';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { ParticleBackground } from '@/components/particle-background';
 
@@ -173,7 +174,9 @@ export async function PartnersPageSection() {
           {/* Partner count badge */}
           <ScrollReveal delay={0.3}>
             <div className="mt-8 inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5">
-              <Handshake className="h-5 w-5 text-primary" />
+              <div className="w-6 h-6">
+                <HandshakeIcon active={false} id="partners-count" />
+              </div>
               <span className="text-white/90 text-sm font-medium">
                 <span className="text-primary font-bold text-lg mr-1">{partners.length}</span>
                 {t.ourPartners?.toLowerCase() || 'partners'}
@@ -331,7 +334,7 @@ export async function PartnersPageSection() {
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
-            backgroundImage: 'linear-gradient(rgba(255,180,0,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,180,0,0.3) 1px, transparent 1px)',
+            backgroundImage: 'linear-gradient(hsl(var(--primary) / 0.3) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary) / 0.3) 1px, transparent 1px)',
             backgroundSize: '60px 60px',
           }}
         />
@@ -340,7 +343,9 @@ export async function PartnersPageSection() {
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal>
             <div className="max-w-3xl mx-auto text-center">
-              <Handshake className="h-10 w-10 text-primary mx-auto mb-5 opacity-80" />
+              <div className="w-12 h-12 mx-auto mb-5 opacity-80">
+                <HandshakeIcon active={false} id="partners-cta" />
+              </div>
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 {t.ctaTitle}
               </h2>
@@ -349,7 +354,7 @@ export async function PartnersPageSection() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-primary hover:bg-primary-600 text-secondary font-bold px-8 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-primary hover:bg-primary-600 text-primary-foreground font-bold px-8 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200"
               >
                 {t.ctaContact}
                 <ArrowRight className="h-4 w-4" />
