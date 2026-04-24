@@ -109,7 +109,7 @@ export async function StaffSection() {
             {translations.staff.cta}
           </p>
           <button
-            className="bg-primary hover:bg-primary/90 text-secondary font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
             {translations.staff.applyButton}
           </button>
         </div>

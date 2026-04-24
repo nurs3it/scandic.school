@@ -7,6 +7,8 @@ import { CartProvider } from "@/contexts/cart-context";
 import { CartSidebar } from "@/components/cart-sidebar";
 import { CartButton } from "@/components/cart-button";
 import { PaperAirplaneProvider } from "@/contexts/paper-airplane-context";
+import { ThemeProvider } from "@/components/theme-provider";
+import { SplashScreen } from "@/components/splash-screen";
 import { Analytics } from "@vercel/analytics/next"
 
 const montserrat = Montserrat({
@@ -82,17 +84,20 @@ export default function RootLayout({
   return (
     <html lang="ru" className={montserrat.variable}>
       <body className="font-sans antialiased">
-        <LocaleProvider>
-          <QueryProvider>
-            <CartProvider>
-              <PaperAirplaneProvider>
-                {children}
-              </PaperAirplaneProvider>
-              <CartSidebar />
-              <CartButton />
-            </CartProvider>
-          </QueryProvider>
-        </LocaleProvider>
+        <ThemeProvider>
+          <LocaleProvider>
+            <QueryProvider>
+              <CartProvider>
+                <PaperAirplaneProvider>
+                  <SplashScreen />
+                  {children}
+                </PaperAirplaneProvider>
+                <CartSidebar />
+                <CartButton />
+              </CartProvider>
+            </QueryProvider>
+          </LocaleProvider>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

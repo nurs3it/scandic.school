@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -38,6 +39,59 @@
   --sidebar-accent-foreground: 0 0% 9%;
   --sidebar-border: 0 0% 90%;
   --sidebar-ring: 45 100% 50%;
+}
+
+/* Mountain theme — teal, copper, forest from brand image */
+[data-theme="mountain"] {
+  --primary: 22 60% 50%; /* Copper #C96B3C */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 193 38% 39%; /* Teal #3D7A8A */
+  --secondary-foreground: 0 0% 100%;
+  --accent: 25 40% 37%; /* Warm brown #8B5E3C */
+  --accent-foreground: 0 0% 100%;
+  --ring: 22 60% 50%;
+
+  --font-heading: 'Figtree', sans-serif;
+  --font-body: 'Figtree', sans-serif;
+
+  /* Override shade scales via custom properties used in components */
+  --color-primary-50: #fdf2e9;
+  --color-primary-100: #fae0c8;
+  --color-primary-200: #f5c9a0;
+  --color-primary-300: #e8a873;
+  --color-primary-400: #d98a4e;
+  --color-primary-500: #c96b3c;
+  --color-primary-600: #b55c30;
+  --color-primary-700: #9c4d28;
+  --color-primary-800: #7d3e20;
+  --color-primary-900: #5f2f18;
+
+  --color-secondary-50: #e6f2f4;
+  --color-secondary-100: #c0dfe4;
+  --color-secondary-200: #97cad2;
+  --color-secondary-300: #6db4c0;
+  --color-secondary-400: #4e9daa;
+  --color-secondary-500: #3d7a8a;
+  --color-secondary-600: #356b79;
+  --color-secondary-700: #2c5966;
+  --color-secondary-800: #244853;
+  --color-secondary-900: #1b3740;
+  --color-secondary-950: #122830;
+}
+
+[data-theme="mountain"] body,
+[data-theme="mountain"] * {
+  font-family: var(--font-body);
+}
+
+[data-theme="mountain"] h1,
+[data-theme="mountain"] h2,
+[data-theme="mountain"] h3,
+[data-theme="mountain"] h4,
+[data-theme="mountain"] h5,
+[data-theme="mountain"] h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
 }
 
 .dark {
@@ -139,4 +193,24 @@
   30% { transform: scale(1.2) rotate(-5deg); }
   60% { transform: scale(0.95) rotate(3deg); }
   100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes loading-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes loading-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes loading-bounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
+  40% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes loading-fade {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }

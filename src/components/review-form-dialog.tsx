@@ -110,7 +110,7 @@ export function ReviewFormDialog({ buttonText, locale }: ReviewFormDialogProps) 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="bg-primary hover:bg-primary/90 text-secondary font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+        <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
           {buttonText}
         </Button>
       </DialogTrigger>
@@ -187,7 +187,7 @@ export function ReviewFormDialog({ buttonText, locale }: ReviewFormDialogProps) 
             <Button 
               type="submit" 
               disabled={isLoading || !formData.text.trim()}
-              className="bg-primary hover:bg-primary/90 text-secondary"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
               {isLoading ? "..." : t.submit}
             </Button>

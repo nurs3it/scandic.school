@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getLocale, getTranslations } from '@/lib/server-locale';
-import { ExternalLink, Instagram, Facebook, Linkedin, Youtube, ArrowRight, type LucideIcon } from 'lucide-react';
-import { HandshakeIcon } from '@/components/icons';
+import { ExternalLink, Instagram, Facebook, Linkedin, Youtube, ArrowRight, Handshake, type LucideIcon } from 'lucide-react';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { ParticleBackground } from '@/components/particle-background';
 
@@ -174,9 +173,7 @@ export async function PartnersPageSection() {
           {/* Partner count badge */}
           <ScrollReveal delay={0.3}>
             <div className="mt-8 inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5">
-              <div className="w-6 h-6">
-                <HandshakeIcon active={false} id="partners-count" />
-              </div>
+              <Handshake className="h-5 w-5 text-primary" />
               <span className="text-white/90 text-sm font-medium">
                 <span className="text-primary font-bold text-lg mr-1">{partners.length}</span>
                 {t.ourPartners?.toLowerCase() || 'partners'}
@@ -267,9 +264,9 @@ export async function PartnersPageSection() {
                       <Image
                         src={partner.logo}
                         alt={partner.name[locale] || partner.name.en}
-                        width={240}
-                        height={120}
-                        className="max-h-20 md:max-h-24 w-auto object-contain relative z-10"
+                        width={320}
+                        height={160}
+                        className="max-h-28 md:max-h-36 w-auto object-contain relative z-10"
                       />
                     </div>
 
@@ -343,9 +340,7 @@ export async function PartnersPageSection() {
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal>
             <div className="max-w-3xl mx-auto text-center">
-              <div className="w-12 h-12 mx-auto mb-5 opacity-80">
-                <HandshakeIcon active={false} id="partners-cta" />
-              </div>
+              <Handshake className="h-10 w-10 mx-auto mb-5 text-white/80" />
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 {t.ctaTitle}
               </h2>

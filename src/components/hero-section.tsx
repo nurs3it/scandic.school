@@ -60,7 +60,7 @@ export async function HeroSection() {
             {/* CTA Buttons */}
             <AnimatedTextItem delay={0.4}>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-primary hover:bg-primary-600 text-secondary font-bold px-10 py-5 text-lg shadow-lg hover:shadow-xl transition-all duration-200">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary-600 text-primary-foreground font-bold px-10 py-5 text-lg shadow-lg hover:shadow-xl transition-all duration-200">
                   <Link href="/application" className="flex items-center space-x-2">
                     <span>{translations.hero.cta.apply}</span>
                     <ArrowRight className="h-5 w-5" />
@@ -114,8 +114,8 @@ export async function HeroSection() {
               {/* Floating Cards */}
               <div className="absolute -top-4 -right-4 bg-primary rounded-xl px-6 py-4 animate-float shadow-lg">
                 <div className="text-center">
-                  <div className="text-3xl font-extrabold text-secondary">{translations.hero.floating.enrollment}</div>
-                  <div className="text-sm font-semibold text-secondary/90">{translations.hero.floating.enrollmentOpen}</div>
+                  <div className="text-3xl font-extrabold text-primary-foreground">{translations.hero.floating.enrollment}</div>
+                  <div className="text-sm font-semibold text-primary-foreground/90">{translations.hero.floating.enrollmentOpen}</div>
                 </div>
               </div>
 

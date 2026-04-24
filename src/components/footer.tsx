@@ -22,12 +22,12 @@ export async function Footer() {
               />
               <span className="text-xl font-bold">{translations.header.schoolName}</span>
             </div>
-          <p className="text-sm text-gray-300">
-            {translations.footer.description}
-          </p>
-          <p className="text-xs text-gray-400">
-            {translations.footer.license}
-          </p>
+            <p className="text-sm text-gray-300">
+              Больше чем знания! Больше чем школа!
+            </p>
+            <p className="text-xs text-gray-400">
+              {translations.footer.license}
+            </p>
           </div>
 
           {/* Quick Links */}
@@ -101,38 +101,32 @@ export async function Footer() {
             <h3 className="text-lg font-semibold">{translations.footer.contact}</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <MapPin className="h-4 w-4 text-primary" />
+                <MapPin className="h-4 w-4 text-primary flex-shrink-0" />
                 <span className="text-sm text-gray-300">
                   {translations.footer.address}
                 </span>
               </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="h-4 w-4 text-primary" />
-                <span className="text-sm text-gray-300">{translations.header.phone}</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="h-4 w-4 text-primary" />
-                <a 
-                  href={`mailto:${translations.contact.details.emailAddress}`} 
-                  className="text-sm text-gray-300 hover:text-white transition-colors"
-                >
+              <a href={`tel:${translations.header.phone.replace(/\s/g, '')}`} className="flex items-center space-x-3 hover:text-white transition-colors">
+                <Phone className="h-4 w-4 text-primary flex-shrink-0" />
+                <span className="text-sm text-gray-300 hover:text-white transition-colors">{translations.header.phone}</span>
+              </a>
+              <a href={`mailto:${translations.contact.details.emailAddress}`} className="flex items-center space-x-3 hover:text-white transition-colors">
+                <Mail className="h-4 w-4 text-primary flex-shrink-0" />
+                <span className="text-sm text-gray-300 hover:text-white transition-colors">
                   {translations.contact.details.emailAddress}
-                </a>
-              </div>
-              <div className="space-y-2">
-                <p className="text-sm font-medium text-gray-300">{(translations.footer as Record<string, string>).followUs}</p>
-                <div className="flex items-center space-x-3">
-                  <Instagram className="h-4 w-4 text-primary" />
-                  <a 
-                    href="https://www.instagram.com/scandic.school/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm text-gray-300 hover:text-white transition-colors"
-                  >
-                    {(translations.footer as Record<string, string>).instagramHandle}
-                  </a>
-                </div>
-              </div>
+                </span>
+              </a>
+              <a
+                href="https://www.instagram.com/scandic.school/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 hover:text-white transition-colors"
+              >
+                <Instagram className="h-4 w-4 text-primary flex-shrink-0" />
+                <span className="text-sm text-gray-300 hover:text-white transition-colors">
+                  {(translations.footer as Record<string, string>).instagramHandle ?? '@scandic.school'}
+                </span>
+              </a>
             </div>
           </div>
         </div>
@@ -142,14 +136,6 @@ export async function Footer() {
             <p className="text-sm text-gray-400">
               © {new Date().getFullYear()} {translations.header.schoolName}. {translations.footer.rights}.
             </p>
-            {/* <div className="flex space-x-6">
-              <Link href="/privacy" className="text-sm text-gray-400 hover:text-white transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="text-sm text-gray-400 hover:text-white transition-colors">
-                Terms of Service
-              </Link>
-            </div> */}
           </div>
         </div>
       </div>

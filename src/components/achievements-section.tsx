@@ -72,7 +72,7 @@ function RocketIllustration() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="w-[180px] md:w-[260px] lg:w-[320px]"
-        style={{ filter: 'drop-shadow(0 20px 40px rgba(45,106,36,0.12))', opacity: 0.5 }}
+        style={{ filter: 'drop-shadow(0 20px 40px hsl(var(--secondary) / 0.12))', opacity: 0.5 }}
       >
         <defs>
           <linearGradient id="bodyGrad" x1="60" y1="0" x2="140" y2="0" gradientUnits="userSpaceOnUse">
@@ -87,15 +87,15 @@ function RocketIllustration() {
             <stop offset="100%" stopColor="#b0b5be" />
           </linearGradient>
           <linearGradient id="finGrad" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
-            <stop offset="0%" stopColor="#1a4a24" />
-            <stop offset="100%" stopColor="#2d6a2d" />
+            <stop offset="0%" stopColor="hsl(var(--secondary))" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="hsl(var(--secondary))" stopOpacity="0.7" />
           </linearGradient>
           <radialGradient id="windowGrad" cx="40%" cy="35%" r="60%" fx="30%" fy="30%" gradientUnits="objectBoundingBox">
-            <stop offset="0%" stopColor="#4ade80" />
-            <stop offset="100%" stopColor="#166534" />
+            <stop offset="0%" stopColor="hsl(var(--secondary))" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="hsl(var(--secondary))" />
           </radialGradient>
           <radialGradient id="flameOuter" cx="50%" cy="0%" r="70%">
-            <stop offset="0%" stopColor="#ffb400" stopOpacity="0.9" />
+            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.9" />
             <stop offset="50%" stopColor="#f97316" stopOpacity="0.7" />
             <stop offset="100%" stopColor="#ef4444" stopOpacity="0" />
           </radialGradient>
@@ -147,10 +147,10 @@ function RocketIllustration() {
 
         {/* === LEFT FIN === */}
         <path d="M82 290 L48 360 L82 345 Z" fill="url(#finGrad)" opacity="0.95" />
-        <path d="M82 290 L48 360 L82 345 Z" stroke="#1a4a24" strokeWidth="1" opacity="0.3" />
+        <path d="M82 290 L48 360 L82 345 Z" stroke="hsl(var(--secondary))" strokeWidth="1" opacity="0.3" />
         {/* === RIGHT FIN === */}
         <path d="M118 290 L152 360 L118 345 Z" fill="url(#finGrad)" opacity="0.95" />
-        <path d="M118 290 L152 360 L118 345 Z" stroke="#1a4a24" strokeWidth="1" opacity="0.3" />
+        <path d="M118 290 L152 360 L118 345 Z" stroke="hsl(var(--secondary))" strokeWidth="1" opacity="0.3" />
 
         {/* === NOZZLE === */}
         <path d="M86 340 Q82 360 82 368 L118 368 Q118 360 114 340 Z" fill="#9ca3af" />
@@ -164,8 +164,8 @@ function RocketIllustration() {
         <rect x="118" y="145" width="8" height="195" rx="3" fill="#9ca3af" opacity="0.3" />
 
         {/* === ACCENT STRIPE (brand yellow) === */}
-        <rect x="72" y="275" width="56" height="12" rx="2" fill="#ffb400" opacity="0.9" />
-        <rect x="72" y="295" width="56" height="5" rx="1" fill="#ffb400" opacity="0.4" />
+        <rect x="72" y="275" width="56" height="12" rx="2" fill="hsl(var(--primary))" opacity="0.9" />
+        <rect x="72" y="295" width="56" height="5" rx="1" fill="hsl(var(--primary))" opacity="0.4" />
 
         {/* === NOSE CONE === */}
         <path d="M72 140 Q72 80 100 60 Q128 80 128 140 Z" fill="url(#noseGrad)" />
@@ -173,10 +173,10 @@ function RocketIllustration() {
         <path d="M76 138 Q76 90 98 72" stroke="white" strokeWidth="4" strokeLinecap="round" opacity="0.3" />
 
         {/* === WINDOW OUTER RING === */}
-        <circle cx="100" cy="210" r="22" fill="#1a4a24" opacity="0.15" />
-        <circle cx="100" cy="210" r="18" stroke="#2d6a2d" strokeWidth="3" fill="none" />
+        <circle cx="100" cy="210" r="22" fill="hsl(var(--secondary))" opacity="0.15" />
+        <circle cx="100" cy="210" r="18" stroke="hsl(var(--secondary))" strokeWidth="3" fill="none" />
         {/* === WINDOW GLASS === */}
-        <circle cx="100" cy="210" r="15" fill="#0f4c1e" />
+        <circle cx="100" cy="210" r="15" fill="hsl(var(--secondary))" />
         <circle cx="100" cy="210" r="15" fill="url(#windowGrad)" opacity="0.8" />
         {/* === WINDOW SHINE === */}
         <ellipse cx="95" cy="204" rx="5" ry="4" fill="white" opacity="0.45" transform="rotate(-20 95 204)" />
@@ -197,7 +197,7 @@ function RocketIllustration() {
 
         {/* === ANTENNA === */}
         <line x1="100" y1="60" x2="100" y2="42" stroke="#9ca3af" strokeWidth="2" />
-        <circle cx="100" cy="40" r="4" fill="#ffb400" filter="url(#glow)" />
+        <circle cx="100" cy="40" r="4" fill="hsl(var(--primary))" filter="url(#glow)" />
         <circle cx="100" cy="40" r="2" fill="white" />
 
         {/* === SMOKE PUFFS (subtle) === */}
@@ -243,7 +243,7 @@ export function AchievementsSection() {
       <div
         className="absolute inset-0 opacity-[0.025]"
         style={{
-          backgroundImage: 'linear-gradient(#1a4a24 1px, transparent 1px), linear-gradient(90deg, #1a4a24 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(hsl(var(--secondary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--secondary)) 1px, transparent 1px)',
           backgroundSize: '60px 60px',
         }}
       />
@@ -253,7 +253,7 @@ export function AchievementsSection() {
         <motion.div
           className="absolute top-0 h-full"
           style={{
-            background: 'linear-gradient(90deg, transparent, #2d6a2d 20%, #4ade80 50%, #2d6a2d 80%, transparent)',
+            background: 'linear-gradient(90deg, transparent, hsl(var(--secondary)) 20%, hsl(var(--primary)) 50%, hsl(var(--secondary)) 80%, transparent)',
             width: '50%',
           }}
           animate={{ left: ['-50%', '100%'] }}
@@ -291,17 +291,17 @@ export function AchievementsSection() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 text-[#2d6a2d] text-sm font-semibold uppercase tracking-widest mb-4">
-              <span className="w-8 h-[2px] bg-[#ffb400] rounded-full" />
+            <span className="inline-flex items-center gap-2 text-secondary text-sm font-semibold uppercase tracking-widest mb-4">
+              <span className="w-8 h-[2px] bg-primary rounded-full" />
               Наши результаты
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5">
               Наши{' '}
               <span className="relative inline-block">
-                <span className="relative z-10 text-[#2d6a2d]">достижения</span>
+                <span className="relative z-10 text-secondary">достижения</span>
                 <motion.span
                   className="absolute -bottom-1 left-0 right-0 h-3 -z-0"
-                  style={{ background: '#ffb400', borderRadius: '2px', opacity: 0.25 }}
+                  style={{ background: 'hsl(var(--primary))', borderRadius: '2px', opacity: 0.25 }}
                   initial={{ scaleX: 0 }}
                   animate={isInView ? { scaleX: 1 } : {}}
                   transition={{ duration: 0.6, delay: 0.5, ease: 'easeOut' }}
@@ -322,13 +322,13 @@ export function AchievementsSection() {
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.15 + index * 0.1 }}
               >
-                <div className="group relative flex items-start gap-5 p-5 md:p-6 rounded-2xl border border-gray-100 bg-white/80 backdrop-blur-sm hover:border-[#2d6a2d]/30 hover:shadow-lg hover:shadow-[#2d6a2d]/8 hover:-translate-y-0.5 transition-all duration-300 cursor-default">
+                <div className="group relative flex items-start gap-5 p-5 md:p-6 rounded-2xl border border-gray-100 bg-white/80 backdrop-blur-sm hover:border-secondary/30 hover:shadow-lg hover:shadow-secondary/8 hover:-translate-y-0.5 transition-all duration-300 cursor-default">
                   {/* Left accent bar */}
-                  <div className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full bg-[#2d6a2d]/0 group-hover:bg-[#2d6a2d] transition-all duration-300" />
+                  <div className="absolute left-0 top-4 bottom-4 w-[3px] rounded-full bg-secondary/0 group-hover:bg-secondary transition-all duration-300" />
 
                   {/* Number badge */}
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#f0f7f0] to-[#e0f0e0] border border-[#2d6a2d]/10 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-[#2d6a2d] group-hover:to-[#1a4a24] group-hover:border-[#2d6a2d] group-hover:shadow-md group-hover:shadow-[#2d6a2d]/20 transition-all duration-300">
-                    <span className="text-xs font-bold text-[#2d6a2d] group-hover:text-white transition-colors duration-300 font-mono">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-secondary/5 to-secondary/10 border border-secondary/10 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-secondary group-hover:to-secondary-900 group-hover:border-secondary group-hover:shadow-md group-hover:shadow-secondary/20 transition-all duration-300">
+                    <span className="text-xs font-bold text-secondary group-hover:text-white transition-colors duration-300 font-mono">
                       {item.number}
                     </span>
                   </div>
@@ -336,10 +336,10 @@ export function AchievementsSection() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2.5 mb-1.5">
-                      <h3 className="text-base md:text-lg font-bold text-gray-900 group-hover:text-[#2d6a2d] transition-colors duration-300">
+                      <h3 className="text-base md:text-lg font-bold text-gray-900 group-hover:text-secondary transition-colors duration-300">
                         {item.title}
                       </h3>
-                      <span className="inline-block px-2.5 py-0.5 bg-gradient-to-r from-[#fffbeb] to-[#fff7db] border border-[#ffb400]/30 text-[#92680a] text-xs font-semibold rounded-full shadow-sm">
+                      <span className="inline-block px-2.5 py-0.5 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 text-primary-foreground text-xs font-semibold rounded-full shadow-sm">
                         {item.tag}
                       </span>
                     </div>
@@ -349,7 +349,7 @@ export function AchievementsSection() {
                   </div>
 
                   {/* Icon */}
-                  <div className="flex-shrink-0 text-gray-200 group-hover:text-[#2d6a2d]/70 transition-colors duration-300 hidden sm:block mt-0.5">
+                  <div className="flex-shrink-0 text-gray-200 group-hover:text-secondary/60 transition-colors duration-300 hidden sm:block mt-0.5">
                     {item.icon}
                   </div>
                 </div>
@@ -370,7 +370,7 @@ export function AchievementsSection() {
               { value: '1:8', label: 'учитель / ученик' },
             ].map((stat, i) => (
               <div key={i} className="text-center group/stat">
-                <div className="text-2xl md:text-3xl font-bold bg-gradient-to-br from-[#2d6a2d] to-[#1a4a24] bg-clip-text text-transparent mb-1">{stat.value}</div>
+                <div className="text-2xl md:text-3xl font-bold bg-gradient-to-br from-secondary to-secondary-900 bg-clip-text text-transparent mb-1">{stat.value}</div>
                 <div className="text-xs text-gray-400 leading-snug font-medium">{stat.label}</div>
               </div>
             ))}

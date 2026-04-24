@@ -308,7 +308,7 @@ export function ApplicationForm() {
             <Button
               type="submit"
               disabled={applicationMutation.isPending}
-              className="bg-primary hover:bg-primary/90 text-secondary font-semibold px-12 py-4 text-lg glow-effect"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-12 py-4 text-lg glow-effect"
             >
               {applicationMutation.isPending ? (
                 t.submitting

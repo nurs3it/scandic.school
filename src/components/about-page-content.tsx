@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getLocale, getTranslations } from '@/lib/server-locale';
-import { ArrowRight } from 'lucide-react';
-import { TargetIcon, BookOpenIcon, CompassIcon, Building2Icon, BeakerIcon, PaletteIcon, ShieldIcon } from '@/components/icons';
+import { ArrowRight, Target, BookOpen, Compass, Building2, FlaskConical, Palette, Shield } from 'lucide-react';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { ParticleBackground } from '@/components/particle-background';
 
@@ -18,22 +17,22 @@ export async function AboutPageContent() {
 
   const values = [
     {
-      icon: TargetIcon,
+      icon: Target,
       title: { ru: 'Совершенство', en: 'Excellence', kk: 'Жетістік' },
       desc: { ru: 'Стремление к высочайшим стандартам во всём', en: 'Striving for the highest standards in everything', kk: 'Барлығында ең жоғары стандарттарға ұмтылу' },
     },
     {
-      icon: CompassIcon,
+      icon: Compass,
       title: { ru: 'Глобальное мышление', en: 'Global Mindset', kk: 'Жаһандық ойлау' },
       desc: { ru: 'Подготовка к жизни в многокультурном мире', en: 'Preparation for life in a multicultural world', kk: 'Көпмәдениетті әлемдегі өмірге дайындық' },
     },
     {
-      icon: BookOpenIcon,
+      icon: BookOpen,
       title: { ru: 'Любознательность', en: 'Curiosity', kk: 'Қызығушылық' },
       desc: { ru: 'Разжигаем искру познания в каждом ребёнке', en: 'Igniting the spark of discovery in every child', kk: 'Әр баладағы таным ұшқынын тұтатамыз' },
     },
     {
-      icon: ShieldIcon,
+      icon: Shield,
       title: { ru: 'Уважение', en: 'Respect', kk: 'Құрмет' },
       desc: { ru: 'Ценим каждую личность и её уникальность', en: 'Valuing every individual and their uniqueness', kk: 'Әр тұлға мен оның бірегейлігін бағалаймыз' },
     },
@@ -41,17 +40,17 @@ export async function AboutPageContent() {
 
   const facilityItems = [
     {
-      icon: Building2Icon,
+      icon: Building2,
       title: { ru: 'Современные классы', en: 'Modern Classrooms', kk: 'Заманауи сыныптар' },
       desc: { ru: 'Оборудованные по международным стандартам', en: 'Equipped to international standards', kk: 'Халықаралық стандарттар бойынша жабдықталған' },
     },
     {
-      icon: BeakerIcon,
+      icon: FlaskConical,
       title: { ru: 'Лаборатории', en: 'Laboratories', kk: 'Зертханалар' },
       desc: { ru: 'Для естественных наук и STEM-проектов', en: 'For natural sciences and STEM projects', kk: 'Жаратылыстану ғылымдары мен STEM жобалары үшін' },
     },
     {
-      icon: PaletteIcon,
+      icon: Palette,
       title: { ru: 'Творческие пространства', en: 'Creative Spaces', kk: 'Шығармашылық кеңістіктер' },
       desc: { ru: 'Для искусства, музыки и самовыражения', en: 'For art, music, and self-expression', kk: 'Өнер, музыка және өзін-өзі көрсету үшін' },
     },
@@ -210,9 +209,7 @@ export async function AboutPageContent() {
 
                     {/* Icon */}
                     <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-secondary group-hover:to-secondary-800 group-hover:border-secondary group-hover:shadow-md group-hover:shadow-secondary/20 transition-all duration-300">
-                      <div className="w-7 h-7">
-                        <Icon active={false} id={`value-${index}`} />
-                      </div>
+                      <Icon className="h-6 w-6 text-primary group-hover:text-white transition-colors duration-300" />
                     </div>
 
                     <div className="flex-1 min-w-0">
@@ -256,11 +253,11 @@ export async function AboutPageContent() {
                 {t.quote1Text as string}
               </blockquote>
               <div className="flex items-center justify-center gap-3">
-                <div className="w-8 h-[2px] bg-secondary/30" />
-                <cite className="text-secondary/70 text-sm font-semibold not-italic uppercase tracking-wider">
+                <div className="w-8 h-[2px] bg-secondary/50" />
+                <cite className="text-secondary text-base font-bold not-italic uppercase tracking-wider">
                   {t.quote1Source as string}
                 </cite>
-                <div className="w-8 h-[2px] bg-secondary/30" />
+                <div className="w-8 h-[2px] bg-secondary/50" />
               </div>
             </div>
           </ScrollReveal>
@@ -320,12 +317,12 @@ export async function AboutPageContent() {
                 ].map((stat, i) => (
                   <div
                     key={i}
-                    className="relative bg-white/[0.06] backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 text-center hover:bg-white/[0.1] hover:border-primary/30 transition-all duration-300 group"
+                    className="relative bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6 md:p-8 text-center hover:bg-white/15 hover:border-primary/30 transition-all duration-300 group"
                   >
-                    <div className="text-3xl md:text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-3xl md:text-4xl font-bold text-white mb-2 group-hover:scale-110 transition-transform duration-300">
                       {stat.value}
                     </div>
-                    <div className="text-white/50 text-sm font-medium">
+                    <div className="text-white/70 text-sm font-medium">
                       {stat.label[locale as keyof typeof stat.label] || stat.label.en}
                     </div>
                   </div>
@@ -377,9 +374,7 @@ export async function AboutPageContent() {
                 <ScrollReveal key={index} delay={0.1 + index * 0.1}>
                   <div className="group text-center p-8 rounded-2xl border border-gray-100 bg-white hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300">
                     <div className="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-600 group-hover:border-primary group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-300">
-                      <div className="w-8 h-8">
-                        <Icon active={false} id={`facility-${index}`} />
-                      </div>
+                      <Icon className="h-7 w-7 text-primary group-hover:text-white transition-colors duration-300" />
                     </div>
                     <h3 className="text-lg font-bold text-secondary mb-2">
                       {item.title[locale as keyof typeof item.title] || item.title.en}
@@ -412,9 +407,7 @@ export async function AboutPageContent() {
         <div className="container mx-auto px-4 md:px-8">
           <ScrollReveal>
             <div className="max-w-2xl mx-auto text-center">
-              <div className="w-10 h-10 mx-auto mb-4 opacity-60">
-                <Building2Icon active={false} id="about-structure-teaser" />
-              </div>
+              <Building2 className="h-10 w-10 mx-auto mb-4 text-secondary/60" />
               <h3 className="text-xl md:text-2xl font-bold text-secondary mb-3">
                 {locale === 'kk' ? 'Мектеп құрылымы' : locale === 'en' ? 'School Structure' : 'Структура школы'}
               </h3>

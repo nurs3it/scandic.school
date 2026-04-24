@@ -223,6 +223,7 @@ export function CompassIcon({ active, id }: IconProps) {
   return (
     <svg viewBox="0 0 64 64" fill="none" className="w-full h-full">
       <defs>
+        <style>{`@keyframes compassSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}`}</style>
         <linearGradient id={`cp-${id}`} x1="10" y1="10" x2="54" y2="54">
           <stop offset="0%" stopColor="#0d9488" />
           <stop offset="100%" stopColor="#34d399" />
@@ -237,7 +238,7 @@ export function CompassIcon({ active, id }: IconProps) {
       <circle cx="32" cy="32" r="28" stroke="#34d399" strokeWidth="1.5" fill="none"
         strokeDasharray="6 4"
         className={`transition-all duration-700 ${active ? 'opacity-30' : 'opacity-0'}`}
-        style={active ? { animation: 'spin 4s linear infinite', transformOrigin: '32px 32px' } : {}}
+        style={active ? { animation: 'compassSpin 4s linear infinite', transformOrigin: '32px 32px' } : {}}
       />
 
       {/* Outer ring */}
@@ -265,7 +266,7 @@ export function CompassIcon({ active, id }: IconProps) {
       />
 
       {/* "N" letter above north tick */}
-      <text x="32" y="7" textAnchor="middle" fontSize="6" fontWeight="bold" fill="#0d9488"
+      <text x="32" y="7" textAnchor="middle" fontSize="6" fontWeight="bold" fontFamily="sans-serif" fill="#0d9488"
         className={`transition-opacity duration-500 ${active ? 'opacity-100' : 'opacity-50'}`}
       >N</text>
 
@@ -298,7 +299,7 @@ export function TargetIcon({ active, id }: IconProps) {
   return (
     <svg viewBox="0 0 64 64" fill="none" className="w-full h-full">
       <defs>
-        <linearGradient id={`tg-${id}`} x1="8" y1="8" x2="56" y2="56">
+        <linearGradient id={`tgt-${id}`} x1="8" y1="8" x2="56" y2="56">
           <stop offset="0%" stopColor="#ff6b35" />
           <stop offset="100%" stopColor="#ffb400" />
         </linearGradient>
@@ -311,17 +312,17 @@ export function TargetIcon({ active, id }: IconProps) {
       />
 
       {/* Outer ring */}
-      <circle cx="32" cy="32" r="26" stroke={`url(#tg-${id})`} strokeWidth="3" fill="none"
+      <circle cx="32" cy="32" r="26" stroke={`url(#tgt-${id})`} strokeWidth="3" fill="none"
         className={`transition-all duration-500 ${active ? 'opacity-100' : 'opacity-65'}`}
       />
 
       {/* Middle ring */}
-      <circle cx="32" cy="32" r="18" stroke={`url(#tg-${id})`} strokeWidth="3" fill="none"
+      <circle cx="32" cy="32" r="18" stroke={`url(#tgt-${id})`} strokeWidth="3" fill="none"
         className={`transition-all duration-500 ${active ? 'opacity-90' : 'opacity-55'}`}
       />
 
       {/* Inner fill ring */}
-      <circle cx="32" cy="32" r="10" fill={`url(#tg-${id})`}
+      <circle cx="32" cy="32" r="10" fill={`url(#tgt-${id})`}
         className={`transition-all duration-500 ${active ? 'opacity-80' : 'opacity-45'}`}
       />
 

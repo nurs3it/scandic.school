@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getLocale, getTranslations } from '@/lib/server-locale';
-import { ArrowRight } from 'lucide-react';
-import { GraduationCapIcon, HeartIcon, HomeIcon, CameraIcon } from '@/components/icons';
+import { ArrowRight, GraduationCap, Heart, Home, Camera } from 'lucide-react';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { ParticleBackground } from '@/components/particle-background';
 
@@ -18,7 +17,7 @@ export async function CommunityPageContent() {
 
   const sides = [
     {
-      icon: GraduationCapIcon,
+      icon: GraduationCap,
       borderColor: 'border-t-secondary',
       iconBg: 'from-secondary/10 to-secondary/5',
       iconBorder: 'border-secondary/10',
@@ -27,16 +26,16 @@ export async function CommunityPageContent() {
       description: teachers.description,
     },
     {
-      icon: HeartIcon,
+      icon: Heart,
       borderColor: 'border-t-primary',
       iconBg: 'from-primary/10 to-primary/5',
       iconBorder: 'border-primary/10',
-      iconColor: 'text-primary-foreground',
+      iconColor: 'text-primary',
       title: children.title,
       description: children.description,
     },
     {
-      icon: HomeIcon,
+      icon: Home,
       borderColor: 'border-t-accent',
       iconBg: 'from-accent/10 to-accent/5',
       iconBorder: 'border-accent/10',
@@ -155,9 +154,7 @@ export async function CommunityPageContent() {
                     <div
                       className={`w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br ${side.iconBg} border ${side.iconBorder} flex items-center justify-center group-hover:shadow-lg transition-all duration-300`}
                     >
-                      <div className="w-8 h-8">
-                        <Icon active={false} id={`side-${index}`} />
-                      </div>
+                      <Icon className={`h-7 w-7 ${side.iconColor}`} />
                     </div>
                     <h3 className="text-xl font-bold text-secondary mb-3">
                       {side.title}
@@ -198,9 +195,7 @@ export async function CommunityPageContent() {
           <div className="container mx-auto px-4 md:px-8">
             <ScrollReveal>
               <div className="max-w-4xl mx-auto rounded-2xl bg-secondary/[0.06] border border-secondary/10 flex flex-col items-center justify-center py-20 text-center gap-4">
-                <div className="w-14 h-14 opacity-40">
-                  <CameraIcon active={false} id="team-photo-placeholder" />
-                </div>
+                <Camera className="h-14 w-14 text-secondary/40" />
                 <p className="text-secondary/50 text-lg font-medium">
                   {t.teamPhotoPlaceholder as string}
                 </p>

@@ -1,29 +1,57 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ExternalLink } from "lucide-react";
 import { getLocale, getTranslations } from '@/lib/server-locale';
+import type { LucideIcon } from "lucide-react";
+
+interface ContactCard {
+  icon: LucideIcon;
+  title: string;
+  details: string;
+  description: string;
+  action?: {
+    href: string;
+    label: string;
+    external?: boolean;
+  };
+}
 
 export async function ContactInfo() {
   const locale = await getLocale();
   const translations = await getTranslations(locale);
 
-  const contactInfo = [
+  const phoneRaw = translations.contact.details.phoneNumber.replace(/\s/g, '');
+
+  const contactInfo: ContactCard[] = [
     {
       icon: MapPin,
       title: translations.contact.info.address,
       details: translations.contact.details.address,
-      description: translations.contact.details.city
+      description: translations.contact.details.city,
+      action: {
+        href: 'https://2gis.kz/uralsk/search/Scandic%20School',
+        label: locale === 'kk' ? '2GIS картасында' : locale === 'en' ? 'Open in 2GIS' : 'Открыть в 2GIS',
+        external: true,
+      },
     },
     {
       icon: Phone,
       title: translations.contact.info.phone,
       details: translations.contact.details.phoneNumber,
-      description: translations.contact.details.phoneHours
+      description: translations.contact.details.phoneHours,
+      action: {
+        href: `tel:${phoneRaw}`,
+        label: locale === 'kk' ? 'Қоңырау шалу' : locale === 'en' ? 'Call' : 'Позвонить',
+      },
     },
     {
       icon: Mail,
       title: translations.contact.info.email,
       details: translations.contact.details.emailAddress,
-      description: translations.contact.details.emailResponse
+      description: translations.contact.details.emailResponse,
+      action: {
+        href: `mailto:${translations.contact.details.emailAddress}`,
+        label: locale === 'kk' ? 'Хат жазу' : locale === 'en' ? 'Write' : 'Написать',
+      },
     },
     {
       icon: Clock,
@@ -65,6 +93,16 @@ export async function ContactInfo() {
                       </p>
                     )}
                   </div>
+                  {info.action && (
+                    <a
+                      href={info.action.href}
+                      {...(info.action.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:text-primary transition-colors"
+                    >
+                      {info.action.label}
+                      {info.action.external && <ExternalLink className="h-3.5 w-3.5" />}
+                    </a>
+                  )}
                 </div>
               </CardContent>
             </Card>

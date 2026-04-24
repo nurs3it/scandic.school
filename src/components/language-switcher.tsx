@@ -3,7 +3,7 @@
 import { useLocale } from './locale-provider';
 import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const languages = [
   { code: 'en', name: 'English', flag: '🇺🇸' },
@@ -14,6 +14,19 @@ const languages = [
 export function LanguageSwitcher() {
   const { locale, setLocale } = useLocale();
   const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isOpen]);
 
   const currentLanguage = languages.find(lang => lang.code === locale) || languages[1]; // Default to Russian
 
@@ -25,7 +38,7 @@ export function LanguageSwitcher() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative" ref={ref}>
       <Button
         variant="ghost"
         size="sm"

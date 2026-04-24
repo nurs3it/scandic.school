@@ -22,9 +22,9 @@ export function GlowButton({
   const baseClasses = "relative px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 overflow-hidden group";
   
   const variantClasses = {
-    primary: "bg-primary text-secondary hover:bg-primary/90",
-    secondary: "bg-secondary text-white hover:bg-secondary/90",
-    outline: "border-2 border-primary text-primary hover:bg-primary hover:text-secondary"
+    primary: "bg-primary text-primary-foreground hover:bg-primary/90",
+    secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90",
+    outline: "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
   };
 
   const content = (
@@ -71,9 +71,9 @@ export function GlowButton({
           className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           animate={{
             background: [
-              "linear-gradient(45deg, rgba(255, 180, 0, 0.2), rgba(255, 107, 53, 0.2))",
-              "linear-gradient(45deg, rgba(255, 107, 53, 0.2), rgba(255, 180, 0, 0.2))",
-              "linear-gradient(45deg, rgba(255, 180, 0, 0.2), rgba(255, 107, 53, 0.2))",
+              "linear-gradient(45deg, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.2))",
+              "linear-gradient(45deg, hsl(var(--accent) / 0.2), hsl(var(--primary) / 0.2))",
+              "linear-gradient(45deg, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.2))",
             ]
           }}
           transition={{

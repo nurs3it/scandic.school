@@ -281,7 +281,7 @@ export async function ProgramsPageContent() {
                   className="group flex items-center justify-between border border-secondary/15 hover:border-primary bg-white hover:bg-primary/5 px-6 py-5 rounded-xl transition-all duration-200 hover:shadow-md"
                 >
                   <span className="text-secondary font-semibold text-[15px]">
-                    {t.ctaAdmissions as string}
+                    {t.ctaApplication as string}
                   </span>
                   <ArrowRight className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" />
                 </Link>

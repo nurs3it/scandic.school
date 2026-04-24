@@ -140,7 +140,7 @@ export function ContactForm() {
           <Button
             type="submit"
             disabled={contactMutation.isPending}
-            className="w-full bg-primary hover:bg-primary/90 text-secondary font-semibold py-3"
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3"
           >
             {contactMutation.isPending ? (
               t.form.messages.sending

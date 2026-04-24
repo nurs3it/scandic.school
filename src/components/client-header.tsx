@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Menu, X, Info, FileText, MessageCircle, UserPlus, GraduationCap, ShoppingBag, Newspaper } from "lucide-react";
-import { InfoIcon, HandshakeIcon, UsersIcon, Building2Icon, HeartHandshakeIcon, BookOpenIcon } from '@/components/icons';
-import type { IconProps } from '@/components/icons';
+import { Phone, Menu, X, Info, FileText, MessageCircle, UserPlus, GraduationCap, ShoppingBag, Newspaper, Handshake, Users, Building2, HeartHandshake, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from 'react';
 import { LanguageSwitcher } from './language-switcher';
@@ -59,48 +57,42 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
     {
       name: translations.navigation.about,
       href: "/about",
-      icon: InfoIcon,
+      icon: Info,
       description: translations.header.descriptions.about ?? "",
-      isCustomIcon: true,
     },
     {
       name: translations.navigation.partners ?? "Партнеры",
       href: "/partners",
-      icon: HandshakeIcon,
+      icon: Handshake,
       description: translations.header.descriptions.partners ?? "",
-      isCustomIcon: true,
     },
     {
       name: translations.navigation.staff,
       href: "/staff",
-      icon: UsersIcon,
+      icon: Users,
       description: translations.header.descriptions.staff,
-      isCustomIcon: true,
     },
     {
       name: translations.navigation.structure ?? "Структура",
       href: "/structure",
-      icon: Building2Icon,
+      icon: Building2,
       description: translations.header.descriptions.structure ?? "",
-      isCustomIcon: true,
     },
     {
       name: translations.navigation.community ?? "Сообщество",
       href: "/community",
-      icon: HeartHandshakeIcon,
+      icon: HeartHandshake,
       description: translations.header.descriptions.community ?? "",
-      isCustomIcon: true,
     },
     {
       name: translations.navigation.programs ?? "Программа",
       href: "/programs",
-      icon: BookOpenIcon,
+      icon: BookOpen,
       description: translations.header.descriptions.programs ?? "",
-      isCustomIcon: true,
     },
   ];
 
-  const schoolNavigation = [
+  const schoolNavigation: DropdownItem[] = [
     {
       name: translations.navigation.news ?? "Новости",
       href: "/news",
@@ -184,10 +176,10 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
           {/* Right Side - Desktop */}
           <div className="hidden lg:flex items-center space-x-4">
             {/* Phone */}
-            <div className="hidden xl:flex items-center space-x-2 text-sm text-gray-600 bg-gray-50 px-3 py-2 rounded-lg">
+            <a href={`tel:${translations.header.phone.replace(/\s/g, '')}`} className="hidden xl:flex items-center space-x-2 text-sm text-gray-600 bg-gray-50 px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors">
               <Phone className="h-4 w-4" />
               <span>{translations.header.phone}</span>
-            </div>
+            </a>
             
             {/* Theme Switcher */}
             <ThemeSwitcher />
@@ -230,6 +222,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
                   {translations.navigation.about}
                 </div>
                 {aboutNavigation.map((item, index) => {
+                  const IconComponent = item.icon;
                   return (
                     <Link
                       key={item.name}
@@ -239,19 +232,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
                       style={{ animationDelay: `${index * 50}ms` }}
                     >
                       <div className="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                        {item.isCustomIcon ? (
-                          <div className="w-5 h-5">
-                            {(() => {
-                              const CustomIcon = item.icon as React.ComponentType<IconProps>;
-                              return <CustomIcon active={false} id={`mobile-${item.href}`} />;
-                            })()}
-                          </div>
-                        ) : (
-                          (() => {
-                            const LucideIconComp = item.icon as import('lucide-react').LucideIcon;
-                            return <LucideIconComp className="h-4 w-4 text-primary" />;
-                          })()
-                        )}
+                        <IconComponent className="h-4 w-4 text-primary" />
                       </div>
                       <div className="flex-1">
                         <span className="font-medium">{item.name}</span>
@@ -313,10 +294,10 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
 
               {/* Phone & Apply Button */}
               <div className="px-4 pt-4 border-t">
-                <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4 bg-gray-50 px-3 py-2 rounded-lg">
+                <a href={`tel:${translations.header.phone.replace(/\s/g, '')}`} className="flex items-center space-x-2 text-sm text-gray-600 mb-4 bg-gray-50 px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors">
                   <Phone className="h-4 w-4 text-primary" />
                   <span className="font-medium">{translations.header.phone}</span>
-                </div>
+                </a>
                 <Button asChild className="w-full bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-200">
                   <Link href="/application" onClick={closeMobileMenu} className="flex items-center justify-center space-x-2">
                     <UserPlus className="h-4 w-4" />

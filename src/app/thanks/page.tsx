@@ -108,7 +108,7 @@ export default async function ThanksPage() {
 
               {/* CTA buttons */}
               <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
-                <Button asChild className="bg-primary hover:bg-primary/90 text-secondary font-semibold px-8">
+                <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8">
                   <Link href="/">{c.backHome}</Link>
                 </Button>
                 <Button asChild variant="outline" className="border-primary/30 text-primary hover:bg-primary/5 px-8">
