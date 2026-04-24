@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { motion, useMotionValue, useTransform, animate, type MotionValue } from 'framer-motion';
 import { PaperAirplaneSvg } from './paper-airplane-svg';
 import { FlightPath, FlightPhase } from '@/hooks/use-paper-airplane';
 
@@ -44,6 +44,53 @@ function buildSvgPath(phase: FlightPhase, path: FlightPath) {
   const { startX, startY, endX, endY } = path;
   const cp = getControlPoints(phase, path);
   return `M ${startX} ${startY} C ${cp.cp1x} ${cp.cp1y}, ${cp.cp2x} ${cp.cp2y}, ${endX} ${endY}`;
+}
+
+interface TrailDotProps {
+  index: number;
+  offset: number;
+  progress: MotionValue<number>;
+  startX: number;
+  startY: number;
+  endX: number;
+  endY: number;
+  cp: { cp1x: number; cp1y: number; cp2x: number; cp2y: number };
+}
+
+function TrailDot({ index, offset, progress, startX, startY, endX, endY, cp }: TrailDotProps) {
+  const trailX = useTransform(progress, (t) => {
+    const tt = Math.max(0, t - offset);
+    return cubicBezier(tt, startX, cp.cp1x, cp.cp2x, endX);
+  });
+  const trailY = useTransform(progress, (t) => {
+    const tt = Math.max(0, t - offset);
+    return cubicBezier(tt, startY, cp.cp1y, cp.cp2y, endY);
+  });
+  const dotOpacity = useTransform(progress, (t) => {
+    if (t < offset + 0.05) return 0;
+    if (t > 0.9) return 0;
+    return 0.5 - index * 0.12;
+  });
+  const dotScale = useTransform(progress, (t) => {
+    if (t < offset + 0.05) return 0;
+    return 1 - index * 0.2;
+  });
+
+  return (
+    <motion.div
+      className="absolute w-2.5 h-2.5 rounded-full"
+      style={{
+        x: trailX,
+        y: trailY,
+        opacity: dotOpacity,
+        scale: dotScale,
+        marginLeft: -5,
+        marginTop: -5,
+        background: 'radial-gradient(circle, #4ade80 0%, transparent 70%)',
+        boxShadow: '0 0 6px #4ade80',
+      }}
+    />
+  );
 }
 
 function AirplaneFlight({ phase, flightPath, onAnimationComplete }: PaperAirplaneOverlayProps) {
@@ -108,6 +155,7 @@ function AirplaneFlight({ phase, flightPath, onAnimationComplete }: PaperAirplan
       },
     });
     return () => controls.stop();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -154,41 +202,19 @@ function AirplaneFlight({ phase, flightPath, onAnimationComplete }: PaperAirplan
         </svg>
 
         {/* Trail sparkle dots */}
-        {[0.08, 0.16, 0.24].map((offset, i) => {
-          const trailX = useTransform(progress, (t) => {
-            const tt = Math.max(0, t - offset);
-            return cubicBezier(tt, startX, cp.cp1x, cp.cp2x, endX);
-          });
-          const trailY = useTransform(progress, (t) => {
-            const tt = Math.max(0, t - offset);
-            return cubicBezier(tt, startY, cp.cp1y, cp.cp2y, endY);
-          });
-          const dotOpacity = useTransform(progress, (t) => {
-            if (t < offset + 0.05) return 0;
-            if (t > 0.9) return 0;
-            return 0.5 - i * 0.12;
-          });
-          const dotScale = useTransform(progress, (t) => {
-            if (t < offset + 0.05) return 0;
-            return 1 - i * 0.2;
-          });
-          return (
-            <motion.div
-              key={i}
-              className="absolute w-2.5 h-2.5 rounded-full"
-              style={{
-                x: trailX,
-                y: trailY,
-                opacity: dotOpacity,
-                scale: dotScale,
-                marginLeft: -5,
-                marginTop: -5,
-                background: 'radial-gradient(circle, #4ade80 0%, transparent 70%)',
-                boxShadow: '0 0 6px #4ade80',
-              }}
-            />
-          );
-        })}
+        {[0.08, 0.16, 0.24].map((offset, i) => (
+          <TrailDot
+            key={i}
+            index={i}
+            offset={offset}
+            progress={progress}
+            startX={startX}
+            startY={startY}
+            endX={endX}
+            endY={endY}
+            cp={cp}
+          />
+        ))}
 
         {/* Airplane */}
         <motion.div

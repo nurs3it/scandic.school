@@ -11,11 +11,10 @@ interface DocumentDownloadButtonProps {
   buttonText: string;
 }
 
-export function DocumentDownloadButton({ 
-  documentId, 
-  downloadUrl, 
+export function DocumentDownloadButton({
+  downloadUrl,
   fileName,
-  buttonText 
+  buttonText
 }: DocumentDownloadButtonProps) {
   const [isDownloading, setIsDownloading] = useState(false);
 
