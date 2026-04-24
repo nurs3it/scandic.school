@@ -7,7 +7,8 @@
     "build": "next build --turbopack",
     "start": "node scripts/check-port.js && next start --port 3000",
     "lint": "eslint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepare": "husky"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
@@ -43,6 +44,8 @@
     "zod": "^4.1.5"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^20.19.39",
@@ -52,6 +55,7 @@
     "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "^15.5.9",
+    "husky": "^9.1.7",
     "postcss": "^8.5.6",
     "remark-parse": "^11.0.0",
     "tailwindcss": "^3.4.17",
