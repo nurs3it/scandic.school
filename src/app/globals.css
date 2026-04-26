@@ -39,6 +39,23 @@
   --sidebar-accent-foreground: 0 0% 9%;
   --sidebar-border: 0 0% 90%;
   --sidebar-ring: 45 100% 50%;
+
+  /* Typography scale */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+  --font-size-7xl: 4.5rem;
+
+  /* Spacing rhythm */
+  --section-y: 5rem;
+  --section-y-lg: 7rem;
 }
 
 /* Mountain theme — teal, copper, forest from brand image */
@@ -77,6 +94,9 @@
   --color-secondary-800: #244853;
   --color-secondary-900: #1b3740;
   --color-secondary-950: #122830;
+
+  /* Mountain glow uses copper tones */
+  --glow-color: 201, 107, 60;
 }
 
 [data-theme="mountain"] body,
@@ -92,6 +112,17 @@
 [data-theme="mountain"] h6 {
   font-family: var(--font-heading);
   font-weight: 700;
+}
+
+/* Mountain theme — fix glow shadows to use copper instead of yellow */
+[data-theme="mountain"] .shadow-glow {
+  box-shadow: 0 0 20px rgba(var(--glow-color, 201, 107, 60), 0.3);
+}
+[data-theme="mountain"] .shadow-glow-lg {
+  box-shadow: 0 0 40px rgba(var(--glow-color, 201, 107, 60), 0.4);
+}
+[data-theme="mountain"] .glow-effect {
+  box-shadow: 0 0 20px rgba(var(--glow-color, 201, 107, 60), 0.3);
 }
 
 .dark {
@@ -134,15 +165,53 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans antialiased;
   }
-  
+
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  /* Improved typography hierarchy */
+  h1 {
+    @apply font-display font-bold tracking-tight;
+    line-height: 1.08;
+  }
+  h2 {
+    @apply font-display font-bold tracking-tight;
+    line-height: 1.15;
+  }
+  h3 {
+    @apply font-display font-bold;
+    line-height: 1.25;
+  }
+  h4, h5, h6 {
     @apply font-sans font-bold;
+    line-height: 1.35;
+  }
+
+  /* Better body text readability */
+  p {
+    line-height: 1.7;
+  }
+
+  /* Improved focus styles */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
@@ -150,41 +219,66 @@
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .text-pretty {
     text-wrap: pretty;
   }
-  
+
   .animate-in {
     animation: fadeIn 0.5s ease-in-out;
   }
-  
+
   .animate-in-up {
     animation: fadeInUp 0.6s ease-out;
   }
-  
+
   .animate-in-down {
     animation: fadeInDown 0.6s ease-out;
   }
-  
+
   .animate-in-left {
     animation: slideInLeft 0.6s ease-out;
   }
-  
+
   .animate-in-right {
     animation: slideInRight 0.6s ease-out;
   }
-  
+
   .glow-effect {
     @apply shadow-glow;
   }
-  
+
   .glow-effect-lg {
     @apply shadow-glow-lg;
   }
 
   .animate-icon-pop {
     animation: icon-pop 0.5s ease-out;
+  }
+
+  /* Glassmorphism utility */
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .glass-light {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* Section divider accent line */
+  .section-accent {
+    @apply h-1 bg-gradient-to-r from-transparent via-primary to-transparent;
+  }
+
+  /* Gradient text utility */
+  .gradient-text {
+    @apply bg-gradient-to-r from-secondary to-secondary-800 bg-clip-text text-transparent;
   }
 }
 
@@ -213,4 +307,22 @@
 @keyframes loading-fade {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 1; }
+}
+
+/* Counter animation for number stats */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Draw line animation for org charts / connections */
+@keyframes draw-line {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Subtle gradient shift animation */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }

@@ -48,12 +48,13 @@ export function ContactForm() {
   };
 
   return (
-    <Card className="w-full max-w-2xl mx-auto">
-      <CardHeader>
+    <Card className="w-full max-w-2xl mx-auto border-0 shadow-xl overflow-hidden">
+      <div className="h-1.5 bg-gradient-to-r from-primary via-accent to-primary" />
+      <CardHeader className="pt-8">
         <CardTitle className="text-2xl font-bold text-secondary text-center">
           {t.title}
         </CardTitle>
-        <p className="text-gray-600 text-center">
+        <p className="text-gray-500 text-center">
           {t.subtitle}
         </p>
       </CardHeader>

@@ -103,6 +103,9 @@ const config: Config = {
         "float": "float 3s ease-in-out infinite",
         "glow": "glow 2s ease-in-out infinite alternate",
         "shooting-star": "shootingStar 4s ease-in-out infinite",
+        "draw-line": "drawLine 1.5s ease-out forwards",
+        "gradient-shift": "gradientShift 6s ease-in-out infinite",
+        "scale-in": "scaleIn 0.5s ease-out",
       },
       keyframes: {
         fadeIn: {
@@ -138,6 +141,18 @@ const config: Config = {
           "5%": { opacity: "0.5" },
           "15%": { opacity: "0" },
           "100%": { transform: "translateX(400px) translateY(200px) rotate(-35deg)", opacity: "0" },
+        },
+        drawLine: {
+          "0%": { strokeDashoffset: "1000" },
+          "100%": { strokeDashoffset: "0" },
+        },
+        gradientShift: {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+        scaleIn: {
+          "0%": { transform: "scale(0.8)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
         },
       },
       backgroundImage: {

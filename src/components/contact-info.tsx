@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock, ExternalLink } from "lucide-react";
 import { getLocale, getTranslations } from '@/lib/server-locale';
 import type { LucideIcon } from "lucide-react";
+import { ScrollReveal } from '@/components/scroll-reveal';
 
 interface ContactCard {
   icon: LucideIcon;
@@ -61,51 +62,68 @@ export async function ContactInfo() {
     }
   ];
 
-  return (
-    <div className="text-center mb-16">
-      <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-secondary to-secondary-800 bg-clip-text text-transparent">
-        {translations.contact.title}
-      </h2>
-      <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12">
-        {translations.contact.subtitle}
-      </p>
+  const cardAccents = [
+    'from-blue-500 to-blue-600',
+    'from-emerald-500 to-emerald-600',
+    'from-violet-500 to-violet-600',
+    'from-amber-500 to-amber-600',
+  ];
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+  return (
+    <div className="mb-16">
+      <ScrollReveal>
+        <div className="text-center mb-14">
+          <span className="inline-flex items-center gap-2 mb-4">
+            <span className="w-8 h-[2px] bg-primary rounded-full" />
+            <span className="text-secondary text-sm font-semibold uppercase tracking-widest">
+              {translations.contact.title}
+            </span>
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-secondary to-secondary-800 bg-clip-text text-transparent">
+            {translations.contact.title}
+          </h2>
+        </div>
+      </ScrollReveal>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {contactInfo.map((info, index) => {
           const IconComponent = info.icon;
           return (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm hover:bg-white">
-              <CardContent className="p-8 text-center">
-                <div className="space-y-4">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors duration-300">
-                    <IconComponent className="h-8 w-8 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      {info.title}
-                    </h3>
-                    <p className="text-primary font-medium mb-1">
-                      {info.details}
-                    </p>
-                    {info.description && (
-                      <p className="text-gray-600 text-sm">
-                        {info.description}
+            <ScrollReveal key={index} delay={index * 0.1}>
+              <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white shadow-md hover:-translate-y-1 overflow-hidden h-full">
+                <div className={`h-1 bg-gradient-to-r ${cardAccents[index % cardAccents.length]}`} />
+                <CardContent className="p-8 text-center">
+                  <div className="space-y-4">
+                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${cardAccents[index % cardAccents.length]} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <IconComponent className="h-7 w-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-2">
+                        {info.title}
+                      </h3>
+                      <p className="text-primary font-semibold mb-1">
+                        {info.details}
                       </p>
+                      {info.description && (
+                        <p className="text-gray-500 text-sm">
+                          {info.description}
+                        </p>
+                      )}
+                    </div>
+                    {info.action && (
+                      <a
+                        href={info.action.href}
+                        {...(info.action.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:text-primary transition-colors cursor-pointer"
+                      >
+                        {info.action.label}
+                        {info.action.external && <ExternalLink className="h-3.5 w-3.5" />}
+                      </a>
                     )}
                   </div>
-                  {info.action && (
-                    <a
-                      href={info.action.href}
-                      {...(info.action.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:text-primary transition-colors"
-                    >
-                      {info.action.label}
-                      {info.action.external && <ExternalLink className="h-3.5 w-3.5" />}
-                    </a>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
           );
         })}
       </div>
