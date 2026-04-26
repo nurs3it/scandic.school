@@ -524,7 +524,14 @@
     "teamPhotoPlaceholder": "Фото команды",
     "ctaTitle": "Продолжите знакомство",
     "ctaApplication": "Подать заявку",
-    "ctaContact": "Связаться с нами"
+    "ctaContact": "Связаться с нами",
+    "chapterEyebrow": "Глава",
+    "storyTitle": "История одного сообщества",
+    "finale": {
+      "label": "Триединство",
+      "title": "Один процесс — три голоса",
+      "subtitle": "Когда учителя, дети и родители движутся вместе, рождается доверие"
+    }
   },
   "academicPrograms": {
     "heroLabel": "Программа",

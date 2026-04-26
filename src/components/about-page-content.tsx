@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getLocale, getTranslations } from '@/lib/server-locale';
-import { ArrowRight, Building2, FlaskConical, Palette, Sparkles } from 'lucide-react';
+import { Building2Icon } from '@/components/icons/organization-icons';
+import { FlaskConicalIcon } from '@/components/icons/education-icons';
+import { PaletteIcon } from '@/components/icons/community-icons';
+import type { IconProps } from '@/components/icons/icon-types';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { ParticleBackground } from '@/components/particle-background';
 import { AnimatedStats } from '@/components/animated-stats';
@@ -48,19 +51,19 @@ export async function AboutPageContent() {
 
   const facilityItems = [
     {
-      icon: Building2,
+      icon: Building2Icon,
       title: { ru: 'Современные классы', en: 'Modern Classrooms', kk: 'Заманауи сыныптар' },
       desc: { ru: 'Оборудованные по международным стандартам', en: 'Equipped to international standards', kk: 'Халықаралық стандарттар бойынша жабдықталған' },
       gradient: 'from-secondary via-secondary-800 to-secondary-900',
     },
     {
-      icon: FlaskConical,
+      icon: FlaskConicalIcon,
       title: { ru: 'Лаборатории', en: 'Laboratories', kk: 'Зертханалар' },
       desc: { ru: 'Для естественных наук и STEM-проектов', en: 'For natural sciences and STEM projects', kk: 'Жаратылыстану ғылымдары мен STEM жобалары үшін' },
       gradient: 'from-primary via-primary-600 to-primary-800',
     },
     {
-      icon: Palette,
+      icon: PaletteIcon,
       title: { ru: 'Творческие пространства', en: 'Creative Spaces', kk: 'Шығармашылық кеңістіктер' },
       desc: { ru: 'Для искусства, музыки и самовыражения', en: 'For art, music, and self-expression', kk: 'Өнер, музыка және өзін-өзі көрсету үшін' },
       gradient: 'from-accent via-accent-700 to-accent-900',
@@ -112,7 +115,6 @@ export async function AboutPageContent() {
           {/* Badge */}
           <ScrollReveal delay={0.3}>
             <div className="mt-8 inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5">
-              <Sparkles className="h-5 w-5 text-primary" />
               <span className="text-white/90 text-sm font-medium">
                 {locale === 'en' ? 'International education since 2022' : locale === 'kk' ? '2022 жылдан бері халықаралық білім' : 'Международное образование с 2022 года'}
               </span>
@@ -295,7 +297,7 @@ export async function AboutPageContent() {
                   className="inline-flex items-center gap-2 text-primary hover:text-primary/80 text-sm font-semibold transition-colors group"
                 >
                   {history.link}
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <svg className="h-4 w-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
               </div>
             </ScrollReveal>
@@ -359,8 +361,8 @@ export async function AboutPageContent() {
                     <span className="text-white/10 text-[8rem] md:text-[10rem] font-bold absolute -top-8 left-1/2 -translate-x-1/2 select-none leading-none">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <div className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-white/15 backdrop-blur-sm flex items-center justify-center">
-                      <Icon className="h-10 w-10 text-white" />
+                    <div className="w-24 h-24 mx-auto mb-6 rounded-3xl bg-white/10 backdrop-blur-sm flex items-center justify-center p-3">
+                      <Icon active id={`facility-${index}`} />
                     </div>
                     <h3 className="text-3xl md:text-4xl font-bold text-white relative z-10">
                       {item.title[locale as keyof typeof item.title] || item.title.en}
@@ -387,9 +389,8 @@ export async function AboutPageContent() {
                     <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                       {item.desc[locale as keyof typeof item.desc] || item.desc.en}
                     </p>
-                    <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-secondary/60">
-                      <Sparkles className="h-4 w-4" />
-                      <span>Scandic International School</span>
+                    <div className="mt-6 text-sm font-semibold text-secondary/60">
+                      Scandic International School
                     </div>
                   </div>
                 </div>
@@ -405,7 +406,7 @@ export async function AboutPageContent() {
               className="inline-flex items-center gap-2 text-secondary text-sm font-semibold hover:text-primary transition-colors group"
             >
               {facilities.link}
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <svg className="h-4 w-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </Link>
           </div>
         </ScrollReveal>
@@ -417,8 +418,8 @@ export async function AboutPageContent() {
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <ScrollReveal>
             <div className="max-w-3xl mx-auto text-center">
-              <div className="w-16 h-16 mx-auto mb-5 rounded-2xl bg-secondary/[0.08] border border-secondary/10 flex items-center justify-center">
-                <Building2 className="h-8 w-8 text-secondary/60" />
+              <div className="w-20 h-20 mx-auto mb-5 rounded-2xl bg-secondary/[0.08] border border-secondary/10 flex items-center justify-center p-3">
+                <Building2Icon active={false} id="about-structure" />
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-secondary mb-3">
                 {locale === 'kk' ? 'Мектеп құрылымы' : locale === 'en' ? 'School Structure' : 'Структура школы'}
@@ -431,7 +432,7 @@ export async function AboutPageContent() {
                 className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary-800 text-white px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-secondary/20 group"
               >
                 {locale === 'kk' ? 'Толығырақ' : locale === 'en' ? 'Learn more' : 'Подробнее'}
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <svg className="h-4 w-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </Link>
             </div>
           </ScrollReveal>
@@ -469,15 +470,15 @@ export async function AboutPageContent() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Link href="/application" className="group flex items-center justify-between border border-secondary/15 hover:border-primary bg-white hover:bg-primary/5 px-6 py-5 rounded-xl transition-all duration-200 hover:shadow-md">
                   <span className="text-secondary font-semibold text-[15px]">{t.ctaAdmissions as string}</span>
-                  <ArrowRight className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  <svg className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
                 <Link href="/about" className="group flex items-center justify-between border border-secondary/15 hover:border-primary bg-white hover:bg-primary/5 px-6 py-5 rounded-xl transition-all duration-200 hover:shadow-md">
                   <span className="text-secondary font-semibold text-[15px]">{t.ctaVisit as string}</span>
-                  <ArrowRight className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  <svg className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
                 <Link href="/contact" className="group flex items-center justify-between border border-secondary/15 hover:border-primary bg-white hover:bg-primary/5 px-6 py-5 rounded-xl transition-all duration-200 hover:shadow-md">
                   <span className="text-secondary font-semibold text-[15px]">{t.ctaContact as string}</span>
-                  <ArrowRight className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  <svg className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
               </div>
             </div>

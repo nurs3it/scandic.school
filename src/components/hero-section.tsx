@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star, Users, Globe, BookOpen } from "lucide-react";
+import { BookOpenIcon } from "@/components/icons/education-icons";
 import { AnimatedTextStagger, AnimatedTextItem } from "@/components/animated-text";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ParticleBackground } from "@/components/particle-background";
@@ -63,7 +63,7 @@ export async function HeroSection() {
                 <Button asChild size="lg" className="bg-primary hover:bg-primary-600 text-primary-foreground font-bold px-10 py-5 text-lg shadow-lg hover:shadow-xl transition-all duration-200">
                   <Link href="/application" className="flex items-center space-x-2">
                     <span>{translations.hero.cta.apply}</span>
-                    <ArrowRight className="h-5 w-5" />
+                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="border-2 border-white/70 text-white hover:bg-white hover:text-secondary px-10 py-5 text-lg font-medium">
@@ -80,8 +80,8 @@ export async function HeroSection() {
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 min-w-12 min-h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                      <BookOpen className="h-6 w-6" />
+                    <div className="w-14 h-14 min-w-14 min-h-14 bg-primary/20 rounded-2xl flex items-center justify-center flex-shrink-0 p-2">
+                      <BookOpenIcon active id="hero-book" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-white">{translations.hero.features.ibProgram}</h3>
@@ -96,15 +96,15 @@ export async function HeroSection() {
 
                   <div className="space-y-4 pt-2">
                     <div className="flex items-center space-x-3">
-                      <Star className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
                       <span className="text-white text-[15px]">{translations.hero.features.grades}</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <Users className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
                       <span className="text-white text-[15px]">{translations.hero.features.multinational}</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <Globe className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
                       <span className="text-white text-[15px]">{translations.hero.features.standards}</span>
                     </div>
                   </div>

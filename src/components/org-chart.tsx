@@ -1,15 +1,15 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { Crown, Briefcase, Shield, Users } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { useRef, useState } from "react";
+import { CrownIcon, BriefcaseIcon, ShieldIcon, UsersIcon } from "@/components/icons/organization-icons";
+import type { IconProps } from "@/components/icons/icon-types";
 
-const iconMap: Record<string, LucideIcon> = {
-  crown: Crown,
-  briefcase: Briefcase,
-  shield: Shield,
-  users: Users,
+const iconMap: Record<string, React.FC<IconProps>> = {
+  crown: CrownIcon,
+  briefcase: BriefcaseIcon,
+  shield: ShieldIcon,
+  users: UsersIcon,
 };
 
 interface OrgNode {
@@ -28,6 +28,7 @@ interface OrgChartProps {
 export function OrgChart({ topNodes, bottomNode, topLabel, bottomLabel }: OrgChartProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const cardVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.95 },
@@ -48,7 +49,7 @@ export function OrgChart({ topNodes, bottomNode, topLabel, bottomLabel }: OrgCha
     }),
   };
 
-  const BottomIcon = iconMap[bottomNode.iconName] || Users;
+  const BottomIcon = iconMap[bottomNode.iconName] || UsersIcon;
 
   return (
     <div ref={ref} className="relative max-w-5xl mx-auto">
@@ -62,7 +63,7 @@ export function OrgChart({ topNodes, bottomNode, topLabel, bottomLabel }: OrgCha
       {/* Top-level nodes */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mb-4">
         {topNodes.map((node, index) => {
-          const Icon = iconMap[node.iconName] || Crown;
+          const Icon = iconMap[node.iconName] || CrownIcon;
           return (
             <motion.div
               key={index}
@@ -71,12 +72,14 @@ export function OrgChart({ topNodes, bottomNode, topLabel, bottomLabel }: OrgCha
               animate={isInView ? "visible" : "hidden"}
               variants={cardVariants}
               className="group relative"
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
             >
               <div className="relative p-6 md:p-7 rounded-2xl border border-gray-100 bg-white/80 backdrop-blur-sm hover:border-secondary/30 hover:shadow-xl hover:shadow-secondary/8 hover:-translate-y-1 transition-all duration-300 text-center cursor-default">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-secondary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-secondary group-hover:to-secondary-800 group-hover:border-secondary group-hover:shadow-lg group-hover:shadow-secondary/20 transition-all duration-300">
-                    <Icon className="h-7 w-7 text-primary group-hover:text-white transition-colors duration-300" />
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10 flex items-center justify-center group-hover:border-primary/30 group-hover:shadow-lg group-hover:shadow-primary/15 group-hover:scale-105 transition-all duration-300 p-2.5">
+                    <Icon active={hoveredCard === index} id={`org-top-${index}`} />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 group-hover:text-secondary transition-colors duration-300 mb-2">{node.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{node.description}</p>
@@ -139,12 +142,14 @@ export function OrgChart({ topNodes, bottomNode, topLabel, bottomLabel }: OrgCha
         animate={isInView ? "visible" : "hidden"}
         variants={cardVariants}
         className="max-w-lg mx-auto"
+        onMouseEnter={() => setHoveredCard(-1)}
+        onMouseLeave={() => setHoveredCard(null)}
       >
         <div className="group relative p-6 md:p-8 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/[0.04] to-transparent hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300 text-center cursor-default">
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="relative z-10">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/15 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-primary group-hover:to-primary-600 group-hover:border-primary group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-300">
-              <BottomIcon className="h-7 w-7 text-primary group-hover:text-white transition-colors duration-300" />
+            <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/15 flex items-center justify-center group-hover:border-primary/30 group-hover:shadow-lg group-hover:shadow-primary/20 group-hover:scale-105 transition-all duration-300 p-2.5">
+              <BottomIcon active={hoveredCard === -1} id="org-bottom" />
             </div>
             <h3 className="text-lg font-bold text-gray-900 group-hover:text-secondary transition-colors duration-300 mb-2">{bottomNode.title}</h3>
             <p className="text-gray-500 text-sm leading-relaxed">{bottomNode.description}</p>

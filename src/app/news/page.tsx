@@ -3,7 +3,7 @@
 import { useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { Newspaper, SearchX, Sparkles, ArrowRight } from 'lucide-react';
+import { Newspaper, SearchX, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNewsInfinite, useNewsTags } from '@/hooks/use-news';
 import { NewsGrid } from '@/components/news/news-grid';
@@ -128,7 +128,6 @@ export default function NewsPage() {
 
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.4 }}>
             <div className="mt-8 inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5">
-              <Sparkles className="h-5 w-5 text-primary" />
               <span className="text-white/90 text-sm font-medium">{i.badge}</span>
             </div>
           </motion.div>

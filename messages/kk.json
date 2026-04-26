@@ -524,7 +524,14 @@
     "teamPhotoPlaceholder": "Команда фотосы",
     "ctaTitle": "Танысуды жалғастырыңыз",
     "ctaApplication": "Өтінім беру",
-    "ctaContact": "Бізбен байланысу"
+    "ctaContact": "Бізбен байланысу",
+    "chapterEyebrow": "Тарау",
+    "storyTitle": "Бір қоғамдастық тарихы",
+    "finale": {
+      "label": "Үштұтас",
+      "title": "Бір процесс — үш дауыс",
+      "subtitle": "Мұғалімдер, балалар және ата-аналар бірге қозғалғанда, сенім туады"
+    }
   },
   "academicPrograms": {
     "heroLabel": "Бағдарлама",

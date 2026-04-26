@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { getLocale, getTranslations } from '@/lib/server-locale';
-import { ArrowRight, School, Coffee, FlaskConical, Microscope } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
+import { SchoolIcon, CoffeeIcon } from '@/components/icons/organization-icons';
+import { FlaskConicalIcon, MicroscopeIcon } from '@/components/icons/education-icons';
+import type { IconProps } from '@/components/icons/icon-types';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { ParticleBackground } from '@/components/particle-background';
 import { OrgChart } from '@/components/org-chart';
@@ -47,11 +48,11 @@ export async function StructurePageContent() {
   ];
 
   const infrastructureCards = [
-    { icon: School, ...(t.classrooms as Record<string, string>) },
-    { icon: Coffee, ...(t.parentHub as Record<string, string>) },
-    { icon: FlaskConical, ...(t.stemLab as Record<string, string>) },
-    { icon: Microscope, ...(t.physicsLab as Record<string, string>) },
-  ] as Array<{ icon: LucideIcon; title: string; description: string }>;
+    { icon: SchoolIcon, ...(t.classrooms as Record<string, string>) },
+    { icon: CoffeeIcon, ...(t.parentHub as Record<string, string>) },
+    { icon: FlaskConicalIcon, ...(t.stemLab as Record<string, string>) },
+    { icon: MicroscopeIcon, ...(t.physicsLab as Record<string, string>) },
+  ] as Array<{ icon: React.FC<IconProps>; title: string; description: string }>;
 
   return (
     <>
@@ -147,8 +148,8 @@ export async function StructurePageContent() {
                     <div className="absolute -top-8 -right-8 w-24 h-24 bg-primary/[0.08] rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                     <div className="relative z-10 p-6 md:p-8 flex flex-col justify-end h-full">
-                      <div className="w-14 h-14 mb-5 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/30 group-hover:scale-110 transition-all duration-300">
-                        <Icon className="h-6 w-6 text-white/70 group-hover:text-primary transition-colors duration-300" />
+                      <div className="w-16 h-16 mb-5 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center group-hover:bg-white/15 group-hover:border-primary/30 group-hover:scale-105 transition-all duration-300 p-2.5">
+                        <Icon active id={`infra-${index}`} />
                       </div>
                       <h3 className="text-white font-bold text-lg mb-2">{card.title}</h3>
                       <p className="text-white/50 text-sm leading-relaxed group-hover:text-white/70 transition-colors duration-300">{card.description}</p>
@@ -184,15 +185,15 @@ export async function StructurePageContent() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Link href="/programs" className="group flex items-center justify-between border border-secondary/15 hover:border-primary bg-white hover:bg-primary/5 px-6 py-5 rounded-xl transition-all duration-200 hover:shadow-md">
                   <span className="text-secondary font-semibold text-[15px]">{t.ctaPrograms as string}</span>
-                  <ArrowRight className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  <svg className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
                 <Link href="/about" className="group flex items-center justify-between border border-secondary/15 hover:border-primary bg-white hover:bg-primary/5 px-6 py-5 rounded-xl transition-all duration-200 hover:shadow-md">
                   <span className="text-secondary font-semibold text-[15px]">{t.ctaAbout as string}</span>
-                  <ArrowRight className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  <svg className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
                 <Link href="/application" className="group flex items-center justify-between border border-secondary/15 hover:border-primary bg-white hover:bg-primary/5 px-6 py-5 rounded-xl transition-all duration-200 hover:shadow-md">
                   <span className="text-secondary font-semibold text-[15px]">{t.ctaApplication as string}</span>
-                  <ArrowRight className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  <svg className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
               </div>
             </div>

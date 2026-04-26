@@ -1,4 +1,6 @@
-import { Users, BookOpen, Award } from "lucide-react";
+import { UsersIcon } from "@/components/icons/organization-icons";
+import { BookOpenIcon, GraduationCapIcon } from "@/components/icons/education-icons";
+import type { IconProps } from "@/components/icons/icon-types";
 import { getLocale, getTranslations } from '@/lib/server-locale';
 
 export async function StatsSection() {
@@ -7,27 +9,27 @@ export async function StatsSection() {
 
   const statsData = translations.stats as unknown as Record<string, unknown>;
   const descriptions = (statsData.descriptions as Record<string, string>) || {};
-  
+
   const stats = [
     {
-      icon: Users,
+      icon: UsersIcon,
       value: "150+",
       label: translations.stats.students,
       description: descriptions.students || "Actively studying at our school"
     },
     {
-      icon: BookOpen,
+      icon: BookOpenIcon,
       value: "1:8",
       label: translations.stats.teachers,
       description: descriptions.teachers || "Optimal teacher/student ratio"
     },
     {
-      icon: Award,
+      icon: GraduationCapIcon,
       value: "5+",
       label: translations.stats.years,
       description: descriptions.years || "Successful years in education"
     }
-  ];
+  ] as Array<{ icon: React.FC<IconProps>; value: string; label: string; description: string }>;
 
   return (
     <section className="py-20 bg-white">
@@ -48,8 +50,8 @@ export async function StatsSection() {
             const IconComponent = stat.icon;
             return (
               <div key={index} className="text-center group">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                  <IconComponent className="h-10 w-10 text-primary" />
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/10 rounded-full mb-6 group-hover:bg-primary/20 transition-colors duration-300 p-3">
+                  <IconComponent active id={`stat-${index}`} />
                 </div>
                 <div className="text-4xl md:text-5xl font-bold text-secondary mb-2 group-hover:text-primary transition-colors duration-300">
                   {stat.value}

@@ -524,7 +524,14 @@
     "teamPhotoPlaceholder": "Team photo",
     "ctaTitle": "Continue exploring",
     "ctaApplication": "Apply Now",
-    "ctaContact": "Contact Us"
+    "ctaContact": "Contact Us",
+    "chapterEyebrow": "Chapter",
+    "storyTitle": "Story of one community",
+    "finale": {
+      "label": "Trinity",
+      "title": "One process — three voices",
+      "subtitle": "When teachers, children, and parents move together, trust is born"
+    }
   },
   "academicPrograms": {
     "heroLabel": "Curriculum",

@@ -1,9 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getLocale, getTranslations } from '@/lib/server-locale';
-import { ArrowRight, GraduationCap, Heart, Home, Camera, Users, Sparkles } from 'lucide-react';
+import { CameraIcon } from '@/components/icons/community-icons';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { ParticleBackground } from '@/components/particle-background';
+import { CommunityStoryScroll, type StoryChapter, type StoryFinale } from '@/components/community-story-scroll';
+
+function splitBullets(description: string): string[] {
+  return description
+    .split(/[,،;]/)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0);
+}
 
 export async function CommunityPageContent() {
   const locale = await getLocale();
@@ -14,36 +22,45 @@ export async function CommunityPageContent() {
   const teachers = t.teachers as Record<string, string>;
   const children = t.children as Record<string, string>;
   const parents = t.parents as Record<string, string>;
+  const finaleData = (t.finale as Record<string, string>) ?? {};
+  const chapterEyebrow = (t.chapterEyebrow as string) ?? (locale === 'en' ? 'Chapter' : locale === 'kk' ? 'Тарау' : 'Глава');
+  const storyTitle = (t.storyTitle as string) ?? (locale === 'en' ? 'Story of one community' : locale === 'kk' ? 'Бір қоғамдастық тарихы' : 'История одного сообщества');
 
-  const sides = [
+  const chapters: StoryChapter[] = [
     {
-      icon: GraduationCap,
+      id: 'teachers',
+      number: '01',
+      eyebrow: chapterEyebrow,
       title: teachers.title,
       description: teachers.description,
-      gradient: 'from-secondary via-secondary-800 to-secondary-900',
-      iconBg: 'bg-white/15',
-      number: '01',
-      dotPattern: true,
+      bullets: splitBullets(teachers.description),
     },
     {
-      icon: Heart,
+      id: 'children',
+      number: '02',
+      eyebrow: chapterEyebrow,
       title: children.title,
       description: children.description,
-      gradient: 'from-primary via-primary-600 to-primary-800',
-      iconBg: 'bg-secondary/20',
-      number: '02',
-      dotPattern: false,
+      bullets: splitBullets(children.description),
     },
     {
-      icon: Home,
+      id: 'parents',
+      number: '03',
+      eyebrow: chapterEyebrow,
       title: parents.title,
       description: parents.description,
-      gradient: 'from-accent via-accent-700 to-accent-900',
-      iconBg: 'bg-white/15',
-      number: '03',
-      dotPattern: true,
+      bullets: splitBullets(parents.description),
     },
   ];
+
+  const finale: StoryFinale = {
+    label: finaleData.label ?? (locale === 'en' ? 'Trinity' : locale === 'kk' ? 'Үштұтас' : 'Триединство'),
+    title: finaleData.title ?? (locale === 'en' ? 'One process — three voices' : locale === 'kk' ? 'Бір процесс — үш дауыс' : 'Один процесс — три голоса'),
+    subtitle: finaleData.subtitle ?? (locale === 'en' ? 'When teachers, children, and parents move together, trust is born' : locale === 'kk' ? 'Мұғалімдер, балалар және ата-аналар бірге қозғалғанда, сенім туады' : 'Когда учителя, дети и родители движутся вместе, рождается доверие'),
+    teachersLabel: teachers.title,
+    childrenLabel: children.title,
+    parentsLabel: parents.title,
+  };
 
   let hasTeamPhoto = false;
   try {
@@ -82,7 +99,6 @@ export async function CommunityPageContent() {
           {/* Community badge */}
           <ScrollReveal delay={0.3}>
             <div className="mt-8 inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5">
-              <Users className="h-5 w-5 text-primary" />
               <span className="text-white/90 text-sm font-medium">
                 <span className="text-primary font-bold mr-1">3</span>
                 {locale === 'en' ? 'pillars of our community' : locale === 'kk' ? 'қоғамдастығымыздың тірегі' : 'столпа нашего сообщества'}
@@ -119,83 +135,20 @@ export async function CommunityPageContent() {
         </div>
       </section>
 
-      {/* ===== THREE PILLARS — IMMERSIVE FULL-WIDTH SECTIONS ===== */}
-      <section className="relative overflow-hidden">
-        <ScrollReveal>
-          <div className="text-center py-16 md:py-20 bg-gradient-to-br from-white via-gray-50/50 to-secondary/[0.02]">
-            <span className="inline-flex items-center gap-2 text-secondary text-sm font-semibold uppercase tracking-widest mb-4">
-              <span className="w-8 h-[2px] bg-primary rounded-full" />
-              {t.sidesLabel as string}
-            </span>
-            <h2 className="text-3xl md:text-5xl font-bold gradient-text">
-              {t.sidesTitle as string}
-            </h2>
-          </div>
-        </ScrollReveal>
+      {/* ===== THREE PILLARS — STORY SCROLL ===== */}
+      <ScrollReveal>
+        <div className="text-center py-16 md:py-20 bg-gradient-to-br from-white via-gray-50/50 to-secondary/[0.02]">
+          <span className="inline-flex items-center gap-2 text-secondary text-sm font-semibold uppercase tracking-widest mb-4">
+            <span className="w-8 h-[2px] bg-primary rounded-full" />
+            {t.sidesLabel as string}
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold gradient-text">
+            {t.sidesTitle as string}
+          </h2>
+        </div>
+      </ScrollReveal>
 
-        {sides.map((side, index) => {
-          const Icon = side.icon;
-          const isReversed = index % 2 !== 0;
-
-          return (
-            <ScrollReveal key={index} direction={isReversed ? 'right' : 'left'}>
-              <div className={`relative grid grid-cols-1 lg:grid-cols-2 min-h-[400px] md:min-h-[450px]`}>
-                {/* Gradient side */}
-                <div className={`relative bg-gradient-to-br ${side.gradient} flex items-center justify-center py-16 md:py-20 overflow-hidden ${isReversed ? 'lg:order-2' : ''}`}>
-                  {/* Decorative elements */}
-                  <div className="absolute top-8 right-8 w-32 h-32 bg-white/[0.05] rounded-full" />
-                  <div className="absolute bottom-12 left-12 w-20 h-20 bg-white/[0.04] rounded-full" />
-                  {side.dotPattern && (
-                    <div className="absolute inset-0 opacity-[0.04]" style={{
-                      backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px)',
-                      backgroundSize: '20px 20px',
-                    }} />
-                  )}
-
-                  <div className="relative z-10 text-center px-8">
-                    {/* Number */}
-                    <span className="text-white/10 text-[8rem] md:text-[10rem] font-bold absolute -top-8 left-1/2 -translate-x-1/2 select-none leading-none">
-                      {side.number}
-                    </span>
-                    <div className={`w-20 h-20 mx-auto mb-6 rounded-3xl ${side.iconBg} backdrop-blur-sm flex items-center justify-center`}>
-                      <Icon className="h-10 w-10 text-white" />
-                    </div>
-                    <h3 className="text-3xl md:text-4xl font-bold text-white relative z-10">
-                      {side.title}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Content side */}
-                <div className={`flex items-center bg-white py-12 md:py-16 ${isReversed ? 'lg:order-1' : ''}`}>
-                  <div className="px-8 md:px-12 lg:px-16 max-w-xl">
-                    <div className="flex items-center gap-3 mb-6">
-                      <span className={`text-xs font-bold uppercase tracking-widest ${
-                        index === 0 ? 'text-secondary' : index === 1 ? 'text-primary' : 'text-accent'
-                      }`}>
-                        {side.number}
-                      </span>
-                      <span className={`w-8 h-[2px] rounded-full ${
-                        index === 0 ? 'bg-secondary' : index === 1 ? 'bg-primary' : 'bg-accent'
-                      }`} />
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-4 leading-tight">
-                      {side.title}
-                    </h3>
-                    <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-                      {side.description}
-                    </p>
-                    <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-secondary/60">
-                      <Sparkles className="h-4 w-4" />
-                      <span>Scandic International School</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          );
-        })}
-      </section>
+      <CommunityStoryScroll chapters={chapters} finale={finale} storyTitle={storyTitle} />
 
       {/* ===== TEAM PHOTO ===== */}
       <section className="py-16 md:py-20 bg-gradient-to-br from-white via-gray-50/50 to-secondary/[0.02]">
@@ -223,8 +176,8 @@ export async function CommunityPageContent() {
           <div className="container mx-auto px-4 md:px-8">
             <ScrollReveal>
               <div className="max-w-4xl mx-auto rounded-3xl bg-gradient-to-br from-secondary/[0.04] to-primary/[0.04] border border-secondary/10 flex flex-col items-center justify-center py-20 text-center gap-4">
-                <div className="w-20 h-20 rounded-2xl bg-secondary/[0.08] flex items-center justify-center">
-                  <Camera className="h-10 w-10 text-secondary/40" />
+                <div className="w-24 h-24 rounded-2xl bg-secondary/[0.08] flex items-center justify-center p-3">
+                  <CameraIcon active={false} id="community-photo" />
                 </div>
                 <p className="text-secondary/50 text-lg font-medium">
                   {t.teamPhotoPlaceholder as string}
@@ -258,11 +211,11 @@ export async function CommunityPageContent() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Link href="/application" className="group flex items-center justify-between border border-secondary/15 hover:border-primary bg-white hover:bg-primary/5 px-6 py-5 rounded-xl transition-all duration-200 hover:shadow-md">
                   <span className="text-secondary font-semibold text-[15px]">{t.ctaApplication as string}</span>
-                  <ArrowRight className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  <svg className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
                 <Link href="/contact" className="group flex items-center justify-between border border-secondary/15 hover:border-primary bg-white hover:bg-primary/5 px-6 py-5 rounded-xl transition-all duration-200 hover:shadow-md">
                   <span className="text-secondary font-semibold text-[15px]">{t.ctaContact as string}</span>
-                  <ArrowRight className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  <svg className="h-4 w-4 text-secondary group-hover:text-primary group-hover:translate-x-1 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </Link>
               </div>
             </div>

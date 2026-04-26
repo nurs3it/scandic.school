@@ -1,15 +1,17 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { Target, BookOpen, Compass, Shield } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { useRef, useState } from "react";
+import { TargetIcon, CompassIcon, PaletteIcon } from "@/components/icons/community-icons";
+import { BookOpenIcon } from "@/components/icons/education-icons";
+import { ShieldIcon } from "@/components/icons/organization-icons";
+import type { IconProps } from "@/components/icons/icon-types";
 
-const iconMap: Record<string, LucideIcon> = {
-  target: Target,
-  compass: Compass,
-  "book-open": BookOpen,
-  shield: Shield,
+const iconMap: Record<string, React.FC<IconProps>> = {
+  target: TargetIcon,
+  compass: CompassIcon,
+  "book-open": BookOpenIcon,
+  shield: ShieldIcon,
 };
 
 interface ValueItem {
@@ -32,11 +34,12 @@ const accentColors = [
 export function ValuesGrid({ items }: ValuesGridProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
     <div ref={ref} className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
       {items.map((item, index) => {
-        const Icon = iconMap[item.iconName] || Target;
+        const Icon = iconMap[item.iconName] || TargetIcon;
         const accent = accentColors[index % accentColors.length];
 
         return (
@@ -46,6 +49,8 @@ export function ValuesGrid({ items }: ValuesGridProps) {
             animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
             transition={{ delay: 0.15 + index * 0.1, duration: 0.5, ease: "easeOut" as const }}
             className="group relative"
+            onMouseEnter={() => setHoveredCard(index)}
+            onMouseLeave={() => setHoveredCard(null)}
           >
             <div className={`relative flex items-start gap-5 p-6 md:p-7 rounded-2xl border border-gray-100 bg-white/80 backdrop-blur-sm hover:${accent.border} hover:shadow-xl hover:shadow-gray-200/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden`}>
               {/* Left accent bar */}
@@ -63,8 +68,8 @@ export function ValuesGrid({ items }: ValuesGridProps) {
               </span>
 
               {/* Icon */}
-              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-secondary group-hover:to-secondary-800 group-hover:border-secondary group-hover:shadow-lg group-hover:shadow-secondary/20 group-hover:scale-110 transition-all duration-300">
-                <Icon className="h-6 w-6 text-primary group-hover:text-white transition-colors duration-300" />
+              <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10 flex items-center justify-center group-hover:border-primary/30 group-hover:shadow-lg group-hover:shadow-primary/15 group-hover:scale-105 transition-all duration-300 p-2">
+                <Icon active={hoveredCard === index} id={`val-${index}`} />
               </div>
 
               <div className="flex-1 min-w-0 relative z-10">

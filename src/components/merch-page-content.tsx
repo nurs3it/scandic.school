@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Search, ShoppingBag, Sparkles, ArrowRight } from 'lucide-react';
+import { Search, ShoppingBag, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -91,7 +91,6 @@ export function MerchPageContent({ translations }: MerchPageContentProps) {
 
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.4 }}>
             <div className="mt-8 inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5">
-              <Sparkles className="h-5 w-5 text-primary" />
               <span className="text-white/90 text-sm font-medium">
                 <span className="text-primary font-bold mr-1">{items.length}</span>
                 {items.length === 1 ? 'item' : 'items'}
