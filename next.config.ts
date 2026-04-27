@@ -115,13 +115,17 @@ const nextConfig: NextConfig = {
     ];
   },
   
-  // Proxy /uploads/* to NestJS API (serves uploaded images)
+  // Proxy /uploads/* and /_api/* to NestJS API
   async rewrites() {
     const nestjsUrl = process.env.NESTJS_API_URL || 'http://localhost:3001';
     return [
       {
         source: '/uploads/:path*',
         destination: `${nestjsUrl}/uploads/:path*`,
+      },
+      {
+        source: '/_api/:path*',
+        destination: `${nestjsUrl}/:path*`,
       },
     ];
   },

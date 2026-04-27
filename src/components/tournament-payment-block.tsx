@@ -27,15 +27,22 @@ export function TournamentPaymentBlock({ tournament }: { tournament: Tournament 
       </div>
       <div className={`grid gap-4 ${showPhone && showQr ? 'md:grid-cols-2' : ''}`}>
         {showPhone && tournament.kaspiPhone && (
-          <div className="bg-white rounded-2xl p-5 shadow-sm">
+          <div className="bg-white rounded-2xl p-5 shadow-sm flex flex-col">
             <p className="text-xs uppercase text-gray-500 tracking-wider mb-2">Kaspi Gold</p>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-3">
               <Phone className="w-5 h-5 text-primary" />
               <p className="text-lg font-semibold text-secondary flex-1">{tournament.kaspiPhone}</p>
-              <button type="button" onClick={copyPhone} className="p-2 hover:bg-gray-100 rounded-lg transition" aria-label="Копировать номер">
-                {copied ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4 text-gray-500" />}
-              </button>
             </div>
+            <button
+              type="button"
+              onClick={copyPhone}
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#f14635] hover:bg-[#d83a2c] text-white rounded-xl font-semibold text-sm transition"
+            >
+              {copied ? <><Check className="w-4 h-4" /> Номер скопирован</> : <><Copy className="w-4 h-4" /> Скопировать номер</>}
+            </button>
+            <p className="text-xs text-gray-500 mt-3 leading-relaxed">
+              Откройте Kaspi → <span className="font-medium text-gray-700">Переводы</span> → <span className="font-medium text-gray-700">На Kaspi Gold</span> → вставьте номер
+            </p>
           </div>
         )}
         {showQr && tournament.kaspiQrUrl && (

@@ -1,10 +1,10 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, GraduationCap, Clock } from 'lucide-react';
 import { useLocale } from './locale-provider';
+import { MarkdownRenderer } from '@/components/news/markdown-renderer';
 import { TournamentStagesTimeline } from './tournament-stages-timeline';
 import { TournamentPaymentBlock } from './tournament-payment-block';
 import { TournamentRegistrationForm } from './tournament-registration-form';
@@ -50,9 +50,7 @@ export function TournamentDetailContent({ tournament }: { tournament: Tournament
 
       <section className="container mx-auto px-4 py-12 max-w-3xl">
         <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-6">{tt.terms}</h2>
-        <article className="prose prose-lg max-w-none">
-          <ReactMarkdown>{tournament.description}</ReactMarkdown>
-        </article>
+        <MarkdownRenderer content={tournament.description} />
       </section>
 
       {tournament.club && (

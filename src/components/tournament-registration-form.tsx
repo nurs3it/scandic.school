@@ -5,7 +5,7 @@ import { Upload, CheckCircle2, AlertCircle, Phone } from 'lucide-react';
 import { useLocale } from './locale-provider';
 import { submitTournamentRegistration } from '@/lib/tournaments-api';
 import { isRegistrationActive } from '@/lib/tournament-utils';
-import { formatPhoneNumber } from '@/lib/phone-mask';
+import { formatPhoneNumber, extractPhoneNumber } from '@/lib/phone-mask';
 import type { Tournament } from '@/lib/types/tournaments';
 
 const t = {
@@ -80,7 +80,7 @@ const t = {
   },
 };
 
-const KZ_PHONE = /^\+?7[\s\-]?7\d{2}[\s\-]?\d{3}[\s\-]?\d{2}[\s\-]?\d{2}$/;
+const KZ_PHONE_DIGITS = /^77\d{9}$/;
 const MAX_RECEIPT = 5 * 1024 * 1024;
 
 export function TournamentRegistrationForm({ tournament }: { tournament: Tournament }) {
@@ -131,13 +131,14 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
     e.preventDefault();
     setError(null);
     if (!participantName || !phone || !consent) return setError(tt.errorRequired);
-    if (!KZ_PHONE.test(phone.trim())) return setError(tt.errorPhone);
+    const phoneDigits = extractPhoneNumber(phone);
+    if (!KZ_PHONE_DIGITS.test(phoneDigits)) return setError(tt.errorPhone);
     if (payMode === 'upload' && receipt && receipt.size > MAX_RECEIPT) return setError(tt.fileTooBig);
 
     const fd = new FormData();
     fd.append('participantName', participantName);
     if (parentName) fd.append('parentName', parentName);
-    fd.append('phone', phone);
+    fd.append('phone', '+' + phoneDigits);
     if (email) fd.append('email', email);
     if (grade) fd.append('grade', grade);
     if (comment) fd.append('comment', comment);

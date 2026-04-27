@@ -4,6 +4,7 @@ import { useCallback } from 'react';
 import type { TournamentStatusFilter } from '@/lib/types/tournaments';
 
 const STATUS_TABS: { value: TournamentStatusFilter; label: string }[] = [
+  { value: 'all', label: 'Все' },
   { value: 'upcoming', label: 'Предстоящие' },
   { value: 'ongoing', label: 'Идут сейчас' },
   { value: 'past', label: 'Прошедшие' },

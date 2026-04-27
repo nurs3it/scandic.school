@@ -1,9 +1,9 @@
 'use client';
 import Image from 'next/image';
-import ReactMarkdown from 'react-markdown';
 import { motion } from 'framer-motion';
 import { Calendar, Users, GraduationCap } from 'lucide-react';
 import { useLocale } from '@/components/locale-provider';
+import { MarkdownRenderer } from '@/components/news/markdown-renderer';
 import { TournamentCard } from '@/components/tournament-card';
 import type { Club } from '@/lib/types/clubs';
 
@@ -36,9 +36,7 @@ export function ClubDetailContent({ club }: { club: Club }) {
       </section>
 
       <section className="container mx-auto px-4 py-16 max-w-3xl">
-        <article className="prose prose-lg max-w-none">
-          <ReactMarkdown>{club.description}</ReactMarkdown>
-        </article>
+        <MarkdownRenderer content={club.description} />
       </section>
 
       {club.tournaments && club.tournaments.length > 0 && (

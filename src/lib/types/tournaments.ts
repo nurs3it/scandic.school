@@ -46,7 +46,7 @@ export interface TournamentsListResponse {
   pageSize: number;
 }
 
-export type TournamentStatusFilter = 'upcoming' | 'ongoing' | 'past';
+export type TournamentStatusFilter = 'all' | 'upcoming' | 'ongoing' | 'past';
 
 export interface TournamentsFilter {
   status?: TournamentStatusFilter;

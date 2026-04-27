@@ -6,6 +6,8 @@ import type {
 } from './types/tournaments';
 
 const API_BASE = process.env.NESTJS_API_URL || 'https://scandic-school-api.onrender.com';
+// На клиенте process.env.NESTJS_API_URL недоступен — используем rewrite proxy /_api/*
+const CLIENT_API_BASE = '/_api';
 
 export async function fetchTournaments(
   filter: TournamentsFilter = {},
@@ -31,7 +33,7 @@ export async function submitTournamentRegistration(
   formData: FormData,
 ): Promise<{ id: number; status: string }> {
   const { data } = await axios.post<{ id: number; status: string }>(
-    `${API_BASE}/tournaments/${slug}/register`,
+    `${CLIENT_API_BASE}/tournaments/${slug}/register`,
     formData,
     { headers: { 'Content-Type': 'multipart/form-data' } },
   );

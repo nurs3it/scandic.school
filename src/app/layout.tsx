@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://scandic.school"),
+  metadataBase: new URL("https://www.scandicschool.edu.kz"),
   alternates: {
     canonical: "/",
     languages: {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Scandic International School | Международная школа в Уральске",
     description: "Scandic International School - международная школа в Уральске с программой IB PYP для учеников 0-11 классов",
-    url: "https://scandic.school",
+    url: "https://www.scandicschool.edu.kz",
     siteName: "Scandic International School",
     images: [
       {

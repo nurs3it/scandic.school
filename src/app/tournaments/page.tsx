@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: 'Турниры школы — расписание и регистрация',
 };
 
-const VALID_STATUS = ['upcoming', 'ongoing', 'past'] as const;
+const VALID_STATUS = ['all', 'upcoming', 'ongoing', 'past'] as const;
 
 export default async function TournamentsPage({
   searchParams,
@@ -20,7 +20,7 @@ export default async function TournamentsPage({
   const sp = await searchParams;
   const status = (VALID_STATUS as readonly string[]).includes(sp.status ?? '')
     ? (sp.status as TournamentStatusFilter)
-    : 'upcoming';
+    : 'all';
   const clubId = sp.clubId ? parseInt(sp.clubId, 10) || undefined : undefined;
   const ageGroup = sp.ageGroup || undefined;
 
@@ -29,8 +29,9 @@ export default async function TournamentsPage({
   let clubs: Club[] = [];
   let ageGroups: string[] = [];
   try {
+    const apiStatus = status === 'all' ? undefined : status;
     const [tres, cres, ares] = await Promise.all([
-      fetchTournaments({ status, clubId, ageGroup, pageSize: 48 }),
+      fetchTournaments({ status: apiStatus, clubId, ageGroup, pageSize: 48 }),
       fetchClubs(),
       fetchTournamentAgeGroups(),
     ]);
