@@ -1,18 +1,9 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { fetchClubs, fetchClubBySlug } from '@/lib/clubs-api';
+import { fetchClubBySlug } from '@/lib/clubs-api';
 import { ClubDetailContent } from '@/components/club-detail-content';
 
 export const revalidate = 60;
-
-export async function generateStaticParams() {
-  try {
-    const clubs = await fetchClubs();
-    return clubs.map((club) => ({ slug: club.slug }));
-  } catch {
-    return [];
-  }
-}
 
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
