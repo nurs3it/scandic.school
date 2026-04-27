@@ -14,7 +14,9 @@
     "news": "News",
     "structure": "Structure",
     "community": "Community",
-    "programs": "Programs"
+    "programs": "Programs",
+    "clubs": "Clubs",
+    "tournaments": "Tournaments"
   },
   "header": {
     "schoolName": "Scandic School",
@@ -31,7 +33,9 @@
       "school": "About our school",
       "structure": "School organization and governance",
       "community": "Teachers, children, and parents",
-      "programs": "Academic curriculum"
+      "programs": "Academic curriculum",
+      "clubs": "All school clubs",
+      "tournaments": "Schedule and registration"
     }
   },
   "hero": {

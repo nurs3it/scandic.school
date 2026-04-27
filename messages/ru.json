@@ -14,7 +14,9 @@
     "news": "Новости",
     "structure": "Структура",
     "community": "Сообщество",
-    "programs": "Программа"
+    "programs": "Программа",
+    "clubs": "Кружки",
+    "tournaments": "Турниры"
   },
   "header": {
     "schoolName": "Scandic School",
@@ -31,7 +33,9 @@
       "school": "О нашей школе",
       "structure": "Устройство и управление школой",
       "community": "Учителя, дети и родители",
-      "programs": "Академическая программа"
+      "programs": "Академическая программа",
+      "clubs": "Все кружки школы",
+      "tournaments": "Расписание и регистрация"
     }
   },
   "hero": {

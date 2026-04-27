@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Menu, X, Info, FileText, MessageCircle, UserPlus, GraduationCap, ShoppingBag, Newspaper, Handshake, Users, Building2, HeartHandshake, BookOpen } from "lucide-react";
+import { Phone, Menu, X, Info, FileText, MessageCircle, UserPlus, GraduationCap, ShoppingBag, Newspaper, Handshake, Users, Building2, HeartHandshake, BookOpen, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from 'react';
 import { LanguageSwitcher } from './language-switcher';
@@ -27,6 +27,8 @@ interface ClientHeaderProps {
       structure?: string;
       community?: string;
       programs?: string;
+      clubs?: string;
+      tournaments?: string;
     };
     header: {
       schoolName: string;
@@ -44,6 +46,8 @@ interface ClientHeaderProps {
         structure?: string;
         community?: string;
         programs?: string;
+        clubs?: string;
+        tournaments?: string;
       };
     };
   };
@@ -98,6 +102,12 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
       href: "/news",
       icon: Newspaper,
       description: translations.header.descriptions.news ?? ""
+    },
+    {
+      name: translations.navigation.clubs ?? "Кружки",
+      href: "/clubs",
+      icon: BookOpen,
+      description: translations.header.descriptions.clubs ?? ""
     },
     {
       name: translations.navigation.testimonials,
@@ -162,6 +172,15 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
               items={schoolNavigation}
               icon={GraduationCap}
             />
+
+            {/* Tournaments — top-level */}
+            <Link
+              href="/tournaments"
+              className="flex items-center space-x-1 px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary hover:bg-primary/5 transition-all duration-200"
+            >
+              <Trophy className="h-4 w-4" />
+              <span>{translations.navigation.tournaments ?? "Турниры"}</span>
+            </Link>
 
             {/* Contact */}
             <Link
@@ -269,6 +288,23 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
                     </Link>
                   );
                 })}
+              </div>
+
+              {/* Tournaments — top-level */}
+              <div className="px-2">
+                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-4 py-2 flex items-center">
+                  <Trophy className="h-3 w-3 mr-2" />
+                  {translations.navigation.tournaments ?? "Турниры"}
+                </div>
+                <Link href="/tournaments" onClick={closeMobileMenu} className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:text-primary hover:bg-primary/5 transition-all duration-200 rounded-lg group">
+                  <div className="flex-shrink-0 w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <Trophy className="h-4 w-4 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <span className="font-medium">{translations.navigation.tournaments ?? "Турниры"}</span>
+                    <p className="text-xs text-gray-500 mt-0.5">{translations.header.descriptions.tournaments ?? ""}</p>
+                  </div>
+                </Link>
               </div>
 
               {/* Contact Section */}
