@@ -6,7 +6,6 @@ import { Calendar, MapPin, GraduationCap, Clock } from 'lucide-react';
 import { useLocale } from './locale-provider';
 import { MarkdownRenderer } from '@/components/news/markdown-renderer';
 import { TournamentStagesTimeline } from './tournament-stages-timeline';
-import { TournamentPaymentBlock } from './tournament-payment-block';
 import { TournamentRegistrationForm } from './tournament-registration-form';
 import type { Tournament } from '@/lib/types/tournaments';
 import { formatTournamentDateRange, formatPrice } from '@/lib/tournament-utils';
@@ -62,8 +61,7 @@ export function TournamentDetailContent({ tournament }: { tournament: Tournament
         </section>
       )}
 
-      <section className="container mx-auto px-4 py-12 grid lg:grid-cols-2 gap-8 max-w-6xl">
-        <TournamentPaymentBlock tournament={tournament} />
+      <section className="container mx-auto px-4 py-12 max-w-3xl">
         <TournamentRegistrationForm tournament={tournament} />
       </section>
     </main>
