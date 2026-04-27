@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import { motion } from 'framer-motion';
 import { Calendar, Users, GraduationCap } from 'lucide-react';
 import { useLocale } from '@/components/locale-provider';
+import { TournamentCard } from '@/components/tournament-card';
 import type { Club } from '@/lib/types/clubs';
 
 const t = {
@@ -42,13 +43,10 @@ export function ClubDetailContent({ club }: { club: Club }) {
 
       {club.tournaments && club.tournaments.length > 0 && (
         <section className="container mx-auto px-4 py-16">
-          <h2 className="text-2xl font-bold mb-6">{tt.tournaments}</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-6">{tt.tournaments}</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {club.tournaments.map((tour) => (
-              <a key={tour.id} href={`/tournaments/${tour.slug}`} className="block p-4 bg-white rounded-xl shadow hover:shadow-md transition">
-                <h3 className="font-semibold">{tour.title}</h3>
-                <p className="text-sm text-gray-600 mt-2">{tour.shortDescription}</p>
-              </a>
+            {club.tournaments.map((tour, i) => (
+              <TournamentCard key={tour.id} tournament={tour} index={i} />
             ))}
           </div>
         </section>
