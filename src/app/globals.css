@@ -58,20 +58,20 @@
   --section-y-lg: 7rem;
 
   /* Brand teal — primary new color (homepage v3) */
-  --brand-teal-50:  246 253 245;
+  --brand-teal-50: 246 253 245;
   --brand-teal-100: 209 250 233;
   --brand-teal-200: 167 240 212;
   --brand-teal-300: 110 224 187;
-  --brand-teal-400: 61  201 158;
-  --brand-teal-500: 30  171 132;
-  --brand-teal-600: 15  140 108;
-  --brand-teal-700: 10  111 87;
-  --brand-teal-800: 13  79  68;
-  --brand-teal-900: 12  61  54;
-  --brand-teal-950: 10  41  38;
+  --brand-teal-400: 61 201 158;
+  --brand-teal-500: 30 171 132;
+  --brand-teal-600: 15 140 108;
+  --brand-teal-700: 10 111 87;
+  --brand-teal-800: 13 79 68;
+  --brand-teal-900: 12 61 54;
+  --brand-teal-950: 10 41 38;
 
   /* Brand orange — CTA */
-  --brand-orange-50:  255 247 237;
+  --brand-orange-50: 255 247 237;
   --brand-orange-100: 255 237 213;
   --brand-orange-200: 254 215 170;
   --brand-orange-300: 253 186 116;
@@ -80,16 +80,17 @@
   --brand-orange-600: 234 88 12;
   --brand-orange-700: 194 65 12;
 
-  /* Brand navy — dark blocks */
-  --brand-navy-50:  248 250 252;
+  /* Brand navy — dark blocks (only steps used in v3) */
+  --brand-navy-50: 248 250 252;
   --brand-navy-100: 241 245 249;
-  --brand-navy-700: 51  65  85;
-  --brand-navy-800: 30  41  59;
-  --brand-navy-900: 15  23  42;
-  --brand-navy-950: 10  15  26;
+  --brand-navy-700: 51 65 85;
+  --brand-navy-800: 30 41 59;
+  --brand-navy-900: 15 23 42;
+  --brand-navy-950: 10 15 26;
 
-  /* Mint accent — large numbers on dark hero */
-  --mint-accent:       168 230 210;
+  /* Mint accent — single decorative token (not a brand-* scale); used for
+     large stat numbers on the dark hero/ambitions backgrounds. */
+  --mint-accent: 168 230 210;
   --mint-accent-light: 197 240 224;
 }
 
