@@ -196,12 +196,51 @@
   --sidebar-ring: 45 100% 50%;
 }
 
+/* Scandic v3 theme — Figma palette: teal secondary + orange primary/accent */
 [data-theme="v3"] {
-  /* Override shadcn semantic tokens for v3 homepage */
-  --primary: 13 79 68;            /* brand-teal-800 */
-  --primary-foreground: 255 255 255;
-  --accent: 249 115 22;            /* brand-orange-500 */
-  --accent-foreground: 255 255 255;
+  --primary: 21 95% 53%;            /* brand-orange-500 #f97316 */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 166 83% 24%;         /* brand-teal-700 #0a6f57 */
+  --secondary-foreground: 0 0% 100%;
+  --accent: 21 95% 53%;             /* same as primary — orange accent */
+  --accent-foreground: 0 0% 100%;
+  --ring: 21 95% 53%;
+
+  /* Override shade scales — primary = orange, secondary = teal */
+  --color-primary-50: #fff7ed;
+  --color-primary-100: #ffedd5;
+  --color-primary-200: #fed7aa;
+  --color-primary-300: #fdba74;
+  --color-primary-400: #fb923c;
+  --color-primary-500: #f97316;
+  --color-primary-600: #ea580c;
+  --color-primary-700: #c2410c;
+  --color-primary-800: #9a3412;
+  --color-primary-900: #7c2d12;
+
+  --color-secondary-50: #f6fdf5;
+  --color-secondary-100: #d1fae9;
+  --color-secondary-200: #a7f0d4;
+  --color-secondary-300: #6ee0bb;
+  --color-secondary-400: #3dc99e;
+  --color-secondary-500: #1eab84;
+  --color-secondary-600: #0f8c6c;
+  --color-secondary-700: #0a6f57;
+  --color-secondary-800: #0d4f44;
+  --color-secondary-900: #0c3d36;
+  --color-secondary-950: #0a2926;
+
+  --glow-color: 249, 115, 22;
+}
+
+[data-theme="v3"] .shadow-glow {
+  box-shadow: 0 0 20px rgba(var(--glow-color, 249, 115, 22), 0.3);
+}
+[data-theme="v3"] .shadow-glow-lg {
+  box-shadow: 0 0 40px rgba(var(--glow-color, 249, 115, 22), 0.4);
+}
+[data-theme="v3"] .glow-effect {
+  box-shadow: 0 0 20px rgba(var(--glow-color, 249, 115, 22), 0.3);
 }
 
 @layer base {

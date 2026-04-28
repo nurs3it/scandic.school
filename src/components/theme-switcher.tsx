@@ -8,6 +8,7 @@ import { useState, useRef, useEffect } from 'react';
 const themeColors: Record<Theme, { primary: string; secondary: string }> = {
   classic: { primary: '#ffb400', secondary: '#153b24' },
   mountain: { primary: '#C96B3C', secondary: '#3D7A8A' },
+  v3: { primary: '#f97316', secondary: '#0a6f57' },
 };
 
 export function ThemeSwitcher() {

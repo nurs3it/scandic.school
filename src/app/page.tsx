@@ -19,7 +19,7 @@ import { AmbitionsV3 } from "@/components/homepage-v3/ambitions-v3";
 
 export default function Home() {
   return (
-    <div data-theme="v3" className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <Header />
       <main>
         <HeroV3 />

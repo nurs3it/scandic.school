@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState } from 'react';
 
-export type Theme = 'classic' | 'mountain';
+export type Theme = 'classic' | 'mountain' | 'v3';
 
 interface ThemeContextType {
   theme: Theme;
@@ -17,6 +17,9 @@ export const themes: Record<Theme, { label: Record<string, string> }> = {
   },
   mountain: {
     label: { ru: 'Горы', en: 'Mountain', kk: 'Таулар' },
+  },
+  v3: {
+    label: { ru: 'Scandic v3', en: 'Scandic v3', kk: 'Scandic v3' },
   },
 };
 
