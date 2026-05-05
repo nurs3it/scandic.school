@@ -6,7 +6,6 @@ import {
   Utensils,
   Palette,
   Music,
-  Laptop,
 } from "lucide-react";
 import { getLocale } from "@/lib/server-locale";
 
@@ -15,7 +14,7 @@ const translations = {
     eyebrow: "Кампус и инфраструктура",
     title: "Современная образовательная среда в Уральске",
     subtitle:
-      "Кампус площадью более 5 000 м² с лабораториями, спортивными залами, концертным пространством и IT-классами.",
+      "Кампус площадью около 2 200 м² с лабораториями, спортивным блоком, концертным пространством и творческими студиями. Часть объектов проектируется и поэтапно вводится в эксплуатацию.",
     labBadge: "Экспериментальные лаборатории",
     labSubBadge: "Живое, практическое познание науки",
     features: [
@@ -24,8 +23,7 @@ const translations = {
       { title: "Библиотека", description: "Многоязычная коллекция книг" },
       { title: "Концептуальный ресторан", description: "Здоровое питание для учеников" },
       { title: "Творческие студии", description: "Искусство и дизайн" },
-      { title: "Музыкальные классы", description: "Инструменты и репетиционные залы" },
-      { title: "IT-лаборатории", description: "Программирование и цифровые технологии" },
+      { title: "Музыкальные классы (планируется)", description: "Инструменты и репетиционные залы" },
     ],
     blocksHeading: "Блоки школы",
     blocks: [
@@ -39,10 +37,15 @@ const translations = {
       },
       {
         title: "Внеучебное развитие",
-        items: ["Кружки и секции", "Спортивные программы", "Выезды с экспертами", "Проектная работа"],
+        items: [
+          "Контроль ДЗ, проекты и защита",
+          "Выезды и работа с экспертами",
+          "Кружки и секции",
+          "Лаборатория физики и экспериментов",
+        ],
       },
     ],
-    ctaTitle: "Посетите наш кампус",
+    ctaTitle: "Посетите нашу школу",
     ctaSubtitle:
       "Запишитесь на персональную экскурсию и познакомьтесь с нашей командой и образовательной средой",
     ctaButton: "Записаться на экскурсию",
@@ -52,7 +55,7 @@ const translations = {
     eyebrow: "Campus & infrastructure",
     title: "A modern educational environment in Uralsk",
     subtitle:
-      "A campus of over 5,000 m² with laboratories, sports halls, a concert space, and IT classrooms.",
+      "A campus of about 2,200 m² with laboratories, sports facilities, a concert space, and creative studios. Some facilities are still in design and are being phased in.",
     labBadge: "Experimental laboratories",
     labSubBadge: "Lively, hands-on exploration of science",
     features: [
@@ -61,8 +64,7 @@ const translations = {
       { title: "Library", description: "A multilingual book collection" },
       { title: "Concept restaurant", description: "Healthy meals for students" },
       { title: "Creative studios", description: "Art and design" },
-      { title: "Music rooms", description: "Instruments and rehearsal halls" },
-      { title: "IT labs", description: "Programming and digital technologies" },
+      { title: "Music rooms (planned)", description: "Instruments and rehearsal halls" },
     ],
     blocksHeading: "School blocks",
     blocks: [
@@ -76,10 +78,15 @@ const translations = {
       },
       {
         title: "Beyond the curriculum",
-        items: ["Clubs and sections", "Sport programmes", "Expert-led trips", "Project work"],
+        items: [
+          "Homework support, projects and defence",
+          "Field trips and work with experts",
+          "Clubs and sections",
+          "Physics and experimentation lab",
+        ],
       },
     ],
-    ctaTitle: "Visit our campus",
+    ctaTitle: "Visit our school",
     ctaSubtitle:
       "Book a personal tour and meet our team and educational environment",
     ctaButton: "Book a tour",
@@ -89,7 +96,7 @@ const translations = {
     eyebrow: "Кампус және инфрақұрылым",
     title: "Оралдағы заманауи білім беру ортасы",
     subtitle:
-      "Зертханалары, спорт залдары, концерт кеңістігі мен IT-сыныптары бар 5 000 м²-ден астам кампус.",
+      "Зертханалары, спорт блогы, концерт кеңістігі мен шығармашылық студиялары бар шамамен 2 200 м² кампус. Кейбір нысандар әлі жобалану сатысында және кезең-кезеңмен қолданысқа беріледі.",
     labBadge: "Тәжірибелік зертханалар",
     labSubBadge: "Ғылымды жанды әрі практикалық тану",
     features: [
@@ -98,8 +105,7 @@ const translations = {
       { title: "Кітапхана", description: "Көптілді кітап жинағы" },
       { title: "Концептуалды мейрамхана", description: "Оқушыларға арналған дұрыс тамақтану" },
       { title: "Шығармашылық студиялар", description: "Өнер мен дизайн" },
-      { title: "Музыка сыныптары", description: "Аспаптар мен жаттығу залдары" },
-      { title: "IT-зертханалар", description: "Бағдарламалау мен цифрлық технологиялар" },
+      { title: "Музыка сыныптары (жоспарлануда)", description: "Аспаптар мен жаттығу залдары" },
     ],
     blocksHeading: "Мектеп блоктары",
     blocks: [
@@ -113,10 +119,15 @@ const translations = {
       },
       {
         title: "Сабақтан тыс даму",
-        items: ["Үйірмелер мен секциялар", "Спорт бағдарламалары", "Сарапшылармен сапарлар", "Жобалық жұмыс"],
+        items: [
+          "Үй тапсырмасын бақылау, жобалар мен қорғау",
+          "Сапарлар мен сарапшылармен жұмыс",
+          "Үйірмелер мен секциялар",
+          "Физика және эксперимент зертханасы",
+        ],
       },
     ],
-    ctaTitle: "Кампусымызға келіңіз",
+    ctaTitle: "Мектебімізге келіңіз",
     ctaSubtitle:
       "Жеке экскурсияға жазылыңыз және біздің командамызбен әрі білім беру ортасымен танысыңыз",
     ctaButton: "Экскурсияға жазылу",
@@ -131,7 +142,6 @@ const FEATURE_ICONS = [
   <Utensils key="restaurant" className="w-6 h-6" strokeWidth={1.75} />,
   <Palette key="art" className="w-6 h-6" strokeWidth={1.75} />,
   <Music key="music" className="w-6 h-6" strokeWidth={1.75} />,
-  <Laptop key="it" className="w-6 h-6" strokeWidth={1.75} />,
 ];
 
 export async function CampusV3() {
@@ -196,7 +206,7 @@ export async function CampusV3() {
         </div>
 
         {/* 7 feature cards in horizontal row */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 md:gap-4 mt-8 md:mt-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 mt-8 md:mt-10">
           {t.features.map((f, idx) => (
             <div
               key={idx}
