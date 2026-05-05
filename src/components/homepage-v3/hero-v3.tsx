@@ -4,7 +4,7 @@ const translations = {
   ru: {
     schoolName: "Scandic International School",
     subname: "\"Scandic Mektebi\"",
-    slogan: "Больше чем знания! Больше чем школа!",
+    slogan: "Больше чем знания, Больше чем школа.",
     description: "Современное образование мирового уровня в Уральске",
     cta1: "Записаться на экскурсию",
     cta2: "Подать заявку",
@@ -15,7 +15,7 @@ const translations = {
   en: {
     schoolName: "Scandic International School",
     subname: "\"Scandic Mektebi\"",
-    slogan: "More than knowledge! More than a school!",
+    slogan: "More than knowledge, More than a school.",
     description: "Modern world-class education in Uralsk",
     cta1: "Book a tour",
     cta2: "Apply now",
@@ -26,7 +26,7 @@ const translations = {
   kk: {
     schoolName: "Scandic International School",
     subname: "\"Scandic Mektebi\"",
-    slogan: "Білімнен де көп! Мектептен де көп!",
+    slogan: "Білімнен де көп, Мектептен де көп.",
     description: "Оралда заманауи әлемдік деңгейдегі білім беру",
     cta1: "Экскурсияға жазылу",
     cta2: "Өтініш беру",
@@ -41,29 +41,42 @@ export async function HeroV3() {
   const t = translations[locale];
 
   return (
-    <section className="relative min-h-[80vh] flex items-center bg-gradient-to-b from-brand-teal-800 to-brand-teal-900 text-white overflow-hidden">
-      <div className="container mx-auto px-4 py-20 text-center">
-        <div className="mx-auto w-20 h-20 rounded-full border-2 border-mint-accent flex items-center justify-center mb-6 animate-fade-in">
-          <span className="text-mint-accent font-display font-bold text-3xl">S</span>
-        </div>
-        <h1 className="font-display font-bold text-4xl md:text-6xl mb-2 animate-fade-in-up">
+    <section className="relative min-h-screen flex items-center text-white overflow-hidden bg-secondary-800">
+      <div
+        className="absolute inset-0 pointer-events-none opacity-30"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 20% 20%, rgba(168,230,210,0.10) 0, transparent 40%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.06) 0, transparent 45%)",
+        }}
+        aria-hidden
+      />
+      <div className="container relative z-10 py-20 text-center">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logo.svg"
+          alt="Scandic International School"
+          width={112}
+          height={112}
+          className="mx-auto w-24 h-24 md:w-28 md:h-28 object-contain mb-8 animate-fade-in [filter:brightness(0)_invert(1)]"
+        />
+        <h1 className="font-display font-bold text-6xl md:text-8xl lg:text-9xl mb-4 animate-fade-in-up leading-[1.02]">
           {t.schoolName}
         </h1>
-        <div className="text-mint-accent font-display text-lg md:text-xl mb-6">{t.subname}</div>
-        <p className="text-2xl md:text-3xl font-display font-semibold max-w-3xl mx-auto leading-tight mb-3">
+        <div className="text-mint-accent font-display text-2xl md:text-3xl mb-10">{t.subname}</div>
+        <p className="text-3xl md:text-4xl lg:text-5xl font-display font-semibold max-w-4xl mx-auto leading-tight mb-4">
           {t.slogan}
         </p>
-        <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto mb-10">{t.description}</p>
+        <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10">{t.description}</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12">
           <a
             href="/application"
-            className="inline-flex items-center px-6 py-3 rounded-full bg-brand-orange-500 hover:bg-brand-orange-600 text-white font-medium transition-colors"
+            className="inline-flex items-center px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-medium transition-colors"
           >
             {t.cta1}
           </a>
           <a
             href="/application"
-            className="inline-flex items-center px-6 py-3 rounded-full border border-white text-white hover:bg-white/10 font-medium transition-colors"
+            className="inline-flex items-center px-6 py-3 rounded-lg border border-white text-white hover:bg-white/10 font-medium transition-colors"
           >
             {t.cta2}
           </a>

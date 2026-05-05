@@ -23,7 +23,7 @@ export async function Footer() {
               <span className="text-xl font-bold">{translations.header.schoolName}</span>
             </div>
             <p className="text-sm text-gray-300">
-              Больше чем знания! Больше чем школа!
+              Больше чем знания, Больше чем школа.
             </p>
             <p className="text-xs text-gray-400">
               {translations.footer.license}
