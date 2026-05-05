@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Heart, Trees, Users, Sun, Scale, Sparkles, UsersRound } from "lucide-react";
+import { Heart, Trees, Users, Clock, Scale, Sparkles, UsersRound } from "lucide-react";
 import { getLocale } from "@/lib/server-locale";
 
 const translations = {
@@ -29,9 +29,9 @@ const translations = {
           "Ученики учатся вместе, поддерживают друг друга и празднуют коллективный успех",
       },
       {
-        title: "Без домашних заданий до 10 лет",
+        title: "Школа полного дня",
         description:
-          "Детство священно. Младшим школьникам нужно время для игры, семьи и свободного исследования",
+          "Учебный день, выполнение домашних заданий и кружки — всё в одном пространстве, под присмотром педагогов",
       },
       {
         title: "Равенство и инклюзия",
@@ -76,9 +76,9 @@ const translations = {
           "Students learn together, support each other, and celebrate collective success",
       },
       {
-        title: "No homework before age 10",
+        title: "Full-day school",
         description:
-          "Childhood is sacred. Younger students need time for play, family, and free exploration",
+          "Lessons, homework time and after-school activities all happen on campus, supported by our teachers",
       },
       {
         title: "Equality and inclusion",
@@ -123,9 +123,9 @@ const translations = {
           "Оқушылар бірге оқиды, бір-бірін қолдайды және ұжымдық жетістікті бірге атап өтеді",
       },
       {
-        title: "10 жасқа дейін үй тапсырмасы жоқ",
+        title: "Толық күндік мектеп",
         description:
-          "Балалық шақ — қасиетті. Кіші сыныптарға ойнауға, отбасы мен еркін зерттеуге уақыт қажет",
+          "Сабақ, үй тапсырмасы мен үйірмелер — барлығы бір кеңістікте, мұғалімдердің қадағалауымен",
       },
       {
         title: "Теңдік пен инклюзия",
@@ -150,7 +150,7 @@ const PRINCIPLE_ICONS = [
   <Heart key="trust" className="w-5 h-5" strokeWidth={1.75} />,
   <Trees key="nature" className="w-5 h-5" strokeWidth={1.75} />,
   <Users key="cooperation" className="w-5 h-5" strokeWidth={1.75} />,
-  <Sun key="homework" className="w-5 h-5" strokeWidth={1.75} />,
+  <Clock key="full-day" className="w-5 h-5" strokeWidth={1.75} />,
   <Scale key="equality" className="w-5 h-5" strokeWidth={1.75} />,
   <Sparkles key="joy" className="w-5 h-5" strokeWidth={1.75} />,
 ];
