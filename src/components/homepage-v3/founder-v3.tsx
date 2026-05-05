@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Quote } from "lucide-react";
 import { getLocale } from "@/lib/server-locale";
+import { ScrollFadeIn } from "./shared/scroll-fade-in";
 
 const translations = {
   ru: {
@@ -48,16 +49,19 @@ export async function FounderV3() {
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-10 md:mb-14">
-          <p className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-secondary-600 mb-3">
-            {t.eyebrow}
-          </p>
-          <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-brand-navy-900">
-            {t.title}
-          </h2>
-        </div>
+        <ScrollFadeIn>
+          <div className="text-center mb-10 md:mb-14">
+            <p className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-secondary-600 mb-3">
+              {t.eyebrow}
+            </p>
+            <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-brand-navy-900">
+              {t.title}
+            </h2>
+          </div>
+        </ScrollFadeIn>
 
-        <div className="grid md:grid-cols-2 gap-10 md:gap-14 max-w-6xl mx-auto items-center">
+        <ScrollFadeIn delay={0.1}>
+          <div className="grid md:grid-cols-2 gap-10 md:gap-14 max-w-6xl mx-auto items-center">
           {/* Left: large square portrait with teal duotone + overlapping name card */}
           <div className="relative">
             <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-secondary-600">
@@ -98,6 +102,7 @@ export async function FounderV3() {
             </blockquote>
           </div>
         </div>
+        </ScrollFadeIn>
       </div>
     </section>
   );
