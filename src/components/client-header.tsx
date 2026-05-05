@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Phone, Menu, X, Info, FileText, MessageCircle, GraduationCap, ShoppingBag, Newspaper, Handshake, Users, Building2, HeartHandshake, BookOpen, Trophy } from "lucide-react";
 import { useState } from 'react';
 import { LanguageSwitcher } from './language-switcher';
-import { ThemeSwitcher } from './theme-switcher';
 import { SchoolDropdown, type DropdownItem } from './school-dropdown';
 
 interface ClientHeaderProps {
@@ -133,11 +132,16 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
     <header className="sticky top-0 z-50 w-full bg-white border-b border-brand-navy-100">
       <div className="container mx-auto px-4">
         <div className="flex h-16 md:h-18 items-center justify-between">
-          {/* Logo: round S */}
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full border-2 border-brand-teal-700 flex items-center justify-center text-brand-teal-800 font-display font-bold text-lg group-hover:bg-brand-teal-50 transition-colors">
-              S
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.svg"
+              alt="Scandic International School"
+              width={40}
+              height={40}
+              className="w-10 h-10 object-contain"
+            />
             <span className="hidden md:inline-block text-brand-navy-900 font-display font-semibold group-hover:text-brand-teal-700 transition-colors">
               {translations.header.schoolName}
             </span>
@@ -180,12 +184,11 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
               <Phone className="h-4 w-4" />
               <span>{translations.header.phone}</span>
             </a>
-            <ThemeSwitcher />
             <LanguageSwitcher />
             <Link
               href="/application"
               data-apply-button
-              className="inline-flex items-center px-5 py-2 rounded-full bg-brand-orange-500 text-white font-medium hover:bg-brand-orange-600 transition-colors"
+              className="inline-flex items-center px-5 py-2 rounded-lg bg-brand-orange-500 text-white font-medium hover:bg-brand-orange-600 transition-colors"
             >
               {translations.header.applyButton}
             </Link>
@@ -193,7 +196,6 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
 
           {/* Mobile right cluster */}
           <div className="lg:hidden flex items-center gap-1">
-            <ThemeSwitcher />
             <LanguageSwitcher />
             <button
               onClick={toggleMobileMenu}
@@ -317,7 +319,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
                   href="/application"
                   onClick={closeMobileMenu}
                   data-apply-button
-                  className="flex items-center justify-center w-full px-5 py-3 rounded-full bg-brand-orange-500 text-white font-medium hover:bg-brand-orange-600 transition-colors"
+                  className="flex items-center justify-center w-full px-5 py-3 rounded-lg bg-brand-orange-500 text-white font-medium hover:bg-brand-orange-600 transition-colors"
                 >
                   {translations.header.applyButton}
                 </Link>

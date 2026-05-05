@@ -12,7 +12,7 @@ export function StatCard({ value, label, sublabel, meta, className }: StatCardPr
   return (
     <div
       className={cn(
-        "rounded-2xl p-6 bg-brand-teal-700/40 backdrop-blur-sm border border-white/10",
+        "rounded-2xl p-6 bg-secondary-700/40 backdrop-blur-sm border border-white/10",
         className,
       )}
     >

@@ -48,48 +48,52 @@ export async function FounderV3() {
   return (
     <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 md:mb-16">
-          <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-brand-teal-600 mb-4">
+        <div className="text-center mb-10 md:mb-14">
+          <p className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-secondary-600 mb-3">
             {t.eyebrow}
           </p>
-          <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-brand-navy-900">
+          <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-brand-navy-900">
             {t.title}
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 md:gap-16 max-w-6xl mx-auto items-start">
-          {/* Left: portrait with teal duotone + overlapping name card */}
-          <div className="relative pb-16 md:pb-24">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-brand-teal-700">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-14 max-w-6xl mx-auto items-center">
+          {/* Left: large square portrait with teal duotone + overlapping name card */}
+          <div className="relative">
+            <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-secondary-600">
               <Image
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=720&h=900&fit=crop"
+                src="/images/founder.jpeg"
                 alt={t.name}
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover grayscale"
+                sizes="(max-width: 768px) 100vw, 560px"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-brand-teal-600/55 mix-blend-multiply" aria-hidden />
+              <div
+                className="absolute inset-0 z-20 pointer-events-none"
+                style={{ backgroundColor: "rgba(11, 130, 102, 0.55)" }}
+                aria-hidden
+              />
             </div>
 
-            <div className="absolute left-6 right-6 md:left-12 md:right-12 -bottom-2 md:bottom-0 bg-white rounded-2xl shadow-xl p-5 md:p-6 ring-1 ring-brand-navy-100/60">
+            <div className="md:absolute md:bottom-[-32px] md:right-[-24px] md:max-w-[340px] z-30 mt-5 md:mt-0 bg-white rounded-2xl shadow-xl p-5 md:p-6 ring-1 ring-brand-navy-100/60">
               <div className="font-display font-bold text-lg md:text-xl text-brand-navy-900 mb-1.5">
                 {t.name}
               </div>
-              <div className="text-sm text-brand-navy-700 leading-snug mb-2">{t.role1}</div>
-              <div className="text-sm text-brand-teal-700 font-medium leading-snug">{t.role2}</div>
+              <div className="text-sm text-brand-navy-700 leading-snug mb-3">{t.role1}</div>
+              <div className="text-sm text-secondary-600 font-medium leading-snug">{t.role2}</div>
             </div>
           </div>
 
-          {/* Right: quote icon + body + accented pull-quote */}
-          <div>
-            <Quote className="w-10 h-10 md:w-12 md:h-12 text-brand-teal-600 mb-6" strokeWidth={1.5} />
-            <p className="text-brand-navy-900 text-lg md:text-xl leading-relaxed mb-6">
+          {/* Right: quote + body + pull-quote */}
+          <div className="flex flex-col justify-center">
+            <Quote className="w-12 h-12 md:w-14 md:h-14 text-secondary-500 mb-6" strokeWidth={1.5} />
+            <p className="text-brand-navy-900 text-xl md:text-2xl leading-relaxed mb-6">
               {t.paragraph1}
             </p>
-            <p className="text-brand-navy-900 text-lg md:text-xl leading-relaxed mb-8">
+            <p className="text-brand-navy-900 text-xl md:text-2xl leading-relaxed mb-8">
               {t.paragraph2}
             </p>
-            <blockquote className="border-l-2 border-brand-teal-600 pl-5 text-brand-navy-900 text-base md:text-lg leading-relaxed italic">
+            <blockquote className="border-l-2 border-secondary-500 pl-5 text-brand-navy-900 text-lg md:text-xl leading-relaxed">
               {t.pullQuote}
             </blockquote>
           </div>

@@ -14,7 +14,7 @@ export function SchoolLifeNewsletter({ title, description, placeholder, submitLa
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <div className="bg-brand-orange-500 text-white rounded-2xl p-6">
+    <div className="bg-primary-500 text-white rounded-2xl p-6">
       <h3 className="font-display font-semibold text-xl mb-2">{title}</h3>
       <p className="text-white/90 text-sm mb-4">{description}</p>
       <form
@@ -31,11 +31,11 @@ export function SchoolLifeNewsletter({ title, description, placeholder, submitLa
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder={placeholder}
-          className="px-4 py-2 rounded-full bg-white text-brand-navy-900 placeholder:text-brand-navy-700/60 focus:outline-none focus:ring-2 focus:ring-white/40"
+          className="px-4 py-2 rounded-lg bg-white text-brand-navy-900 placeholder:text-brand-navy-700/60 focus:outline-none focus:ring-2 focus:ring-white/40"
         />
         <button
           type="submit"
-          className="px-4 py-2 rounded-full bg-white text-brand-orange-600 font-medium hover:bg-white/90"
+          className="px-4 py-2 rounded-lg bg-white text-primary-600 font-medium hover:bg-white/90"
         >
           {submitted ? "✓" : submitLabel}
         </button>

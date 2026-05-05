@@ -1,12 +1,11 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { PartnersSection } from "@/components/partners-section";
-import { InstagramCarousel } from "@/components/instagram-carousel";
 import { HeroV3 } from "@/components/homepage-v3/hero-v3";
 import { FounderV3 } from "@/components/homepage-v3/founder-v3";
 import { PotentialV3 } from "@/components/homepage-v3/potential-v3";
 import { EducationCardsV3 } from "@/components/homepage-v3/education-cards-v3";
-import { StemV3 } from "@/components/homepage-v3/stem-v3";
+import { AcademicProgramV3 } from "@/components/homepage-v3/academic-program-v3";
+import { SubjectAreasV3 } from "@/components/homepage-v3/subject-areas-v3";
 import { PhilosophyV3 } from "@/components/homepage-v3/philosophy-v3";
 import { CampusV3 } from "@/components/homepage-v3/campus-v3";
 import { ExtracurricularsV3 } from "@/components/homepage-v3/extracurriculars-v3";
@@ -16,6 +15,7 @@ import { CtaOrangeV3 } from "@/components/homepage-v3/cta-orange-v3";
 import { TestimonialsV3 } from "@/components/homepage-v3/testimonials-v3";
 import { SchoolLifeV3 } from "@/components/homepage-v3/school-life-v3";
 import { AmbitionsV3 } from "@/components/homepage-v3/ambitions-v3";
+import { InstagramCarousel } from "@/components/instagram-carousel";
 
 export default function Home() {
   return (
@@ -26,7 +26,8 @@ export default function Home() {
         <FounderV3 />
         <PotentialV3 />
         <EducationCardsV3 />
-        <StemV3 />
+        <AcademicProgramV3 />
+        <SubjectAreasV3 />
         <PhilosophyV3 />
         <CampusV3 />
         <ExtracurricularsV3 />
@@ -37,7 +38,6 @@ export default function Home() {
         <SchoolLifeV3 />
         <AmbitionsV3 />
         <InstagramCarousel />
-        <PartnersSection />
       </main>
       <Footer />
     </div>

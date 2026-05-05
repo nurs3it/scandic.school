@@ -1,63 +1,158 @@
 import Image from "next/image";
-import { Heart, Leaf, Wrench, Clock, Smile, Users } from "lucide-react";
+import { Heart, Trees, Users, Sun, Scale, Sparkles, UsersRound } from "lucide-react";
 import { getLocale } from "@/lib/server-locale";
-import { SectionHeading } from "./shared/section-heading";
 
 const translations = {
   ru: {
-    eyebrow: "академическое лидерство",
+    eyebrow: "Скандинавский подход",
     title: "Философия образования, где дети процветают",
-    paragraph:
-      "Мы верим, что подлинный рост возможен там, где ребёнка ценят за его уникальность. Наша философия объединяет уважение к личности, заботу о благополучии и высокие академические стандарты.",
+    paragraph1:
+      "Скандинавские страны стабильно занимают лидирующие позиции по уровню счастья и качеству образования. Мы привносим эту проверенную философию в международное образование.",
+    paragraph2:
+      "Основатель школы, живя в Дании, убедился в эффективности скандинавского подхода и решил создать школу такого же качества в родном Уральске.",
     badge: "№1",
+    badgeText: "Скандинавия в рейтинге образования и счастья",
     principles: [
-      { title: "Доверие к ученикам", description: "Создаём пространство, где детям дают свободу принимать решения." },
-      { title: "Обучение на природе", description: "Регулярные занятия и проекты вне стен класса." },
-      { title: "Сотрудничество с инженерами", description: "Реальные задачи от практиков формируют практические навыки." },
-      { title: "Без домашних заданий до 10 лет", description: "Учим эффективно работать в школе, оставляя дом для семьи." },
-      { title: "Радость в обучении", description: "Эмоция и интерес — основа долгосрочной мотивации." },
-      { title: "Учитель — дитя — родитель", description: "Партнёрство трёх сторон поддерживает развитие ребёнка." },
+      {
+        title: "Доверие и автономия",
+        description:
+          "Ученикам доверяют принимать решения, брать на себя ответственность и учиться на своих ошибках в поддерживающей среде",
+      },
+      {
+        title: "Обучение на природе",
+        description:
+          "Регулярные занятия на свежем воздухе укрепляют связь с природой и физическое здоровье",
+      },
+      {
+        title: "Сотрудничество, а не конкуренция",
+        description:
+          "Ученики учатся вместе, поддерживают друг друга и празднуют коллективный успех",
+      },
+      {
+        title: "Без домашних заданий до 10 лет",
+        description:
+          "Детство священно. Младшим школьникам нужно время для игры, семьи и свободного исследования",
+      },
+      {
+        title: "Равенство и инклюзия",
+        description:
+          "Каждый ребёнок имеет равную ценность и потенциал. Мы адаптируемся под индивидуальные потребности",
+      },
+      {
+        title: "Радость в обучении",
+        description:
+          "Образование должно зажигать любопытство и страсть, а не гасить их. Мы делаем обучение осмысленным",
+      },
     ],
+    triangle: {
+      title: "Учителя — дети — родители",
+      description:
+        "Мы строим доверительные отношения между учителями, детьми и родителями, слышим мнение каждого и укрепляем связь между школой и семьёй, понимая, что воспитание ребёнка — это трёхсторонний процесс.",
+    },
   },
   en: {
-    eyebrow: "academic leadership",
+    eyebrow: "Scandinavian approach",
     title: "An educational philosophy where children thrive",
-    paragraph:
-      "We believe that genuine growth happens where a child is valued for who they are. Our philosophy combines respect for personality, care for well-being, and high academic standards.",
-    badge: "№1",
+    paragraph1:
+      "Scandinavian countries consistently top global rankings for happiness and quality of education. We bring this proven philosophy into international education.",
+    paragraph2:
+      "Living in Denmark, the school's founder was convinced of the effectiveness of the Scandinavian approach and decided to create a school of the same quality in his home city of Uralsk.",
+    badge: "#1",
+    badgeText: "Scandinavia in education and happiness rankings",
     principles: [
-      { title: "Trust in students", description: "We create a space where children are given the freedom to make decisions." },
-      { title: "Learning in nature", description: "Regular lessons and projects outside the classroom walls." },
-      { title: "Collaboration with engineers", description: "Real-world challenges from practitioners build practical skills." },
-      { title: "No homework before age 10", description: "We teach effective work at school and leave home for family." },
-      { title: "Joy in learning", description: "Emotion and interest are the foundation of long-term motivation." },
-      { title: "Teacher — child — parent", description: "A partnership of three parties supports the child's development." },
+      {
+        title: "Trust and autonomy",
+        description:
+          "Students are trusted to make decisions, take responsibility, and learn from their mistakes in a supportive environment",
+      },
+      {
+        title: "Outdoor learning",
+        description:
+          "Regular outdoor lessons strengthen the connection with nature and physical health",
+      },
+      {
+        title: "Collaboration over competition",
+        description:
+          "Students learn together, support each other, and celebrate collective success",
+      },
+      {
+        title: "No homework before age 10",
+        description:
+          "Childhood is sacred. Younger students need time for play, family, and free exploration",
+      },
+      {
+        title: "Equality and inclusion",
+        description:
+          "Every child has equal value and potential. We adapt to individual needs",
+      },
+      {
+        title: "Joy in learning",
+        description:
+          "Education should ignite curiosity and passion, not extinguish them. We make learning meaningful",
+      },
     ],
+    triangle: {
+      title: "Teachers — children — parents",
+      description:
+        "We build trusting relationships between teachers, children, and parents, listen to every voice, and strengthen the bond between school and family — knowing that raising a child is a three-way process.",
+    },
   },
   kk: {
-    eyebrow: "академиялық көшбасшылық",
+    eyebrow: "Скандинавиялық тәсіл",
     title: "Балалар гүлденетін білім беру философиясы",
-    paragraph:
-      "Біз шынайы өсу баланы өзіндік ерекшелігі үшін бағалайтын жерде ғана мүмкін деп сенеміз. Біздің философиямыз тұлғаны құрметтеу, әл-ауқатқа қамқорлық пен жоғары академиялық стандарттарды біріктіреді.",
+    paragraph1:
+      "Скандинавия елдері бақыт деңгейі мен білім сапасы бойынша әлемдік рейтингтерде үнемі жетекші орындарды иеленеді. Біз осы дәлелденген философияны халықаралық білім беруге енгіземіз.",
+    paragraph2:
+      "Мектеп құрылтайшысы Данияда тұрып, скандинавиялық тәсілдің тиімділігіне көз жеткізді және туған Оралда дәл сондай сапалы мектеп ашуды шешті.",
     badge: "№1",
+    badgeText: "Скандинавия — білім мен бақыт рейтингінде",
     principles: [
-      { title: "Оқушыларға сенім", description: "Балаларға шешім қабылдау еркіндігі берілген кеңістік құрамыз." },
-      { title: "Табиғатта оқыту", description: "Сынып қабырғасынан тыс үнемі сабақтар мен жобалар." },
-      { title: "Инженерлермен серіктестік", description: "Тәжірибешілерден келген нақты есептер практикалық дағдыларды қалыптастырады." },
-      { title: "10 жасқа дейін үй тапсырмасы жоқ", description: "Мектепте тиімді жұмыс істеуге үйретеміз, үйді отбасына қалдырамыз." },
-      { title: "Оқудан рахат", description: "Эмоция мен қызығушылық — ұзақ мерзімді ынтаның негізі." },
-      { title: "Мұғалім — бала — ата-ана", description: "Үш жақтың серіктестігі баланың дамуын қолдайды." },
+      {
+        title: "Сенім және автономия",
+        description:
+          "Оқушыларға шешім қабылдауға, жауапкершілікті өз мойнына алуға және қателіктерінен сабақ алуға қолайлы орта беріледі",
+      },
+      {
+        title: "Табиғатта оқу",
+        description:
+          "Таза ауада өтетін тұрақты сабақтар табиғатпен байланыс пен дене денсаулығын нығайтады",
+      },
+      {
+        title: "Бәсекеден гөрі ынтымақтастық",
+        description:
+          "Оқушылар бірге оқиды, бір-бірін қолдайды және ұжымдық жетістікті бірге атап өтеді",
+      },
+      {
+        title: "10 жасқа дейін үй тапсырмасы жоқ",
+        description:
+          "Балалық шақ — қасиетті. Кіші сыныптарға ойнауға, отбасы мен еркін зерттеуге уақыт қажет",
+      },
+      {
+        title: "Теңдік пен инклюзия",
+        description:
+          "Әр баланың құндылығы мен әлеуеті тең. Біз жеке қажеттіліктерге бейімделеміз",
+      },
+      {
+        title: "Оқудағы қуаныш",
+        description:
+          "Білім құмарлық пен құштарлықты сөндірмей, оларды тұтатуы керек. Біз оқуды мағыналы етеміз",
+      },
     ],
+    triangle: {
+      title: "Мұғалімдер — балалар — ата-аналар",
+      description:
+        "Біз мұғалімдер, балалар мен ата-аналар арасында сенімге негізделген қатынас құрамыз, әркімнің пікірін естиміз және мектеп пен отбасы арасындағы байланысты нығайтамыз — бала тәрбиесі үшжақты үдеріс екенін түсініп.",
+    },
   },
 } as const;
 
 const PRINCIPLE_ICONS = [
-  <Heart key="trust" className="w-4 h-4" />,
-  <Leaf key="nature" className="w-4 h-4" />,
-  <Wrench key="engineers" className="w-4 h-4" />,
-  <Clock key="homework" className="w-4 h-4" />,
-  <Smile key="joy" className="w-4 h-4" />,
-  <Users key="triangle" className="w-4 h-4" />,
+  <Heart key="trust" className="w-5 h-5" strokeWidth={1.75} />,
+  <Trees key="nature" className="w-5 h-5" strokeWidth={1.75} />,
+  <Users key="cooperation" className="w-5 h-5" strokeWidth={1.75} />,
+  <Sun key="homework" className="w-5 h-5" strokeWidth={1.75} />,
+  <Scale key="equality" className="w-5 h-5" strokeWidth={1.75} />,
+  <Sparkles key="joy" className="w-5 h-5" strokeWidth={1.75} />,
 ];
 
 export async function PhilosophyV3() {
@@ -65,35 +160,79 @@ export async function PhilosophyV3() {
   const t = translations[locale];
 
   return (
-    <section className="py-12 md:py-20 bg-brand-teal-50">
-      <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
-        <div>
-          <SectionHeading eyebrow={t.eyebrow} title={t.title} align="left" />
-          <p className="mt-6 text-brand-navy-700 leading-relaxed">{t.paragraph}</p>
-          <div className="inline-block bg-brand-orange-500 text-white rounded-full px-5 py-2 text-2xl font-display font-bold mt-6">
-            {t.badge}
+    <section className="py-16 md:py-24 bg-gradient-to-br from-secondary-50 via-white to-primary-50/50">
+      <div className="container mx-auto px-4">
+        {/* Top: 2-col with text left, square photo + badge right */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+          <div>
+            <p className="text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-secondary-600 mb-4">
+              {t.eyebrow}
+            </p>
+            <h2 className="font-display font-bold !text-3xl md:!text-4xl lg:!text-5xl text-brand-navy-900 !leading-[1.3] mb-6">
+              {t.title}
+            </h2>
+            <p className="!text-base md:!text-lg text-brand-navy-700 leading-relaxed mb-5">
+              {t.paragraph1}
+            </p>
+            <p className="!text-base md:!text-lg text-brand-navy-700 leading-relaxed">
+              {t.paragraph2}
+            </p>
+          </div>
+
+          <div className="relative">
+            <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-secondary-100">
+              <Image
+                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=900&h=900&fit=crop"
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 100vw, 600px"
+                className="object-cover"
+              />
+            </div>
+            {/* №1 overlapping card — bottom left */}
+            <div className="absolute bottom-[-24px] left-[-16px] md:bottom-[-32px] md:left-[-32px] max-w-[280px] bg-white rounded-2xl shadow-xl p-5 md:p-6 ring-1 ring-secondary-100">
+              <div className="font-display font-bold text-3xl md:text-4xl text-secondary-600 mb-2">
+                {t.badge}
+              </div>
+              <div className="!text-sm text-brand-navy-700 leading-snug">
+                {t.badgeText}
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <Image
-            src="https://picsum.photos/seed/student-with-book/800/520"
-            alt=""
-            width={800}
-            height={520}
-            className="rounded-2xl object-cover w-full h-64 md:h-80"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-            {t.principles.map((p, idx) => (
-              <div key={idx} className="bg-white rounded-xl p-4 flex gap-3">
-                <div className="flex-shrink-0 w-8 h-8 bg-brand-teal-100 rounded-lg flex items-center justify-center text-brand-teal-700">
-                  {PRINCIPLE_ICONS[idx]}
-                </div>
-                <div>
-                  <div className="font-display font-semibold text-sm text-brand-navy-900">{p.title}</div>
-                  <div className="text-xs text-brand-navy-700 mt-1 leading-relaxed">{p.description}</div>
-                </div>
+
+        {/* 6 cards grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-20 md:mt-24">
+          {t.principles.map((p, idx) => (
+            <div
+              key={idx}
+              className="bg-white rounded-2xl p-6 md:p-7 border border-secondary-100 shadow-sm transition-shadow duration-200 hover:shadow-xl"
+            >
+              <div className="w-12 h-12 rounded-xl bg-mint-accent/30 text-secondary-700 flex items-center justify-center mb-5">
+                {PRINCIPLE_ICONS[idx]}
               </div>
-            ))}
+              <h3 className="font-display font-bold !text-base md:!text-lg text-brand-navy-900 mb-2 leading-snug">
+                {p.title}
+              </h3>
+              <p className="!text-xs md:!text-sm text-brand-navy-700 leading-relaxed">
+                {p.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Trinity callout */}
+        <div className="mt-10 rounded-2xl border-2 border-secondary-300 bg-white p-6 md:p-8 flex items-start gap-5 md:gap-6">
+          <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-full bg-secondary-500 text-white flex items-center justify-center">
+            <UsersRound className="w-6 h-6 md:w-7 md:h-7" strokeWidth={1.75} />
+          </div>
+          <div className="flex-1">
+            <h3 className="font-display font-bold !text-lg md:!text-xl text-brand-navy-900 mb-2">
+              {t.triangle.title}
+            </h3>
+            <p className="!text-sm md:!text-base text-brand-navy-700 leading-relaxed">
+              {t.triangle.description}
+            </p>
           </div>
         </div>
       </div>

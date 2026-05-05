@@ -94,73 +94,6 @@
   --mint-accent-light: 197 240 224;
 }
 
-/* Mountain theme — teal, copper, forest from brand image */
-[data-theme="mountain"] {
-  --primary: 22 60% 50%; /* Copper #C96B3C */
-  --primary-foreground: 0 0% 100%;
-  --secondary: 193 38% 39%; /* Teal #3D7A8A */
-  --secondary-foreground: 0 0% 100%;
-  --accent: 25 40% 37%; /* Warm brown #8B5E3C */
-  --accent-foreground: 0 0% 100%;
-  --ring: 22 60% 50%;
-
-  --font-heading: 'Figtree', sans-serif;
-  --font-body: 'Figtree', sans-serif;
-
-  /* Override shade scales via custom properties used in components */
-  --color-primary-50: #fdf2e9;
-  --color-primary-100: #fae0c8;
-  --color-primary-200: #f5c9a0;
-  --color-primary-300: #e8a873;
-  --color-primary-400: #d98a4e;
-  --color-primary-500: #c96b3c;
-  --color-primary-600: #b55c30;
-  --color-primary-700: #9c4d28;
-  --color-primary-800: #7d3e20;
-  --color-primary-900: #5f2f18;
-
-  --color-secondary-50: #e6f2f4;
-  --color-secondary-100: #c0dfe4;
-  --color-secondary-200: #97cad2;
-  --color-secondary-300: #6db4c0;
-  --color-secondary-400: #4e9daa;
-  --color-secondary-500: #3d7a8a;
-  --color-secondary-600: #356b79;
-  --color-secondary-700: #2c5966;
-  --color-secondary-800: #244853;
-  --color-secondary-900: #1b3740;
-  --color-secondary-950: #122830;
-
-  /* Mountain glow uses copper tones */
-  --glow-color: 201, 107, 60;
-}
-
-[data-theme="mountain"] body,
-[data-theme="mountain"] * {
-  font-family: var(--font-body);
-}
-
-[data-theme="mountain"] h1,
-[data-theme="mountain"] h2,
-[data-theme="mountain"] h3,
-[data-theme="mountain"] h4,
-[data-theme="mountain"] h5,
-[data-theme="mountain"] h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-}
-
-/* Mountain theme — fix glow shadows to use copper instead of yellow */
-[data-theme="mountain"] .shadow-glow {
-  box-shadow: 0 0 20px rgba(var(--glow-color, 201, 107, 60), 0.3);
-}
-[data-theme="mountain"] .shadow-glow-lg {
-  box-shadow: 0 0 40px rgba(var(--glow-color, 201, 107, 60), 0.4);
-}
-[data-theme="mountain"] .glow-effect {
-  box-shadow: 0 0 20px rgba(var(--glow-color, 201, 107, 60), 0.3);
-}
-
 .dark {
   --background: 0 0% 4%;
   --foreground: 0 0% 98%;
@@ -231,6 +164,46 @@
   --color-secondary-950: #0a2926;
 
   --glow-color: 249, 115, 22;
+
+  /* V3 uses Manrope — modern, geometric, friendly */
+  --font-active-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-active-display: var(--font-manrope), system-ui, sans-serif;
+}
+
+[data-theme="v3"] body,
+[data-theme="v3"] * {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+[data-theme="v3"] h1 {
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+[data-theme="v3"] h2 {
+  font-size: clamp(2rem, 3.6vw, 3.25rem);
+  letter-spacing: -0.015em;
+  font-weight: 700;
+}
+
+[data-theme="v3"] h3 {
+  font-size: clamp(1.375rem, 2vw, 1.75rem);
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+[data-theme="v3"] [data-apply-button] {
+  background-color: #1eab84 !important;
+  color: #ffffff !important;
+}
+[data-theme="v3"] [data-apply-button]:hover {
+  background-color: #0f8c6c !important;
+}
+
+[data-theme="v3"] p {
+  font-size: 1.0625rem;
+  line-height: 1.65;
 }
 
 [data-theme="v3"] .shadow-glow {

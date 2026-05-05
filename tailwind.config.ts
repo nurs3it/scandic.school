@@ -7,6 +7,21 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        sm: "1.5rem",
+        lg: "2rem",
+      },
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1200px",
+        "2xl": "1200px",
+      },
+    },
     extend: {
       colors: {
         // CSS Variables for shadcn/ui compatibility
@@ -124,8 +139,15 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["Montserrat", "system-ui", "sans-serif"],
-        display: ["Montserrat", "system-ui", "sans-serif"],
+        sans: ["var(--font-active-sans, Montserrat)", "system-ui", "sans-serif"],
+        display: ["var(--font-active-display, Montserrat)", "system-ui", "sans-serif"],
+        manrope: ["var(--font-manrope)", "system-ui", "sans-serif"],
+      },
+      borderRadius: {
+        "v3-sm": "0.375rem",
+        "v3": "0.5rem",
+        "v3-md": "0.75rem",
+        "v3-lg": "1rem",
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",

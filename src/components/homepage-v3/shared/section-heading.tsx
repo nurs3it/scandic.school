@@ -29,7 +29,7 @@ export function SectionHeading({
         <div
           className={cn(
             "text-sm uppercase tracking-wider font-medium mb-3",
-            variant === "dark" ? "text-mint-accent" : "text-brand-teal-700",
+            variant === "dark" ? "text-mint-accent" : "text-secondary-700",
           )}
         >
           {eyebrow}
@@ -37,7 +37,7 @@ export function SectionHeading({
       )}
       <h2
         className={cn(
-          "font-display font-bold text-3xl md:text-4xl leading-tight",
+          "font-display font-bold text-3xl md:text-4xl !leading-[1.3]",
           variant === "dark" ? "text-white" : "text-brand-navy-900",
         )}
       >

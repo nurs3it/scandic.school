@@ -93,7 +93,7 @@ export async function StemV3() {
   const t = translations[locale];
 
   return (
-    <section className="py-12 md:py-20 bg-brand-teal-50">
+    <section className="py-12 md:py-20 bg-secondary-50">
       <div className="container mx-auto px-4">
         <SectionHeading eyebrow={t.eyebrow} title={t.title} align="left" />
         <div className="grid md:grid-cols-2 gap-4 mt-10">

@@ -1,67 +1,193 @@
-import { Award, Users, Mountain, Beaker, Brain, HeartHandshake, GraduationCap, BookOpen, Microscope } from "lucide-react";
+import { Award, Globe, Laptop, Trophy } from "lucide-react";
 import { getLocale } from "@/lib/server-locale";
 import { SectionHeading } from "./shared/section-heading";
-import { FeatureCard } from "./shared/feature-card";
 
-const ICONS = [
-  <Award key="ib" className="w-5 h-5" />,
-  <HeartHandshake key="links" className="w-5 h-5" />,
-  <BookOpen key="challenge" className="w-5 h-5" />,
-  <Mountain key="extreme" className="w-5 h-5" />,
-  <Users key="small" className="w-5 h-5" />,
-  <Beaker key="training" className="w-5 h-5" />,
-  <Microscope key="stem" className="w-5 h-5" />,
-  <Brain key="critical" className="w-5 h-5" />,
-  <GraduationCap key="top" className="w-5 h-5" />,
+const TOP_ICONS = [
+  <Award key="ib" className="w-6 h-6" strokeWidth={1.75} />,
+  <Globe key="lab" className="w-6 h-6" strokeWidth={1.75} />,
+  <Laptop key="grade" className="w-6 h-6" strokeWidth={1.75} />,
+  <Trophy key="extreme" className="w-6 h-6" strokeWidth={1.75} />,
 ];
 
 const translations = {
   ru: {
+    eyebrow: "почему Scandic International School",
     title: "Образование, которое готовит к будущему",
     subtitle:
-      "Девять направлений, которые объединяют международные стандарты, авторские методики и заботу о благополучии каждого ученика.",
-    items: [
-      { title: "Статус кандидата IB PYP", description: "Наша школа официально проходит аккредитацию IB по программе начальной школы (PYP)." },
-      { title: "Сотрудничество с The LINKS", description: "Партнёрство с международной образовательной сетью обеспечивает обмен лучшими практиками." },
-      { title: "Собственная программа Challenge", description: "Авторская методика развития мышления, лидерства и решения нестандартных задач." },
-      { title: "Scandic Extreme Challenge", description: "Выездные программы на природе, которые формируют характер и командный дух." },
-      { title: "Малые классы", description: "До 16 учеников в классе — каждый получает максимум внимания учителя." },
-      { title: "Тренинговый центр", description: "Современные ресурсы для непрерывного развития педагогов и учеников." },
-      { title: "STEM фокус", description: "Углублённое изучение естественных наук, технологий, инженерии и математики." },
-      { title: "Критическое мышление", description: "Учим задавать правильные вопросы и принимать осознанные решения." },
-      { title: "Поступление в топ-100 вузов", description: "Системная подготовка к ведущим университетам мира с консультантами по поступлению." },
+      "Мы объединяем скандинавскую философию образования с международными академическими стандартами для создания среды, где дети процветают",
+    topItems: [
+      {
+        title: "Статус школы-кандидата IB PYP",
+        description:
+          "International Baccalaureate Primary Years Programme — признанная во всём мире программа",
+      },
+      {
+        title: "Сотрудничество с The LAB22",
+        description:
+          "Международная лаборатория из Лондона в области STEM-образования и проектной деятельности",
+      },
+      {
+        title: "Собственное приложение GradeApp",
+        description:
+          "Расписание, оценки, посещаемость и связь с учителями в одном приложении",
+      },
+      {
+        title: "Scandic Extreme Challenge",
+        description:
+          "Масштабное спортивное мероприятие для развития командной работы и стойкости",
+      },
+    ],
+    bottomItems: [
+      {
+        title: "Малые классы",
+        description:
+          "До 18 учеников в классе — каждый ребёнок получает индивидуальное внимание",
+      },
+      {
+        title: "Триязычная среда",
+        description:
+          "Английский как основной язык обучения + второй иностранный язык по выбору",
+      },
+      {
+        title: "STEM-фокус",
+        description:
+          "Экспериментальные лаборатории, практическое изучение физики, химии, биологии",
+      },
+      {
+        title: "Критическое мышление",
+        description:
+          "Не зазубривание, а развитие аналитических способностей и творческого подхода",
+      },
+      {
+        title: "Благополучие детей",
+        description:
+          "Эмоциональный интеллект и психологическое здоровье — приоритет школы",
+      },
+      {
+        title: "Подготовка в топ-100 вузов",
+        description:
+          "Выпускники готовы поступать в ведущие университеты мира",
+      },
     ],
   },
   en: {
+    eyebrow: "why Scandic International School",
     title: "Education that prepares for the future",
     subtitle:
-      "Nine pillars that combine international standards, original methodology, and care for every student's well-being.",
-    items: [
-      { title: "IB PYP candidate status", description: "Our school is officially undergoing IB accreditation for the Primary Years Programme." },
-      { title: "Partnership with The LINKS", description: "A partnership with an international educational network enables the exchange of best practices." },
-      { title: "Original Challenge programme", description: "Our methodology for developing thinking, leadership, and unconventional problem-solving." },
-      { title: "Scandic Extreme Challenge", description: "Outdoor programmes that build character and team spirit." },
-      { title: "Small classes", description: "Up to 16 students per class — every child gets maximum teacher attention." },
-      { title: "Training centre", description: "Modern resources for the continuous development of teachers and students." },
-      { title: "STEM focus", description: "In-depth study of science, technology, engineering, and mathematics." },
-      { title: "Critical thinking", description: "We teach students to ask the right questions and make conscious decisions." },
-      { title: "Top-100 university admissions", description: "Systematic preparation for leading world universities with admission consultants." },
+      "We combine the Scandinavian philosophy of education with international academic standards to create an environment where children thrive",
+    topItems: [
+      {
+        title: "IB PYP Candidate School status",
+        description:
+          "International Baccalaureate Primary Years Programme — a globally recognised programme",
+      },
+      {
+        title: "Partnership with The LAB22",
+        description:
+          "An international laboratory from London focused on STEM education and project-based learning",
+      },
+      {
+        title: "Our own GradeApp app",
+        description:
+          "Schedule, grades, attendance, and communication with teachers — all in one place",
+      },
+      {
+        title: "Scandic Extreme Challenge",
+        description:
+          "A large-scale sports event that builds teamwork and resilience",
+      },
+    ],
+    bottomItems: [
+      {
+        title: "Small classes",
+        description:
+          "Up to 18 students per class — every child receives individual attention",
+      },
+      {
+        title: "Trilingual environment",
+        description:
+          "English as the primary language of instruction + a second foreign language of choice",
+      },
+      {
+        title: "STEM focus",
+        description:
+          "Experimental laboratories and hands-on learning in physics, chemistry, and biology",
+      },
+      {
+        title: "Critical thinking",
+        description:
+          "Not rote learning — we develop analytical skills and a creative approach",
+      },
+      {
+        title: "Children's well-being",
+        description:
+          "Emotional intelligence and mental health are a top priority for the school",
+      },
+      {
+        title: "Top-100 university prep",
+        description:
+          "Graduates are ready to apply to the world's leading universities",
+      },
     ],
   },
   kk: {
+    eyebrow: "неліктен Scandic International School",
     title: "Болашаққа дайындайтын білім",
     subtitle:
-      "Халықаралық стандарттарды, авторлық әдістемелерді және әрбір оқушының әл-ауқатына қамқорлықты біріктіретін тоғыз бағыт.",
-    items: [
-      { title: "IB PYP кандидаты мәртебесі", description: "Біздің мектеп бастауыш мектеп бағдарламасы (PYP) бойынша IB аккредитациясынан өтуде." },
-      { title: "The LINKS-пен серіктестік", description: "Халықаралық білім беру желісімен серіктестік үздік тәжірибелермен алмасуға мүмкіндік береді." },
-      { title: "Жеке Challenge бағдарламасы", description: "Ойлауды, көшбасшылықты және стандартты емес есептерді шешуді дамытатын авторлық әдістеме." },
-      { title: "Scandic Extreme Challenge", description: "Мінез бен ұжымдық рухты қалыптастыратын далалық бағдарламалар." },
-      { title: "Шағын сыныптар", description: "Сыныпта 16 оқушыға дейін — әркім мұғалімнен ең көп көңіл бөлуді алады." },
-      { title: "Тренинг орталығы", description: "Мұғалімдер мен оқушылардың үздіксіз дамуы үшін заманауи ресурстар." },
-      { title: "STEM фокусы", description: "Жаратылыстану, технология, инженерия және математиканы тереңдетіп оқыту." },
-      { title: "Сыни ойлау", description: "Дұрыс сұрақтар қою мен саналы шешімдер қабылдауды үйретеміз." },
-      { title: "Үздік 100 университетке түсу", description: "Әлемнің жетекші университеттеріне жүйелі дайындық пен консультанттар." },
+      "Біз скандинавиялық білім беру философиясын халықаралық академиялық стандарттармен біріктіріп, балалар өсіп-өнетін орта жасаймыз",
+    topItems: [
+      {
+        title: "IB PYP кандидат-мектебі мәртебесі",
+        description:
+          "International Baccalaureate Primary Years Programme — әлемге танымал бағдарлама",
+      },
+      {
+        title: "The LAB22 ынтымақтастығы",
+        description:
+          "Лондондағы STEM білімі мен жобалық қызмет саласындағы халықаралық зертхана",
+      },
+      {
+        title: "Жеке қосымша GradeApp",
+        description:
+          "Сабақ кестесі, бағалар, қатысу және мұғалімдермен байланыс — бір қосымшада",
+      },
+      {
+        title: "Scandic Extreme Challenge",
+        description:
+          "Командалық жұмыс пен төзімділікті дамытатын ірі спорттық іс-шара",
+      },
+    ],
+    bottomItems: [
+      {
+        title: "Шағын сыныптар",
+        description:
+          "Сыныпта 18 оқушыға дейін — әр бала жеке назар алады",
+      },
+      {
+        title: "Үш тілді орта",
+        description:
+          "Ағылшын — оқытудың негізгі тілі + таңдау бойынша екінші шетел тілі",
+      },
+      {
+        title: "STEM фокусы",
+        description:
+          "Тәжірибелік зертханалар, физика, химия және биологияны практикалық оқыту",
+      },
+      {
+        title: "Сыни ойлау",
+        description:
+          "Жаттау емес — талдау қабілеттері мен шығармашылық тәсілді дамыту",
+      },
+      {
+        title: "Балалардың әл-ауқаты",
+        description:
+          "Эмоционалдық интеллект пен психикалық денсаулық — мектептің басты басымдығы",
+      },
+      {
+        title: "Топ-100 ЖОО-ға дайындық",
+        description:
+          "Түлектер әлемнің жетекші университеттеріне түсуге дайын",
+      },
     ],
   },
 } as const;
@@ -71,18 +197,49 @@ export async function EducationCardsV3() {
   const t = translations[locale];
 
   return (
-    <section className="py-12 md:py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <SectionHeading title={t.title} subtitle={t.subtitle} />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
-          {t.items.map((item, idx) => (
-            <FeatureCard
+    <section className="py-16 md:py-24 bg-secondary-50">
+      <div className="container">
+        <SectionHeading
+          eyebrow={t.eyebrow}
+          title={t.title}
+          subtitle={t.subtitle}
+          align="left"
+        />
+
+        {/* Top: 4 cards with mint icons */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12 md:mt-16">
+          {t.topItems.map((item, idx) => (
+            <div
               key={idx}
-              variant="teal-50"
-              icon={ICONS[idx]}
-              title={item.title}
-              description={item.description}
-            />
+              className="bg-white rounded-2xl p-5 md:p-6 border border-secondary-100/70 shadow-sm transition-shadow duration-200 hover:shadow-xl"
+            >
+              <div className="w-12 h-12 rounded-xl bg-mint-accent/30 text-secondary-700 flex items-center justify-center mb-4">
+                {TOP_ICONS[idx]}
+              </div>
+              <h3 className="font-display font-bold !text-sm md:!text-base mb-2 text-brand-navy-900 leading-snug">
+                {item.title}
+              </h3>
+              <p className="!text-xs md:!text-sm leading-relaxed text-brand-navy-700">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom: 6 cards with orange left border, no icons */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+          {t.bottomItems.map((item, idx) => (
+            <div
+              key={idx}
+              className="bg-white rounded-2xl p-5 md:p-6 border border-secondary-100/70 shadow-sm border-l-4 border-l-primary-500 transition-shadow duration-200 hover:shadow-xl"
+            >
+              <h3 className="font-display font-bold !text-sm md:!text-base mb-2 text-brand-navy-900 leading-snug">
+                {item.title}
+              </h3>
+              <p className="!text-xs md:!text-sm leading-relaxed text-brand-navy-700">
+                {item.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>

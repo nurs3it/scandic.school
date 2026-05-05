@@ -97,7 +97,7 @@ export async function SchoolLifeV3() {
   const t = translations[locale];
 
   return (
-    <section className="py-12 md:py-20 bg-brand-teal-50">
+    <section className="py-12 md:py-20 bg-secondary-50">
       <div className="container mx-auto px-4">
         <SectionHeading title={t.title} subtitle={t.subtitle} />
         <div className="grid md:grid-cols-[2fr_1fr] gap-8 mt-12">
@@ -109,7 +109,7 @@ export async function SchoolLifeV3() {
               {t.events.map((ev, i) => (
                 <div key={i} className="bg-white rounded-2xl p-5">
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-xs font-medium text-brand-teal-700 bg-brand-teal-100 rounded-full px-3 py-1">
+                    <span className="text-xs font-medium text-secondary-700 bg-secondary-100 rounded-full px-3 py-1">
                       {ev.date}
                     </span>
                     <span className="text-xs uppercase tracking-wider text-brand-navy-700/70">

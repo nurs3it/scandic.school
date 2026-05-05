@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Manrope } from "next/font/google";
 import "./globals.css";
 import { QueryProvider } from "@/lib/query-client";
 import { LocaleProvider } from "@/components/locale-provider";
@@ -7,7 +7,6 @@ import { CartProvider } from "@/contexts/cart-context";
 import { CartSidebar } from "@/components/cart-sidebar";
 import { CartButton } from "@/components/cart-button";
 import { PaperAirplaneProvider } from "@/contexts/paper-airplane-context";
-import { ThemeProvider } from "@/components/theme-provider";
 import { SplashScreen } from "@/components/splash-screen";
 import { Analytics } from "@vercel/analytics/next"
 
@@ -15,6 +14,12 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin", "cyrillic"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin", "cyrillic"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -82,22 +87,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={montserrat.variable}>
+    <html lang="ru" data-theme="v3" className={`${montserrat.variable} ${manrope.variable}`}>
       <body className="font-sans antialiased">
-        <ThemeProvider>
-          <LocaleProvider>
-            <QueryProvider>
-              <CartProvider>
-                <PaperAirplaneProvider>
-                  <SplashScreen />
-                  {children}
-                </PaperAirplaneProvider>
-                <CartSidebar />
-                <CartButton />
-              </CartProvider>
-            </QueryProvider>
-          </LocaleProvider>
-        </ThemeProvider>
+        <LocaleProvider>
+          <QueryProvider>
+            <CartProvider>
+              <PaperAirplaneProvider>
+                <SplashScreen />
+                {children}
+              </PaperAirplaneProvider>
+              <CartSidebar />
+              <CartButton />
+            </CartProvider>
+          </QueryProvider>
+        </LocaleProvider>
         <Analytics />
       </body>
     </html>

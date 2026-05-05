@@ -1,7 +1,4 @@
-import { Sparkles, Compass } from "lucide-react";
 import { getLocale } from "@/lib/server-locale";
-import { SectionHeading } from "./shared/section-heading";
-import { FeatureCard } from "./shared/feature-card";
 
 const translations = {
   ru: {
@@ -10,10 +7,10 @@ const translations = {
       "Мы раскрываем потенциал каждого ученика, развивая мышление и формируя сильную личность для уверенного будущего",
     card1Title: "Всестороннее развитие",
     card1Desc:
-      "Программа охватывает академические знания, эмоциональный интеллект, физическое здоровье и социальные навыки. Каждый ребёнок получает поддержку для роста во всех сферах.",
+      "Мы за всестороннее развитие детей, а не только академическую сторону.",
     card2Title: "Практическое обучение",
     card2Desc:
-      "Через эксперименты, проекты и практику ученики учатся применять знания в реальной жизни. Мы делаем образование осязаемым и осмысленным.",
+      "Мы развиваем качества и навыки через живое, практичное обучение, помогая детям учиться и исследовать мир.",
   },
   en: {
     eyebrow: "school mission",
@@ -21,10 +18,10 @@ const translations = {
       "We unlock the potential of every student, developing thinking and shaping a strong personality for a confident future",
     card1Title: "Holistic development",
     card1Desc:
-      "Our programme covers academic knowledge, emotional intelligence, physical health, and social skills. Every child receives support to grow in every area.",
+      "We stand for the all-round development of children, not just the academic side.",
     card2Title: "Hands-on learning",
     card2Desc:
-      "Through experiments, projects, and practice, students learn to apply knowledge in real life. We make education tangible and meaningful.",
+      "We build qualities and skills through lively, practical learning that helps children learn and explore the world.",
   },
   kk: {
     eyebrow: "мектеп миссиясы",
@@ -32,10 +29,10 @@ const translations = {
       "Біз әрбір оқушының әлеуетін ашамыз, ойлауын дамытамыз және болашаққа сенімді қадам басатын мықты тұлғаны қалыптастырамыз",
     card1Title: "Жан-жақты даму",
     card1Desc:
-      "Бағдарлама академиялық білімді, эмоционалдық интеллектіні, дене денсаулығын және әлеуметтік дағдыларды қамтиды. Әрбір бала барлық саладағы өсуге қолдау алады.",
+      "Біз балалардың тек академиялық жағын ғана емес, жан-жақты дамуын қолдаймыз.",
     card2Title: "Практикалық оқыту",
     card2Desc:
-      "Тәжірибелер, жобалар және практика арқылы оқушылар білімді нақты өмірде қолдануды үйренеді. Біз білімді қолға ұстатпалы әрі мағыналы етеміз.",
+      "Біз балалардың әлемді тануы мен зерттеуіне көмектесетін жанды әрі практикалық оқыту арқылы қасиеттер мен дағдыларды дамытамыз.",
   },
 } as const;
 
@@ -44,22 +41,41 @@ export async function PotentialV3() {
   const t = translations[locale];
 
   return (
-    <section className="py-12 md:py-20 bg-brand-teal-50">
-      <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
-        <SectionHeading eyebrow={t.eyebrow} title={t.title} align="left" />
-        <div className="space-y-4">
-          <FeatureCard
-            variant="white"
-            icon={<Sparkles className="w-5 h-5" />}
-            title={t.card1Title}
-            description={t.card1Desc}
-          />
-          <FeatureCard
-            variant="white"
-            icon={<Compass className="w-5 h-5" />}
-            title={t.card2Title}
-            description={t.card2Desc}
-          />
+    <section className="relative py-16 md:py-24 text-white overflow-hidden bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-700">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 18% 20%, rgba(168,230,210,0.18) 0, transparent 45%), radial-gradient(circle at 82% 78%, rgba(255,255,255,0.06) 0, transparent 50%)",
+        }}
+        aria-hidden
+      />
+      <div className="container relative">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="text-sm uppercase tracking-wider font-medium mb-4 text-mint-accent">
+            {t.eyebrow}
+          </div>
+          <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-white leading-[1.35] md:leading-[1.4]">
+            {t.title}
+          </h2>
+        </div>
+        <div className="grid md:grid-cols-2 gap-5 mt-12 md:mt-16 max-w-4xl mx-auto">
+          <div className="rounded-2xl p-6 md:p-8 bg-white/10 backdrop-blur-sm ring-1 ring-white/25 shadow-lg text-center">
+            <h3 className="font-display font-semibold text-sm md:text-base text-white mb-2">
+              {t.card1Title}
+            </h3>
+            <p className="text-[11px] md:text-xs leading-relaxed text-white/90">
+              {t.card1Desc}
+            </p>
+          </div>
+          <div className="rounded-2xl p-6 md:p-8 bg-white/10 backdrop-blur-sm ring-1 ring-white/25 shadow-lg text-center">
+            <h3 className="font-display font-semibold text-sm md:text-base text-white mb-2">
+              {t.card2Title}
+            </h3>
+            <p className="text-[11px] md:text-xs leading-relaxed text-white/90">
+              {t.card2Desc}
+            </p>
+          </div>
         </div>
       </div>
     </section>

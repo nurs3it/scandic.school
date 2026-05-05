@@ -45,7 +45,7 @@ export async function AmbitionsV3() {
   const t = translations[locale];
 
   return (
-    <section className="py-12 md:py-20 bg-gradient-to-b from-brand-teal-700 to-brand-teal-800 text-white">
+    <section className="py-12 md:py-20 bg-gradient-to-b from-secondary-700 to-secondary-800 text-white">
       <div className="container mx-auto px-4">
         <SectionHeading title={t.title} variant="dark" />
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-12">
@@ -57,7 +57,7 @@ export async function AmbitionsV3() {
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-6">{t.tagline}</p>
           <a
             href="/application"
-            className="inline-flex items-center px-6 py-3 rounded-full bg-brand-orange-500 hover:bg-brand-orange-600 text-white font-medium transition-colors"
+            className="inline-flex items-center px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-medium transition-colors"
           >
             {t.cta}
           </a>
