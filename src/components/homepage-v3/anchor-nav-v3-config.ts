@@ -31,6 +31,14 @@ export const ANCHOR_ENTRIES: readonly AnchorEntry[] = [
     label: { ru: "Кампус", en: "Campus", kk: "Кампус" },
   },
   {
+    id: "partners",
+    label: { ru: "Партнёры", en: "Partners", kk: "Серіктестер" },
+  },
+  {
+    id: "news",
+    label: { ru: "Новости", en: "News", kk: "Жаңалықтар" },
+  },
+  {
     id: "instagram",
     label: { ru: "Instagram", en: "Instagram", kk: "Instagram" },
   },
