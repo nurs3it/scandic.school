@@ -22,14 +22,14 @@ const translations = {
       {
         title: "Языковая программа",
         description:
-          "Английский как основной язык обучения + второй иностранный по выбору. Погружение в языковую среду.",
-        tags: ["English Medium", "Второй язык", "Языковая практика"],
+          "Триязычная среда: русский, казахский и английский. Английский изучается как самостоятельный предмет с глубоким погружением, помимо основной программы.",
+        tags: ["Русский язык", "Казахский язык", "English"],
       },
       {
         title: "Искусство и История",
         description:
           "Визуальное искусство, музыка и драма как инструменты самовыражения и культурного развития.",
-        tags: ["Музыка", "Театр", "История культуры"],
+        tags: ["Музыка", "Драма", "История культуры", "Музыкальный класс (планируется)", "Science cooking"],
       },
     ],
   },
@@ -53,14 +53,14 @@ const translations = {
       {
         title: "Language programme",
         description:
-          "English as the primary language of instruction + a second foreign language of choice. Immersive language environment.",
-        tags: ["English Medium", "Second language", "Language practice"],
+          "Trilingual environment: Russian, Kazakh, and English. English is taught as a stand-alone subject with deep immersion alongside the core programme.",
+        tags: ["Russian", "Kazakh", "English"],
       },
       {
         title: "Arts & History",
         description:
           "Visual art, music, and drama as tools for self-expression and cultural development.",
-        tags: ["Music", "Theatre", "Cultural history"],
+        tags: ["Music", "Drama", "Cultural history", "Music room (planned)", "Science cooking"],
       },
     ],
   },
@@ -84,14 +84,14 @@ const translations = {
       {
         title: "Тіл бағдарламасы",
         description:
-          "Ағылшын — оқытудың негізгі тілі + таңдау бойынша екінші шетел тілі. Тілдік ортаға толық ену.",
-        tags: ["English Medium", "Екінші тіл", "Тілдік практика"],
+          "Үштілді орта: орыс, қазақ және ағылшын. Ағылшын — негізгі бағдарламадан бөлек терең енумен оқытылатын пән.",
+        tags: ["Орыс тілі", "Қазақ тілі", "English"],
       },
       {
         title: "Өнер және Тарих",
         description:
           "Бейнелеу өнері, музыка және драма — өзін-өзі көрсету мен мәдени дамудың құралы.",
-        tags: ["Музыка", "Театр", "Мәдениет тарихы"],
+        tags: ["Музыка", "Драма", "Мәдениет тарихы", "Музыка сыныбы (жоспарлануда)", "Science cooking"],
       },
     ],
   },
