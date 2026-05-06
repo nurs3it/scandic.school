@@ -10,6 +10,8 @@ const translations = {
       "Скандинавские страны стабильно занимают лидирующие позиции по уровню счастья и качеству образования. Мы привносим эту проверенную философию в международное образование.",
     paragraph2:
       "Основатель школы, живя в Дании, убедился в эффективности скандинавского подхода и решил создать школу такого же качества в родном Уральске.",
+    paragraph3:
+      "Наша формула — академическая строгость в сочетании с творческой свободой. Обучение должно зажигать любопытство и быть осмысленным, а не сводиться к зубрёжке.",
     badge: "№1",
     badgeText: "Скандинавия в рейтинге образования и счастья",
     principles: [
@@ -57,6 +59,8 @@ const translations = {
       "Scandinavian countries consistently top global rankings for happiness and quality of education. We bring this proven philosophy into international education.",
     paragraph2:
       "Living in Denmark, the school's founder was convinced of the effectiveness of the Scandinavian approach and decided to create a school of the same quality in his home city of Uralsk.",
+    paragraph3:
+      "Our formula combines academic rigour with creative freedom. Learning should ignite curiosity and be meaningful — not reduce to rote memorisation.",
     badge: "#1",
     badgeText: "Scandinavia in education and happiness rankings",
     principles: [
@@ -104,6 +108,8 @@ const translations = {
       "Скандинавия елдері бақыт деңгейі мен білім сапасы бойынша әлемдік рейтингтерде үнемі жетекші орындарды иеленеді. Біз осы дәлелденген философияны халықаралық білім беруге енгіземіз.",
     paragraph2:
       "Мектеп құрылтайшысы Данияда тұрып, скандинавиялық тәсілдің тиімділігіне көз жеткізді және туған Оралда дәл сондай сапалы мектеп ашуды шешті.",
+    paragraph3:
+      "Біздің формуламыз — академиялық қатаңдықты шығармашылық еркіндікпен үйлестіру. Оқу жаттаудан гөрі құмарлықты тұтатып, мағыналы болуы керек.",
     badge: "№1",
     badgeText: "Скандинавия — білім мен бақыт рейтингінде",
     principles: [
@@ -174,8 +180,11 @@ export async function PhilosophyV3() {
             <p className="!text-base md:!text-lg text-brand-navy-700 leading-relaxed mb-5">
               {t.paragraph1}
             </p>
-            <p className="!text-base md:!text-lg text-brand-navy-700 leading-relaxed">
+            <p className="!text-base md:!text-lg text-brand-navy-700 leading-relaxed mb-5">
               {t.paragraph2}
+            </p>
+            <p className="!text-base md:!text-lg text-brand-navy-700 leading-relaxed">
+              {t.paragraph3}
             </p>
           </div>
 
