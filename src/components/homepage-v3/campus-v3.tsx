@@ -215,7 +215,7 @@ export async function CampusV3() {
           </div>
         </div>
 
-        {/* 7 feature cards in horizontal row */}
+        {/* 8 feature cards in horizontal row */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-4 mt-8 md:mt-10">
           {t.features.map((f, idx) => (
             <div
