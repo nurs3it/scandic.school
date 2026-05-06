@@ -1,5 +1,13 @@
 import { getLocale } from "@/lib/server-locale";
 
+// To enable hero background video:
+//   1. Place files at public/videos/hero.mp4 (and optionally hero.webm + hero-poster.jpg)
+//   2. Set HERO_VIDEO_ENABLED to true below
+const HERO_VIDEO_ENABLED = false;
+const HERO_VIDEO_MP4 = "/videos/hero.mp4";
+const HERO_VIDEO_WEBM = "/videos/hero.webm";
+const HERO_VIDEO_POSTER = "/videos/hero-poster.jpg";
+
 const translations = {
   ru: {
     schoolName: "Scandic International School",
@@ -42,6 +50,24 @@ export async function HeroV3() {
 
   return (
     <section className="relative min-h-screen flex items-center text-white overflow-hidden bg-secondary-800">
+      {HERO_VIDEO_ENABLED && (
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={HERO_VIDEO_POSTER}
+          aria-hidden
+        >
+          <source src={HERO_VIDEO_WEBM} type="video/webm" />
+          <source src={HERO_VIDEO_MP4} type="video/mp4" />
+        </video>
+      )}
+      {HERO_VIDEO_ENABLED && (
+        <div className="absolute inset-0 bg-secondary-900/45 z-[1]" aria-hidden />
+      )}
       <div
         className="absolute inset-0 pointer-events-none opacity-30"
         style={{
