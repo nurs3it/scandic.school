@@ -23,13 +23,13 @@ export default function Home() {
       <Header />
       <main>
         <HeroV3 />
-        <FounderV3 />
-        <PotentialV3 />
-        <EducationCardsV3 />
-        <AcademicProgramV3 />
-        <SubjectAreasV3 />
+        <div id="founder" className="scroll-mt-28 md:scroll-mt-32"><FounderV3 /></div>
+        <div id="mission" className="scroll-mt-28 md:scroll-mt-32"><PotentialV3 /></div>
+        <div id="why-us" className="scroll-mt-28 md:scroll-mt-32"><EducationCardsV3 /></div>
+        <div id="programs" className="scroll-mt-28 md:scroll-mt-32"><AcademicProgramV3 /></div>
+        <div id="subjects" className="scroll-mt-28 md:scroll-mt-32"><SubjectAreasV3 /></div>
         <PhilosophyV3 />
-        <CampusV3 />
+        <div id="campus" className="scroll-mt-28 md:scroll-mt-32"><CampusV3 /></div>
         <ExtracurricularsV3 />
         <SupportProgramsV3 />
         <AdmissionStepsV3 />
@@ -37,7 +37,7 @@ export default function Home() {
         <TestimonialsV3 />
         <SchoolLifeV3 />
         <AmbitionsV3 />
-        <InstagramCarousel />
+        <div id="instagram" className="scroll-mt-28 md:scroll-mt-32"><InstagramCarousel /></div>
       </main>
       <Footer />
     </div>
