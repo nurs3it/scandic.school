@@ -1,11 +1,11 @@
-import { Award, Globe, Laptop, Trophy } from "lucide-react";
+import { Award, Globe, Network, Trophy } from "lucide-react";
 import { getLocale } from "@/lib/server-locale";
 import { SectionHeading } from "./shared/section-heading";
 
 const TOP_ICONS = [
   <Award key="ib" className="w-6 h-6" strokeWidth={1.75} />,
   <Globe key="lab" className="w-6 h-6" strokeWidth={1.75} />,
-  <Laptop key="grade" className="w-6 h-6" strokeWidth={1.75} />,
+  <Network key="zerdeli" className="w-6 h-6" strokeWidth={1.75} />,
   <Trophy key="extreme" className="w-6 h-6" strokeWidth={1.75} />,
 ];
 
@@ -27,9 +27,9 @@ const translations = {
           "Международная лаборатория из Лондона в области STEM-образования и проектной деятельности",
       },
       {
-        title: "Собственное приложение GradeApp",
+        title: "Профессиональное сообщество Zerdeli STEM",
         description:
-          "Расписание, оценки, посещаемость и связь с учителями в одном приложении",
+          "Участие в обмене опытом и развитии STEM-подхода в обучении вместе с коллегами по сообществу",
       },
       {
         title: "Scandic Extreme Challenge",
@@ -41,12 +41,12 @@ const translations = {
       {
         title: "Малые классы",
         description:
-          "До 18 учеников в классе — каждый ребёнок получает индивидуальное внимание",
+          "До 22 учеников в классе — каждый ребёнок получает индивидуальное внимание",
       },
       {
         title: "Триязычная среда",
         description:
-          "Английский как основной язык обучения + второй иностранный язык по выбору",
+          "Русский, казахский и английский в одном пространстве. Английский изучается как самостоятельный предмет с глубоким погружением.",
       },
       {
         title: "STEM-фокус",
@@ -87,9 +87,9 @@ const translations = {
           "An international laboratory from London focused on STEM education and project-based learning",
       },
       {
-        title: "Our own GradeApp app",
+        title: "Zerdeli STEM professional community",
         description:
-          "Schedule, grades, attendance, and communication with teachers — all in one place",
+          "Membership in the community for sharing expertise and developing the STEM approach to teaching",
       },
       {
         title: "Scandic Extreme Challenge",
@@ -101,12 +101,12 @@ const translations = {
       {
         title: "Small classes",
         description:
-          "Up to 18 students per class — every child receives individual attention",
+          "Up to 22 students per class — every child receives individual attention",
       },
       {
         title: "Trilingual environment",
         description:
-          "English as the primary language of instruction + a second foreign language of choice",
+          "Russian, Kazakh, and English in one environment. English is taught as a stand-alone subject with deep immersion.",
       },
       {
         title: "STEM focus",
@@ -147,9 +147,9 @@ const translations = {
           "Лондондағы STEM білімі мен жобалық қызмет саласындағы халықаралық зертхана",
       },
       {
-        title: "Жеке қосымша GradeApp",
+        title: "Zerdeli STEM кәсіби қауымдастығы",
         description:
-          "Сабақ кестесі, бағалар, қатысу және мұғалімдермен байланыс — бір қосымшада",
+          "STEM-тәсілді дамыту және тәжірибе алмасу үшін кәсіби қауымдастыққа қатысу",
       },
       {
         title: "Scandic Extreme Challenge",
@@ -161,12 +161,12 @@ const translations = {
       {
         title: "Шағын сыныптар",
         description:
-          "Сыныпта 18 оқушыға дейін — әр бала жеке назар алады",
+          "Сыныпта 22 оқушыға дейін — әр бала жеке назар алады",
       },
       {
         title: "Үш тілді орта",
         description:
-          "Ағылшын — оқытудың негізгі тілі + таңдау бойынша екінші шетел тілі",
+          "Орыс, қазақ және ағылшын — бір кеңістікте. Ағылшын — терең енумен оқытылатын жеке пән.",
       },
       {
         title: "STEM фокусы",
