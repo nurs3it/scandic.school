@@ -16,11 +16,13 @@ import { TestimonialsV3 } from "@/components/homepage-v3/testimonials-v3";
 import { SchoolLifeV3 } from "@/components/homepage-v3/school-life-v3";
 import { AmbitionsV3 } from "@/components/homepage-v3/ambitions-v3";
 import { InstagramCarousel } from "@/components/instagram-carousel";
+import { AnchorNavV3 } from "@/components/homepage-v3/anchor-nav-v3";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
+      <AnchorNavV3 />
       <main>
         <HeroV3 />
         <div id="founder" className="scroll-mt-28 md:scroll-mt-32"><FounderV3 /></div>
