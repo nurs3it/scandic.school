@@ -1,4 +1,4 @@
-import { Check, GraduationCap, BookOpen } from "lucide-react";
+import { Check, GraduationCap, BookOpen, Sparkles } from "lucide-react";
 import { getLocale } from "@/lib/server-locale";
 import { SectionHeading } from "./shared/section-heading";
 
@@ -16,7 +16,7 @@ const translations = {
         "Исследовательский подход к обучению через 6 трансдисциплинарных тем",
         "Развитие любознательности, эмоционального интеллекта и самостоятельности",
         "Сильная база по математике, языкам и естественным наукам",
-        "Ежедневные занятия английским с носителями языка",
+        "Ежедневные занятия английским языком — погружение в практическую речь",
         "Творческие мастерские, спорт и обучение на природе",
       ],
     },
@@ -30,6 +30,18 @@ const translations = {
         "Личный проект (Personal Project) и исследовательская работа Extended Essay",
         "Подготовка к поступлению в топ-100 вузов мира",
         "Профориентация, стажировки и менторская поддержка",
+      ],
+    },
+    extracurricular: {
+      title: "Внеучебное развитие",
+      ages: "1–11 классы",
+      programme: "Школа полного дня",
+      bullets: [
+        "Выполнение домашних заданий и защита проектов в стенах школы",
+        "Выезды и работа с приглашёнными экспертами",
+        "Кружки и секции по интересам",
+        "Лаборатория физики и экспериментов",
+        "Развитие самостоятельности и практических навыков",
       ],
     },
   },
@@ -46,7 +58,7 @@ const translations = {
         "Inquiry-based learning across six transdisciplinary themes",
         "Curiosity, emotional intelligence, and independence",
         "Strong foundation in maths, languages, and sciences",
-        "Daily English lessons with native speakers",
+        "Daily English lessons — immersion in everyday spoken language",
         "Creative workshops, sport, and outdoor learning",
       ],
     },
@@ -60,6 +72,18 @@ const translations = {
         "Personal Project and Extended Essay research",
         "Preparation for admission to top-100 world universities",
         "Career guidance, internships, and mentor support",
+      ],
+    },
+    extracurricular: {
+      title: "Beyond the curriculum",
+      ages: "grades 1–11",
+      programme: "Full-day school",
+      bullets: [
+        "Homework and project defence supervised on campus",
+        "Field trips and work with guest experts",
+        "Clubs and sections by interest",
+        "Physics and experimentation lab",
+        "Building independence and hands-on skills",
       ],
     },
   },
@@ -76,7 +100,7 @@ const translations = {
         "Алты пәнаралық тақырып бойынша зерттеу негіздегі оқыту",
         "Құмарлық, эмоционалдық интеллект және өзіндік даму",
         "Математика, тіл және жаратылыстану бойынша мықты негіз",
-        "Күнделікті ағылшын тілінен ана тілді мұғалімдермен сабақ",
+        "Ағылшын тілінен күнделікті сабақтар — практикалық сөйлеу тіліне ену",
         "Шығармашылық шеберханалар, спорт және табиғатта оқыту",
       ],
     },
@@ -90,6 +114,18 @@ const translations = {
         "Personal Project және Extended Essay зерттеулері",
         "Әлемнің үздік 100 ЖОО-сына түсуге дайындық",
         "Кәсіби бағдар, тағылымдамалар мен ментор қолдауы",
+      ],
+    },
+    extracurricular: {
+      title: "Сабақтан тыс даму",
+      ages: "1–11 сыныптар",
+      programme: "Толық күндік мектеп",
+      bullets: [
+        "Үй тапсырмасы мен жоба қорғау мектеп қабырғасында",
+        "Сапарлар мен шақырылған сарапшылармен жұмыс",
+        "Қызығушылық бойынша үйірмелер мен секциялар",
+        "Физика және эксперимент зертханасы",
+        "Дербестік пен практикалық дағдыларды дамыту",
       ],
     },
   },
@@ -116,6 +152,14 @@ export async function AcademicProgramV3() {
       programmeColor: "text-primary-600",
       checkColor: "text-primary-500",
     },
+    {
+      data: t.extracurricular,
+      icon: <Sparkles className="w-6 h-6" />,
+      accent: "border-t-mint-accent",
+      iconBg: "bg-mint-accent/30 text-secondary-700",
+      programmeColor: "text-secondary-700",
+      checkColor: "text-secondary-600",
+    },
   ];
 
   return (
@@ -127,7 +171,7 @@ export async function AcademicProgramV3() {
           subtitle={t.subtitle}
           align="center"
         />
-        <div className="grid md:grid-cols-2 gap-5 mt-12 md:mt-16 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 md:mt-16 max-w-6xl mx-auto">
           {cards.map((card, idx) => (
             <div
               key={idx}
