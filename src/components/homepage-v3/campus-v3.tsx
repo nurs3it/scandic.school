@@ -6,6 +6,8 @@ import {
   Utensils,
   Palette,
   Music,
+  Coffee,
+  Dumbbell,
 } from "lucide-react";
 import { getLocale } from "@/lib/server-locale";
 
@@ -24,6 +26,8 @@ const translations = {
       { title: "Концептуальный ресторан", description: "Здоровое питание для учеников" },
       { title: "Творческие студии", description: "Искусство и дизайн" },
       { title: "Музыкальные классы (планируется)", description: "Инструменты и репетиционные залы" },
+      { title: "Родительский хаб", description: "Пространство для встреч и работы родителей" },
+      { title: "Спортивный блок", description: "Залы для шахмат, тхэквондо и футбола" },
     ],
     blocksHeading: "Блоки школы",
     blocks: [
@@ -65,6 +69,8 @@ const translations = {
       { title: "Concept restaurant", description: "Healthy meals for students" },
       { title: "Creative studios", description: "Art and design" },
       { title: "Music rooms (planned)", description: "Instruments and rehearsal halls" },
+      { title: "Parent hub", description: "A space for parents to meet and work" },
+      { title: "Sports block", description: "Halls for chess, taekwondo, and football" },
     ],
     blocksHeading: "School blocks",
     blocks: [
@@ -106,6 +112,8 @@ const translations = {
       { title: "Концептуалды мейрамхана", description: "Оқушыларға арналған дұрыс тамақтану" },
       { title: "Шығармашылық студиялар", description: "Өнер мен дизайн" },
       { title: "Музыка сыныптары (жоспарлануда)", description: "Аспаптар мен жаттығу залдары" },
+      { title: "Ата-аналар хабы", description: "Ата-аналарға арналған кездесу мен жұмыс кеңістігі" },
+      { title: "Спорт блогы", description: "Шахмат, тхэквондо және футбол залдары" },
     ],
     blocksHeading: "Мектеп блоктары",
     blocks: [
@@ -142,6 +150,8 @@ const FEATURE_ICONS = [
   <Utensils key="restaurant" className="w-6 h-6" strokeWidth={1.75} />,
   <Palette key="art" className="w-6 h-6" strokeWidth={1.75} />,
   <Music key="music" className="w-6 h-6" strokeWidth={1.75} />,
+  <Coffee key="parent-hub" className="w-6 h-6" strokeWidth={1.75} />,
+  <Dumbbell key="sport" className="w-6 h-6" strokeWidth={1.75} />,
 ];
 
 export async function CampusV3() {
@@ -206,7 +216,7 @@ export async function CampusV3() {
         </div>
 
         {/* 7 feature cards in horizontal row */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4 mt-8 md:mt-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3 md:gap-4 mt-8 md:mt-10">
           {t.features.map((f, idx) => (
             <div
               key={idx}
