@@ -4,6 +4,7 @@ import { ArrowRight, Calendar, Clock, Trophy } from "lucide-react";
 import { getLocale } from "@/lib/server-locale";
 import type { Locale } from "@/lib/server-locale";
 import { SectionHeading } from "./shared/section-heading";
+import { SchoolLifeNewsletter } from "./school-life-v3-newsletter";
 import { fetchNewsList } from "@/lib/news-api";
 import { fetchTournaments } from "@/lib/tournaments-api";
 import type { NewsItem } from "@/types/news";
@@ -11,34 +12,46 @@ import type { Tournament } from "@/lib/types/tournaments";
 
 const translations = {
   ru: {
-    eyebrow: "Жизнь школы",
-    title: "Новости и события",
-    subtitle: "Что происходит в школе прямо сейчас — анонсы, истории и ближайшие события.",
+    title: "Жизнь школы",
+    subtitle:
+      "Свежие новости, ближайшие события и турниры — что происходит в Scandic прямо сейчас.",
     allNews: "Все новости",
     tournamentBadge: "Ближайший турнир",
     tournamentCta: "Подробнее о турнире",
     readingMin: "мин чтения",
     noContent: "Скоро здесь появятся свежие новости и события.",
+    newsletterTitle: "Подпишитесь на наши новости",
+    newsletterDesc: "Получайте анонсы событий и истории школы прямо на почту.",
+    newsletterPlaceholder: "Ваш e-mail",
+    newsletterSubmit: "Подписаться",
   },
   en: {
-    eyebrow: "School life",
-    title: "News and events",
-    subtitle: "What's happening at the school right now — announcements, stories, upcoming events.",
+    title: "School life",
+    subtitle:
+      "Fresh news, upcoming events, and tournaments — what's happening at Scandic right now.",
     allNews: "All news",
     tournamentBadge: "Upcoming tournament",
     tournamentCta: "Tournament details",
     readingMin: "min read",
     noContent: "Fresh news and events will appear here soon.",
+    newsletterTitle: "Subscribe to our news",
+    newsletterDesc: "Get event announcements and school stories straight to your inbox.",
+    newsletterPlaceholder: "Your email",
+    newsletterSubmit: "Subscribe",
   },
   kk: {
-    eyebrow: "Мектеп өмірі",
-    title: "Жаңалықтар мен оқиғалар",
-    subtitle: "Қазір мектепте не болып жатыр — хабарландырулар, оқиғалар және алдағы шаралар.",
+    title: "Мектеп өмірі",
+    subtitle:
+      "Жаңа жаңалықтар, алдағы оқиғалар мен турнирлер — Scandic-та қазір не болып жатыр.",
     allNews: "Барлық жаңалықтар",
     tournamentBadge: "Жақын арадағы турнир",
     tournamentCta: "Турнир туралы толығырақ",
     readingMin: "оқу мин",
     noContent: "Жақын арада мұнда жаңалықтар мен оқиғалар пайда болады.",
+    newsletterTitle: "Жаңалықтарымызға жазылыңыз",
+    newsletterDesc: "Оқиғалар туралы хабарламалар мен мектеп әңгімелерін поштаңыздан алыңыз.",
+    newsletterPlaceholder: "Сіздің e-mail",
+    newsletterSubmit: "Жазылу",
   },
 } as const;
 
@@ -80,21 +93,14 @@ export async function NewsEventsV3() {
   const t = translations[locale];
   const { news, tournament } = await loadData();
 
-  if (news.length === 0 && !tournament) {
-    return (
-      <section className="py-16 md:py-24 bg-secondary-50/40">
-        <div className="container mx-auto px-4">
-          <SectionHeading eyebrow={t.eyebrow} title={t.title} subtitle={t.subtitle} />
-          <p className="text-center text-brand-navy-700 mt-10">{t.noContent}</p>
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section className="py-16 md:py-24 bg-secondary-50/40">
       <div className="container mx-auto px-4">
-        <SectionHeading eyebrow={t.eyebrow} title={t.title} subtitle={t.subtitle} />
+        <SectionHeading title={t.title} subtitle={t.subtitle} />
+
+        {news.length === 0 && !tournament && (
+          <p className="text-center text-brand-navy-700 mt-10">{t.noContent}</p>
+        )}
 
         {news.length > 0 && (
           <div className="grid md:grid-cols-3 gap-5 md:gap-6 mt-10 md:mt-14">
@@ -197,6 +203,15 @@ export async function NewsEventsV3() {
             </Link>
           </div>
         )}
+
+        <div className="mt-14 md:mt-20 max-w-3xl mx-auto">
+          <SchoolLifeNewsletter
+            title={t.newsletterTitle}
+            description={t.newsletterDesc}
+            placeholder={t.newsletterPlaceholder}
+            submitLabel={t.newsletterSubmit}
+          />
+        </div>
       </div>
     </section>
   );

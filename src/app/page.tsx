@@ -13,7 +13,6 @@ import { SupportProgramsV3 } from "@/components/homepage-v3/support-programs-v3"
 import { AdmissionStepsV3 } from "@/components/homepage-v3/admission-steps-v3";
 import { CtaOrangeV3 } from "@/components/homepage-v3/cta-orange-v3";
 import { TestimonialsV3 } from "@/components/homepage-v3/testimonials-v3";
-import { SchoolLifeV3 } from "@/components/homepage-v3/school-life-v3";
 import { AmbitionsV3 } from "@/components/homepage-v3/ambitions-v3";
 import { PartnersV3 } from "@/components/homepage-v3/partners-v3";
 import { NewsEventsV3 } from "@/components/homepage-v3/news-events-v3";
@@ -40,7 +39,6 @@ export default function Home() {
         <AdmissionStepsV3 />
         <CtaOrangeV3 />
         <TestimonialsV3 />
-        <SchoolLifeV3 />
         <AmbitionsV3 />
         <div id="news" className="scroll-mt-28 md:scroll-mt-32"><NewsEventsV3 /></div>
         <div id="instagram" className="scroll-mt-28 md:scroll-mt-32"><InstagramCarousel /></div>

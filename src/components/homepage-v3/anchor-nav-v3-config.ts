@@ -36,7 +36,7 @@ export const ANCHOR_ENTRIES: readonly AnchorEntry[] = [
   },
   {
     id: "news",
-    label: { ru: "Новости", en: "News", kk: "Жаңалықтар" },
+    label: { ru: "Жизнь школы", en: "School life", kk: "Мектеп өмірі" },
   },
   {
     id: "instagram",
