@@ -53,10 +53,10 @@ export function SchoolDropdown({ title, items, icon: Icon }: SchoolDropdownProps
                   <IconComp className="h-4 w-4 text-primary" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-gray-900 group-hover:text-primary transition-colors">
+                  <p className="!text-sm font-medium text-gray-900 group-hover:text-primary transition-colors leading-snug">
                     {item.name}
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="!text-xs text-gray-500 mt-1 leading-snug">
                     {item.description}
                   </p>
                 </div>

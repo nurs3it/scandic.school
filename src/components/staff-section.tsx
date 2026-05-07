@@ -84,7 +84,7 @@ export async function StaffSection() {
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {staff.map((member, index) => (
                 <ScrollReveal key={member.id} delay={index * 0.08}>
                   <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md overflow-hidden hover:-translate-y-1 h-full">
@@ -100,7 +100,7 @@ export async function StaffSection() {
                                 width={96}
                                 height={200}
                                 draggable={false}
-                                className="w-full h-full object-center object-cover group-hover:scale-105 transition-transform duration-500"
+                                className="w-full h-full object-[center_25%] object-cover group-hover:scale-105 transition-transform duration-500"
                               />
                             </div>
                           ) : (

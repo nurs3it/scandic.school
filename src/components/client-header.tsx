@@ -231,7 +231,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
                       </div>
                       <div className="flex-1">
                         <span className="font-medium">{item.name}</span>
-                        <p className="text-xs text-brand-navy-700/70 mt-0.5">{item.description}</p>
+                        <p className="!text-xs text-brand-navy-700/70 mt-0.5 leading-snug">{item.description}</p>
                       </div>
                     </Link>
                   );
@@ -258,7 +258,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
                       </div>
                       <div className="flex-1">
                         <span className="font-medium">{item.name}</span>
-                        <p className="text-xs text-brand-navy-700/70 mt-0.5">{item.description}</p>
+                        <p className="!text-xs text-brand-navy-700/70 mt-0.5 leading-snug">{item.description}</p>
                       </div>
                     </Link>
                   );
@@ -281,7 +281,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
                   </div>
                   <div className="flex-1">
                     <span className="font-medium">{translations.navigation.tournaments ?? "Турниры"}</span>
-                    <p className="text-xs text-brand-navy-700/70 mt-0.5">{translations.header.descriptions.tournaments ?? ""}</p>
+                    <p className="!text-xs text-brand-navy-700/70 mt-0.5 leading-snug">{translations.header.descriptions.tournaments ?? ""}</p>
                   </div>
                 </Link>
               </div>
