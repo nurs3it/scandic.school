@@ -17,7 +17,6 @@ import { SchoolLifeV3 } from "@/components/homepage-v3/school-life-v3";
 import { AmbitionsV3 } from "@/components/homepage-v3/ambitions-v3";
 import { PartnersV3 } from "@/components/homepage-v3/partners-v3";
 import { NewsEventsV3 } from "@/components/homepage-v3/news-events-v3";
-import { TuitionTeaserV3 } from "@/components/homepage-v3/tuition-teaser-v3";
 import { InstagramCarousel } from "@/components/instagram-carousel";
 import { AnchorNavV3 } from "@/components/homepage-v3/anchor-nav-v3";
 
@@ -39,7 +38,6 @@ export default function Home() {
         <SupportProgramsV3 />
         <div id="partners" className="scroll-mt-28 md:scroll-mt-32"><PartnersV3 /></div>
         <AdmissionStepsV3 />
-        <TuitionTeaserV3 />
         <CtaOrangeV3 />
         <TestimonialsV3 />
         <SchoolLifeV3 />
