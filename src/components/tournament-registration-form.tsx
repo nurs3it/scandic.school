@@ -30,10 +30,10 @@ const t = {
     submit: 'Отправить заявку',
     sending: 'Отправляем…',
     participantName: 'ФИО участника',
-    parentName: 'ФИО родителя/опекуна',
     phone: 'Телефон',
     email: 'Email',
-    grade: 'Класс',
+    fideId: 'FIDE ID',
+    birthYear: 'Год рождения',
     comment: 'Комментарий',
     price: 'Стоимость участия',
     kaspiPhone: 'Kaspi Gold',
@@ -49,10 +49,10 @@ const t = {
     paymentNote: 'Когда и как вы оплатили',
     summaryTitle: 'Проверьте данные',
     summaryParticipant: 'Участник',
-    summaryParent: 'Родитель',
+    summaryBirthYear: 'Год рождения',
+    summaryFideId: 'FIDE ID',
     summaryPhone: 'Телефон',
     summaryEmail: 'Email',
-    summaryGrade: 'Класс',
     summaryComment: 'Комментарий',
     summaryPayment: 'Оплата',
     paymentReceipt: 'Чек загружен',
@@ -65,6 +65,7 @@ const t = {
     errorPayment: 'Загрузите чек или опишите оплату',
     fileTooBig: 'Файл больше 5 MB',
     free: 'Бесплатно',
+    errorBirthYear: 'Введите корректный год рождения',
   },
   en: {
     closed: 'Registration is closed',
@@ -77,10 +78,10 @@ const t = {
     submit: 'Submit',
     sending: 'Sending…',
     participantName: 'Participant name',
-    parentName: 'Parent/guardian name',
     phone: 'Phone',
     email: 'Email',
-    grade: 'Grade',
+    fideId: 'FIDE ID',
+    birthYear: 'Birth year',
     comment: 'Comment',
     price: 'Entry fee',
     kaspiPhone: 'Kaspi Gold',
@@ -96,10 +97,10 @@ const t = {
     paymentNote: 'When and how you paid',
     summaryTitle: 'Review your details',
     summaryParticipant: 'Participant',
-    summaryParent: 'Parent',
+    summaryBirthYear: 'Birth year',
+    summaryFideId: 'FIDE ID',
     summaryPhone: 'Phone',
     summaryEmail: 'Email',
-    summaryGrade: 'Grade',
     summaryComment: 'Comment',
     summaryPayment: 'Payment',
     paymentReceipt: 'Receipt uploaded',
@@ -112,6 +113,7 @@ const t = {
     errorPayment: 'Upload a receipt or describe your payment',
     fileTooBig: 'File larger than 5 MB',
     free: 'Free',
+    errorBirthYear: 'Enter a valid birth year',
   },
   kk: {
     closed: 'Тіркелу жабылған',
@@ -124,10 +126,10 @@ const t = {
     submit: 'Жіберу',
     sending: 'Жіберілуде…',
     participantName: 'Қатысушы аты-жөні',
-    parentName: 'Ата-ана аты-жөні',
     phone: 'Телефон',
     email: 'Email',
-    grade: 'Сынып',
+    fideId: 'FIDE ID',
+    birthYear: 'Туған жылы',
     comment: 'Пікір',
     price: 'Қатысу бағасы',
     kaspiPhone: 'Kaspi Gold',
@@ -143,10 +145,10 @@ const t = {
     paymentNote: 'Қашан және қалай төледіңіз',
     summaryTitle: 'Деректерді тексеріңіз',
     summaryParticipant: 'Қатысушы',
-    summaryParent: 'Ата-ана',
+    summaryBirthYear: 'Туған жылы',
+    summaryFideId: 'FIDE ID',
     summaryPhone: 'Телефон',
     summaryEmail: 'Email',
-    summaryGrade: 'Сынып',
     summaryComment: 'Пікір',
     summaryPayment: 'Төлем',
     paymentReceipt: 'Чек жүктелді',
@@ -159,6 +161,7 @@ const t = {
     errorPayment: 'Чекті жүктеңіз немесе төлемді сипаттаңыз',
     fileTooBig: 'Файл 5 MB-тан үлкен',
     free: 'Тегін',
+    errorBirthYear: 'Туған жылды дұрыс енгізіңіз',
   },
 };
 
@@ -177,10 +180,10 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
 
   const [step, setStep] = useState(0);
   const [participantName, setParticipantName] = useState('');
-  const [parentName, setParentName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [grade, setGrade] = useState('');
+  const [fideId, setFideId] = useState('');
+  const [birthYear, setBirthYear] = useState('');
   const [comment, setComment] = useState('');
   const [payMode, setPayMode] = useState<'upload' | 'notify'>('upload');
   const [receipt, setReceipt] = useState<File | null>(null);
@@ -220,6 +223,11 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
     if (!participantName || !phone) return tt.errorRequired;
     const phoneDigits = extractPhoneNumber(phone);
     if (!KZ_PHONE_DIGITS.test(phoneDigits)) return tt.errorPhone;
+    if (birthYear) {
+      const y = Number(birthYear);
+      const currentYear = new Date().getFullYear();
+      if (!Number.isInteger(y) || y < 1900 || y > currentYear) return tt.errorBirthYear;
+    }
     return null;
   }
 
@@ -259,10 +267,10 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
 
     const fd = new FormData();
     fd.append('participantName', participantName);
-    if (parentName) fd.append('parentName', parentName);
     fd.append('phone', '+' + phoneDigits);
     if (email) fd.append('email', email);
-    if (grade) fd.append('grade', grade);
+    if (fideId) fd.append('fideId', fideId);
+    if (birthYear) fd.append('birthYear', birthYear);
     if (comment) fd.append('comment', comment);
     if (isPaid) {
       if (payMode === 'upload' && receipt) fd.append('receipt', receipt);
@@ -299,13 +307,6 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
                 className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
               />
             </Field>
-            <Field label={tt.parentName}>
-              <input
-                value={parentName}
-                onChange={(e) => setParentName(e.target.value)}
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
-              />
-            </Field>
             <Field label={tt.phone + ' *'}>
               <div className="relative">
                 <Phone className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
@@ -328,14 +329,26 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
                   className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
                 />
               </Field>
-              <Field label={tt.grade}>
+              <Field label={tt.birthYear}>
                 <input
-                  value={grade}
-                  onChange={(e) => setGrade(e.target.value)}
+                  type="number"
+                  inputMode="numeric"
+                  min={1900}
+                  max={new Date().getFullYear()}
+                  placeholder="2014"
+                  value={birthYear}
+                  onChange={(e) => setBirthYear(e.target.value.replace(/\D/g, '').slice(0, 4))}
                   className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
                 />
               </Field>
             </div>
+            <Field label={tt.fideId}>
+              <input
+                value={fideId}
+                onChange={(e) => setFideId(e.target.value)}
+                className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
+              />
+            </Field>
             <Field label={tt.comment}>
               <textarea
                 rows={3}
@@ -426,10 +439,10 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
             <p className="text-sm font-semibold text-secondary">{tt.summaryTitle}</p>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 space-y-2 text-sm">
               <SummaryRow label={tt.summaryParticipant} value={participantName} />
-              {parentName && <SummaryRow label={tt.summaryParent} value={parentName} />}
+              {birthYear && <SummaryRow label={tt.summaryBirthYear} value={birthYear} />}
+              {fideId && <SummaryRow label={tt.summaryFideId} value={fideId} />}
               <SummaryRow label={tt.summaryPhone} value={phone} />
               {email && <SummaryRow label={tt.summaryEmail} value={email} />}
-              {grade && <SummaryRow label={tt.summaryGrade} value={grade} />}
               {comment && <SummaryRow label={tt.summaryComment} value={comment} />}
               {isPaid && (
                 <SummaryRow
