@@ -1,12 +1,5 @@
 import { getLocale } from "@/lib/server-locale";
-
-// To enable hero background video:
-//   1. Place files at public/videos/hero.mp4 (and optionally hero.webm + hero-poster.jpg)
-//   2. Set HERO_VIDEO_ENABLED to true below
-const HERO_VIDEO_ENABLED = false;
-const HERO_VIDEO_MP4 = "/videos/hero.mp4";
-const HERO_VIDEO_WEBM = "/videos/hero.webm";
-const HERO_VIDEO_POSTER = "/videos/hero-poster.jpg";
+import { HeroSlideshow } from "./hero-slideshow";
 
 const translations = {
   ru: {
@@ -50,30 +43,25 @@ export async function HeroV3() {
 
   return (
     <section className="relative min-h-screen flex items-center text-white overflow-hidden bg-secondary-800">
-      {HERO_VIDEO_ENABLED && (
-        <video
-          className="absolute inset-0 w-full h-full object-cover z-0"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster={HERO_VIDEO_POSTER}
-          aria-hidden
-        >
-          <source src={HERO_VIDEO_WEBM} type="video/webm" />
-          <source src={HERO_VIDEO_MP4} type="video/mp4" />
-        </video>
-      )}
-      {HERO_VIDEO_ENABLED && (
-        <div className="absolute inset-0 bg-secondary-900/45 z-[1]" aria-hidden />
-      )}
+      <HeroSlideshow />
       <div
-        className="absolute inset-0 pointer-events-none opacity-30"
+        className="absolute inset-0 z-[1] hero-gradient-anim"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 20% 20%, rgba(168,230,210,0.10) 0, transparent 40%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.06) 0, transparent 45%)",
+            "linear-gradient(135deg, rgba(12,61,54,0.80) 0%, rgba(30,171,132,0.55) 25%, rgba(168,230,210,0.45) 45%, rgba(249,115,22,0.55) 65%, rgba(194,65,12,0.55) 85%, rgba(12,61,54,0.80) 100%)",
         }}
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 z-[1] mix-blend-overlay hero-gradient-anim-2"
+        style={{
+          backgroundImage:
+            "linear-gradient(45deg, rgba(249,115,22,0.40) 0%, rgba(12,61,54,0.20) 35%, rgba(30,171,132,0.40) 65%, rgba(168,230,210,0.30) 100%)",
+        }}
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 z-[1] bg-gradient-to-b from-black/40 via-black/15 to-black/50"
         aria-hidden
       />
       <div className="container relative z-10 py-20 text-center">
