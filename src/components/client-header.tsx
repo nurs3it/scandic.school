@@ -209,7 +209,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
 
         {/* Mobile drawer */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-brand-navy-100 bg-white animate-in slide-in-from-top-2 duration-300">
+          <div className="lg:hidden border-t border-brand-navy-100 bg-white animate-in slide-in-from-top-2 duration-300 max-h-[calc(100vh-4rem)] md:max-h-[calc(100vh-4.5rem)] overflow-y-auto overscroll-contain">
             <div className="py-4 space-y-1">
               {/* About Section */}
               <div className="px-2">
