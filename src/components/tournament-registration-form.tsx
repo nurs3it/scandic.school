@@ -33,7 +33,7 @@ const t = {
     phone: 'Телефон',
     email: 'Email',
     fideId: 'FIDE ID',
-    birthYear: 'Год рождения',
+    birthDate: 'Дата рождения',
     comment: 'Комментарий',
     price: 'Стоимость участия',
     kaspiPhone: 'Kaspi Gold',
@@ -42,21 +42,17 @@ const t = {
     qrHint: 'Откройте Kaspi → Сканер',
     copy: 'Скопировать номер',
     copied: 'Номер скопирован',
-    payMethod: 'Как вы оплатили?',
     payUpload: 'Загрузить чек',
-    payNotify: 'Сообщить менеджеру',
     receiptHint: 'JPG, PNG или PDF, до 5 MB',
-    paymentNote: 'Когда и как вы оплатили',
     summaryTitle: 'Проверьте данные',
     summaryParticipant: 'Участник',
-    summaryBirthYear: 'Год рождения',
+    summaryBirthDate: 'Дата рождения',
     summaryFideId: 'FIDE ID',
     summaryPhone: 'Телефон',
     summaryEmail: 'Email',
     summaryComment: 'Комментарий',
     summaryPayment: 'Оплата',
     paymentReceipt: 'Чек загружен',
-    paymentNotify: 'Сообщил менеджеру',
     consent: 'Согласен с обработкой персональных данных',
     success: 'Заявка принята',
     successHint: 'Мы свяжемся с вами в ближайшее время.',
@@ -65,7 +61,7 @@ const t = {
     errorPayment: 'Загрузите чек или опишите оплату',
     fileTooBig: 'Файл больше 5 MB',
     free: 'Бесплатно',
-    errorBirthYear: 'Введите корректный год рождения',
+    errorBirthDate: 'Введите корректную дату рождения',
   },
   en: {
     closed: 'Registration is closed',
@@ -81,7 +77,7 @@ const t = {
     phone: 'Phone',
     email: 'Email',
     fideId: 'FIDE ID',
-    birthYear: 'Birth year',
+    birthDate: 'Birth date',
     comment: 'Comment',
     price: 'Entry fee',
     kaspiPhone: 'Kaspi Gold',
@@ -90,21 +86,17 @@ const t = {
     qrHint: 'Open Kaspi → Scanner',
     copy: 'Copy number',
     copied: 'Number copied',
-    payMethod: 'How did you pay?',
     payUpload: 'Upload receipt',
-    payNotify: 'Notify manager',
     receiptHint: 'JPG, PNG or PDF, up to 5 MB',
-    paymentNote: 'When and how you paid',
     summaryTitle: 'Review your details',
     summaryParticipant: 'Participant',
-    summaryBirthYear: 'Birth year',
+    summaryBirthDate: 'Birth date',
     summaryFideId: 'FIDE ID',
     summaryPhone: 'Phone',
     summaryEmail: 'Email',
     summaryComment: 'Comment',
     summaryPayment: 'Payment',
     paymentReceipt: 'Receipt uploaded',
-    paymentNotify: 'Manager notified',
     consent: 'I agree to personal data processing',
     success: 'Application received',
     successHint: 'We will contact you shortly.',
@@ -113,7 +105,7 @@ const t = {
     errorPayment: 'Upload a receipt or describe your payment',
     fileTooBig: 'File larger than 5 MB',
     free: 'Free',
-    errorBirthYear: 'Enter a valid birth year',
+    errorBirthDate: 'Enter a valid birth date',
   },
   kk: {
     closed: 'Тіркелу жабылған',
@@ -129,7 +121,7 @@ const t = {
     phone: 'Телефон',
     email: 'Email',
     fideId: 'FIDE ID',
-    birthYear: 'Туған жылы',
+    birthDate: 'Туған күні',
     comment: 'Пікір',
     price: 'Қатысу бағасы',
     kaspiPhone: 'Kaspi Gold',
@@ -138,21 +130,17 @@ const t = {
     qrHint: 'Kaspi → Сканер',
     copy: 'Нөмірді көшіру',
     copied: 'Нөмір көшірілді',
-    payMethod: 'Қалай төледіңіз?',
     payUpload: 'Чекті жүктеу',
-    payNotify: 'Менеджерге хабарлау',
     receiptHint: 'JPG, PNG, PDF, 5 MB-қа дейін',
-    paymentNote: 'Қашан және қалай төледіңіз',
     summaryTitle: 'Деректерді тексеріңіз',
     summaryParticipant: 'Қатысушы',
-    summaryBirthYear: 'Туған жылы',
+    summaryBirthDate: 'Туған күні',
     summaryFideId: 'FIDE ID',
     summaryPhone: 'Телефон',
     summaryEmail: 'Email',
     summaryComment: 'Пікір',
     summaryPayment: 'Төлем',
     paymentReceipt: 'Чек жүктелді',
-    paymentNotify: 'Менеджерге хабарланды',
     consent: 'Деректерді өңдеуге келісемін',
     success: 'Өтінім қабылданды',
     successHint: 'Жақын арада хабарласамыз.',
@@ -161,7 +149,7 @@ const t = {
     errorPayment: 'Чекті жүктеңіз немесе төлемді сипаттаңыз',
     fileTooBig: 'Файл 5 MB-тан үлкен',
     free: 'Тегін',
-    errorBirthYear: 'Туған жылды дұрыс енгізіңіз',
+    errorBirthDate: 'Туған күнді дұрыс енгізіңіз',
   },
 };
 
@@ -183,11 +171,9 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [fideId, setFideId] = useState('');
-  const [birthYear, setBirthYear] = useState('');
+  const [birthDate, setBirthDate] = useState('');
   const [comment, setComment] = useState('');
-  const [payMode, setPayMode] = useState<'upload' | 'notify'>('upload');
   const [receipt, setReceipt] = useState<File | null>(null);
-  const [paymentNote, setPaymentNote] = useState('');
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -223,22 +209,19 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
     if (!participantName || !phone) return tt.errorRequired;
     const phoneDigits = extractPhoneNumber(phone);
     if (!KZ_PHONE_DIGITS.test(phoneDigits)) return tt.errorPhone;
-    if (birthYear) {
-      const y = Number(birthYear);
-      const currentYear = new Date().getFullYear();
-      if (!Number.isInteger(y) || y < 1900 || y > currentYear) return tt.errorBirthYear;
+    if (birthDate) {
+      const d = new Date(birthDate);
+      const today = new Date();
+      const minDate = new Date('1900-01-01');
+      if (Number.isNaN(d.getTime()) || d > today || d < minDate) return tt.errorBirthDate;
     }
     return null;
   }
 
   function validatePayment(): string | null {
     if (!isPaid) return null;
-    if (payMode === 'upload') {
-      if (!receipt) return tt.errorPayment;
-      if (receipt.size > MAX_RECEIPT) return tt.fileTooBig;
-    } else if (!paymentNote.trim()) {
-      return tt.errorPayment;
-    }
+    if (!receipt) return tt.errorPayment;
+    if (receipt.size > MAX_RECEIPT) return tt.fileTooBig;
     return null;
   }
 
@@ -270,12 +253,9 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
     fd.append('phone', '+' + phoneDigits);
     if (email) fd.append('email', email);
     if (fideId) fd.append('fideId', fideId);
-    if (birthYear) fd.append('birthYear', birthYear);
+    if (birthDate) fd.append('birthDate', birthDate);
     if (comment) fd.append('comment', comment);
-    if (isPaid) {
-      if (payMode === 'upload' && receipt) fd.append('receipt', receipt);
-      if (payMode === 'notify' && paymentNote) fd.append('paymentNote', paymentNote);
-    }
+    if (isPaid && receipt) fd.append('receipt', receipt);
     mutation.mutate(fd);
   }
 
@@ -329,15 +309,13 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
                   className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
                 />
               </Field>
-              <Field label={tt.birthYear}>
+              <Field label={tt.birthDate}>
                 <input
-                  type="number"
-                  inputMode="numeric"
-                  min={1900}
-                  max={new Date().getFullYear()}
-                  placeholder="2014"
-                  value={birthYear}
-                  onChange={(e) => setBirthYear(e.target.value.replace(/\D/g, '').slice(0, 4))}
+                  type="date"
+                  min="1900-01-01"
+                  max={new Date().toISOString().slice(0, 10)}
+                  value={birthDate}
+                  onChange={(e) => setBirthDate(e.target.value)}
                   className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
                 />
               </Field>
@@ -405,31 +383,17 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
             </div>
 
             <div className="border border-gray-200 rounded-xl p-4 space-y-3">
-              <p className="text-sm font-semibold text-secondary">{tt.payMethod}</p>
-              <div className="grid grid-cols-2 gap-2">
-                <RadioOption checked={payMode === 'upload'} onChange={() => setPayMode('upload')} label={tt.payUpload} />
-                <RadioOption checked={payMode === 'notify'} onChange={() => setPayMode('notify')} label={tt.payNotify} />
-              </div>
-              {payMode === 'upload' ? (
-                <label className="flex items-center gap-3 cursor-pointer p-4 border-2 border-dashed border-gray-200 rounded-xl hover:border-primary/40 transition">
-                  <Upload className="w-5 h-5 text-gray-400" />
-                  <span className="flex-1 text-sm text-gray-600">{receipt ? receipt.name : tt.receiptHint}</span>
-                  <input
-                    type="file"
-                    accept="image/*,application/pdf"
-                    onChange={(e) => setReceipt(e.target.files?.[0] ?? null)}
-                    className="hidden"
-                  />
-                </label>
-              ) : (
-                <textarea
-                  rows={3}
-                  placeholder={tt.paymentNote}
-                  value={paymentNote}
-                  onChange={(e) => setPaymentNote(e.target.value)}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
+              <p className="text-sm font-semibold text-secondary">{tt.payUpload}</p>
+              <label className="flex items-center gap-3 cursor-pointer p-4 border-2 border-dashed border-gray-200 rounded-xl hover:border-primary/40 transition">
+                <Upload className="w-5 h-5 text-gray-400" />
+                <span className="flex-1 text-sm text-gray-600">{receipt ? receipt.name : tt.receiptHint}</span>
+                <input
+                  type="file"
+                  accept="image/*,application/pdf"
+                  onChange={(e) => setReceipt(e.target.files?.[0] ?? null)}
+                  className="hidden"
                 />
-              )}
+              </label>
             </div>
           </div>
         )}
@@ -439,7 +403,7 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
             <p className="text-sm font-semibold text-secondary">{tt.summaryTitle}</p>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 space-y-2 text-sm">
               <SummaryRow label={tt.summaryParticipant} value={participantName} />
-              {birthYear && <SummaryRow label={tt.summaryBirthYear} value={birthYear} />}
+              {birthDate && <SummaryRow label={tt.summaryBirthDate} value={new Date(birthDate).toLocaleDateString(locale === 'en' ? 'en-GB' : 'ru-RU')} />}
               {fideId && <SummaryRow label={tt.summaryFideId} value={fideId} />}
               <SummaryRow label={tt.summaryPhone} value={phone} />
               {email && <SummaryRow label={tt.summaryEmail} value={email} />}
@@ -447,11 +411,7 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
               {isPaid && (
                 <SummaryRow
                   label={tt.summaryPayment}
-                  value={
-                    payMode === 'upload'
-                      ? `${tt.paymentReceipt}${receipt ? ` — ${receipt.name}` : ''}`
-                      : tt.paymentNotify
-                  }
+                  value={`${tt.paymentReceipt}${receipt ? ` — ${receipt.name}` : ''}`}
                 />
               )}
             </div>
@@ -554,30 +514,6 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
       <span className="block text-sm font-medium text-gray-700 mb-1.5">{label}</span>
       {children}
     </label>
-  );
-}
-
-function RadioOption({
-  checked,
-  onChange,
-  label,
-}: {
-  checked: boolean;
-  onChange: () => void;
-  label: string;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onChange}
-      className={`px-3 py-2 rounded-lg text-sm font-medium border transition ${
-        checked
-          ? 'border-primary bg-primary/5 text-primary'
-          : 'border-gray-200 text-gray-600 hover:border-gray-300'
-      }`}
-    >
-      {label}
-    </button>
   );
 }
 
