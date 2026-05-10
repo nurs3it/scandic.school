@@ -3,6 +3,7 @@ import type {
   Tournament,
   TournamentsListResponse,
   TournamentsFilter,
+  TournamentParticipantsResponse,
 } from './types/tournaments';
 
 const API_BASE = process.env.NESTJS_API_URL || 'https://scandic-school-api.onrender.com';
@@ -25,6 +26,18 @@ export async function fetchTournamentBySlug(slug: string): Promise<Tournament> {
 
 export async function fetchTournamentAgeGroups(): Promise<string[]> {
   const { data } = await axios.get<string[]>(`${API_BASE}/tournaments/age-groups`);
+  return data;
+}
+
+export async function fetchTournamentParticipants(
+  slug: string,
+  page = 1,
+  pageSize = 200,
+): Promise<TournamentParticipantsResponse> {
+  const { data } = await axios.get<TournamentParticipantsResponse>(
+    `${CLIENT_API_BASE}/tournaments/${slug}/registrations`,
+    { params: { page, pageSize } },
+  );
   return data;
 }
 

@@ -55,3 +55,29 @@ export interface TournamentsFilter {
   page?: number;
   pageSize?: number;
 }
+
+export type RegistrationStatus =
+  | 'NEW'
+  | 'PAID'
+  | 'CONFIRMED'
+  | 'REJECTED'
+  | 'CANCELLED';
+
+export interface TournamentParticipant {
+  id: number;
+  participantName: string;
+  phone: string;
+  email: string | null;
+  fideId: string | null;
+  birthDate: string | null;
+  comment: string | null;
+  status: RegistrationStatus;
+  createdAt: string;
+}
+
+export interface TournamentParticipantsResponse {
+  items: TournamentParticipant[];
+  total: number;
+  page: number;
+  pageSize: number;
+}

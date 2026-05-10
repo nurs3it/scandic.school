@@ -2,18 +2,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, GraduationCap, Clock } from 'lucide-react';
+import { Calendar, MapPin, GraduationCap, Clock, ArrowDown } from 'lucide-react';
 import { useLocale } from './locale-provider';
 import { MarkdownRenderer } from '@/components/news/markdown-renderer';
 import { TournamentStagesTimeline } from './tournament-stages-timeline';
 import { TournamentRegistrationForm } from './tournament-registration-form';
+import { TournamentParticipants } from './tournament-participants';
 import type { Tournament } from '@/lib/types/tournaments';
 import { formatTournamentDateRange, formatPrice } from '@/lib/tournament-utils';
 
 const t = {
-  ru: { stages: 'Программа турнира', terms: 'Условия участия', club: 'Кружок', deadline: 'Заявки до', free: 'Бесплатно', age: 'Возраст' },
-  en: { stages: 'Programme', terms: 'Terms', club: 'Club', deadline: 'Apply by', free: 'Free', age: 'Age' },
-  kk: { stages: 'Бағдарлама', terms: 'Шарттар', club: 'Үйірме', deadline: 'Өтінімдер', free: 'Тегін', age: 'Жасы' },
+  ru: { stages: 'Программа турнира', terms: 'Условия участия', club: 'Кружок', deadline: 'Заявки до', free: 'Бесплатно', age: 'Возраст', register: 'Подать заявку' },
+  en: { stages: 'Programme', terms: 'Terms', club: 'Club', deadline: 'Apply by', free: 'Free', age: 'Age', register: 'Register' },
+  kk: { stages: 'Бағдарлама', terms: 'Шарттар', club: 'Үйірме', deadline: 'Өтінімдер', free: 'Тегін', age: 'Жасы', register: 'Өтінім беру' },
 };
 
 export function TournamentDetailContent({ tournament }: { tournament: Tournament }) {
@@ -61,7 +62,19 @@ export function TournamentDetailContent({ tournament }: { tournament: Tournament
         </section>
       )}
 
-      <section className="container mx-auto px-4 py-12 max-w-3xl">
+      <section className="container mx-auto px-4 pt-12">
+        <a
+          href="#register"
+          className="group flex items-center justify-center gap-3 w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white text-xl md:text-2xl font-semibold rounded-2xl py-6 md:py-7 shadow-lg hover:shadow-xl transition"
+        >
+          {tt.register}
+          <ArrowDown className="w-6 h-6 transition group-hover:translate-y-1" />
+        </a>
+      </section>
+
+      <TournamentParticipants slug={tournament.slug} />
+
+      <section id="register" className="container mx-auto px-4 py-12 max-w-3xl scroll-mt-20">
         <TournamentRegistrationForm tournament={tournament} />
       </section>
     </main>
