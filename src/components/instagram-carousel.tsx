@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Instagram, ExternalLink } from "lucide-react";
 import { useState, useEffect } from "react";
-import { InstagramEmbed } from "react-social-media-embed";
+import { InstagramEmbed } from "./embeds/instagram-embed";
 import Link from "next/link";
 import { useLocale } from "./locale-provider";
 import { instagramService, type InstagramPost } from "@/lib/api/services/instagram";
@@ -186,23 +186,8 @@ export function InstagramCarousel() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                  <div style={{ width: cardWidth, height: cardHeight }}>
-                    <InstagramEmbed
-                      url={post.url}
-                      width={cardWidth}
-                      height={cardHeight}
-                      placeholderSpinner={
-                        <div className="flex items-center justify-center h-full bg-gradient-to-br from-pink-100 to-purple-100 rounded-lg">
-                          <div className="text-center">
-                            <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 animate-pulse">
-                              <Instagram className="h-4 w-4 md:h-5 md:w-5 text-white" />
-                            </div>
-                            <p className="text-xs md:text-sm text-gray-600 font-medium">{instagramTranslations.loading}</p>
-                          </div>
-                        </div>
-                      }
-                      placeholderDisabled={false}
-                    />
+                  <div style={{ width: cardWidth, height: cardHeight }} className="overflow-hidden">
+                    <InstagramEmbed url={post.url} />
                   </div>
                 </div>
               </motion.div>

@@ -69,7 +69,11 @@ function EmbedBlock({ data }: { data: Record<string, any> }) {
 
   if (service === 'instagram' || source.includes('instagram.com')) {
     const origUrl = data.source || source;
-    return <InstagramEmbed url={origUrl} />;
+    return (
+      <div className="my-6 flex justify-center">
+        <InstagramEmbed url={origUrl} />
+      </div>
+    );
   }
 
   if (service === 'tiktok' || source.includes('tiktok.com')) {
