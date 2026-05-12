@@ -407,3 +407,16 @@
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
+
+/* Marquee for overflowing single-line text (used in PromoTournamentsBar) */
+@keyframes promo-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.promo-marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: promo-marquee linear infinite;
+  animation-duration: var(--marquee-duration, 18s);
+  will-change: transform;
+}

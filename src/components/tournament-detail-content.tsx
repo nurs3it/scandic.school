@@ -7,6 +7,7 @@ import { useLocale } from './locale-provider';
 import { MarkdownRenderer } from '@/components/news/markdown-renderer';
 import { TournamentStagesTimeline } from './tournament-stages-timeline';
 import { TournamentRegistrationForm } from './tournament-registration-form';
+import { TournamentStickyApply } from './tournament-sticky-apply';
 import type { Tournament } from '@/lib/types/tournaments';
 import { formatTournamentDateRange, formatPrice } from '@/lib/tournament-utils';
 
@@ -61,9 +62,11 @@ export function TournamentDetailContent({ tournament }: { tournament: Tournament
         </section>
       )}
 
-      <section id="register" className="container mx-auto px-4 py-12 max-w-3xl scroll-mt-20">
+      <section id="register" className="container mx-auto px-4 py-12 pb-28 md:pb-12 max-w-3xl scroll-mt-20">
         <TournamentRegistrationForm tournament={tournament} />
       </section>
+
+      <TournamentStickyApply />
     </main>
   );
 }

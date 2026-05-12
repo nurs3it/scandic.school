@@ -18,10 +18,12 @@ import { PartnersV3 } from "@/components/homepage-v3/partners-v3";
 import { NewsEventsV3 } from "@/components/homepage-v3/news-events-v3";
 import { InstagramCarousel } from "@/components/instagram-carousel";
 import { AnchorNavV3 } from "@/components/homepage-v3/anchor-nav-v3";
+import { PromoTournamentsBar } from "@/components/promo-tournaments-bar";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
+      <PromoTournamentsBar />
       <Header />
       <AnchorNavV3 />
       <main>
