@@ -11,6 +11,8 @@ import {
   ChevronRight,
   Copy,
   Check,
+  Wallet,
+  CreditCard,
 } from 'lucide-react';
 import { useLocale } from './locale-provider';
 import { submitTournamentRegistration } from '@/lib/tournaments-api';
@@ -62,6 +64,12 @@ const t = {
     fileTooBig: 'Файл больше 5 MB',
     free: 'Бесплатно',
     errorBirthDate: 'Введите корректную дату рождения',
+    paymentMethodTitle: 'Способ оплаты',
+    paymentTypeKaspi: 'Kaspi (онлайн)',
+    paymentTypeCash: 'Наличными',
+    paymentCashHint: 'Оплата на месте перед началом турнира. Подтвердите явку по телефону администратора.',
+    paymentCashNote: 'Оплата наличными на месте',
+    paymentCashSummary: 'Наличными на месте',
   },
   en: {
     closed: 'Registration is closed',
@@ -106,6 +114,12 @@ const t = {
     fileTooBig: 'File larger than 5 MB',
     free: 'Free',
     errorBirthDate: 'Enter a valid birth date',
+    paymentMethodTitle: 'Payment method',
+    paymentTypeKaspi: 'Kaspi (online)',
+    paymentTypeCash: 'Cash',
+    paymentCashHint: 'Pay on-site before the tournament starts. Please confirm attendance with the organizer by phone.',
+    paymentCashNote: 'Cash payment on-site',
+    paymentCashSummary: 'Cash on-site',
   },
   kk: {
     closed: 'Тіркелу жабылған',
@@ -150,6 +164,12 @@ const t = {
     fileTooBig: 'Файл 5 MB-тан үлкен',
     free: 'Тегін',
     errorBirthDate: 'Туған күнді дұрыс енгізіңіз',
+    paymentMethodTitle: 'Төлем тәсілі',
+    paymentTypeKaspi: 'Kaspi (онлайн)',
+    paymentTypeCash: 'Қолма-қол',
+    paymentCashHint: 'Турнир басталар алдында жерінде төленеді. Қатысуыңызды ұйымдастырушыға телефон арқылы растаңыз.',
+    paymentCashNote: 'Жерінде қолма-қол төлем',
+    paymentCashSummary: 'Қолма-қол жерінде',
   },
 };
 
@@ -174,6 +194,7 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
   const [birthDate, setBirthDate] = useState('');
   const [comment, setComment] = useState('');
   const [receipt, setReceipt] = useState<File | null>(null);
+  const [paymentType, setPaymentType] = useState<'kaspi' | 'cash'>('kaspi');
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -220,6 +241,7 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
 
   function validatePayment(): string | null {
     if (!isPaid) return null;
+    if (paymentType === 'cash') return null;
     if (!receipt) return tt.errorPayment;
     if (receipt.size > MAX_RECEIPT) return tt.fileTooBig;
     return null;
@@ -255,7 +277,13 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
     if (fideId) fd.append('fideId', fideId);
     if (birthDate) fd.append('birthDate', birthDate);
     if (comment) fd.append('comment', comment);
-    if (isPaid && receipt) fd.append('receipt', receipt);
+    if (isPaid) {
+      if (paymentType === 'cash') {
+        fd.append('paymentNote', tt.paymentCashNote);
+      } else if (receipt) {
+        fd.append('receipt', receipt);
+      }
+    }
     mutation.mutate(fd);
   }
 
@@ -345,6 +373,43 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
               <p className="text-3xl font-bold text-secondary">{formatPrice(tournament.price)}</p>
             </div>
 
+            <div>
+              <p className="text-sm font-semibold text-secondary mb-2">{tt.paymentMethodTitle}</p>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setPaymentType('kaspi')}
+                  className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 font-medium text-sm transition ${
+                    paymentType === 'kaspi'
+                      ? 'border-primary bg-primary/5 text-secondary'
+                      : 'border-gray-200 text-gray-600 hover:border-gray-300'
+                  }`}
+                >
+                  <CreditCard className="w-4 h-4" />
+                  {tt.paymentTypeKaspi}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setPaymentType('cash')}
+                  className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 font-medium text-sm transition ${
+                    paymentType === 'cash'
+                      ? 'border-primary bg-primary/5 text-secondary'
+                      : 'border-gray-200 text-gray-600 hover:border-gray-300'
+                  }`}
+                >
+                  <Wallet className="w-4 h-4" />
+                  {tt.paymentTypeCash}
+                </button>
+              </div>
+            </div>
+
+            {paymentType === 'cash' ? (
+              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex gap-3">
+                <Wallet className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                <p className="text-sm text-amber-900 leading-relaxed">{tt.paymentCashHint}</p>
+              </div>
+            ) : (
+              <>
             <div className={`grid gap-3 ${showPhone && showQr ? 'md:grid-cols-2' : ''}`}>
               {showPhone && tournament.kaspiPhone && (
                 <div className="bg-white border border-gray-200 rounded-2xl p-4">
@@ -395,6 +460,8 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
                 />
               </label>
             </div>
+              </>
+            )}
           </div>
         )}
 
@@ -411,7 +478,11 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
               {isPaid && (
                 <SummaryRow
                   label={tt.summaryPayment}
-                  value={`${tt.paymentReceipt}${receipt ? ` — ${receipt.name}` : ''}`}
+                  value={
+                    paymentType === 'cash'
+                      ? tt.paymentCashSummary
+                      : `${tt.paymentReceipt}${receipt ? ` — ${receipt.name}` : ''}`
+                  }
                 />
               )}
             </div>
