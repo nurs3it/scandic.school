@@ -13,6 +13,7 @@ import {
   Check,
   Wallet,
   CreditCard,
+  MessageCircle,
 } from 'lucide-react';
 import { useLocale } from './locale-provider';
 import { submitTournamentRegistration } from '@/lib/tournaments-api';
@@ -70,6 +71,9 @@ const t = {
     paymentCashHint: 'Оплата на месте перед началом турнира. Подтвердите явку по телефону администратора.',
     paymentCashNote: 'Оплата наличными на месте',
     paymentCashSummary: 'Наличными на месте',
+    supportTitle: 'Проблемы с оплатой?',
+    supportHint: 'Напишите в WhatsApp технической поддержке —',
+    supportContact: 'мы поможем.',
   },
   en: {
     closed: 'Registration is closed',
@@ -120,6 +124,9 @@ const t = {
     paymentCashHint: 'Pay on-site before the tournament starts. Please confirm attendance with the organizer by phone.',
     paymentCashNote: 'Cash payment on-site',
     paymentCashSummary: 'Cash on-site',
+    supportTitle: 'Payment issues?',
+    supportHint: 'Message our support team on WhatsApp —',
+    supportContact: 'we will help.',
   },
   kk: {
     closed: 'Тіркелу жабылған',
@@ -170,6 +177,9 @@ const t = {
     paymentCashHint: 'Турнир басталар алдында жерінде төленеді. Қатысуыңызды ұйымдастырушыға телефон арқылы растаңыз.',
     paymentCashNote: 'Жерінде қолма-қол төлем',
     paymentCashSummary: 'Қолма-қол жерінде',
+    supportTitle: 'Төлемде мәселе бар ма?',
+    supportHint: 'WhatsApp арқылы техникалық қолдауға жазыңыз —',
+    supportContact: 'көмектесеміз.',
   },
 };
 
@@ -462,6 +472,23 @@ export function TournamentRegistrationForm({ tournament }: { tournament: Tournam
             </div>
               </>
             )}
+
+            <div className="bg-green-50 border border-green-200 rounded-2xl p-4 flex gap-3">
+              <MessageCircle className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
+              <p className="text-sm text-green-900 leading-relaxed">
+                <span className="font-semibold">{tt.supportTitle}</span>{' '}
+                {tt.supportHint}{' '}
+                <a
+                  href="https://wa.me/77002967321"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-green-700 underline underline-offset-2 hover:text-green-800"
+                >
+                  +7 700 296 7321
+                </a>
+                , {tt.supportContact}
+              </p>
+            </div>
           </div>
         )}
 
