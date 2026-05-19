@@ -8,6 +8,7 @@ import { MarkdownRenderer } from '@/components/news/markdown-renderer';
 import { TournamentStagesTimeline } from './tournament-stages-timeline';
 import { TournamentRegistrationForm } from './tournament-registration-form';
 import { TournamentStickyApply } from './tournament-sticky-apply';
+import { TournamentRecap } from './tournament-recap';
 import type { Tournament } from '@/lib/types/tournaments';
 import { formatTournamentDateRange, formatPrice } from '@/lib/tournament-utils';
 
@@ -20,6 +21,7 @@ const t = {
 export function TournamentDetailContent({ tournament }: { tournament: Tournament }) {
   const { locale } = useLocale();
   const tt = t[locale as keyof typeof t] ?? t.ru;
+  const isCompleted = new Date(tournament.endDate).getTime() < Date.now();
   return (
     <main>
       <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
@@ -62,11 +64,16 @@ export function TournamentDetailContent({ tournament }: { tournament: Tournament
         </section>
       )}
 
-      <section id="register" className="container mx-auto px-4 py-12 pb-28 md:pb-12 max-w-3xl scroll-mt-20">
-        <TournamentRegistrationForm tournament={tournament} />
-      </section>
-
-      <TournamentStickyApply />
+      {isCompleted ? (
+        <TournamentRecap tournament={tournament} />
+      ) : (
+        <>
+          <section id="register" className="container mx-auto px-4 py-12 pb-28 md:pb-12 max-w-3xl scroll-mt-20">
+            <TournamentRegistrationForm tournament={tournament} />
+          </section>
+          <TournamentStickyApply />
+        </>
+      )}
     </main>
   );
 }

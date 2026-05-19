@@ -12,6 +12,20 @@ export interface TournamentClubBrief {
   slug: string;
 }
 
+export interface TournamentWinner {
+  place: number;
+  category?: string;
+  name: string;
+  club?: string;
+  note?: string;
+  photoUrl?: string;
+}
+
+export interface TournamentGalleryItem {
+  url: string;
+  caption?: string;
+}
+
 export interface Tournament {
   id: number;
   slug: string;
@@ -35,6 +49,9 @@ export interface Tournament {
   order: number;
   clubId: number | null;
   club?: TournamentClubBrief | null;
+  recapSummary: string | null;
+  winners: TournamentWinner[];
+  gallery: TournamentGalleryItem[];
   createdAt: string;
   updatedAt: string;
 }
