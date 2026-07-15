@@ -11,12 +11,8 @@ const achievements = [
       'Статус школы-кандидата программы IB PYP — международный стандарт качества образования',
     tag: 'Международная аккредитация',
     icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-7 h-7">
-        <circle cx="24" cy="24" r="20" stroke="currentColor" strokeWidth="2.5" strokeDasharray="4 3" />
-        <circle cx="24" cy="24" r="10" stroke="currentColor" strokeWidth="2" />
-        <circle cx="24" cy="24" r="4" fill="currentColor" />
-        <path d="M24 4v6M24 38v6M4 24h6M38 24h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src="/ib-candidate.webp" alt="" className="w-9 h-9 object-contain" />
     ),
   },
   {

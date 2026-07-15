@@ -1,5 +1,4 @@
 import { getLocale, getTranslations } from '@/lib/server-locale';
-import { Info } from 'lucide-react';
 
 export async function MissionSection() {
   const locale = await getLocale();
@@ -28,9 +27,14 @@ export async function MissionSection() {
               <div className="mt-12 bg-white rounded-lg shadow-md p-8 border-l-4 border-yellow-400">
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
-                      <Info className="h-6 w-6 text-yellow-600" />
-                    </div>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/ib-candidate.webp"
+                      alt="IB Candidate School"
+                      width={56}
+                      height={56}
+                      className="w-14 h-14 object-contain"
+                    />
                   </div>
                   <div className="flex-1 text-left">
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">

@@ -1,9 +1,10 @@
-import { Award, Globe, Network, Trophy } from "lucide-react";
+import { Globe, Network, Trophy } from "lucide-react";
 import { getLocale } from "@/lib/server-locale";
 import { SectionHeading } from "./shared/section-heading";
 
 const TOP_ICONS = [
-  <Award key="ib" className="w-6 h-6" strokeWidth={1.75} />,
+  // eslint-disable-next-line @next/next/no-img-element
+  <img key="ib" src="/ib-candidate.webp" alt="" className="w-8 h-8 object-contain" />,
   <Globe key="lab" className="w-6 h-6" strokeWidth={1.75} />,
   <Network key="zerdeli" className="w-6 h-6" strokeWidth={1.75} />,
   <Trophy key="extreme" className="w-6 h-6" strokeWidth={1.75} />,

@@ -96,7 +96,17 @@ export async function HeroV3() {
           </a>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs md:text-sm text-white/70">
-          <span>{t.metaIb}</span>
+          <span className="inline-flex items-center gap-1.5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/ib-candidate.webp"
+              alt=""
+              width={22}
+              height={22}
+              className="w-5 h-5 md:w-6 md:h-6 object-contain rounded-full bg-white/90 p-[1px]"
+            />
+            {t.metaIb}
+          </span>
           <span className="hidden md:inline">·</span>
           <span>{t.metaAddress}</span>
           <span className="hidden md:inline">·</span>
