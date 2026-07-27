@@ -65,7 +65,7 @@ export function useSchoolInfo() {
         name: "Scandic International School",
         license: "KZ96LAA00035527",
         grades: "0–11 классы",
-        program: "IB PYP",
+        program: "IB PYP (кандидат)",
         address: "ул. Кайрата Жумагалиева 18, 3 этаж",
         phone: "8 706 610 57 81",
         email: "info@scandic.school",
@@ -111,10 +111,10 @@ export function usePrograms() {
         {
           id: "primary",
           title: "Primary School (2-4 классы)",
-          description: "Начальная школа с программой IB PYP",
+          description: "Начальная школа с программой IB PYP (кандидат)",
           language: "Русский язык",
           features: [
-            "Международная программа IB PYP",
+            "Международная программа IB PYP (кандидат)",
             "Изучение английского языка",
             "Развитие критического мышления",
             "Проектная деятельность"

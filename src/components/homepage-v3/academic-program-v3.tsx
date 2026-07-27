@@ -11,7 +11,7 @@ const translations = {
     primary: {
       title: "Начальная школа",
       ages: "7–11 лет",
-      programme: "IB Primary Years Programme (PYP)",
+      programme: "IB Primary Years Programme (PYP) Candidate",
       bullets: [
         "Исследовательский подход к обучению через 6 трансдисциплинарных тем",
         "Развитие любознательности, эмоционального интеллекта и самостоятельности",
@@ -53,7 +53,7 @@ const translations = {
     primary: {
       title: "Primary school",
       ages: "ages 7–11",
-      programme: "IB Primary Years Programme (PYP)",
+      programme: "IB Primary Years Programme (PYP) Candidate",
       bullets: [
         "Inquiry-based learning across six transdisciplinary themes",
         "Curiosity, emotional intelligence, and independence",
@@ -95,7 +95,7 @@ const translations = {
     primary: {
       title: "Бастауыш мектеп",
       ages: "7–11 жас",
-      programme: "IB Primary Years Programme (PYP)",
+      programme: "IB Primary Years Programme (PYP) Candidate",
       bullets: [
         "Алты пәнаралық тақырып бойынша зерттеу негіздегі оқыту",
         "Құмарлық, эмоционалдық интеллект және өзіндік даму",

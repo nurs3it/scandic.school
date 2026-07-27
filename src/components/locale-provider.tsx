@@ -60,7 +60,7 @@ const translations = {
     hero: {
       welcome: "Welcome to",
       schoolName: "Scandic International School",
-      description: "International school in Uralsk for students in grades 0–11. IB PYP program, strong academics, and personalized approach",
+      description: "International school in Uralsk for students in grades 0–11. IB PYP Candidate program, strong academics, and personalized approach",
       stats: {
         students: "Students",
         ratio: "Teacher/Student Ratio",
@@ -71,7 +71,7 @@ const translations = {
         learnMore: "Learn More"
       },
       features: {
-        ibProgram: "IB PYP Program",
+        ibProgram: "IB PYP Candidate Program",
         internationalProgram: "International School Program",
         grades: "Grades 0-11",
         multinational: "Multinational Environment",
@@ -195,7 +195,7 @@ const translations = {
       successMessage: "Inquiry submitted successfully!",
       errorMessage: "An error occurred while submitting the inquiry. Please try again.",
       additionalInfo: "After submitting, our admissions team will reach out to confirm details and next steps.",
-      licenseInfo: "License: KZ96LAA00035527 | Grades 0-11 | IB PYP"
+      licenseInfo: "License: KZ96LAA00035527 | Grades 0-11 | IB PYP Candidate"
     },
     mission: {
       title: "Our Mission",
@@ -255,7 +255,7 @@ const translations = {
     hero: {
       welcome: "Добро пожаловать в",
       schoolName: "Scandic International School",
-      description: "Международная школа в Уральске для учеников 0–11 классов. Программа IB PYP, сильная академическая база и индивидуальный подход",
+      description: "Международная школа в Уральске для учеников 0–11 классов. Программа IB PYP (кандидат), сильная академическая база и индивидуальный подход",
       stats: {
         students: "Учеников",
         ratio: "Соотношение учитель/ученик",
@@ -266,7 +266,7 @@ const translations = {
         learnMore: "Узнать больше"
       },
       features: {
-        ibProgram: "IB PYP Программа",
+        ibProgram: "IB PYP Программа (кандидат)",
         internationalProgram: "Международная школьная программа",
         grades: "0-11 классы",
         multinational: "Многонациональная среда",
@@ -390,7 +390,7 @@ const translations = {
       successMessage: "Заявка успешно отправлена!",
       errorMessage: "Произошла ошибка при подаче заявки. Попробуйте еще раз.",
       additionalInfo: "После отправки наш отдел приёма свяжется с вами для уточнения деталей.",
-      licenseInfo: "Лицензия: KZ96LAA00035527 | 0–11 классы | IB PYP"
+      licenseInfo: "Лицензия: KZ96LAA00035527 | 0–11 классы | IB PYP (кандидат)"
     },
     mission: {
       title: "Наша миссия",
@@ -450,7 +450,7 @@ const translations = {
     hero: {
       welcome: "Қош келдіңіз",
       schoolName: "Scandic International School",
-      description: "Орал қаласындағы 0–11 сынып оқушыларына арналған халықаралық мектеп. IB PYP бағдарламасы, күшті академиялық база және жеке тәсіл",
+      description: "Орал қаласындағы 0–11 сынып оқушыларына арналған халықаралық мектеп. IB PYP (кандидат) бағдарламасы, күшті академиялық база және жеке тәсіл",
       stats: {
         students: "Оқушылар",
         ratio: "Мұғалім/оқушы қатынасы",
@@ -461,7 +461,7 @@ const translations = {
         learnMore: "Көбірек білу"
       },
       features: {
-        ibProgram: "IB PYP Бағдарламасы",
+        ibProgram: "IB PYP Бағдарламасы (кандидат)",
         internationalProgram: "Халықаралық мектеп бағдарламасы",
         grades: "0-11 сыныптар",
         multinational: "Көпұлтты орта",
@@ -585,7 +585,7 @@ const translations = {
       successMessage: "Өтініш сәтті жіберілді!",
       errorMessage: "Өтініш беру кезінде қате орын алды. Қайталап көріңіз.",
       additionalInfo: "Өтінішті жібергеннен кейін қабылдау бөлімі мәліметтерді растау үшін сізбен байланысады.",
-      licenseInfo: "Лицензия: KZ96LAA00035527 | 0–11 сыныптар | IB PYP"
+      licenseInfo: "Лицензия: KZ96LAA00035527 | 0–11 сыныптар | IB PYP (кандидат)"
     },
     mission: {
       title: "Біздің миссиямыз",

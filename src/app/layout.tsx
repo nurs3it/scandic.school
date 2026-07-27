@@ -24,8 +24,8 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: "Scandic International School | Международная школа в Уральске",
-  description: "Scandic International School - международная школа в Уральске с программой IB PYP для учеников 0-11 классов. Лицензия KZ96LAA00035527",
-  keywords: "международная школа, Уральск, IB PYP, школа, образование, Scandic, 0-11 класс",
+  description: "Scandic International School - международная школа в Уральске с программой IB PYP (кандидат) для учеников 0-11 классов. Лицензия KZ96LAA00035527",
+  keywords: "международная школа, Уральск, IB PYP (кандидат), школа, образование, Scandic, 0-11 класс",
   authors: [{ name: "Scandic International School" }],
   creator: "Scandic International School",
   publisher: "Scandic International School",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Scandic International School | Международная школа в Уральске",
-    description: "Scandic International School - международная школа в Уральске с программой IB PYP для учеников 0-11 классов",
+    description: "Scandic International School - международная школа в Уральске с программой IB PYP (кандидат) для учеников 0-11 классов",
     url: "https://www.scandicschool.edu.kz",
     siteName: "Scandic International School",
     images: [
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Scandic International School | Международная школа в Уральске",
-    description: "Scandic International School - международная школа в Уральске с программой IB PYP для учеников 0-11 классов",
+    description: "Scandic International School - международная школа в Уральске с программой IB PYP (кандидат) для учеников 0-11 классов",
     images: ["/og-image.jpg"],
   },
   robots: {

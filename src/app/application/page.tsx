@@ -31,7 +31,7 @@ export default async function ApplicationPage() {
     },
     {
       icon: GraduationCap,
-      text: locale === 'en' ? 'Grades 0-11, IB PYP' : locale === 'kk' ? '0-11 сыныптар, IB PYP' : 'Классы 0-11, IB PYP',
+      text: locale === 'en' ? 'Grades 0-11, IB PYP Candidate' : locale === 'kk' ? '0-11 сыныптар, IB PYP (кандидат)' : 'Классы 0-11, IB PYP (кандидат)',
     },
   ];
 

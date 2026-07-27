@@ -61,7 +61,7 @@ export function getTranslationsSync(locale: Locale) {
           learnMore: "Learn More"
         },
         features: {
-          ibProgram: "IB PYP Program",
+          ibProgram: "IB PYP Candidate Program",
           internationalProgram: "International School Program",
           grades: "Grades 0-11",
           multinational: "Multinational Environment",
@@ -116,7 +116,7 @@ export function getTranslationsSync(locale: Locale) {
           description: "Engaging curriculum for foundational learning."
         },
         ibpyp: {
-          title: "IB PYP Programme",
+          title: "IB PYP Candidate Programme",
           description: "Inquiry-based learning for global citizens."
         },
         english: {
@@ -267,7 +267,7 @@ export function getTranslationsSync(locale: Locale) {
           submit: "Submit Application",
           error: "An error occurred while submitting the application. Please try again.",
           success: "We will contact you to confirm the interview within 24 hours.",
-          license: "License: KZ96LAA00035527 | Grades 0-11 | IB PYP"
+          license: "License: KZ96LAA00035527 | Grades 0-11 | IB PYP Candidate"
         }
       },
       staff: {
@@ -338,7 +338,7 @@ export function getTranslationsSync(locale: Locale) {
           learnMore: "Узнать больше"
         },
         features: {
-          ibProgram: "IB PYP Программа",
+          ibProgram: "IB PYP Программа (кандидат)",
           internationalProgram: "Международная школьная программа",
           grades: "0-11 классы",
           multinational: "Многонациональная среда",
@@ -393,7 +393,7 @@ export function getTranslationsSync(locale: Locale) {
           description: "Увлекательная программа для базового обучения."
         },
         ibpyp: {
-          title: "IB PYP Программа",
+          title: "IB PYP Программа (кандидат)",
           description: "Обучение на основе исследований для граждан мира."
         },
         english: {
@@ -544,7 +544,7 @@ export function getTranslationsSync(locale: Locale) {
           submit: "Подать заявку",
           error: "Произошла ошибка при подаче заявки. Попробуйте еще раз.",
           success: "Мы свяжемся с вами для подтверждения собеседования в течение 24 часов.",
-          license: "Лицензия: KZ96LAA00035527 | 0–11 классы | IB PYP"
+          license: "Лицензия: KZ96LAA00035527 | 0–11 классы | IB PYP (кандидат)"
         }
       },
       staff: {
@@ -615,7 +615,7 @@ export function getTranslationsSync(locale: Locale) {
           learnMore: "Көбірек білу"
         },
         features: {
-          ibProgram: "IB PYP Бағдарламасы",
+          ibProgram: "IB PYP Бағдарламасы (кандидат)",
           internationalProgram: "Халықаралық мектеп бағдарламасы",
           grades: "0-11 сыныптар",
           multinational: "Көпұлтты орта",
@@ -670,7 +670,7 @@ export function getTranslationsSync(locale: Locale) {
           description: "Негізгі оқуға арналған қызықты бағдарлама."
         },
         ibpyp: {
-          title: "IB PYP Бағдарламасы",
+          title: "IB PYP Бағдарламасы (кандидат)",
           description: "Жаһандық азаматтарға арналған зерттеуге негізделген оқыту."
         },
         english: {
@@ -821,7 +821,7 @@ export function getTranslationsSync(locale: Locale) {
           submit: "Өтініш жіберу",
           error: "Өтініш жіберу кезінде қате орын алды. Қайталап көріңіз.",
           success: "Сұхбатты растау үшін 24 сағат ішінде сізбен байланысамыз.",
-          license: "Лицензия: KZ96LAA00035527 | 0–11 сыныптар | IB PYP"
+          license: "Лицензия: KZ96LAA00035527 | 0–11 сыныптар | IB PYP (кандидат)"
         }
       },
       staff: {

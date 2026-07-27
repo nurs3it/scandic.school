@@ -8,7 +8,7 @@ const translations: Record<"ru" | "en" | "kk", { title: string; stats: Stat[]; t
   ru: {
     title: "Наши Амбиции до 2030 года",
     stats: [
-      { value: "3", label: "уровня", sublabel: "Полный цикл IB", meta: "PYP" },
+      { value: "3", label: "уровня", sublabel: "Полный цикл IB", meta: "PYP (кандидат)" },
       { value: ">200", label: "учеников с высокими результатами", sublabel: "Качество важнее количества" },
       { value: ">20", label: "педагогов международного уровня", sublabel: "Лучшие специалисты" },
       { value: "<100", label: "Поступление в ведущие 100 вузов мира", sublabel: "Топовые университеты" },
@@ -19,7 +19,7 @@ const translations: Record<"ru" | "en" | "kk", { title: string; stats: Stat[]; t
   en: {
     title: "Our Ambitions to 2030",
     stats: [
-      { value: "3", label: "levels", sublabel: "Full IB cycle", meta: "PYP" },
+      { value: "3", label: "levels", sublabel: "Full IB cycle", meta: "PYP Candidate" },
       { value: ">200", label: "high-achieving students", sublabel: "Quality over quantity" },
       { value: ">20", label: "international-level teachers", sublabel: "Top specialists" },
       { value: "<100", label: "Admission to top-100 world universities", sublabel: "Leading universities" },
@@ -30,7 +30,7 @@ const translations: Record<"ru" | "en" | "kk", { title: string; stats: Stat[]; t
   kk: {
     title: "2030 жылға дейінгі амбицияларымыз",
     stats: [
-      { value: "3", label: "деңгей", sublabel: "Толық IB циклы", meta: "PYP" },
+      { value: "3", label: "деңгей", sublabel: "Толық IB циклы", meta: "PYP (кандидат)" },
       { value: ">200", label: "жоғары нәтижелі оқушылар", sublabel: "Сан емес, сапа маңызды" },
       { value: ">20", label: "халықаралық деңгейдегі мұғалімдер", sublabel: "Үздік мамандар" },
       { value: "<100", label: "Әлемнің үздік 100 ЖОО-сына түсу", sublabel: "Жетекші университеттер" },

@@ -18,19 +18,19 @@ export const TUITION_LEVELS: readonly TuitionLevel[] = [
     yearlyKzt: 2800000,
     highlights: {
       ru: [
-        "Программа IB PYP",
+        "Программа IB PYP (кандидат)",
         "Триязычная среда",
         "Полный учебный день с продлёнкой",
         "Питание в концептуальном ресторане",
       ],
       en: [
-        "IB PYP programme",
+        "IB PYP Candidate programme",
         "Trilingual environment",
         "Full school day with after-school care",
         "Meals in our concept restaurant",
       ],
       kk: [
-        "IB PYP бағдарламасы",
+        "IB PYP бағдарламасы (кандидат)",
         "Үштілді орта",
         "Толық оқу күні және ұзартылған топ",
         "Концептуалды мейрамханадағы тамақтану",

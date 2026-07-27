@@ -69,7 +69,7 @@ export function ApplicationForm() {
     submitting: (applicationData?.submittingButton as string) || "Submitting...",
     error: (applicationData?.errorMessage as string) || "An error occurred. Please try again.",
     additionalInfo: (applicationData?.additionalInfo as string) || "After submitting, our admissions team will reach out to confirm details and next steps.",
-    license: (applicationData?.licenseInfo as string) || "License: KZ96LAA00035527 | Grades 0-11 | IB PYP",
+    license: (applicationData?.licenseInfo as string) || "License: KZ96LAA00035527 | Grades 0-11 | IB PYP Candidate",
     required: "This field is required",
     phoneInvalid: "Enter a valid phone number: +7 (XXX) XXX-XX-XX",
     nameTooShort: "Name must be at least 2 characters",

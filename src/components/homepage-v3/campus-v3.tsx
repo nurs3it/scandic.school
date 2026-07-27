@@ -33,7 +33,7 @@ const translations = {
     blocks: [
       {
         title: "Начальная школа",
-        items: ["Программа IB PYP", "Триязычная среда", "Игровые пространства", "Безопасная территория"],
+        items: ["Программа IB PYP (кандидат)", "Триязычная среда", "Игровые пространства", "Безопасная территория"],
       },
       {
         title: "Средняя и старшая школа",
@@ -76,7 +76,7 @@ const translations = {
     blocks: [
       {
         title: "Primary school",
-        items: ["IB PYP programme", "Trilingual environment", "Play spaces", "Safe territory"],
+        items: ["IB PYP Candidate programme", "Trilingual environment", "Play spaces", "Safe territory"],
       },
       {
         title: "Middle and high school",
@@ -119,7 +119,7 @@ const translations = {
     blocks: [
       {
         title: "Бастауыш мектеп",
-        items: ["IB PYP бағдарламасы", "Үштілді орта", "Ойын кеңістіктері", "Қауіпсіз аумақ"],
+        items: ["IB PYP бағдарламасы (кандидат)", "Үштілді орта", "Ойын кеңістіктері", "Қауіпсіз аумақ"],
       },
       {
         title: "Орта және жоғары мектеп",
