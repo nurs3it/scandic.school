@@ -37,7 +37,7 @@ const translations = {
       },
       {
         title: "Средняя и старшая школа",
-        items: ["Программа IB MYP & DP", "Научные лаборатории", "Гостевые лекции", "Подготовка к университету"],
+        items: ["Программа средней и старшей школы", "Научные лаборатории", "Гостевые лекции", "Подготовка к университету"],
       },
       {
         title: "Внеучебное развитие",
@@ -80,7 +80,7 @@ const translations = {
       },
       {
         title: "Middle and high school",
-        items: ["IB MYP & DP programme", "Science laboratories", "Guest lectures", "University preparation"],
+        items: ["Middle and high school programme", "Science laboratories", "Guest lectures", "University preparation"],
       },
       {
         title: "Beyond the curriculum",
@@ -123,7 +123,7 @@ const translations = {
       },
       {
         title: "Орта және жоғары мектеп",
-        items: ["IB MYP & DP бағдарламасы", "Ғылыми зертханалар", "Қонақ дәрістері", "Университетке дайындық"],
+        items: ["Орта және жоғары мектеп бағдарламасы", "Ғылыми зертханалар", "Қонақ дәрістері", "Университетке дайындық"],
       },
       {
         title: "Сабақтан тыс даму",

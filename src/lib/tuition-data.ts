@@ -45,19 +45,19 @@ export const TUITION_LEVELS: readonly TuitionLevel[] = [
     yearlyKzt: 3200000,
     highlights: {
       ru: [
-        "Программа IB MYP",
+        "Программа средней школы",
         "STEM-фокус и научные лаборатории",
         "Гостевые лекции и проектная работа",
         "Подготовка к международным экзаменам",
       ],
       en: [
-        "IB MYP programme",
+        "Middle school programme",
         "STEM focus with science laboratories",
         "Guest lectures and project work",
         "Preparation for international exams",
       ],
       kk: [
-        "IB MYP бағдарламасы",
+        "Орта мектеп бағдарламасы",
         "STEM-фокус және ғылыми зертханалар",
         "Қонақ дәрістер және жобалық жұмыс",
         "Халықаралық емтихандарға дайындық",
@@ -72,19 +72,19 @@ export const TUITION_LEVELS: readonly TuitionLevel[] = [
     yearlyKzt: 3800000,
     highlights: {
       ru: [
-        "Программа IB DP",
+        "Программа старшей школы",
         "Углублённая подготовка к университету",
         "Индивидуальные академические треки",
         "Поддержка при поступлении в ведущие вузы мира",
       ],
       en: [
-        "IB DP programme",
+        "High school programme",
         "Advanced university preparation",
         "Individual academic tracks",
         "Support for admission to leading universities worldwide",
       ],
       kk: [
-        "IB DP бағдарламасы",
+        "Жоғары мектеп бағдарламасы",
         "Университетке тереңдетілген дайындық",
         "Жеке академиялық бағыттар",
         "Әлемнің жетекші университеттеріне түсуге қолдау",

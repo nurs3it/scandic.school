@@ -23,7 +23,7 @@ const translations = {
     secondary: {
       title: "Средняя и старшая школа",
       ages: "12–18 лет",
-      programme: "IB MYP + Diploma Programme (DP)",
+      programme: "Программа средней и старшей школы",
       bullets: [
         "Углублённое изучение STEM-дисциплин и индивидуальные траектории",
         "Развитие критического мышления и академического письма",
@@ -65,7 +65,7 @@ const translations = {
     secondary: {
       title: "Middle and high school",
       ages: "ages 12–18",
-      programme: "IB MYP + Diploma Programme (DP)",
+      programme: "Middle and high school programme",
       bullets: [
         "In-depth STEM studies and individual learning paths",
         "Critical thinking and academic writing",
@@ -107,7 +107,7 @@ const translations = {
     secondary: {
       title: "Орта және жоғары мектеп",
       ages: "12–18 жас",
-      programme: "IB MYP + Diploma Programme (DP)",
+      programme: "Орта және жоғары мектеп бағдарламасы",
       bullets: [
         "STEM пәндерін тереңдетіп оқыту және жеке траекториялар",
         "Сыни ойлау мен академиялық жазу",
