@@ -93,14 +93,15 @@ export async function StaffSection() {
                         {/* Photo or Icon */}
                         <div className="h-[340px] relative overflow-hidden">
                           {member.photo_url ? (
-                            <div className="h-[340px] w-full">
+                            <div className="h-[340px] w-full relative">
                               <Image
                                 src={member.photo_url}
                                 alt={member.name}
-                                width={96}
-                                height={200}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
+                                quality={90}
                                 draggable={false}
-                                className="w-full h-full object-[center_25%] object-cover group-hover:scale-105 transition-transform duration-500"
+                                className="object-[center_25%] object-cover group-hover:scale-105 transition-transform duration-500"
                               />
                             </div>
                           ) : (
