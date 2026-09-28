@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { Phone, Menu, X, Info, FileText, MessageCircle, GraduationCap, ShoppingBag, Newspaper, Handshake, Users, Building2, HeartHandshake, BookOpen, Trophy } from "lucide-react";
+import { Phone, Menu, X, Info, FileText, MessageCircle, GraduationCap, ShoppingBag, Newspaper, Handshake, Users, Building2, HeartHandshake, BookOpen, Trophy, FolderCheck } from "lucide-react";
 import { useState } from 'react';
 import { LanguageSwitcher } from './language-switcher';
 import { SchoolDropdown, type DropdownItem } from './school-dropdown';
@@ -26,6 +26,7 @@ interface ClientHeaderProps {
       programs?: string;
       clubs?: string;
       tournaments?: string;
+      attestation?: string;
     };
     header: {
       schoolName: string;
@@ -167,6 +168,13 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
               <span>{translations.navigation.tournaments ?? "Турниры"}</span>
             </Link>
             <Link
+              href="/attestation"
+              className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-brand-navy-900 hover:text-brand-teal-700 hover:bg-brand-teal-50 transition-colors"
+            >
+              <FolderCheck className="h-4 w-4" />
+              <span>{translations.navigation.attestation ?? "Аттестация"}</span>
+            </Link>
+            <Link
               href="/contact"
               className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-brand-navy-900 hover:text-brand-teal-700 hover:bg-brand-teal-50 transition-colors"
             >
@@ -179,7 +187,7 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
           <div className="hidden lg:flex items-center gap-3">
             <a
               href={`tel:${translations.header.phone.replace(/\s/g, '')}`}
-              className="hidden xl:flex items-center gap-2 text-sm text-brand-navy-700 hover:text-brand-teal-700 transition-colors"
+              className="hidden 2xl:flex items-center gap-2 whitespace-nowrap text-sm text-brand-navy-700 hover:text-brand-teal-700 transition-colors"
             >
               <Phone className="h-4 w-4" />
               <span>{translations.header.phone}</span>
@@ -283,6 +291,20 @@ export function ClientHeader({ translations }: ClientHeaderProps) {
                     <span className="font-medium">{translations.navigation.tournaments ?? "Турниры"}</span>
                     <p className="!text-xs text-brand-navy-700/70 mt-0.5 leading-snug">{translations.header.descriptions.tournaments ?? ""}</p>
                   </div>
+                </Link>
+              </div>
+
+              {/* Attestation — top-level */}
+              <div className="px-2">
+                <Link
+                  href="/attestation"
+                  onClick={closeMobileMenu}
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-brand-navy-900 hover:text-brand-teal-700 hover:bg-brand-teal-50 transition-colors group"
+                >
+                  <div className="flex-shrink-0 w-8 h-8 bg-brand-teal-100 rounded-lg flex items-center justify-center group-hover:bg-brand-teal-200 transition-colors">
+                    <FolderCheck className="h-4 w-4 text-brand-teal-700" />
+                  </div>
+                  <span className="font-medium">{translations.navigation.attestation ?? "Аттестация"}</span>
                 </Link>
               </div>
 
