@@ -325,6 +325,17 @@ function BlockRenderer({ block }: { block: EditorJsBlock }) {
         ? `${(data.file.size / 1024).toFixed(1)} KB`
         : '';
       const ext = data.file?.extension || '';
+      if (ext === 'mp4') {
+        return (
+          <video
+            src={fileUrl}
+            controls
+            playsInline
+            preload="metadata"
+            className="my-6 mx-auto max-h-[80vh] w-full rounded-xl bg-black"
+          />
+        );
+      }
       return (
         <a
           href={fileUrl}
