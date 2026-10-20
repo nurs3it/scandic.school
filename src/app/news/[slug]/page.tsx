@@ -11,15 +11,6 @@ import { getLocale } from '@/lib/server-locale';
 
 export const revalidate = 60;
 
-export async function generateStaticParams() {
-  try {
-    const first = await fetchNewsList({ page: 1, pageSize: 50 });
-    return first.items.map(item => ({ slug: item.slug }));
-  } catch {
-    return [];
-  }
-}
-
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
 ): Promise<Metadata> {
